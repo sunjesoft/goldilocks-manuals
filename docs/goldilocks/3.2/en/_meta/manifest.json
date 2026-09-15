@@ -1,0 +1,584 @@
+{
+  "files": [
+    {
+      "bytes": 4216,
+      "path": "README.md",
+      "sha256": "94e1af61f71be8874161f1fe314276a260b25ade4097f07b484675953228185e"
+    },
+    {
+      "bytes": 446,
+      "path": "_meta/source.json",
+      "sha256": "cbd3bff27ff69461ff51043c9c8b56f72a6cdeaedd82aa5d58715f80a22f8b21"
+    },
+    {
+      "bytes": 109599,
+      "path": "appendices/appendix-01-appendix-a-error-codes.md",
+      "sha256": "8aab95b4530ddb455a0acb989e9fe19c3e91e0639b1e4ff1d12721d3f30396b6"
+    },
+    {
+      "bytes": 23502,
+      "path": "appendices/appendix-02-appendix-b-wait-event.md",
+      "sha256": "85bc3e03e56b3142c48bb8f5b26184da817ce9707644bc16a95b7d4bdd1db68e"
+    },
+    {
+      "bytes": 10313,
+      "path": "appendices/appendix-03-appendix-c-open-source-license.md",
+      "sha256": "0fd3436a47bc3e348662421d93b2863d206614a82a040b103af69cd7c5011103"
+    },
+    {
+      "bytes": 30074,
+      "path": "assets/images/020c1d970056c2e5.png",
+      "sha256": "bd7aa1255bdc18c2d667e1a3173db1bc8f0bcb64e96150043452b51eb8ad65af"
+    },
+    {
+      "bytes": 79542,
+      "path": "assets/images/02b7149111b39209.jpg",
+      "sha256": "ab3e6d6cd00df17125e3db1237aca457c981617d86ce7b564f65a67dc9d353ce"
+    },
+    {
+      "bytes": 276010,
+      "path": "assets/images/03ce0ff697d831c2.png",
+      "sha256": "2e7984a2523557b3b46d28658877cb134d91784fc22dd4fdd11fdae4a0b02d19"
+    },
+    {
+      "bytes": 42374,
+      "path": "assets/images/04e66db6c5e37051.png",
+      "sha256": "5857769ad3f581bdcea5b3ad86a98ec324ff526e0edc3468400ad19fa0f056a0"
+    },
+    {
+      "bytes": 120728,
+      "path": "assets/images/07e81f2e15403988.png",
+      "sha256": "2aa7b7a787120837b7274505d29c66a6e3356c52d19a1029a16aa4686061535b"
+    },
+    {
+      "bytes": 3935,
+      "path": "assets/images/0ab6c32cd5dd9da8.png",
+      "sha256": "630387aa3bbb692a9d7ae5a5e492f20353c571082eb88f36df2b30af50ebcad4"
+    },
+    {
+      "bytes": 16144,
+      "path": "assets/images/0f2169120b0eb8cf.png",
+      "sha256": "e0d1d9d9a5c9470213d8b8ba1c3dfb10532a96112286f7612b39e24fd82498a6"
+    },
+    {
+      "bytes": 126891,
+      "path": "assets/images/1a08e37c9e54625c.png",
+      "sha256": "94aeb1a8567eb9d41e9a2c3b1c3a0856bdd9d85f35d895b63971459a21090ed0"
+    },
+    {
+      "bytes": 127994,
+      "path": "assets/images/1fd1a450c8a4df15.jpg",
+      "sha256": "bf71042b93019745bec4eb6ec22289a295eb09dbaccb4a79ec6a3b761db9863e"
+    },
+    {
+      "bytes": 27395,
+      "path": "assets/images/23f25310e182e3eb.png",
+      "sha256": "f2797129f380ca7cb09b6ecba8f07e36d555bdcd3d5947434767661f2ca3e711"
+    },
+    {
+      "bytes": 130513,
+      "path": "assets/images/2b762128bf8c15f7.jpg",
+      "sha256": "64b70f9f5bab57510d90b373a9260b60575bf76ecc81579db4f63c4021984942"
+    },
+    {
+      "bytes": 86879,
+      "path": "assets/images/2e517550db1d484a.png",
+      "sha256": "884741d910c42391dc638adb47c2b19c875260073de853db1ffd7b822f1d04bf"
+    },
+    {
+      "bytes": 53157,
+      "path": "assets/images/34435f3675109624.png",
+      "sha256": "ad69dcf4c12fa1717a35c2d7ad8a675ace4c713355929dcc3d95e31e777ba495"
+    },
+    {
+      "bytes": 88332,
+      "path": "assets/images/4f47a3e094ddfe13.png",
+      "sha256": "17145a1e4845c781b07bf6d7ce4b5aaa68ca1de688ec7d26855e7e1ad94b7630"
+    },
+    {
+      "bytes": 230596,
+      "path": "assets/images/5594ac3624ebd27a.png",
+      "sha256": "6ec517ebb5b26dd35d6e67745ca193c14cf9ff19351f9aba34a0a7d22ae19f6a"
+    },
+    {
+      "bytes": 22617,
+      "path": "assets/images/585ddebffb60dafc.png",
+      "sha256": "b1dc5625facf19b72ca34edc968f9bc6da282765734a6810febf4274c9f62d8a"
+    },
+    {
+      "bytes": 29096,
+      "path": "assets/images/5926ca80c52e5832.png",
+      "sha256": "5bc5fadaa2a2391efb3d25c86716af83149abfb75554bfff6bdd3f0db8978fd0"
+    },
+    {
+      "bytes": 49664,
+      "path": "assets/images/5d8802a9ef6fc420.png",
+      "sha256": "d46ff79f3ad8678421752467757b1f3681736983221fe76d8dc9227cf915b29e"
+    },
+    {
+      "bytes": 94484,
+      "path": "assets/images/608e6a8e77d9f5e7.png",
+      "sha256": "3a75144a5cf89a3e437fd4f9754ab789bc4e4a65e5ccf2c108f14b9ab8d5c704"
+    },
+    {
+      "bytes": 134600,
+      "path": "assets/images/633ec8dc60871d3e.png",
+      "sha256": "d7f749f682594b90aa67d3f81ea43a515255ebae2b18b9484433b516dc803006"
+    },
+    {
+      "bytes": 25498,
+      "path": "assets/images/636de283d4b292b6.jpg",
+      "sha256": "ae3212592903204f000d75ed64f9d5ec6d3babb64a0aae71660d538cb06b03ec"
+    },
+    {
+      "bytes": 9933,
+      "path": "assets/images/641aa5605b4639c8.png",
+      "sha256": "41b0ab4f99f58afcdc086a0ccd5f0e798583ffec7531b182e6874bc2a16f5b04"
+    },
+    {
+      "bytes": 48392,
+      "path": "assets/images/651b7ed3a4464914.png",
+      "sha256": "0dcf084ef0dd740e8f45632d4c67fd5876668c24a35931d3964c13ca83e3a321"
+    },
+    {
+      "bytes": 27368,
+      "path": "assets/images/65a61063ea5c2874.png",
+      "sha256": "8ab3383912c0e2c4d4b8d180c5fe9199d523c9c72a49b4f625b34924421e900f"
+    },
+    {
+      "bytes": 58277,
+      "path": "assets/images/666cfc1d04a65a79.jpg",
+      "sha256": "1ef9fcf23d856a6b9d09ad1cefd2bf1ce27775e20f7e8977d56c397391445264"
+    },
+    {
+      "bytes": 24306,
+      "path": "assets/images/6a3526529f1f1ad0.png",
+      "sha256": "9818f3e1ee57f5b663ef979a5a05d48a5862c5ef78cedd191d29cfb78845e42a"
+    },
+    {
+      "bytes": 128422,
+      "path": "assets/images/7b7ad1e66a8a4b3f.jpg",
+      "sha256": "ef5ad9018ebedd88cadf3e8ed5f4a8ae80b28e681fa08c86f439b0e4f61e3d12"
+    },
+    {
+      "bytes": 27797,
+      "path": "assets/images/7f160877d23ec94c.png",
+      "sha256": "3c34f11f7f696e0edc0f902b8c34622235af0c44cd04cdce9adf16bc320db1f2"
+    },
+    {
+      "bytes": 68872,
+      "path": "assets/images/827785c5c46f51e4.png",
+      "sha256": "373a90a61bf86083da312e0b0904aecdbf2055ffb9657abeb9be894493459bab"
+    },
+    {
+      "bytes": 23567,
+      "path": "assets/images/8b6e2c0cb11e9c7d.png",
+      "sha256": "4ab96796ea7eecf39315c7b8e125f5a6dfc27bd62a9e4093a8a4180efb02cea0"
+    },
+    {
+      "bytes": 5989,
+      "path": "assets/images/8c0c3030eabb5a73.png",
+      "sha256": "3580bb81b6f31d186afbcb0d15b1c2ea6b52f6549d254d217aad89fe37450ddf"
+    },
+    {
+      "bytes": 500812,
+      "path": "assets/images/91fc1f761aecfdf1.png",
+      "sha256": "ef3c9b48030a044658d0b0edf9ad55cd5a318020b18d1fdce061f2127f1e10ec"
+    },
+    {
+      "bytes": 224760,
+      "path": "assets/images/9ffd12e018d885a6.png",
+      "sha256": "7c1c0dc976e399fd48078b218a3f9f4980650fbf3dbc35ea24cb54d2f9a7081a"
+    },
+    {
+      "bytes": 118636,
+      "path": "assets/images/b13dc751e3286bc8.png",
+      "sha256": "8637fe37834bede60fd7733db256d002ada42e9d05158d1415f9aba1d254bbf5"
+    },
+    {
+      "bytes": 39443,
+      "path": "assets/images/b7e92edd6f832758.png",
+      "sha256": "50a4a46f56a9580c8720a343ae2129dbf347ccf24f3724603f36c8d74c58737e"
+    },
+    {
+      "bytes": 71226,
+      "path": "assets/images/c0d45e8fe7213ffd.png",
+      "sha256": "21e8e430fe885f5fa907f5b454190a41bf319fd21c965771ba8bf6a0e8bfb34a"
+    },
+    {
+      "bytes": 128305,
+      "path": "assets/images/c48596997029ec30.png",
+      "sha256": "ba2cc43b898979a412abe8b835b659af0f8ca35cc664774b8a6dec46855f30e9"
+    },
+    {
+      "bytes": 390482,
+      "path": "assets/images/cd6fdec754153d77.png",
+      "sha256": "5647961e0639cb9eaced723d5f88dcf17a5f9a52e1f6255321b6a1a7b60dda94"
+    },
+    {
+      "bytes": 35943,
+      "path": "assets/images/dd55a987d3383bde.jpg",
+      "sha256": "f32f50b94ed4fc58f76ac0147187605586de1aab48b0a898a59dacf829fb77ee"
+    },
+    {
+      "bytes": 55609,
+      "path": "assets/images/de71cfc9431fe5c9.png",
+      "sha256": "c7d1dd660d23070b8b2866eee5422af5bc19f827d861769c286ba282f60f2ba6"
+    },
+    {
+      "bytes": 68714,
+      "path": "assets/images/e2995bc48d78bb57.png",
+      "sha256": "8fa2fc360c4c04af9e4253693109eccd7145ed9feb555ed4fce21225fb782945"
+    },
+    {
+      "bytes": 52286,
+      "path": "assets/images/e3a32f3c5ce920be.png",
+      "sha256": "40bb43a5a3cc31a9150315030d8e65a43720a5c15bf1a178ed0ad0e430a4c362"
+    },
+    {
+      "bytes": 135469,
+      "path": "assets/images/e6911adb95aa6754.jpg",
+      "sha256": "2c35b3891a4ed9c00e5430c3dd3d601bf38265f6a104ecf7830067af6144c00b"
+    },
+    {
+      "bytes": 36704,
+      "path": "assets/images/e6fdfef0aeefb545.png",
+      "sha256": "38fa52a2ce4ea882fe2718313ef039ade03078f27c194ab5a8122aed5646a0d0"
+    },
+    {
+      "bytes": 26519,
+      "path": "assets/images/e785d251c2854556.png",
+      "sha256": "42dbee73793354af37651aa329e826a0e96cd455bf0cecd231023ae26a46e185"
+    },
+    {
+      "bytes": 102358,
+      "path": "assets/images/e8c80e9e0af09ee9.png",
+      "sha256": "9802da40d2da58bf95d968a0597f5d359f4803d533a56ae346c4e62f952e4f02"
+    },
+    {
+      "bytes": 66495,
+      "path": "assets/images/eb76e63c2b5795e6.png",
+      "sha256": "6e7eb54c1db502a0fe85517a5ddd0af6c420f4d98603d2e12f27547e3df3a191"
+    },
+    {
+      "bytes": 319220,
+      "path": "assets/images/eb996628ca436bdf.jpg",
+      "sha256": "36771407c4c1a124c24c4763b70514b7ab432f0d3fed7158c03b1aef5ca0ab41"
+    },
+    {
+      "bytes": 121917,
+      "path": "assets/images/ed8a5dc7291cd0dc.png",
+      "sha256": "ad892534f386b94d51cda8b31fc257d96a0d18433ab07e93fd798fc4cfb3a003"
+    },
+    {
+      "bytes": 33071,
+      "path": "assets/images/ee0bb0da1a2351f8.png",
+      "sha256": "381723ee45bb545ced19d932261cf8b3e7f90f3dd524cf45ddf24fb0c60612e5"
+    },
+    {
+      "bytes": 17777,
+      "path": "assets/images/eff290b9235045f4.jpg",
+      "sha256": "51bdd42624333ec793c232cdbde200e7675edda36a9d9fcff039ee4433a235b8"
+    },
+    {
+      "bytes": 66616,
+      "path": "assets/images/f20699b64b318b5c.png",
+      "sha256": "77db3032b1c8b46982d27c8aa7c29983b522b60973a3d3a083e7ceee13dd476e"
+    },
+    {
+      "bytes": 58384,
+      "path": "assets/images/f421f9d52375e188.png",
+      "sha256": "b4daa268a4092b2ce3c059ea80dbb76ddf0c97134a22fb581028737ffb0ef0e3"
+    },
+    {
+      "bytes": 623463,
+      "path": "assets/images/f45766d237186075.png",
+      "sha256": "c3dcae5ec318cb67e8c8f0aba749920520f21ef66f0ec006a39a993c85bf6f53"
+    },
+    {
+      "bytes": 47356,
+      "path": "assets/images/f4ff96f5bf00bda9.jpg",
+      "sha256": "a72845a8b6283d6fca19a55ba4df2cc23e9280d7f6b42deb41807df09de9e116"
+    },
+    {
+      "bytes": 9219,
+      "path": "assets/images/f9be8e72d154567d.png",
+      "sha256": "f77a6152c7e47888d30af4570e9c3615262412565f4547287f526b1fd61a1530"
+    },
+    {
+      "bytes": 12273,
+      "path": "part-01-getting-started/1-preface.md",
+      "sha256": "0cb6257e7a3e1b68d4f721d8df260386189329655899964a38cd31bbf45826eb"
+    },
+    {
+      "bytes": 79795,
+      "path": "part-01-getting-started/2-tutorial.md",
+      "sha256": "27a4bbd3e0117fb32975846ea84c400d767215303c8ad0b1184985c086f71f1c"
+    },
+    {
+      "bytes": 49475,
+      "path": "part-01-getting-started/3-cluster-tutorial.md",
+      "sha256": "fa05c53383cb7275f8351ab05873cd0491d883c3b7fad405534b3e5d4e539b03"
+    },
+    {
+      "bytes": 210743,
+      "path": "part-01-getting-started/4-what-s-new.md",
+      "sha256": "1acfa88e822dfd4fe9bda9c9c12b91ea3620ef3c01474b00fe052b2d8782bee5"
+    },
+    {
+      "bytes": 285,
+      "path": "part-01-getting-started/README.md",
+      "sha256": "8f18481099008b0e48775ba2a8b705b9bb58bbbf16c293e5a743bb479d36cb4b"
+    },
+    {
+      "bytes": 164921,
+      "path": "part-02-administration-manual/10-server-property.md",
+      "sha256": "d7d763ec08deeda8127b59b4583af07b5080263bf675c2643a1ed582c696942b"
+    },
+    {
+      "bytes": 62481,
+      "path": "part-02-administration-manual/5-basic-management-of-goldilocks-database.md",
+      "sha256": "bacfc485aa8e4c7ec8bf808b8443e474945c56966af5141940848c805d36e0b1"
+    },
+    {
+      "bytes": 31896,
+      "path": "part-02-administration-manual/6-structure-and-storage-structure-of-goldilocks-database.md",
+      "sha256": "566e72ee554b04a06acab81a291d7123570d840efd871d566647ad0872b6ffd2"
+    },
+    {
+      "bytes": 41954,
+      "path": "part-02-administration-manual/7-backup-and-recovery-of-goldilocks-database.md",
+      "sha256": "3c08887f44381efa07e43910c60793794a3ef02d28bc626732c8e90a29809880"
+    },
+    {
+      "bytes": 15479,
+      "path": "part-02-administration-manual/8-goldilocks-database-replication.md",
+      "sha256": "2348f5c6ef0e63c53b5cd7d71108bd943c446dc260e10c85aea8f059b17d95f9"
+    },
+    {
+      "bytes": 548210,
+      "path": "part-02-administration-manual/9-database-information.md",
+      "sha256": "802bf3864256092ea62ce145f71dbec894dcf071f485402171781d3b38dffd90"
+    },
+    {
+      "bytes": 644,
+      "path": "part-02-administration-manual/README.md",
+      "sha256": "08115384f07612977f1cba50e8ee27d5809f876d117b369daeb9c0ba68ff1c9d"
+    },
+    {
+      "bytes": 355462,
+      "path": "part-03-sql-manual/11-sql-elements.md",
+      "sha256": "74579659dc9dcda3b0ca4cbcd9a14ef52f7befdcc0cc8713fcb65ace318b9069"
+    },
+    {
+      "bytes": 149004,
+      "path": "part-03-sql-manual/12-sql-languages.md",
+      "sha256": "394006e19a6d49549d861f196be1cf6e4ff82671670098f90e77509fe6fdb324"
+    },
+    {
+      "bytes": 164720,
+      "path": "part-03-sql-manual/13-sql-objects.md",
+      "sha256": "e34072718f497277e4c8f36a82aaaa9efdcc512261a71e1394531ddb53586674"
+    },
+    {
+      "bytes": 40535,
+      "path": "part-03-sql-manual/14-cluster-objects.md",
+      "sha256": "265400da0d9ba1f11d283527121590ea9e7f0b0f555b199901b09a8e78be3caa"
+    },
+    {
+      "bytes": 169398,
+      "path": "part-03-sql-manual/15-sql-tuning.md",
+      "sha256": "dc399ffe839c76d3a172cc2746fc862e369575a3979246e8ec3a6e0793d74278"
+    },
+    {
+      "bytes": 750076,
+      "path": "part-03-sql-manual/16-sql-references.md",
+      "sha256": "5b0b03ee280b50b093134a46067d0bc8e924072564e3a83c294adab33a510051"
+    },
+    {
+      "bytes": 392,
+      "path": "part-03-sql-manual/README.md",
+      "sha256": "bb9643dd0b280b7e46b184dea1e1139e9f3da41a5a4ef4e2816e393c2e6223a7"
+    },
+    {
+      "bytes": 5773,
+      "path": "part-04-psm-manual/17-overview-of-psm.md",
+      "sha256": "4152ffab58de177d2457327af1b0ff0c3f77e503ebc6d8b2098466e571382785"
+    },
+    {
+      "bytes": 20055,
+      "path": "part-04-psm-manual/18-psm-datatypes.md",
+      "sha256": "8f6e04db9751414514b240e59c114365faa83c604f528df311c54efde8d7b62e"
+    },
+    {
+      "bytes": 41750,
+      "path": "part-04-psm-manual/19-psm-control-statements.md",
+      "sha256": "ce42d38a88fac31fba056925d82f049e2f2f6d342fe19d2279d1e410217799d1"
+    },
+    {
+      "bytes": 20050,
+      "path": "part-04-psm-manual/20-psm-cursor-statements.md",
+      "sha256": "b5de094c6f451ee208de145e1746134ccf4a07889080cbbef9937100e6a718cf"
+    },
+    {
+      "bytes": 17160,
+      "path": "part-04-psm-manual/21-using-psm-subprograms.md",
+      "sha256": "9483af56c5426a711359f3a3174193818f3de8f0c13bd205e6261f12a6548efd"
+    },
+    {
+      "bytes": 22927,
+      "path": "part-04-psm-manual/22-using-sqls-in-psm.md",
+      "sha256": "9ace1282e83d7586d08122a6356572540b3450fae038c81c61d1654e02099d3c"
+    },
+    {
+      "bytes": 103166,
+      "path": "part-04-psm-manual/23-psm-language-element-references.md",
+      "sha256": "8f60bd7e2dee7f50ed211dc11a4cbac5fdf96e51bf222fa5f9879e1ef0aec067"
+    },
+    {
+      "bytes": 23506,
+      "path": "part-04-psm-manual/24-psm-sql-references.md",
+      "sha256": "7958c6bf93fbf64b1f21113f8d4bf784e8cb90e6d5dae8e4b451c7e6a73aaf7b"
+    },
+    {
+      "bytes": 591,
+      "path": "part-04-psm-manual/README.md",
+      "sha256": "0e05fbd34a9b20ae59f024287d001c0f6d0001569cb1666ab87b1c6cbe144232"
+    },
+    {
+      "bytes": 724556,
+      "path": "part-05-developer-manual/25-odbc.md",
+      "sha256": "a47edcae77a3588bbb35373af4c004421e81389a4abf44da34fc1259b1f40740"
+    },
+    {
+      "bytes": 349597,
+      "path": "part-05-developer-manual/26-jdbc.md",
+      "sha256": "c0717ee7eb9c77e019a2a9b643caae776d9e2f96055a1cf905b2026a6fe50b01"
+    },
+    {
+      "bytes": 225594,
+      "path": "part-05-developer-manual/27-embedded-sql.md",
+      "sha256": "7d8f6e6dc2365db07f42fee390c1435c916e5f14d5caccb0bc40bbb2a977bf8e"
+    },
+    {
+      "bytes": 15239,
+      "path": "part-05-developer-manual/28-pdo.md",
+      "sha256": "1f7053808cef7bb77b4ac3a43f874ab10693823b47033325a6759ea92674c98c"
+    },
+    {
+      "bytes": 29481,
+      "path": "part-05-developer-manual/29-pydbc.md",
+      "sha256": "2be0d19f35a9441b086ff5333264c1b563fdcf22b02b88708c603a17b6c2d3b3"
+    },
+    {
+      "bytes": 11769,
+      "path": "part-05-developer-manual/30-hibernate.md",
+      "sha256": "baa896ce616e71aeb7b727e49ae55047e9f0fda4d4f78914f7020e7f62dc6c27"
+    },
+    {
+      "bytes": 320,
+      "path": "part-05-developer-manual/README.md",
+      "sha256": "2c46f84076a290be7c23092eb6175ffd1fd0404a907616fe0a3e0f10d8a5fa32"
+    },
+    {
+      "bytes": 5708,
+      "path": "part-06-utility-manual/31-gcreatedb.md",
+      "sha256": "241bf30a5ac3fa8e7dbb2ca62719838eb96e9a325879f2e2c007e45fb6c07f79"
+    },
+    {
+      "bytes": 10349,
+      "path": "part-06-utility-manual/32-glsnr.md",
+      "sha256": "c52f8c0aed5be528b93418a0064d125b1fbff7038de793bfd575e7222a5f2632"
+    },
+    {
+      "bytes": 179348,
+      "path": "part-06-utility-manual/33-gsql-gsqlnet-interactive-sql-tool.md",
+      "sha256": "978fa7460da9b01eb2d7ef034a9e84fb4336684512d9566297549dbdf06f2fe1"
+    },
+    {
+      "bytes": 65337,
+      "path": "part-06-utility-manual/34-gloader-gloadernet-upload-download-tool.md",
+      "sha256": "e16ba398c3aea91e3e8e7084a6df8aa98db5d78203b004ae57912fd83f280d03"
+    },
+    {
+      "bytes": 30371,
+      "path": "part-06-utility-manual/35-gdump.md",
+      "sha256": "02aa622743dc9153e230157f785fc271ca7e3417612386fad94f8a0a83f27918"
+    },
+    {
+      "bytes": 13533,
+      "path": "part-06-utility-manual/36-tablediff.md",
+      "sha256": "ade256ae37ba7d1151d29e4f510d21b0c60117bb46e760f2e6b3c1d557fb2207"
+    },
+    {
+      "bytes": 7805,
+      "path": "part-06-utility-manual/37-gsyncher.md",
+      "sha256": "60ef8665faffa4170d2fa65305633aca68f495ece050f55dc04f3f66b0fdfbf8"
+    },
+    {
+      "bytes": 2381,
+      "path": "part-06-utility-manual/38-gmon.md",
+      "sha256": "6d33f4566e4dff5790d2158983c0c1f62fc6fd2d287108ab09dd9f455e677f80"
+    },
+    {
+      "bytes": 2968,
+      "path": "part-06-utility-manual/39-gtrclogger.md",
+      "sha256": "3051e6dac029efe0af996ce0060d10033b27f4b8f0c4fb6fbc2934ac13117af7"
+    },
+    {
+      "bytes": 19480,
+      "path": "part-06-utility-manual/40-glocator.md",
+      "sha256": "f25a829a1949bba387b7ba3ef95209674f49b5cb5de672d0d3daf72a2ca7af21"
+    },
+    {
+      "bytes": 9645,
+      "path": "part-06-utility-manual/41-gagent.md",
+      "sha256": "b3bf4a88f8868d4924cea086a15181026b9970e3192b53f667472c8a289c203b"
+    },
+    {
+      "bytes": 13001,
+      "path": "part-06-utility-manual/42-gloctl.md",
+      "sha256": "faae6dfcf0bf6fd2b83fee50cf9962b60d6f5e71d7f838fabbe55c38a02716b1"
+    },
+    {
+      "bytes": 635,
+      "path": "part-06-utility-manual/README.md",
+      "sha256": "d7569078b315e0af8b6745d00327ef66d363ac1e6a98e07763ebe980161ec0e1"
+    },
+    {
+      "bytes": 3277,
+      "path": "part-07-replication/43-overview.md",
+      "sha256": "fcd9121dd1f99f5a8ce4e1f1a4292c7d8c89779533f6cc1a9267ed2bdfa9bea5"
+    },
+    {
+      "bytes": 74561,
+      "path": "part-07-replication/44-cyclone.md",
+      "sha256": "57bea0a5f9693bbe37dcd73364584acd391395d3c85c4c4b8a948962628f8666"
+    },
+    {
+      "bytes": 19469,
+      "path": "part-07-replication/45-logmirror.md",
+      "sha256": "595f816453b8fdb33513206307dea0bd6db6efb482f8eb725fcf4ee764113cd7"
+    },
+    {
+      "bytes": 240,
+      "path": "part-07-replication/README.md",
+      "sha256": "977b42efcc8037ffa47dbd48c680cb6b54734bbb1246675a24412fb84be1a1fc"
+    }
+  ],
+  "manual": {
+    "document_count": 48,
+    "language": "en",
+    "product": "goldilocks",
+    "version": "3.2"
+  },
+  "schema_version": 1,
+  "source_tag": "GOLDILOCKS_Venus_3_2_14_retagged",
+  "tree_sha256": "d1ace0d86713a6755f3ac4bcbecba651d15f9c5abee349e14755d858cc720677",
+  "validation": {
+    "checked_opaque_fragments": 2563,
+    "external_links": 64,
+    "local_links": 2993,
+    "markdown_files": 56
+  }
+}

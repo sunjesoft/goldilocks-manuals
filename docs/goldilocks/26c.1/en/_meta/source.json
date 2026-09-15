@@ -1,0 +1,16 @@
+{
+  "manual": {
+    "document_count": 61,
+    "language": "en",
+    "product": "goldilocks",
+    "version": "26c.1"
+  },
+  "schema_version": 1,
+  "source": {
+    "author": "SUNJESOFT Inc.",
+    "book_title": "GOLDILOCKS 26c.1 User Manual (en)",
+    "copyright": "Copyright © 2010 SUNJESOFT Inc. All rights reserved.",
+    "source_url": "https://manual.sunjesoft.co.kr/goldilocks/26c_1/manual/en",
+    "tag": "26c.1_0_tag"
+  }
+}

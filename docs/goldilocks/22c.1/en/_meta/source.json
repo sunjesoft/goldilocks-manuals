@@ -1,0 +1,16 @@
+{
+  "manual": {
+    "document_count": 56,
+    "language": "en",
+    "product": "goldilocks",
+    "version": "22c.1"
+  },
+  "schema_version": 1,
+  "source": {
+    "author": "SUNJESOFT Inc.",
+    "book_title": "GOLDILOCKS 22c.1 User Manual (en)",
+    "copyright": "Copyright © 2010 SUNJESOFT Inc. All rights reserved.",
+    "source_url": "https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en",
+    "tag": "22c.1_10_tag"
+  }
+}

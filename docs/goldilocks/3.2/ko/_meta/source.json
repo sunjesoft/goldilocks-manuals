@@ -1,0 +1,16 @@
+{
+  "manual": {
+    "document_count": 48,
+    "language": "ko",
+    "product": "goldilocks",
+    "version": "3.2"
+  },
+  "schema_version": 1,
+  "source": {
+    "author": "SUNJESOFT Inc.",
+    "book_title": "GOLDILOCKS 3.2 User Manual (ko)",
+    "copyright": "Copyright © 2010 SUNJESOFT Inc. All rights reserved.",
+    "source_url": "https://manual.sunjesoft.co.kr/goldilocks/3_2_x/manual/ko",
+    "tag": "GOLDILOCKS_Venus_3_2_14_retagged"
+  }
+}
