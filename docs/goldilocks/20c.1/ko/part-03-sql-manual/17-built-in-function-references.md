@@ -3,7 +3,7 @@
 # 17. Built-in Function References
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/9ab81cd8b622c054)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 16. Built-in Data Type References](16-built-in-data-type-references.md) · [전체 목차](../README.md) · [18. SQL References →](18-sql-references.md)
 

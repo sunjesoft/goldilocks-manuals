@@ -3,7 +3,7 @@
 # 43. gtrclogger
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/d79ab51c9f76815e)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 42. gmon](42-gmon.md) · [전체 목차](../README.md) · [44. glocator →](44-glocator.md)
 

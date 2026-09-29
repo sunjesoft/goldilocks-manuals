@@ -3,7 +3,7 @@
 # 40. tablediff
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/b5d7f6c3f540703f)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 39. gdump](39-gdump.md) · [전체 목차](../README.md) · [41. gsyncher →](41-gsyncher.md)
 

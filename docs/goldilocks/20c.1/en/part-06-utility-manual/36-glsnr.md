@@ -3,7 +3,7 @@
 # 36. glsnr
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/0fd87486f960aa01)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 35. gcreatedb](35-gcreatedb.md) · [Table of contents](../README.md) · [37. gsql/gsqlnet (Interactive SQL Tool) →](37-gsql-gsqlnet-interactive-sql-tool.md)
 

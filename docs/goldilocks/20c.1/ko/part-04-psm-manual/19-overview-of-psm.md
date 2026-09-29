@@ -3,7 +3,7 @@
 # 19. Overview of PSM
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/f2a60fe45b6c6f70)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 18. SQL References](../part-03-sql-manual/18-sql-references.md) · [전체 목차](../README.md) · [20. PSM DataTypes →](20-psm-datatypes.md)
 

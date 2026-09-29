@@ -3,7 +3,7 @@
 # 14. Cluster Objects
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/6a198169dad93551)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 13. SQL Objects](13-sql-objects.md) · [전체 목차](../README.md) · [15. SQL Tuning →](15-sql-tuning.md)
 
@@ -40,14 +40,14 @@ GOLDILOCKS의 cluster system은 한 개 database의 data를 여러 대의 server
 GOLDILOCKS cluster system은 하나 이상의 cluster group으로 구성되며, 하나의 cluster group은 하나 이상의 cluster member로 구성된다. 별도의 application server 또는 meta server를 필요로 하지 않으며, application들은 data server에 해당하는 cluster member에 접속하여 동작한다.
 
 <a id="cf883f60fa41d597"></a>
-![3 x 2 cluster system](../assets/images/d5eb398857650dd2.png)
+![3 x 2 cluster system](../assets/images/b8b0022b1025cd75.png)
 
 위의 그림은 세 개의 cluster group과 각 cluster group이 두 개의 cluster member를 구성하는 3 x 2 cluster system이다. 위의 그림에서 cluster system은 G1, G2, G3 cluster group으로 구성되어 있다. G1 cluster group은 G1N1, G1N2 cluster member로 구성되어 있으며, G2 cluster group은 G2N1과 G2N2로 구성되며, G3 cluster group은 G3N1, G3N2 cluster member로 구성되어 있다. Application들은 여섯 개의 cluster member 어디에나 접속할 수 있으며 하나의 database를 사용하는 것과 동일하게 동작한다.
 
 테이블의 data는 각 cluster group에 분할 (sharding)되어 배치되며, cluster group 내의 cluster member 들은 복제본 (replica)을 동일하게 유지한다. 아래 그림은 3 x 2 cluster에 테이블의 data를 배치하는 개념을 표현한다.
 
 <a id="c6837d9468dc6bc3"></a>
-![Cluster의 분할 및 복제 개념](../assets/images/0ab5f3854a18d5ad.png)
+![Cluster의 분할 및 복제 개념](../assets/images/efc5564b467a10b3.png)
 
 테이블의 데이터는 사용자가 정의한 분할 전략에 의해 (위의 그림에서는 ID column을 기준으로) 분할되어 각 cluster group에 배치된다. Cluster group에 배치된 data는 cluster group 내의 cluster member들에 복제본을 유지한다.
 
@@ -59,7 +59,7 @@ Cluster는 특정 server가 고장나거나 네트워크가 단절되어도 계�
 아래 그림과 같은 3 x 2 cluster에서는 장비 세 대가 고장나더라도 계속 서비스할 수 있다.
 
 <a id="79899605dfcaaab7"></a>
-![Cluster availability](../assets/images/75d15c6b505d026b.png)
+![Cluster availability](../assets/images/ccb55a64059c87c1.png)
 
 위의 상황에서 G1N1, G2N2, G3N1에 추가적인 장애가 발생할 경우 data loss가 발생하여 서비스를 제공할 수 없으므로, 추가 장애가 발생하기 전에 장애가 발생한 장비를 cluster system에 참여시키거나, 새로운 cluster member를 추가해야 한다.
 
@@ -81,7 +81,7 @@ Cluster는 cluster member 또는 cluster group을 추가하는 작업과 생성�
 다음은 2 x 1 cluster를 3 x 2 cluster로 확장하는 예이다.
 
 <a id="9ae84a3289724ed3"></a>
-![Cluster system 확장](../assets/images/0ef3ac086755f0ac.png)
+![Cluster system 확장](../assets/images/41feaa5d2b83ef8e.png)
 
 Cluster를 확장하기 위해 다음 구문을 사용하여 cluster group과 cluster member를 추가한다.
 
@@ -321,7 +321,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="23c05301af1f1750"></a>
-![Cluster-wide cloned table](../assets/images/0b22ee81d0ae0831.png)
+![Cluster-wide cloned table](../assets/images/c6e4a22bf477a4f1.png)
 
 다음은 group-specific cloned table을 생성하는 예이다. 테이블의 모든 data가 복제되어 관리되기는 하지만 복제된 테이블 data는 사용자가 지정한 g1과 g2 group의 cluster member에만 존재하고 g3 group에는 data가 존재하지 않는다.
 
@@ -333,7 +333,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="3756e61922df9987"></a>
-![Group-specific cloned table](../assets/images/7d0693bedddf0518.png)
+![Group-specific cloned table](../assets/images/f69dfd9a38a5a0de.png)
 
 <a id="be2cc467535a997b"></a>
 ### Hash-sharded Table
@@ -351,7 +351,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="967dee26d7944e77"></a>
-![Cluster-wide hash-sharded table](../assets/images/22343171d400bc7b.png)
+![Cluster-wide hash-sharded table](../assets/images/e87aab0ea3930b12.png)
 
 다음은 group-specific hash-sharded table을 생성하는 예이다. ID column의 해시값이 shard를 결정하지만 각 shard는 사용자가 지정한 g1, g2 cluster group에만 배치된다.
 
@@ -364,7 +364,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="e1a9746c0b42eff6"></a>
-![Group-specific hash-sharded table](../assets/images/b607e30a2f2b1d63.png)
+![Group-specific hash-sharded table](../assets/images/25cfeb69f5efceb3.png)
 
 <a id="a6840ad3685785de"></a>
 ### Range-sharded Table
@@ -386,7 +386,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="139073555cbf3c33"></a>
-![Cluster-wide range-sharded table](../assets/images/22e503171ab8aefd.png)
+![Cluster-wide range-sharded table](../assets/images/0eb51c88fde87b21.png)
 
 다음은 group-specific range-sharded table을 생성하는 예이다. ID column의 범위값이 shard를 결정하지만 각 shard는 사용자가 지정한 cluster group에 배치된다.
 
@@ -402,7 +402,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="8815290314fcad5b"></a>
-![Group-specific range-sharded table](../assets/images/1d073d83c7230120.png)
+![Group-specific range-sharded table](../assets/images/460ef09809a3eb80.png)
 
 <a id="c8731f2a8f458c1c"></a>
 ### List-sharded Table
@@ -424,7 +424,7 @@ CREATE TABLE t1 ( city VARCHAR(128) )
 ```
 
 <a id="3833ed102c4c14bd"></a>
-![Cluster-wide list-sharded table](../assets/images/870bc9d23bc9bd49.png)
+![Cluster-wide list-sharded table](../assets/images/aaccd11480f873e9.png)
 
 다음은 group-specific list-sharded table을 생성하는 예이다. CITY column의 나열값이 shard를 결정하지만 각 shard는 사용자가 지정한 cluster group에 배치된다.
 
@@ -440,7 +440,7 @@ CREATE TABLE t1 ( city VARCHAR(128) )
 ```
 
 <a id="ce072c90f7b22216"></a>
-![Group-specific list-sharded table](../assets/images/dd74036cfe1f342d.png)
+![Group-specific list-sharded table](../assets/images/001fb850c951194b.png)
 
 <a id="5f60ff71fb948475"></a>
 ### Cluster Table 재배치
@@ -468,7 +468,7 @@ AT CLUSTER WIDE;
 ```
 
 <a id="26e784e1ea9eb7cb"></a>
-![AT CLUSTER WIDE로 정의한 region 테이블의 재배치](../assets/images/68dc2d3bad16fbcb.png)
+![AT CLUSTER WIDE로 정의한 region 테이블의 재배치](../assets/images/265c5e9c8419eba7.png)
 
 - AT CLUSTER GROUP을 사용하여 shard를 배치할 위치를 지정한 경우
     - 새로운 cluster group에는 데이터가 재배치 되지 않는다.
@@ -487,7 +487,7 @@ AT CLUSTER GROUP g1, g2;
 ```
 
 <a id="2c077c239a3d2380"></a>
-![AT CLUSTER GROUP으로 정의한 nation 테이블 재배치](../assets/images/142c73004cbca533.png)
+![AT CLUSTER GROUP으로 정의한 nation 테이블 재배치](../assets/images/a2e5da846f7a34bb.png)
 
 테이블 배치 정보는 다음과 같은 view를 통해 조회할 수 있다.
 
@@ -534,7 +534,7 @@ AT CLUSTER WIDE
 ```
 
 <a id="50a0d54a6b43d7f2"></a>
-![Cluster group 증가에 따른 shard 재배치](../assets/images/b372927658168760.png)
+![Cluster group 증가에 따른 shard 재배치](../assets/images/00e49a19dbcbe451.png)
 
 위의 예에서 orders 테이블의 data는 24 개의 shard로 분할되어 배치된다. Group이 한 개인 1x cluster에는 모든 shard가 하나의 group에 배치되고 group이 두 개인 2x cluster에는 각 group에 12 개의 shard들이 배치된다.
 
@@ -636,7 +636,7 @@ Cluster 환경에서 테이블은 group 내의 모든 member들에 복제되고,
 Cluster 환경에서 테이블을 생성할 때 global secondary index는 생성할 수도 있고 생성하지 않을 수도 있는데 테이블을 생성한 후에 별도로 global secondary index를 생성하거나 삭제할 수 있다. 테이블에는 global secondary index가 없거나 있더라도 최대 한 개까지만 생성할 수 있다.
 
 <a id="ec457bce37e52266"></a>
-![Global secondary index 구조](../assets/images/875edcddbf7aa037.png)
+![Global secondary index 구조](../assets/images/1fc2693aca7d9cba.png)
 
 테이블에 대한 non-deterministic 질의를 수행하기 위해서는 global secondary index가 반드시 필요한데 만약 테이블에 global secondary index가 없을 경우 non-deterministic 질의는 다음과 같이 실패한다.
 

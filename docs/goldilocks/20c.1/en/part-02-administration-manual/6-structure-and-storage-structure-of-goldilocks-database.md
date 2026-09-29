@@ -3,7 +3,7 @@
 # 6. Structure and Storage Structure of GOLDILOCKS Database
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/50b16569637ad34e)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 5. Basic Management of GOLDILOCKS Database](5-basic-management-of-goldilocks-database.md) · [Table of contents](../README.md) · [7. Backup and Recovery of GOLDILOCKS Database →](7-backup-and-recovery-of-goldilocks-database.md)
 
@@ -148,7 +148,7 @@ GOLDILOCKS database uses log buffer in shared memory to record the updated logs 
 The redo log buffer and log file in GOLDILOCKS have a circular structure. The log files are created as many as predefined number of log groups, and then they record logs. If a log file is full, the following log file is used. When all log files are used up, the previously used log file is reused. The log file is a circular structure consisting of a single log group of several members. GOLDILOCKS performs the logging using minimum four log groups.
 
 <a id="a5143068a620d6a0"></a>
-![GOLDILOCKS redo log file, log buffer structure](../assets/images/2340b4659591969f.png)
+![GOLDILOCKS redo log file, log buffer structure](../assets/images/91a34987739d3b0a.png)
 
 <a id="cc321b18508d2f67"></a>
 ### Redo Log Group and Its Member
@@ -619,7 +619,7 @@ FILE_SIZE      NUMBER                         FALSE
 It caches pages required from the disk data file to access index pages and tables stored in the disk tablespace to the buffer. GOLDILOCKS allocates the buffer cache as big as the size set in [BUFFER_CACHE_SIZE](10-server-property.md#d438f35f7fc39b51) property, and it retrieves the pages requested from the page cached in the buffer cache by using a hash table as big as the size set in [BUFFER_HASH_BUCKETS](10-server-property.md#22df381968cc09ab) property. It increases the touch count whenever accessing to the page. If the available space does not exist in the buffer cache, then it uses LRU strategy which replaces the page whose touch count value is small.
 
 <a id="5e7722dda6ab26ad"></a>
-![Structure of GOLDILOCKS buffer cache](../assets/images/a4ff1f3e193b07f0.png)
+![Structure of GOLDILOCKS buffer cache](../assets/images/a369ef9fd3abdc63.png)
 
 <a id="76e1d99b8bfa43f8"></a>
 ### Buffer Cache List

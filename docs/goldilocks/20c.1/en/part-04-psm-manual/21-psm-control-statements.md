@@ -3,7 +3,7 @@
 # 21. PSM Control Statements
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/bce0bc9bfd2028a5)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 20. PSM DataTypes](20-psm-datatypes.md) · [Table of contents](../README.md) · [22. PSM Cursor Statements →](22-psm-cursor-statements.md)
 

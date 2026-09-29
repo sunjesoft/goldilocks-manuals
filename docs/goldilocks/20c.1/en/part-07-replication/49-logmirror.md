@@ -3,7 +3,7 @@
 # 49. LOGMIRROR
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/919b87cc7f40f0ce)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 48. CYCLONE](48-cyclone.md) · [Table of contents](../README.md) · [50. CYFILE →](50-cyfile.md)
 
@@ -368,7 +368,7 @@ Interworking of CYCLONE, the CDC replication tool, with LOGMIRROR, the replicati
 The following describes the examples of interworked operation, and its structure.
 
 <a id="1ad55253be2f8cdb"></a>
-![Example of operating structure](../assets/images/d7e42196b80186ad.png)
+![Example of operating structure](../assets/images/f5cce672bb5371a1.png)
 
 - Device structure
     - The source device which is the original data

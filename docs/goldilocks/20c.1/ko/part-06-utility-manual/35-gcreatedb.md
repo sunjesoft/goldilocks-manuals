@@ -3,7 +3,7 @@
 # 35. gcreatedb
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/3c10121a3421baac)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 34. Hibernate](../part-05-developer-manual/34-hibernate.md) · [전체 목차](../README.md) · [36. glsnr →](36-glsnr.md)
 

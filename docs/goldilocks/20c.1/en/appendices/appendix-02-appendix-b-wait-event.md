@@ -3,7 +3,7 @@
 # Appendix B. Wait Event
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/68701c9504814bf4)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← Appendix A. Error Codes](appendix-01-appendix-a-error-codes.md) · [Table of contents](../README.md) · [Appendix C. Open Source License →](appendix-03-appendix-c-open-source-license.md)
 

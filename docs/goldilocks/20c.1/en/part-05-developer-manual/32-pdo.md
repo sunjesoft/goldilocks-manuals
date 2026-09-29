@@ -3,7 +3,7 @@
 # 32. PDO
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/90299174c88202e6)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 31. Embedded SQL](31-embedded-sql.md) · [Table of contents](../README.md) · [33. PyDBC →](33-pydbc.md)
 

@@ -3,7 +3,7 @@
 # 부록 C. Open Source License
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/36260d670972f2f2)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 부록 B. Wait Event](appendix-02-부록-b-wait-event.md) · [전체 목차](../README.md)
 

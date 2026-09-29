@@ -1,6 +1,6 @@
 # GOLDILOCKS 20c.1 User Manual (English)
 
-- Source tag: `20c.1_30_tag`
+- Source tag: `20c.1_31_tag`
 - Source HTML: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en)
 - Documents: 53
 - Copyright: Copyright © 2010 SUNJESOFT Inc. All rights reserved.

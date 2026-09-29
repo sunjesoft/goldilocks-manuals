@@ -3,7 +3,7 @@
 # 14. Cluster Objects
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/e119fdba4cc012c4)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 13. SQL Objects](13-sql-objects.md) · [Table of contents](../README.md) · [15. SQL Tuning →](15-sql-tuning.md)
 
@@ -40,14 +40,14 @@ GOLDILOCKS cluster system manages data of a single database by sharding or dupli
 GOLDILOCKS cluster system consists of one or more cluster groups, and a cluster group consists of one or more cluster members. It does not require a separate application server or a meta server, but applications are connected to a cluster member corresponding to a data server, and run.
 
 <a id="27cb3fb6c6b094c7"></a>
-![3 x 2 cluster system](../assets/images/2bac20a50ae0da91.png)
+![3 x 2 cluster system](../assets/images/670ce6e1f63b47ba.png)
 
 The figure above is a 3x2 cluster system which consists of two cluster members consisting of three cluster groups and a single cluster group. In the figure above, the cluster system consists of cluster groups (G1, G2, G3), and the cluster group G1 consists of cluster members (G1N1, G1N2), the cluster group G2 consists of cluster members (G2N1 and G2N2), and the cluster group G3 consists of cluster members (G3N1, G3N2). Applications can access any of those six cluster members and it is run as same as using a single database.
 
 The table data is sharded and placed in each cluster group, and cluster members in a cluster group maintain the replications same. The figure below describes the concepts of the table data placement in a 3x2 cluster.
 
 <a id="a59cad727b4d28f7"></a>
-![Concepts of sharding and duplicating by the cluster](../assets/images/5e83bad2c8a20536.png)
+![Concepts of sharding and duplicating by the cluster](../assets/images/08962195e04a6a61.png)
 
 The table data is sharded and placed in each cluster group according to the sharding strategy defined by a user. (According to the ID column in the figure above) The placed data in a cluster group maintains the replication of a cluster member in a cluster group.
 
@@ -59,7 +59,7 @@ Cluster continues to provide service even when a specific server is broken or th
 The cluster continues to provide service even when three devices are broken in the 3x2 cluster as follows.
 
 <a id="33a07669d420cde8"></a>
-![Cluster availability](../assets/images/e1275d90223d1fc3.png)
+![Cluster availability](../assets/images/add7d90a707dbef1.png)
 
 If additional errors occur in G1N1, G2N2, G3N1 in the situation above, then the data loss occurs and the service can not be provided any more. Therefore, a user should make the broken device to participate in a cluster system, or add a new cluster member before an additional error occurs.
 
@@ -81,7 +81,7 @@ Cluster is expanded by adding a cluster member or a cluster group and by rebalan
 The following is an example of expanding a 2x1 cluster to a 3x2 cluster.
 
 <a id="273f59d6c1047c03"></a>
-![Expanding cluster system](../assets/images/0df0a018e140f7b8.png)
+![Expanding cluster system](../assets/images/62003f3b7ff38be7.png)
 
 Add a cluster group and a cluster member by using the following statements to expand a cluster.
 
@@ -319,7 +319,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="872ec43289593fad"></a>
-![Cluster-wide cloned table](../assets/images/86239c0ea1928741.png)
+![Cluster-wide cloned table](../assets/images/691fec95dce5d22b.png)
 
 The following is an example of creating a group-specific cloned table. All table data is equally duplicated and managed, but the duplicated table data exists only in cluster members of group g1 and g2 which are specified by a user, but it does not exist in a group g3.
 
@@ -331,7 +331,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="874635e9e2a76ac8"></a>
-![Group-specific cloned table](../assets/images/c8822a194d157f51.png)
+![Group-specific cloned table](../assets/images/fd6daf8752a2d5d9.png)
 
 <a id="11340d276c431da3"></a>
 ### Hash-sharded table
@@ -349,7 +349,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="035966d7df1450c9"></a>
-![Cluster-wide hash-sharded table](../assets/images/ccc2b275760953e6.png)
+![Cluster-wide hash-sharded table](../assets/images/9bc168539d2edd78.png)
 
 The following is an example of creating the group-specific hash-sharded table. The hash value of an ID column determines the shard, but each shard is placed only in the cluster group g1 and g2 which are specified by a user.
 
@@ -362,7 +362,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="125cf881a8c4bf6a"></a>
-![Group-specific hash-sharded table](../assets/images/002d71f7e54605a1.png)
+![Group-specific hash-sharded table](../assets/images/562f1755f93830bf.png)
 
 <a id="13b783d8dd663f40"></a>
 ### Range-sharded Table
@@ -384,7 +384,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="a8326b25e050c51e"></a>
-![Cluster-wide range-sharded table](../assets/images/4af2fc04974f8456.png)
+![Cluster-wide range-sharded table](../assets/images/487776220c8596ac.png)
 
 The following is an example of creating the group-specific range-sharded table. The range value of the ID column defines the shard, but each shard is placed in a cluster group specified by a user.
 
@@ -400,7 +400,7 @@ CREATE TABLE t1 ( id INTEGER )
 ```
 
 <a id="898dc24591466f96"></a>
-![Group-specific range-sharded table](../assets/images/4a605a0501a8ecde.png)
+![Group-specific range-sharded table](../assets/images/95f3299508c0fc29.png)
 
 <a id="2d1260153273e236"></a>
 ### List-sharded Table
@@ -422,7 +422,7 @@ CREATE TABLE t1 ( city VARCHAR(128) )
 ```
 
 <a id="7963026f07b2d465"></a>
-![Cluster-wide list-sharded table](../assets/images/5529598074da15bb.png)
+![Cluster-wide list-sharded table](../assets/images/ea38e290ef1edb08.png)
 
 The following is an example of creating the group-specific list-sharded table. The shard is selected by the list value of the CITY column, but each shard is placed in the cluster group specified by a user.
 
@@ -438,7 +438,7 @@ CREATE TABLE t1 ( city VARCHAR(128) )
 ```
 
 <a id="11e69a6532eede5c"></a>
-![Group-specific list-sharded table](../assets/images/c854e3936b352eba.png)
+![Group-specific list-sharded table](../assets/images/934387e336e1b6bb.png)
 
 <a id="5819cfda2e0b3447"></a>
 ### Rebalancing Cluster Table
@@ -466,7 +466,7 @@ AT CLUSTER WIDE;
 ```
 
 <a id="fc96a06319cb22d5"></a>
-![Rebalancing the region table defined by AT CLUSTER WIDE](../assets/images/3139700ba76045d9.png)
+![Rebalancing the region table defined by AT CLUSTER WIDE](../assets/images/fff4aedbf2fcfe62.png)
 
 - When specifying the location to place the shard by using AT CLUSTER GROUP
     - The data is not rebalanced on the new cluster group.
@@ -485,7 +485,7 @@ AT CLUSTER GROUP g1, g2;
 ```
 
 <a id="a33ad11e2d1c6d08"></a>
-![Rebalancing the nation table defined by AT CLUSTER GROUP](../assets/images/c0d36d2267018c4b.png)
+![Rebalancing the nation table defined by AT CLUSTER GROUP](../assets/images/bad4263574217aaf.png)
 
 Information about the table placement can be retrieved through the following views.
 
@@ -532,7 +532,7 @@ AT CLUSTER WIDE
 ```
 
 <a id="a6a927b33df02ff3"></a>
-![Rebalancing shards due to the increase of groups](../assets/images/9d383f7bf30476aa.png)
+![Rebalancing shards due to the increase of groups](../assets/images/ed0a16c204fe25ea.png)
 
 In the example above, the data of orders table is divided into 24 shards and placed. All shards are placed in a single group of 1x cluster which has only one group. 12 shards are placed in each group of 2x cluster which has two groups.
 
@@ -634,7 +634,7 @@ Tables in the cluster environment are duplicated to all members in a group and t
 When creating a table in a cluster environment, a global secondary index may or may not be created, and it can be separately created or deleted after the table is created. A table may not have a global secondary index, or it may have maximum one global secondary index.
 
 <a id="cb451fc3ff44e2ce"></a>
-![Structure of a global secondary index](../assets/images/2b2539865f882e2c.png)
+![Structure of a global secondary index](../assets/images/1bcbac4e30741570.png)
 
 A global secondary index is required to perform a non-deterministic query for a table. If the table does not have a global secondary index, then the non-deterministic query fails as follows.
 

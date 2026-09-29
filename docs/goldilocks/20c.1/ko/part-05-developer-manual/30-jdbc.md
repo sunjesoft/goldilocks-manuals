@@ -3,7 +3,7 @@
 # 30. JDBC
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/749d0ae1f91ad24b)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 29. ODBC](29-odbc.md) · [전체 목차](../README.md) · [31. Embedded SQL →](31-embedded-sql.md)
 

@@ -3,7 +3,7 @@
 # 38. gloader/gloadernet(Upload/download Tool)
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/99cf4e93190ab8c9)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 37. gsql/gsqlnet (Interactive SQL Tool)](37-gsql-gsqlnet-interactive-sql-tool.md) · [Table of contents](../README.md) · [39. gdump →](39-gdump.md)
 
@@ -26,7 +26,7 @@ gloader is a utility which downloads or uploads data of GOLDILOCKS in table unit
 gloader should be connected to the database and it requires attention to all required files while using gloader.
 
 <a id="f48ee30242f41068"></a>
-![gloader environment](../assets/images/23a44be213f3bf7d.png)
+![gloader environment](../assets/images/41604778722198b1.png)
 
 The control file and datafile are required to upload the data, then the log file is generated as a result.  
 The control file is required to download the data, then the datafile, log file, and bad file are generated as the results.

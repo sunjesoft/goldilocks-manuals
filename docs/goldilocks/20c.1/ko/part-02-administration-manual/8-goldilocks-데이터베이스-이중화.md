@@ -3,7 +3,7 @@
 # 8. GOLDILOCKS 데이터베이스 이중화
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/3ae96966bbf40966)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 7. GOLDILOCKS 데이터베이스의 백업과 복구](7-goldilocks-데이터베이스의-백업과-복구.md) · [전체 목차](../README.md) · [9. Database Information →](9-database-information.md)
 

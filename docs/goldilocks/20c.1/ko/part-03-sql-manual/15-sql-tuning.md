@@ -3,7 +3,7 @@
 # 15. SQL Tuning
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/d9d5d3ed2aec9db6)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 14. Cluster Objects](14-cluster-objects.md) · [전체 목차](../README.md) · [16. Built-in Data Type References →](16-built-in-data-type-references.md)
 
@@ -25,7 +25,7 @@ SQL tuning을 수행하기 위해서는 SQL 처리 과정과 optimizer에 대한
 SQL 처리 과정은 다음 그림과 같다.
 
 <a id="16c595efda88efcd"></a>
-![SQL processing](../assets/images/817697800d0133ee.png)
+![SQL processing](../assets/images/4640811da8bce1c7.png)
 
 사용자 질의문은 Parser, Validator, Rewriter, Enumerator, Code Planner, Data Planner, Executor 과정을 거쳐 그 결과를 반환한다. 각 단계에 대한 설명은 다음과 같다.
 
@@ -135,7 +135,7 @@ Data planner는 data plan을 생성한다. Data plan은 code plan들이 수행�
 Executor는 code plan과 data plan을 수행하여 실제로 수행된 결과를 반환한다.
 
 <a id="4477a77ac2403eb0"></a>
-![Executor](../assets/images/b36ba9ba7dfc4137.png)
+![Executor](../assets/images/bff28025bfd7476f.png)
 
 <a id="f6556ce75bce767e"></a>
 #### 실행 계획
@@ -193,12 +193,12 @@ Executor는 code plan과 data plan을 수행하여 실제로 수행된 결과를
 다음 예제가 실행된 cluster system은 G1(G1N1, G1N2), G2(G2N1, G2N2), G3(G3N1, G3N2)으로 구성되어 있다. Customer는 cloned table 이고 orders는 data가 o_orderkey로 분할된 sharded table 이다.
 
 <a id="bf64a9f0882a5a97"></a>
-![Read plan](../assets/images/f649f6154dbbd309.png)
+![Read plan](../assets/images/a70a49b384280182.png)
 
 위 실행 계획을 tree 형태로 나타내면 다음과 같다. 최하위 노드부터 수행된다.
 
 <a id="96402b2c6dc3148b"></a>
-![Read plan tree](../assets/images/eec04f0f3f8cfb71.png)
+![Read plan tree](../assets/images/654a3b62f339f07e.png)
 
 위 실행 tree는 다음과 같이 수행된다.
 
@@ -265,14 +265,14 @@ Filter를 내릴 수 있는 위치까지 최대한 내림으로써 처리해야 
 다음은 filter push down의 예이다.
 
 <a id="7551dbcf459fa469"></a>
-![Filter push down](../assets/images/8a780fab87b3bee7.png)
+![Filter push down](../assets/images/7b1ae6cd1b5595ec.png)
 
 Join을 수행하기 전에 NATION에서 n_name = JAPAN 조건을 만족하는 row를 filtering 하고 SUPPLIER에서 s_acctbal < 0 조건을 만족하는 row를 filtering 한다. 이와 같이 처리하면 join 처리 대상 row의 개수가 줄어들어 성능이 향상된다.
 
 다음은 view 안으로 filter push down 하는 예이다.
 
 <a id="46fe72dfe01477a0"></a>
-![Filter push down into view](../assets/images/4017cce5808b0690.png)
+![Filter push down into view](../assets/images/63487741052b8144.png)
 
 supplier_no = 100을 l_suppkey = 100으로 변환한 후에 lineitem TABLE ACCESS 노드까지 내리면 GROUP BY 처리 대상 row가 줄어들어 성능이 향상된다.
 
@@ -290,7 +290,7 @@ supplier_no = 100을 l_suppkey = 100으로 변환한 후에 lineitem TABLE ACCES
 다음은 DISTINCT를 elimination 하는 예이다.
 
 <a id="bf057e8eff5b51fd"></a>
-![DISTINCT elimination](../assets/images/d4e7daf1286b358d.png)
+![DISTINCT elimination](../assets/images/3672832b721257a3.png)
 
 왼쪽 execution plan에는 DISTINCT를 처리하기 위한 GROUP HASH INSTANT 노드가 있지만, 오른쪽 execution plan에는 DISTINCT를 처리하기 위한 GROUP HASH INSTANT 노드가 없다.
 
@@ -309,7 +309,7 @@ r_regionkey는 primary key 이기 때문에 DISTINCT를 삭제하더라도 그 �
 다음은 ORDER BY를 삭제하는 예이다.
 
 <a id="17f4d0bc897f821f"></a>
-![ORDER BY elimination](../assets/images/2c7ff6d0f0474d90.png)
+![ORDER BY elimination](../assets/images/68d380b456a316ef.png)
 
 위 그림의 좌우 view는 서로 동일하지만 오른쪽 SQL은 view의 상위 query에 order by가 있어 view 내부의 order by는 삭제된 것을 확인할 수 있다.
 
@@ -413,7 +413,7 @@ VIETNAM                       6008
 위 execution plan에는 view가 없다. View가 outer query에 merging 되어 다음과 같이 변환된 query 형태로 수행된 것을 확인할 수 있다.
 
 <a id="78056d4851d969f4"></a>
-![Simple view merging](../assets/images/a528d58417891cba.png)
+![Simple view merging](../assets/images/556e406e4847ccbc.png)
 
 <a id="f2998a7fdc6e6567"></a>
 ### Outer Join Table Elimination
@@ -625,7 +625,7 @@ O_ORDERPRIORITY ORDER_COUNT
 다음과 같이 SQL을 변경하여 ANY quantifier를 삭제한다.
 
 <a id="f387296f42b31638"></a>
-![Quantifier elimination](../assets/images/afd2593afcc2d13c.png)
+![Quantifier elimination](../assets/images/c24e77d464b37ec5.png)
 
 다음은 quantifier를 삭제하는 예이다.
 
@@ -689,7 +689,7 @@ COUNT(*)
 다음은 transitive closure 예이다.
 
 <a id="75cf63d1a73508ba"></a>
-![Transitive closure](../assets/images/fc7d865161a09c04.png)
+![Transitive closure](../assets/images/0d32a23ef43f0008.png)
 
 <a id="44bfcd7115bf5ae5"></a>
 ### Join Transitive Closure
@@ -701,7 +701,7 @@ A = B AND B = C 인 조인 조건에 A = C인 조인 조건을 추가하는 방�
 다음은 join transitive closure 예이다.
 
 <a id="2a8d8b407fb1605b"></a>
-![Join transitive closure](../assets/images/8006e18a9320ccd3.png)
+![Join transitive closure](../assets/images/46165f96e4ce026c.png)
 
 <a id="61b86e4ad06f2b34"></a>
 ### Subquery Unnesting
@@ -741,10 +741,10 @@ WHERE  EXISTS (SELECT 1
 Subquery를 semi join, anti-join, inner join으로 변환한다.
 
 <a id="a41b012978af1ebf"></a>
-![Nested subquery unnesting](../assets/images/80c8adcd348c4afd.png)
+![Nested subquery unnesting](../assets/images/bd956512b88bbf71.png)
 
 <a id="417d2e894eb2a3b7"></a>
-![Nested subquery unnesting plan](../assets/images/6975d47408e08e67.png)
+![Nested subquery unnesting plan](../assets/images/e31d8ff763a230f9.png)
 
 <a id="9b051e43d18576dd"></a>
 #### Scalar Subquery Unnesting
@@ -756,10 +756,10 @@ WHERE 절에 있는 scalar subquery만 unnesting 할 수 있는데 , 이 때 sub
 다음은 scalar subquery를 unnesting 하는 예이다.
 
 <a id="870d7d7429e17bc0"></a>
-![Scalar subquery unnesting](../assets/images/df7d9ba91cf32600.png)
+![Scalar subquery unnesting](../assets/images/e0ac7d389d95e1d2.png)
 
 <a id="e037f9198357fe41"></a>
-![Scalar subquery unnesting plan](../assets/images/cbb6b92ec05963d4.png)
+![Scalar subquery unnesting plan](../assets/images/658407e4c16b3910.png)
 
 <a id="29aea832fb52ad82"></a>
 ### Complex View Merging
@@ -785,10 +785,10 @@ Group by로는 중간 결과를 많이 줄일 수 없고, 상위 query block과�
 다음은 complex view를 merge 하는 예이다.
 
 <a id="fca7b263246f4201"></a>
-![Complex view merging](../assets/images/2615d3e617ab7d01.png)
+![Complex view merging](../assets/images/32eb860d767a92c3.png)
 
 <a id="b3cb0dadfa605ee8"></a>
-![Complex view merging plan](../assets/images/6c0c200720d3c4bc.png)
+![Complex view merging plan](../assets/images/f74b4df88bc66188.png)
 
 <a id="a6187a59af9c2bef"></a>
 ## Enumerator
@@ -1261,18 +1261,18 @@ Left outer join에서는 left table이 outer table이 된다.
 따라서 아래 예제에서 left table인 part가 outer table이 되어 join condition을 만족하지 않는 row도 출력하고, 이 때 inner table인 partsupp 값은 NULL padding 된다.
 
 <a id="04cf573e1392fa84"></a>
-![Left outer join](../assets/images/ec6e9c795a73eb0c.png)
+![Left outer join](../assets/images/eb049c9e6fe58939.png)
 
 Right outer join에서는 right table이 outer table이 된다.  
 따라서 아래 예제에서 right table인 partsupp가 outer table이 되어 join condition을 만족하지 않는 row도 출력하고, 이 때 inner table인 parts 값은 NULL padding 된다.
 
 <a id="0167bb339cec92c9"></a>
-![Right outer join](../assets/images/cbf12084498e59c0.png)
+![Right outer join](../assets/images/9feeb431d24d423e.png)
 
 Full outer join은 join condition을 만족하는 row를 출력한 후, left outer로 한 번 right outer로 한 번 수행하여 모든 row를 출력한다.
 
 <a id="cc8af58d0eecc346"></a>
-![Full outer join](../assets/images/e71780b10e507898.png)
+![Full outer join](../assets/images/926461e6e1660f85.png)
 
 <a id="9e1e3649dd8abd36"></a>
 ###### **Left Outer Join**
@@ -1647,7 +1647,7 @@ no rows selected.
 Outer table의 각 row에 대하여 inner table의 모든 row를 검색하여 join condition을 만족하는 결과를 찾는다.
 
 <a id="9edf941312e92e36"></a>
-![Nested loop join](../assets/images/5101524ac00ae6ff.png)
+![Nested loop join](../assets/images/647dc71305dab170.png)
 
 Outer table의 row 개수만큼 inner table을 full scan 하므로 outer table의 row 개수가 적을수록 좋다.
 
@@ -1659,7 +1659,7 @@ Join condition이 없는 join도 nested loop join을 통해 수행 결과를 car
 Inner table에 index가 있어서 그 index를 통해 join 조건에 맞는 row를 찾을 수 있는 경우, index nested loop join을 수행한다. Index access 하면 필요한 row에만 접근하므로 성능이 향상되는 효과를 얻을 수 있다.
 
 <a id="c15678f9ce279640"></a>
-![Index nested loop join](../assets/images/b0b7f91b22240098.png)
+![Index nested loop join](../assets/images/6c0b9b6c34994988.png)
 
 다음은 index nested loop join의 예이다.
 
@@ -1709,7 +1709,7 @@ GROUP BY c_custkey;
 Inner table의 중간 결과를 instant table에 적재한 후에 nested loop join을 수행한다.
 
 <a id="62378af0ed431986"></a>
-![Instant nested loop join](../assets/images/f4f3e1c82902401c.png)
+![Instant nested loop join](../assets/images/7ccb6772bb509cab.png)
 
 다음 예제처럼 o_custkey = 1과 같은 조건이 있을 경우, orders의 중간 결과를 instant table에 적재하여 nested loop join을 수행할 수 있다.
 
@@ -1767,7 +1767,7 @@ Outer table이나 inner table에 index가 존재하고 이를 이용할 수 있�
 Sort merge join을 하기 위해서는 하나 이상의 equi join condition이 존재해야 한다.
 
 <a id="197d21510e333bd6"></a>
-![Sort merge join](../assets/images/64f3bad6b770e80c.png)
+![Sort merge join](../assets/images/1149bc9a0159734e.png)
 
 다음은 sort merge join의 예이다.
 
@@ -1813,7 +1813,7 @@ Inner table에 hash instant를 생성한 후, hash를 사용하여 join conditio
 Hash join을 하기 위해서는 하나 이상의 equi-join condition이 존재해야 한다.
 
 <a id="8ef5902804e7e319"></a>
-![Hash join](../assets/images/90e11417a5773d9e.png)
+![Hash join](../assets/images/c177e5b769e4f997.png)
 
 다음은 hash join의 예이다.
 
@@ -1882,7 +1882,7 @@ SELECT s_suppkey,
 만일 세 개의 테이블이 있다면 다음과 같이 다양한 join order가 있을 수 있다.
 
 <a id="4413b0b0514af5b5"></a>
-![Join order](../assets/images/7c26a59376c38094.png)
+![Join order](../assets/images/bed3e30eb0028a4f.png)
 
 Enumerator는 가능한 join order, join method, 그리고 가능한 access path에 따라 다양한 실행 계획들의 집합을 생성하는데, 중간 결과를 줄이고 cost가 적은 plan을 먼저 선택하면서 join ordering을 결정한다.
 
@@ -2240,7 +2240,7 @@ Cloned table에는 테이블의 모든 data가 모든 group의 모든 node에 �
 다음은 customer table을 cloned로 생성하는 예이다.
 
 <a id="9b7e67968544b007"></a>
-![Cloned table](../assets/images/7cde7289e14548e7.png)
+![Cloned table](../assets/images/6ca099b6e7ba0bb1.png)
 
 <a id="a65ef32db6dd24a0"></a>
 #### Sharded Table
@@ -2254,7 +2254,7 @@ Shard key에 의해 data가 group 단위로 분할되어 저장되며, 한 group
 다음은 hash shard로 order table을 만드는 예이다.
 
 <a id="9b3d3598503c3f0e"></a>
-![Sharded table](../assets/images/bfda448cc376cda9.png)
+![Sharded table](../assets/images/305dab9c715c31b7.png)
 
 <a id="202817182af62f8b"></a>
 ### Access
@@ -2264,7 +2264,7 @@ Shard key에 의해 data가 group 단위로 분할되어 저장되며, 한 group
 다음은 현재 서버가 G1N1 일 때, local access와 remote access를 형상화한 것이다.
 
 <a id="61f38d79a2f6138d"></a>
-![Cluster access](../assets/images/d8366efe93a77376.png)
+![Cluster access](../assets/images/2c4afb48e64d96e6.png)
 
 <a id="08693ec54d3824a6"></a>
 #### Local Access
@@ -2274,7 +2274,7 @@ Driver 관점에서 현재 서버에서만 작업을 수행하는 경우이다.
 다음 예와 같이 cloned table에 대해 질의할 경우, 모든 group 내 모든 node의 data가 동일하므로 현재 서버에서만 수행하면 된다.
 
 <a id="b06f24464ab23ca7"></a>
-![Local access (cloned table)](../assets/images/ea9285ecaa3f8faa.png)
+![Local access (cloned table)](../assets/images/a3eb3197b36d86a6.png)
 
 ```
 \EXPLAIN PLAN SELECT * FROM customer;
@@ -2311,7 +2311,7 @@ C_CUSTKEY C_NAME
 Sharded table에는 data가 shard key에 의해 group 단위로 분할되어 저장되어 있다. 따라서 shard key에 대한 filter가 있고 그 값이 현재 서버에서만 수행가능하다는 것을 알 수 있는 경우에는 local access 한다.
 
 <a id="77c8fc632a8cfaa3"></a>
-![Local access (sharded table)](../assets/images/accb3eb033d2985c.png)
+![Local access (sharded table)](../assets/images/d85217aaeb465e89.png)
 
 ```
 \EXPLAIN PLAN SELECT * FROM orders WHERE o_orderkey = 3;
@@ -2347,7 +2347,7 @@ O_ORDERKEY O_CUSTKEY
 Sharded table에는 data가 shard key에 의해 group 단위로 분할되어 저장되어 있다. Shard key에 대한 filter가 있으면 특정 서버에만 remote access 하여 결과를 가져올 수 있다.
 
 <a id="a53f6c50fcf77bcb"></a>
-![Remote access](../assets/images/03990496def179d3.png)
+![Remote access](../assets/images/6c9a563b0cc552c1.png)
 
 ```
 \EXPLAIN PLAN SELECT * FROM orders WHERE o_orderkey = 2;
@@ -2388,7 +2388,7 @@ O_ORDERKEY O_CUSTKEY
 Sharded table인데 shard key에 대한 filter가 없는 경우에는 각 서버에 질의를 보내 결과를 받아와야 한다.
 
 <a id="f6e4bf955ec097e3"></a>
-![Local & remote access](../assets/images/08b0b35469843305.png)
+![Local & remote access](../assets/images/6fa688ee6f5bc035.png)
 
 ```
 \EXPLAIN PLAN SELECT * FROM orders WHERE o_custkey = 1;
@@ -2446,7 +2446,7 @@ SELECT r_name, n_name
 ```
 
 <a id="cdad8f82646e11e6"></a>
-![](../assets/images/5f119165d4aaf866.png)
+![](../assets/images/da575e4e6e76a9be.png)
 
 ```
 >>>  start print plan
@@ -2490,7 +2490,7 @@ GROUP BY c_custkey;
 ```
 
 <a id="89b03d4e23bfe5b5"></a>
-![](../assets/images/6a735d9c6f7bc040.png)
+![](../assets/images/5c411244bc7e3af6.png)
 
 ```
 >>>  start print plan
@@ -2531,7 +2531,7 @@ GROUP BY c_custkey;
 다음은 customer와 orders의 join 인데, shard key column에 대한 filter가 없는 경우이다. 이 때 sharded table의 모든 data를 현재 서버에 가져와야 local join이 가능하다.
 
 <a id="4521b576feaf9dfd"></a>
-![](../assets/images/241874abdb0d1413.png)
+![](../assets/images/9baf42db4c1cfaa1.png)
 
 ```
 \EXPLAIN PLAN
@@ -2596,7 +2596,7 @@ GROUP BY c_custkey;
 다음은 customer와 orders를 join하는 예이다. Customer는 cloned table이고 order는 sharded table이며 data 분포는 다음과 같다.
 
 <a id="75c0b7c885fca525"></a>
-![](../assets/images/e360f0326e86f3e4.png)
+![](../assets/images/229872f6f68459b2.png)
 
 ```
 \EXPLAIN PLAN
@@ -2666,7 +2666,7 @@ GROUP BY c_custkey;
 다음은 orders와 lineitem을 join하는 예이다. 두 테이블 모두 hash sharded table이고 shard key join condition이 있다. 동일한 기준의 orderkey에 대해 sharding 되어 있기 때문에 각 서버에서 join을 수행하면 된다.
 
 <a id="243aba73c54221d9"></a>
-![](../assets/images/326339eb354c4d9e.png)
+![](../assets/images/192e5898c3c66d7d.png)
 
 ```
 \EXPLAIN PLAN
@@ -2731,12 +2731,12 @@ SELECT /*+ REMOTE_JOIN(lineitem) */
 ```
 
 <a id="8893929dcc66289d"></a>
-![](../assets/images/572f4ca236226f49.png)
+![](../assets/images/5c6bfc298c39dc54.png)
 
 위 질의가 remote join을 수행하려면 lineitem의 모든 data를 가져온 후, l_partkey로 분할하여 G1, G2, G3로 전송해야 한다. 이 때, 그 역할을 하는 것이 puller와 pusher 이다.
 
 <a id="1a6b394625319537"></a>
-![](../assets/images/438d85768dee8098.png)
+![](../assets/images/1d4ea1635e717c69.png)
 
 - [Cluster Puller](12-sql-languages.md#231dfb8783ebdb91): 각 서버에 SQL을 전송하여 data를 가지고 온다.
 - [Cluster Pusher](12-sql-languages.md#0bc3080c3841f0d5): 각 서버에 data를 전송한다.

@@ -3,7 +3,7 @@
 # 33. PyDBC
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/b4580f59850e066f)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 32. PDO](32-pdo.md) · [전체 목차](../README.md) · [34. Hibernate →](34-hibernate.md)
 
@@ -546,7 +546,7 @@ CREATE OR REPLACE FUNCTION FUNC1( A1 INTEGER, A2 INTEGER )
 cursor.execute( create_func )
 cursor.commit()
 
-result = cussr.callfunc( 'FUNC1', ( 1,  4) )
+result = cursor.callfunc( 'FUNC1', ( 1,  4) )
 ```
 
 <a id="7e7b9f8bc40a2d23"></a>
@@ -605,7 +605,7 @@ for r in cursor.columns( table = 'TEST' ):
 
 [SQLStatistics](29-odbc.md#447553fba8d94506) 함수를 통해 지정된 테이블과 관련된 정보를 얻는다.  
 unique가 true일 경우, unique 인덱스만 반환하고, false일 경우, 모든 인덱스를 반환한다.  
-quick이 true일 경우, CARDINALYTIY와 PAGES는 즉시 사용할 수 있는 경우에만 반환되고 그렇지 않으면 해당 열에는 NULL이 반환된다.
+quick이 true일 경우, CARDINALITY와 PAGES는 즉시 사용할 수 있는 경우에만 반환되고 그렇지 않으면 해당 열에는 NULL이 반환된다.
 
 1. table_cat
 2. table_schem
@@ -850,7 +850,7 @@ GOLDILOCKS 데이터베이스의 데이터를 Python으로 전달할 때는 다�
 | --- | --- | --- |
 | any | NULL | None |
 | SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR | text | text |
-| SQL_BINARY_SQL_VARBINARY, SQL_LONGVARBINARY | binary | bytes |
+| SQL_BINARY, SQL_VARBINARY, SQL_LONGVARBINARY | binary | bytes |
 | SQL_NUMERIC | decimal, numeric | decimal.Decimal |
 | SQL_BOOLEAN | bit, bool | bool |
 | SQL_SMALLINT, SQL_INTEGER | integers | int |
@@ -870,7 +870,7 @@ GOLDILOCKS 데이터베이스의 데이터를 Python으로 전달할 때는 다�
 | --- | --- | --- |
 | any | NULL | None |
 | SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR | text | text |
-| SQL_BINARY_SQL_VARBINARY, SQL_LONGVARBINARY | binary | bytes |
+| SQL_BINARY, SQL_VARBINARY, SQL_LONGVARBINARY | binary | bytes |
 | SQL_NUMERIC | decimal, numeric | decimal.Decimal |
 | SQL_BOOLEAN | bit, bool | bool |
 | SQL_SMALLINT, SQL_INTEGER | integers | int |

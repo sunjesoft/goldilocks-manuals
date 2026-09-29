@@ -3,7 +3,7 @@
 # 7. GOLDILOCKS 데이터베이스의 백업과 복구
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/8f17b4dcebd8b37d)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 6. GOLDILOCKS 데이터베이스의 구조 및 저장 구조](6-goldilocks-데이터베이스의-구조-및-저장-구조.md) · [전체 목차](../README.md) · [8. GOLDILOCKS 데이터베이스 이중화 →](8-goldilocks-데이터베이스-이중화.md)
 
@@ -160,7 +160,7 @@ GOLDILOCKS는 증분 백업을 위해 0부터 4까지의 증분 레벨을 지원
 예를 들어, 다음 그림에서 level 0 백업을 수행한 후 level 2로 백업하면 (1) level 0으로 백업한 후에 변경분만 백업하고 level 2 백업 (2)은 level 2 백업 (1) 이후에 변경된 부분만 백업한다. 마찬가지로 level 2 백업 (3), (4), (5), (6)은 이전에 level 2로 백업한 후에 변경된 부분만 백업하고 마지막으로 수행된 level 1 백업은 level 0 백업 후에 변경된 부분을 모두 백업한다.
 
 <a id="f508cd6821a0c0d4"></a>
-![Incremental backup](../assets/images/8979b14a76f1ae28.png)
+![Incremental backup](../assets/images/9f3dae14019b711a.png)
 
 <a id="e64546c9a182e859"></a>
 ##### 데이터베이스 증분 백업
@@ -302,7 +302,7 @@ Redo 복구가 끝난 후 완료되지 않고 transaction table에 남아 있는
 데이터 파일 헤더에 기록된 checkpoint LSN은 해당 데이터 파일이 checkpoint된 LSN을 저장하기 때문에 백업된 데이터 파일을 이용할 경우 가장 오래된 checkpoint LSN을 선택한 후 제어 파일의 checkpoint LSN과 비교하여 최소값을 선택하면 복구를 위한 최소 checkpoint LSN이 결정된다.
 
 <a id="e7f188a74863dcb5"></a>
-![Recovery를 위한 최소 checkpoint LSN을 구하는 과정](../assets/images/ed7313ea42e0140a.png)
+![Recovery를 위한 최소 checkpoint LSN을 구하는 과정](../assets/images/eb99f2f93a12ac64.png)
 
 <a id="7907930e59ea68f4"></a>
 ##### Archive Log File을 이용한 복구

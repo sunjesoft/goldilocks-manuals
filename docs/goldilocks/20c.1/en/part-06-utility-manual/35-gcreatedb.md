@@ -3,7 +3,7 @@
 # 35. gcreatedb
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/d7dcb4af5b8f7568)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 34. Hibernate](../part-05-developer-manual/34-hibernate.md) · [Table of contents](../README.md) · [36. glsnr →](36-glsnr.md)
 

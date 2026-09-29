@@ -3,7 +3,7 @@
 # 49. LOGMIRROR
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/65bcd92474b119c9)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 48. CYCLONE](48-cyclone.md) · [전체 목차](../README.md) · [50. CYFILE →](50-cyfile.md)
 
@@ -368,7 +368,7 @@ CDC 이중화 툴인 CYCLONE을 redo log file 이중화 툴인 LOGMIRROR와 연�
 다음은 연동을 위한 운영 구조의 예이다.
 
 <a id="797cdaa500be0412"></a>
-![운영 구조도 예제](../assets/images/c79fbb7d14c0c1a5.png)
+![운영 구조도 예제](../assets/images/7b297f39e0fb7f08.png)
 
 - 장비 구조
     - 데이터의 원본이 되는 source 장비 

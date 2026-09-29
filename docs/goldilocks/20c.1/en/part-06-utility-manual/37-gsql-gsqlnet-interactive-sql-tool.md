@@ -3,7 +3,7 @@
 # 37. gsql/gsqlnet (Interactive SQL Tool)
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/3bde12963764ea09)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 36. glsnr](36-glsnr.md) · [Table of contents](../README.md) · [38. gloader/gloadernet(Upload/download Tool) →](38-gloader-gloadernet-upload-download-tool.md)
 

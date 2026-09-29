@@ -3,7 +3,7 @@
 # 5. GOLDILOCKS 데이터베이스 관리 기본
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/50ca522a5e6ccb8d)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 4. What's New](../part-01-getting-started/4-what-s-new.md) · [전체 목차](../README.md) · [6. GOLDILOCKS 데이터베이스의 구조 및 저장 구조 →](6-goldilocks-데이터베이스의-구조-및-저장-구조.md)
 
@@ -732,7 +732,7 @@ ERR-HY000(11077): given address is already in use
 GOLDILOCKS는 시스템의 모든 세션에서 공유하기 위한 메모리 (SSA)와 데이터베이스 페이지를 위한 공유 메모리, 각 세션마다 독립적으로 사용하는 heap 전용 메모리 (PSA)들을 사용한다.
 
 <a id="aad94ac7e0193513"></a>
-![Shared memory](../assets/images/2c1d628097fa3abd.png)
+![Shared memory](../assets/images/303462d0749d15a0.png)
 
 <a id="5ab2b9ff83fdf787"></a>
 ### SSA 관리

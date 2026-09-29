@@ -3,7 +3,7 @@
 # 18. SQL References
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/f41b6aa6080197e3)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 17. Built-in Function References](17-built-in-function-references.md) · [전체 목차](../README.md) · [19. Overview of PSM →](../part-04-psm-manual/19-overview-of-psm.md)
 
@@ -17324,7 +17324,7 @@ FETCH NEXT 이외의 &lt;fetch orientation&gt;을 사용하려면 scrollable cur
 Open 된 커서는 결과 집합에 대해 아래 그림과 같은 커서 위치 정보를 갖는다.
 
 <a id="1bcb6fc5f31a9872"></a>
-![커서의 위치 정보](../assets/images/f2e882d0a60b3aa8.png)
+![커서의 위치 정보](../assets/images/92fdca3c39b99474.png)
 
 **커서의 위치**
 
@@ -22713,7 +22713,7 @@ Customer#3 KOREA
         - result = {1, 3, 4}
 
 <a id="e3856f3ccb47f68e"></a>
-![SET 연산 결과](../assets/images/3068bde6f97a5ccd.png)
+![SET 연산 결과](../assets/images/5a070c53bb3ae06c.png)
 
 <a id="6ae13ec8f885449e"></a>
 ##### 연산자 우선 순위

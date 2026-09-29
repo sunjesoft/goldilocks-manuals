@@ -3,7 +3,7 @@
 # Appendix A. Error Codes
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/7f67c42460a84e3d)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 50. CYFILE](../part-07-replication/50-cyfile.md) · [Table of contents](../README.md) · [Appendix B. Wait Event →](appendix-02-appendix-b-wait-event.md)
 

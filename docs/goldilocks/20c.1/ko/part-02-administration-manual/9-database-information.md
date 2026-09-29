@@ -3,7 +3,7 @@
 # 9. Database Information
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/36fd6aa8978f5580)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 8. GOLDILOCKS 데이터베이스 이중화](8-goldilocks-데이터베이스-이중화.md) · [전체 목차](../README.md) · [10. Server Property →](10-server-property.md)
 

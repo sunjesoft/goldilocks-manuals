@@ -1,6 +1,6 @@
 # GOLDILOCKS 20c.1 User Manual (한국어)
 
-- 원본 태그: `20c.1_30_tag`
+- 원본 태그: `20c.1_31_tag`
 - 원본 HTML: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko)
 - 문서 수: 53
 - 저작권: Copyright © 2010 SUNJESOFT Inc. All rights reserved.

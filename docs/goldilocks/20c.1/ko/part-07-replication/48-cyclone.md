@@ -3,7 +3,7 @@
 # 48. CYCLONE
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/7d3a4a3f5c691321)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 47. 개요](47-개요.md) · [전체 목차](../README.md) · [49. LOGMIRROR →](49-logmirror.md)
 
@@ -1345,7 +1345,7 @@ GOLDILOCKS 접속과 관련된 config property는 DSN, PROTOCOL, HOST_IP, HOST_E
 | CONFIG | PROTOCOL=TCP, USER_ID=test, USER_PW=test |
 | odbc.ini의 GOLDILOCKS 설정 | HOST_IP=127.0.0.1, HOST_PORT=22581, USER_ID=test2, USER_PW=test2 |
 
-- D/A로 접속하더라도 slave에는 HOST_EXTERANL_IP를 설정할 수 있다.
+- D/A로 접속하더라도 slave에는 HOST_EXTERNAL_IP를 설정할 수 있다.
 
 **DA로 접속하더라도 slave에는 HOST_EXTERANL_IP설정이 가능하다.**
 
@@ -1512,7 +1512,7 @@ prompt> cyclone --master --info --group GROUP1
 CYCLONE 운영 구조는 다음과 같다.
 
 <a id="9c8d853b5d832153"></a>
-![CYCLONE 운영 구조도](../assets/images/412227c7fb334a18.png)
+![CYCLONE 운영 구조도](../assets/images/ed7a275102a100e7.png)
 
 - 장비 구조
     - 데이터 원본이 되는 source 장비

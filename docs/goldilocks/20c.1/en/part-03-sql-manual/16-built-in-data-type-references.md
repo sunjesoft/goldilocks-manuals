@@ -3,7 +3,7 @@
 # 16. Built-in Data Type References
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/d0d05e646b222330)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 15. SQL Tuning](15-sql-tuning.md) · [Table of contents](../README.md) · [17. Built-in Function References →](17-built-in-function-references.md)
 

@@ -3,7 +3,7 @@
 # 13. SQL Objects
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/39f9e8f7066b7fcc)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 12. SQL Languages](12-sql-languages.md) · [전체 목차](../README.md) · [14. Cluster Objects →](14-cluster-objects.md)
 
@@ -65,7 +65,7 @@
 데이터베이스에 포함되는 SQL object들은 schema에 포함되는지 여부에 따라 SQL schema object와 non-schema object로 구분된다.
 
 <a id="b52b779fced0fa35"></a>
-![SQL objects](../assets/images/f6ea4c91897abd5e.png)
+![SQL objects](../assets/images/5d30845b9b6abf81.png)
 
 SQL schema object는 schema 내에 포함되는 객체로써 그 종류는 다음과 같다.
 
@@ -1894,7 +1894,7 @@ CREATE TABLE u1.t1 ( id BIGINT, name VARCHAR(128) ) TABLESPACE mem_data_tbs;
 아래 그림에서와 같이 t1 테이블의 소유자는 u1 스키마의 소유자인 u1 계정이 되고 테이블이 포함될 논리적 위치는 u1 스키마가 되며 테이블이 저장될 물리적 공간은 mem_data_tbs 테이블스페이스가 된다.
 
 <a id="8501b3c92e1085ca"></a>
-![CREATE TABLE과 non-schema objects](../assets/images/9f4b255466bc9298.png)
+![CREATE TABLE과 non-schema objects](../assets/images/c8bec40eb4b4a8d2.png)
 
 이 때, 구문을 수행한 u1 사용자는 t1 테이블이 속할 스키마와 테이블스페이스에 대해 다음과 같은 권한이 필요하다.
 
@@ -1989,7 +1989,7 @@ SELECT id, name FROM u1.t1 WHERE id < 100;
 ```
 
 <a id="3d70c7dc3bd213cd"></a>
-![SELECT 구문을 수행하기 위한 privilege](../assets/images/84334ee7483c6417.png)
+![SELECT 구문을 수행하기 위한 privilege](../assets/images/56b55f75712c382a.png)
 
 - SELECT ON TABLE u1.t1
     - u1.t1 테이블에 대한 SELECT 권한
@@ -2238,7 +2238,7 @@ SQL 표준은 user, schema, database 등과 같은 non-schema 객체들의 관�
 GOLDILOCKS에서는 데이터베이스를 구축할 때 고객 시스템의 특성에 맞춰 아래 그림과 같이 다양하게 사용자와 스키마의 관계를 구성할 수 있다.
 
 <a id="58335f8b77a552c6"></a>
-![User와 schema의 관계](../assets/images/466d2919f009aa40.png)
+![User와 schema의 관계](../assets/images/03b89bf3da5736c1.png)
 
 그림 (a)와 같이 사용자별로 스키마를 소유하도록 데이터베이스를 구성할 경우 다음과 같이 사용자와 스키마를 생성한다.
 
@@ -2317,7 +2317,7 @@ gSQL> SELECT * FROM t1;
 아래 그림은 사용자 u1의 schema path를 도식화한 예이다. 사용자 u1의 schema path는 {s1, s2, s3} 의 순서로 지정되어 있으며, s1 스키마에는 t1 테이블, s2 스키마에는 t2 테이블, s3 스키마에는 t1과 t3 테이블이 존재한다.
 
 <a id="e5679bd4e65d1681"></a>
-![Schema path의 예](../assets/images/ee1205de8f64ed23.png)
+![Schema path의 예](../assets/images/bd5201096758a558.png)
 
 다음과 같이 SELECT 구문에 스키마 이름이 생략된 경우, schema path에 의해 스키마 이름이 해석된다.
 
@@ -2683,7 +2683,7 @@ ERR-42000(16208): insufficient privileges
 테이블스페이스는 논리적 개념으로써 한 개 이상의 물리적 공유 메모리들로 구성되며, 테이블, 인덱스와 같은 데이터를 저장하기 위한 공간이다. 아래 그림에서와 같이 테이블스페이스에 저장되는 테이블, 인덱스와 같은 물리적 객체들은 여러 공유 메모리에 걸쳐 저장될 수 있으며, 공유 메모리를 추가하여 테이블스페이스를 확장할 수 있다.
 
 <a id="9ac05d1d01c0ee76"></a>
-![Tablespace 개념](../assets/images/2cbad7ef263ccfee.png)
+![Tablespace 개념](../assets/images/c9753ab0e1453ea1.png)
 
 테이블스페이스는 저장하는 data의 유형에 따라, 다음과 같이 세 종류로 구분할 수 있다.
 
@@ -3419,7 +3419,7 @@ ID
 - 최상위 SELECT 구문의 select list 값
     - SELECT seq.NEXTVAL FROM dual;
 - INSERT .. SELECT 구문의 select list 값
-    - INSERT INTO t1(id) SELECT seq.NEXTVAL FROM daul;
+    - INSERT INTO t1(id) SELECT seq.NEXTVAL FROM dual;
 - INSERT .. VALUES 구문의 입력값
     - INSERT INTO t1(id) VALUES ( seq.NEXTVAL );
 - UPDATE 구문의 SET 값

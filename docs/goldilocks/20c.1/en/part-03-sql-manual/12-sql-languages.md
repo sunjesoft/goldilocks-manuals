@@ -3,7 +3,7 @@
 # 12. SQL Languages
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/4e705028c62e88ab)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 11. SQL Elements](11-sql-elements.md) · [Table of contents](../README.md) · [13. SQL Objects →](13-sql-objects.md)
 
@@ -1586,7 +1586,7 @@ GOLDILOCKS cluster does not have a separate meta server, and a user can perform 
 DDL is executed following the procedure below in a cluster environment.
 
 <a id="47089ef67a139faf"></a>
-![Processing DDL in cluster](../assets/images/fd157e2400809ea8.png)
+![Processing DDL in cluster](../assets/images/66fb1bac77ad67fc.png)
 
 DDL is performed through two phases, which are a lock phase and and execution phase. On the lock phase, a lock which is required for performing DDL is acquired and DDL is sequentially performed on every cluster member. On the execute phase, DDL is simultaneously performed for every cluster member.
 
@@ -1627,7 +1627,7 @@ There are a sharded table and a cloned table (refer to [Cluster Table and Shard]
 The following figure describes a 3 x 2 GOLDILOCKS cluster and tables stored in that cluster.
 
 <a id="b816e171b3b3c7ca"></a>
-![3 x 2 cluster configuration and tables](../assets/images/5f672440fae14ad0.png)
+![3 x 2 cluster configuration and tables](../assets/images/60f6ec301a7569fa.png)
 
 The following DDL creates the tables given above.
 
@@ -1698,7 +1698,7 @@ Cluster puller node collects and manipulates the data.
 The following is a process to perform the cluster puller.
 
 <a id="9816275bd42753fc"></a>
-![Performing cluster puller](../assets/images/4466fca6b72e5c90.png)
+![Performing cluster puller](../assets/images/df9c1400cb7f50c9.png)
 
 A cluster puller is classified according to the data fetching method from a local server and whether to distinguish a remote delivering server when fetching data from a remote server.
 
@@ -1960,7 +1960,7 @@ It does not manipulate anything except for applying a filter to the collected da
 The following is an example of performing the plan based cluster.
 
 <a id="46ad034d1a2a037f"></a>
-![Plan based cluster](../assets/images/7f34dcd613b8e013.png)
+![Plan based cluster](../assets/images/b052f4a1cae58d3e.png)
 
 <a id="d2ddd6caf7927238"></a>
 ##### Single Cluster
@@ -1979,7 +1979,7 @@ A single cluster supports the following data manipulation methods.
 The following is an example of performing a single cluster.
 
 <a id="6cbbe96e4c91f3a5"></a>
-![Single cluster](../assets/images/060a0490d0c3a24e.png)
+![Single cluster](../assets/images/675c3eb1d72af4dd.png)
 
 <a id="10395c5ed14d02e0"></a>
 ##### Multiple Clusters
@@ -1999,7 +1999,7 @@ Multiple clusters support the following data manipulation methods.
 The following is an example of performing multiple clusters.
 
 <a id="fc26e93d3184bb95"></a>
-![Multiple clusters](../assets/images/25961bbfc7c3b7ae.png)
+![Multiple clusters](../assets/images/2a1d99009093bd7b.png)
 
 <a id="e6303ccf1a089a31"></a>
 #### Cluster Domain
@@ -3247,7 +3247,7 @@ SHARD_KEY
 The cluster pusher node creates and manages a virtual table for the efficient query process of the cluster puller node.
 
 <a id="993aacc7af02f152"></a>
-![Cluster puller vs cluster pusher](../assets/images/2f598db6d25fc335.png)
+![Cluster puller vs cluster pusher](../assets/images/d94dcd1c0790fdc3.png)
 
 The cluster puller node collects the data. The cluster pusher node distributes the data in a new table form.
 
@@ -3257,7 +3257,7 @@ The cluster pusher node declares a pusher table and loads the data.
 - Loading data: It loads the data received from the subordinate node of the cluster pusher node on the pusher table.
 
 <a id="9e70593c0c226cfd"></a>
-![Performing cluster pusher](../assets/images/379caa6fe4f027d8.png)
+![Performing cluster pusher](../assets/images/0531e3f4993241ff.png)
 
 The following is an example of using the cluster pusher.
 
@@ -5761,7 +5761,7 @@ CREATE TABLE t1( shard_key INTEGER, c1 INTEGER )
 DML is performed as the figure below in cluster environment.
 
 <a id="1fb5284eb197d28c"></a>
-![Processing DML in cluster](../assets/images/4aebd7c456e6411b.png)
+![Processing DML in cluster](../assets/images/4f8f17a1b95f0960.png)
 
 A master server and a slave server per each group are defined for the DML processing in cluster.
 
@@ -5819,7 +5819,7 @@ The generated query for a master server and the generated query for a slave serv
 The data manipulation using the generated query is performed as the figure below.
 
 <a id="72fe607ee43b3dc7"></a>
-![Updating data using generated query (Altering the entire cluster group target)](../assets/images/20972203b2630c18.png)
+![Updating data using generated query (Altering the entire cluster group target)](../assets/images/4f192ff636d58025.png)
 
 If there is not a condition to select an manipulation target cluster group in a conditional clause as given above, then all cluster groups become the data manipulation target of using the generated query.
 
@@ -5831,7 +5831,7 @@ The data manipulation using the generated query is performed as follows.
 If only a specific cluster group is selected as a data manipulation target by a conditional clause, then it is performed as follows.
 
 <a id="af0ad4f742a81bf9"></a>
-![Updating data using generated query (Altering a specific cluster group)](../assets/images/17167b490f6b8fad.png)
+![Updating data using generated query (Altering a specific cluster group)](../assets/images/c6f7612b4b628f51.png)
 
 If the manipulation target is determined by using the search condition (shard_key = 1) as given above, it is found that the record whose shard_key is 1 is in G1 cluster group by the sharding strategy. Therefore, only the record in G1 cluster group is deleted.
 
@@ -6273,7 +6273,7 @@ Global rowid based DML without using global secondary index is used when it is n
 Data manipulation using the rowid information without using the global secondary index is performed as follows.
 
 <a id="bd078a005064073d"></a>
-![Global rowid based DML without using global secondary index](../assets/images/c883fdd18a63db77.png)
+![Global rowid based DML without using global secondary index](../assets/images/e796e5a81f50be5f.png)
 
 When adding a record, a rowid is given to a new record and each record is stored at an appropriate position in a master server. All records are applied to a slave server after applying to a master server.
 
@@ -6320,7 +6320,7 @@ It should be guaranteed that the same data in a master server and a slave server
 Data manipulation using the rowid using the global secondary index is performed as follows.
 
 <a id="aeac154b5abcf068"></a>
-![Data manipulation using the rowid using the global secondary index](../assets/images/f2f7ddd8b24e0d20.png)
+![Data manipulation using the rowid using the global secondary index](../assets/images/50a37e370d0841c8.png)
 
 On the rowid information collection phase, the server received the user query collects row id and column value of the target record to be manipulated.
 

@@ -3,7 +3,7 @@
 # 9. Database Information
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/268cc3bfa393adba)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 8. GOLDILOCKS Database Replication](8-goldilocks-database-replication.md) · [Table of contents](../README.md) · [10. Server Property →](10-server-property.md)
 

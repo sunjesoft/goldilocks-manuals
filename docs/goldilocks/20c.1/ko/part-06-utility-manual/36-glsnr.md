@@ -3,7 +3,7 @@
 # 36. glsnr
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/c15dd351977c833f)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 35. gcreatedb](35-gcreatedb.md) · [전체 목차](../README.md) · [37. gsql/gsqlnet (Interactive SQL Tool) →](37-gsql-gsqlnet-interactive-sql-tool.md)
 

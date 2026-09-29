@@ -3,7 +3,7 @@
 # 39. gdump
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/43afe5439b14a376)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 38. gloader/gloadernet (Upload/download Tool)](38-gloader-gloadernet-upload-download-tool.md) · [전체 목차](../README.md) · [40. tablediff →](40-tablediff.md)
 

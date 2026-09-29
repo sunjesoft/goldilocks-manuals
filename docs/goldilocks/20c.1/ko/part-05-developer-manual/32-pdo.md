@@ -3,7 +3,7 @@
 # 32. PDO
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/337f7120586a0c06)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 31. Embedded SQL](31-embedded-sql.md) · [전체 목차](../README.md) · [33. PyDBC →](33-pydbc.md)
 

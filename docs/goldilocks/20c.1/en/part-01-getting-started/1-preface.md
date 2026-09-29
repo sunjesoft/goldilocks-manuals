@@ -3,7 +3,7 @@
 # 1. Preface
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/10b9a04c732cd44f)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [Table of contents](../README.md) · [2. Tutorial →](2-tutorial.md)
 
@@ -52,7 +52,7 @@ GOLDILOCKS database system consists of the following parts.
 To prevent spreading the application process failure over the entire database system, GOLDILOCKS database is a multi-process architecture based on shared memory, instead of a multi-thread architecture. The overall architecture of GOLDILOCKS database is as shown in figure 1. Data are loaded onto a shared memory and gmaster process is a management daemon which manages database such as boot-up, log flush, aging. Also, it stores redo log files and data files on a disk file to ensure the permanence of data. Applications using GOLDILOCKS database will use one of the following two accessing models.
 
 <a id="6d56209408d58941"></a>
-![GOLDILOCKS architecture](../assets/images/1d2cbd2f66dd48a2.png)
+![GOLDILOCKS architecture](../assets/images/84c09fe0e04971c7.png)
 
 - Direct access (D/A) model
     - A user may use D/A model when user application is operated on the same equipment as GOLDILOCKS database.
@@ -80,7 +80,7 @@ GOLDILOCKS cluster system guarantees ACID of transaction which is clister-widely
 Each database belonging to GOLDILOCKS cluster system has a structure for multi-process structure and data loading method, which is as same as the structure of the standalone database. However, cdispatcher process and cluster server (cserver) process are added. cdispatcher is a process for efficient communiation between member nodes in a cluster, and cluster server (cserver) process is for the data storage and management on the cluster member node. Also, tablespaces and management areas for transaction management of cluster system are added to the shared memory.
 
 <a id="d2b630b345be8385"></a>
-![GOLDILOCKS cluster system architecture](../assets/images/2d625873367dd3cb.png)
+![GOLDILOCKS cluster system architecture](../assets/images/498fa009e15989f1.png)
 
 <a id="8991d86e5dbe661a"></a>
 ## Characteristics of GOLDILOCKS Cluster

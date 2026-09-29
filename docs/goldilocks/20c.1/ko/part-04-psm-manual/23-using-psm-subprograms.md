@@ -3,7 +3,7 @@
 # 23. Using PSM Subprograms
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/40f719079d3d96d1)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 22. PSM Cursor Statements](22-psm-cursor-statements.md) · [전체 목차](../README.md) · [24. Using SQLs in PSM →](24-using-sqls-in-psm.md)
 

@@ -3,7 +3,7 @@
 # 29. ODBC
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/7c6868008cd035cb)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 28. Database Connection](28-database-connection.md) · [Table of contents](../README.md) · [30. JDBC →](30-jdbc.md)
 
@@ -42,7 +42,7 @@ The following operations can be executed by using ODBC applications.
 The following is a software architecture of when the driver manager is included in the system. In this case, the application should be linked to the driver manager library.
 
 <a id="de21113925a9eac0"></a>
-![GOLDILOCKS ODBC driver including the driver manager](../assets/images/37af2a0ee5dbd3ff.png)
+![GOLDILOCKS ODBC driver including the driver manager](../assets/images/b8f69eef4395b5c9.png)
 
 <a id="15f9a659acf3c417"></a>
 #### GOLDILOCKS ODBC Driver Not Including Driver Manager
@@ -50,7 +50,7 @@ The following is a software architecture of when the driver manager is included 
 The following is an architecture of when the application does not include a driver manager and uses GOLDILOCKS ODBC driver. In this case, the application should be linked to GOLDILOCKS ODBC driver library.
 
 <a id="f03ba68119f96b08"></a>
-![GOLDILOCKS ODBC driver not including the driver manager](../assets/images/b6befac044aa28a2.png)
+![GOLDILOCKS ODBC driver not including the driver manager](../assets/images/abd4f1afe2bb452c.png)
 
 <a id="d6b478e8989d12db"></a>
 ### Using GOLDILOCKS ODBC Driver
@@ -337,10 +337,10 @@ ALTERNATE_LOCATORS=(HOST=127.0.0.1:PORT=42582,HOST=127.0.0.1:PORT=42583)
 ODBC data source manager can add or set up DSN on Windows.
 
 <a id="a84d6b58d1fed33f"></a>
-![Creating new data source](../assets/images/991c865394664487.png)
+![Creating new data source](../assets/images/3b4b746f4d3183fe.png)
 
 <a id="bb15ce6f0afa4425"></a>
-![Configuring ODBC driver](../assets/images/f30ab08683c85033.png)
+![Configuring ODBC driver](../assets/images/73943f04ad155514.png)
 
 The following table describes keywords for DSN configuration.
 
@@ -391,7 +391,7 @@ SQLDriverConnect( dbc,
 ### Processing GLOBAL CONNECTION
 
 <a id="02daeb3316b6ae35"></a>
-![Basic steps of applying GLOBAL CONNECTION](../assets/images/b8ec210ed0b9e3ee.png)
+![Basic steps of applying GLOBAL CONNECTION](../assets/images/4d3aaf2d9d5cbf2c.png)
 
 1. SQLAllocHandle (DBC)  
    It allocates a connection handle.
@@ -622,7 +622,7 @@ If committing or rolling back with SQL statement when using GLOBAL CONNECTION, t
 All databases have schemas of how to store the data in the database. For example, a simple sales order database will have the schemas shown in the following figure, and the ID columns are used to connect the tables.
 
 <a id="619bfec39601ebea"></a>
-![Schema of sales orders](../assets/images/b6b74504c031d6f9.png)
+![Schema of sales orders](../assets/images/96e3a07ec31570fb.png)
 
 The schema is stored in the set of system tables which is called as a database catalog along with other information such as privileges. This is also known as a data dictionary.
 
@@ -5929,7 +5929,7 @@ The following column names are changed in ODBC 3.x. The column name change does 
 | PROCEDURE_QUALIFIER | PROCEDURE_CAT |
 | PROCEDURE_OWNER | PROCEDURE_SCHEM |
 
-SQLGetInfo is called together with SQL_MAX_CATALOG_NAME_LEN, SQL_MAX_SCHEMA_NAME, SQL_MAX_PROCEDURE_NAME_LEN options in an application to determine the actual column length of PROCEDURE_CAT, PROCEDURE_SCHEM, PROCEDURE_NAME, COLUMN_NAME
+To determine the actual lengths of the PROCEDURE_CAT, PROCEDURE_SCHEM, and PROCEDURE_NAME columns, an application can call SQLGetInfo with the SQL_MAX_CATALOG_NAME_LEN, SQL_MAX_SCHEMA_NAME_LEN, and SQL_MAX_PROCEDURE_NAME_LEN options.
 
 The following table lists the columns in the result set. The additional row after column 8 (PROCEDURE_TYPE) is defined by the driver. The applications should get access to a specific driver column by performing the countdown from the end of the result set instead of specifying an explicit ordinal position.
 
@@ -7854,7 +7854,7 @@ GOLDILOCKS XA is implemented based on X/Open CAE document, Distributed Transacti
 X/Open DTP (Distributed Transaction Processing) model defines the transaction management between different heterogeneous computer databases.
 
 <a id="2ba1ecbc48d0ebd9"></a>
-![](../assets/images/9a4b6f41c692bb04.png)
+![](../assets/images/fc7eca2292c48cd9.png)
 
 - Application Program (AP): It defines the work consisting of transactions.
 - Resource Managers (RM): It manages the shared resources accessed by a distributed transaction. It means a database management system, such as GOLDILOCKS.

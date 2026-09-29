@@ -3,7 +3,7 @@
 # 46. gloctl
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/92eddab9e67d5932)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 45. gagent](45-gagent.md) · [Table of contents](../README.md) · [47. Overview →](../part-07-replication/47-overview.md)
 

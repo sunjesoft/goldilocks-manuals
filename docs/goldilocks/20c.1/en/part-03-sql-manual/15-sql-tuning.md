@@ -3,7 +3,7 @@
 # 15. SQL Tuning
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/08796d297b669e37)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 14. Cluster Objects](14-cluster-objects.md) · [Table of contents](../README.md) · [16. Built-in Data Type References →](16-built-in-data-type-references.md)
 
@@ -25,7 +25,7 @@ The knowledge about SQL processing and an optimizer is required to perform SQL t
 The following figure describes the SQL processing.
 
 <a id="ad5f0b39b7d9def9"></a>
-![SQL processing](../assets/images/aa29cefccf22df8c.png)
+![SQL processing](../assets/images/5af7f148475ee978.png)
 
 The user query returns the result through a parser, a validator, a rewriter, an enumerator, a code planner, a data planner, an executor phases. The following paragraphs describes each phase.
 
@@ -135,7 +135,7 @@ A data planner creates a data plan. A data plan has a space to store the interme
 An executor returns the actual executed result of performing a code plan and a data plan.
 
 <a id="05a73396a6686aab"></a>
-![Executor](../assets/images/0649ecd8c78cd3b1.png)
+![Executor](../assets/images/7c8a0107d54187c8.png)
 
 <a id="998d640b845ecaaf"></a>
 #### Execution Plan
@@ -193,12 +193,12 @@ When executing as follows, it performs SQL statement, and outputs the query resu
 The following example is executed in a cluster system which consists of G1(G1N1, G1N2), G2(G2N1, G2N2) and G3(G3N1, G3N2). The customer is a cloned table and orders is a sharded table whose data is divided by do_orderkey.
 
 <a id="41fd01ec488f1271"></a>
-![Read plan](../assets/images/62b824c8182d4184.png)
+![Read plan](../assets/images/e8e5906a66101678.png)
 
 The execution plan above is represented as the following tree. The execution starts from the bottom node.
 
 <a id="7b0d89aec7c6eb9c"></a>
-![Read plan tree](../assets/images/523db0e7223ece37.png)
+![Read plan tree](../assets/images/79527cdb3660b153.png)
 
 The execution tree above is performed as follows.
 
@@ -265,14 +265,14 @@ It pushes down the filter as down as possible so that it reduces the intermediat
 The following is an example of filter push down.
 
 <a id="85f1208282673518"></a>
-![Filter push down](../assets/images/a06cdaa672086d62.png)
+![Filter push down](../assets/images/9a098e2bf60bb42e.png)
 
 It filters rows satisfying n_name = JAPAN condition in NATION, and filters rows satisfying s_acctbal < 0 condition in SUPPLIER before performing join. In this case the number of join target rows decreases so it improves the performance.
 
 The following is an example of performing filter push down into the view.
 
 <a id="bea291b944910f84"></a>
-![Filter push down into view](../assets/images/7b40681296029022.png)
+![Filter push down into view](../assets/images/8ad8d37e5e011ec3.png)
 
 When pushing it down to lineitem TABLE ACCESS node after converting supplier_no = 100 to l_suppkey = 100, then target rows of GROUP BY decreases so it improves the performance.
 
@@ -290,7 +290,7 @@ DISTINCT is eliminated in the following cases.
 The following is an example of eliminating DISTINCT.
 
 <a id="d39c7ef6a58ebb80"></a>
-![DISTINCT elimination](../assets/images/a5b964ebc5e89a07.png)
+![DISTINCT elimination](../assets/images/6cfaf1594f783d67.png)
 
 The left execution plan has GROUP HASH INSTANT node to process DISTINCT, but the right execution plan does not have GROUP HASH INSTANT node to process DISTINCT.
 
@@ -309,7 +309,7 @@ ORDER BY is not required in the following cases.
 The following is an example of eliminating ORDER BY.
 
 <a id="83f2297f4030342f"></a>
-![ORDERBY elimination](../assets/images/0156c48735f16eb4.png)
+![ORDERBY elimination](../assets/images/008805d5f5948821.png)
 
 The left and right views are same in the figure above, but the right SQL has *order by* in a superordinate query of the view, so the *order by* within the view is eliminated.
 
@@ -413,7 +413,7 @@ VIETNAM                       6008
 A view does not exist in the execution plan above. The view is merged to an outer query, then it is performed as a converted query form as follows.
 
 <a id="e7d16db838a834cb"></a>
-![Simple view merging](../assets/images/b5a3a4d7b27bffb4.png)
+![Simple view merging](../assets/images/6863b586a2fd6a97.png)
 
 <a id="6f37eb41b7f8daa6"></a>
 ### Outer Join Table Elimination
@@ -626,7 +626,7 @@ lineitem is a table with 16 columns in the example above. It is specified to rea
 It alters SQL as follows to eliminate ANY quantifier.
 
 <a id="20b36c2d850a286a"></a>
-![Quantifier elimination](../assets/images/2767e5864ba91d14.png)
+![Quantifier elimination](../assets/images/9f04c820f1879f34.png)
 
 The following is an example of eliminating a quantifier.
 
@@ -690,7 +690,7 @@ It creates a constant condition in another table by using a join condition. In t
 The following is an example of a transitive closure.
 
 <a id="0e04c3545429a0c7"></a>
-![Transitive closure](../assets/images/e2e6b14fb1b414eb.png)
+![Transitive closure](../assets/images/168c49910dafb398.png)
 
 <a id="31588b84d64574ea"></a>
 ### Join Transitive Closure
@@ -702,7 +702,7 @@ It is performed in a way of adding a join condition (A=C) to the other join cond
 The following is an example of a join transitive closure.
 
 <a id="eceb56fe1cab6eb3"></a>
-![Join transitive closure](../assets/images/2ea6b81fefa93cd4.png)
+![Join transitive closure](../assets/images/be91f077f7fdaa9a.png)
 
 <a id="a1da634c3f83414e"></a>
 ### Subquery Unnesting
@@ -742,10 +742,10 @@ WHERE  EXISTS (SELECT 1
 It converts a subquery into a semi join, an anti-join, or an inner join.
 
 <a id="93e181500ca6394f"></a>
-![Nested subquery unnesting](../assets/images/bbe7013019151245.png)
+![Nested subquery unnesting](../assets/images/f7c008cbfa3a35a9.png)
 
 <a id="bdd7f0fae169eaf2"></a>
-![Nested subquery unnesting plan](../assets/images/0f3f9f8ac17adf3c.png)
+![Nested subquery unnesting plan](../assets/images/7c5a380286f7276e.png)
 
 <a id="4fb485801a09b338"></a>
 #### Scalar Subquery Unnesting
@@ -757,10 +757,10 @@ It can unnest only a scalar subquery in WHERE clause, and the following conditio
 The following is an example of unnesting a scalar subquery.
 
 <a id="5e43b3f3dd0a8dac"></a>
-![Scalar subquery unnesting](../assets/images/5e78180029a0965a.png)
+![Scalar subquery unnesting](../assets/images/3ffed5f51f776930.png)
 
 <a id="0800000cc00bf929"></a>
-![Scalar subquery unnesting plan](../assets/images/576c35de980d96b9.png)
+![Scalar subquery unnesting plan](../assets/images/55b544b59ab6f6c9.png)
 
 <a id="6b55010c4f52884d"></a>
 ### Complex View Merging
@@ -786,10 +786,10 @@ A complex view merging can not be applied in the following cases.
 The following is an example of merging a complex view.
 
 <a id="0200fcb1e8d1f999"></a>
-![Complex view merging](../assets/images/ab4bd0460228ab8b.png)
+![Complex view merging](../assets/images/20417c13fb25e788.png)
 
 <a id="89600e5353e2a274"></a>
-![Complex view merging plan](../assets/images/403f4612e9bed93c.png)
+![Complex view merging plan](../assets/images/e71c50d214122750.png)
 
 <a id="2e2c96d3b919314f"></a>
 ## Enumerator
@@ -1261,18 +1261,18 @@ In this case, values corresponding to an inner table are NULL padded.
 The left table becomes an outer table in a left outer join. Therefore, *part* which is a left table becomes an outer table so it outputs even the rows which do not satisfy the join condition as well in the example below. In this case, *partsupp* value which is an inner table is NULL padded.
 
 <a id="a8c7c090d76abebf"></a>
-![Left outer join](../assets/images/0dbfd72c36efcc60.png)
+![Left outer join](../assets/images/06e7cf745f5c0aa7.png)
 
 The right table becomes an outer table in a right outer join.  
 Therefore, *partsupp* which is a right table becomes an outer table so it outputs even the rows which do not satisfy the join condition as well in the example below. In this case, *parts* value which is an inner table is NULL padded.
 
 <a id="537856dded134aaa"></a>
-![Right outer join](../assets/images/bbb8e8b02d062a9e.png)
+![Right outer join](../assets/images/33d22c4f06d53f6f.png)
 
 A full outer join join outputs rows satisfying the join condition, then it performs left outer join and a right outer join so that it outputs all rows.
 
 <a id="e128dd48e109504f"></a>
-![Full outer join](../assets/images/065c9af9d19ca7fa.png)
+![Full outer join](../assets/images/1941bcdc79fe5e91.png)
 
 <a id="63404578f370ef2c"></a>
 ###### **Left Outer Join**
@@ -1643,7 +1643,7 @@ Join operation methods between two tables are a nested loops join, a sort merge 
 It scans all rows in an inner table for each row of an outer table, then retrieves results satisfying the join condition.
 
 <a id="73a6da4d0d78cb2e"></a>
-![Nested loop join](../assets/images/204280d8be8e2fd9.png)
+![Nested loop join](../assets/images/0edb203b2e38f50e.png)
 
 It performs the full scan for the inner table as many as the number of rows in an outer table, so the less rows in an outer table the better.
 
@@ -1655,7 +1655,7 @@ Even the join without a join condition can return the execution result to a cart
 It performs an index nested loop join when it can retrieve the row satisfying the join condition by using an index in an inner table. An index access accesses only to necessary rows, so the performance is improved.
 
 <a id="fea0904940b3b352"></a>
-![Index nested loop join](../assets/images/091979ec829409c9.png)
+![Index nested loop join](../assets/images/db274b009d60a484.png)
 
 The following is an example of an index nested loop join.
 
@@ -1705,7 +1705,7 @@ GROUP BY c_custkey;
 It performs a nested loop join after loading the intermediate result of an inner table on an instant table.
 
 <a id="62293b192aac8e6a"></a>
-![Instant nested loop join](../assets/images/4a6e55d8b565ff66.png)
+![Instant nested loop join](../assets/images/9ed52d4756c9e50f.png)
 
 When the condition such as o_custkey = 1 exists as the example above, a nested loop join is available by loading the intermediate result of *orders* on an instant table.
 
@@ -1763,7 +1763,7 @@ When an index available exists in either an outer table or an inner table, then 
 One or more equi join conditions are required to perform a sort merge join.
 
 <a id="6b5e3d7249d8e8c8"></a>
-![Sort merge join](../assets/images/2d4625cf2628878d.png)
+![Sort merge join](../assets/images/1f194668d6bef116.png)
 
 The following is an example of a sort merge join.
 
@@ -1809,7 +1809,7 @@ It creates a hash instant in an inner table, then returns the join result satisf
 One or more equi join conditions are required to perform a hash join.
 
 <a id="4a97b573dbff8777"></a>
-![Hash join](../assets/images/8769f03938c983cb.png)
+![Hash join](../assets/images/645cfb40677d03f2.png)
 
 The following is an example of a hash join.
 
@@ -1878,7 +1878,7 @@ When joining three or more tables, the join order should be determined. The join
 When there are three tables, then there are various join orders as follows.
 
 <a id="349dccb40ed7e237"></a>
-![Join order](../assets/images/a4c9833f3ad331b7.png)
+![Join order](../assets/images/f031261842a47530.png)
 
 An enumerator creates sets of various execution plans according to join orders, join methods and access paths available, then it determines the join ordering by selecting the plan whose intermediate results and cost is low.
 
@@ -2236,7 +2236,7 @@ All table data of every node in every group are stored same in the cloned table.
 The following is an example of creating a customer table with a cloned table.
 
 <a id="16fdfda195c02175"></a>
-![Cloned table](../assets/images/7881c26a19510d31.png)
+![Cloned table](../assets/images/bbd5b193f5d4e288.png)
 
 <a id="14f2d50567a072cf"></a>
 #### Sharded Table
@@ -2250,7 +2250,7 @@ The data is divided in a group by a shard key, then stored. Nodes in a single gr
 The following is an example of creating an order table by using hash shards.
 
 <a id="93490df0c8c1cd4b"></a>
-![Sharded table](../assets/images/dfe9ad5dca1720f9.png)
+![Sharded table](../assets/images/768ce34107f60b10.png)
 
 <a id="1519a43629c5e082"></a>
 ### Access
@@ -2260,7 +2260,7 @@ This paragraph describes the case of which a cluster query access a single table
 The following figure describes a local access and a remote access of when the current server is G1N1.
 
 <a id="5a15aa485f9f06f5"></a>
-![Cluster access](../assets/images/73c66b9bb231bb78.png)
+![Cluster access](../assets/images/2f8a6c24ff456b1b.png)
 
 <a id="c7b2fe5b70ecf9c2"></a>
 #### Local Access
@@ -2270,7 +2270,7 @@ It performs the operation only on the current server in driver aspect.
 If enquiring about the cloned table as follows, then it only needs to be performed in the current server because data in every node in all group are the same.
 
 <a id="e81785e0ae400837"></a>
-![Local access (cloned table)](../assets/images/3f8065543398a4d2.png)
+![Local access (cloned table)](../assets/images/c7feccbd3b27693b.png)
 
 ```
 \EXPLAIN PLAN SELECT * FROM customer;
@@ -2307,7 +2307,7 @@ C_CUSTKEY C_NAME
 The data is divided in a group by a shard key, then stored in the sharded table. Therefore, it performs the local access when a filter for a shard key exists and the value can be performed only in the current server.
 
 <a id="03ae7968c1ef92de"></a>
-![Local access (sharded table)](../assets/images/a5a0fff5549f43db.png)
+![Local access (sharded table)](../assets/images/e6a0e7e15644e7bf.png)
 
 ```
 \EXPLAIN PLAN SELECT * FROM orders WHERE o_orderkey = 3;
@@ -2343,7 +2343,7 @@ O_ORDERKEY O_CUSTKEY
 The data is divided in a group by a shard key, then stored in the sharded table. Therefore, it can fetch the result by the remote access only to a specific server when a filter for a shard key exists.
 
 <a id="36e529346a894b54"></a>
-![Remote access](../assets/images/747437cfa008d022.png)
+![Remote access](../assets/images/fa93419b3e412643.png)
 
 ```
 \EXPLAIN PLAN SELECT * FROM orders WHERE o_orderkey = 2;
@@ -2384,7 +2384,7 @@ In the execution plan above, it fetched the result by remotely transferring SQL 
 If the sharded table does not have a filter for the shard key, then it should receive the result by transferring the query to each server.
 
 <a id="5d830d4c1cb09695"></a>
-![Local & remote access](../assets/images/49c8ae03449ee147.png)
+![Local & remote access](../assets/images/6294dd05eb814fd9.png)
 
 ```
 \EXPLAIN PLAN SELECT * FROM orders WHERE o_custkey = 1;
@@ -2442,7 +2442,7 @@ SELECT r_name, n_name
 ```
 
 <a id="27cd5fa467a7c88e"></a>
-![](../assets/images/6a547682bb078639.png)
+![](../assets/images/b525dfc0ba962585.png)
 
 ```
 >>>  start print plan
@@ -2486,7 +2486,7 @@ GROUP BY c_custkey;
 ```
 
 <a id="fb4c57859f773f23"></a>
-![](../assets/images/f33a90c03e2a06aa.png)
+![](../assets/images/d42200b41628ef4d.png)
 
 ```
 >>>  start print plan
@@ -2527,7 +2527,7 @@ GROUP BY c_custkey;
 The following is an example of joining customer and orders without a filter for a shard key column. In this case, the local join is available only after fetching all data in the sharded table.
 
 <a id="ab9c9a51e528fcd5"></a>
-![](../assets/images/fb67443816c7fb4b.png)
+![](../assets/images/206798f925d04f67.png)
 
 ```
 \EXPLAIN PLAN
@@ -2592,7 +2592,7 @@ This chapter describes about joining a cloned table and a sharded table.
 The following is an example of joining customer and orders. Customer is a cloned table, order is a sharded table, and the data is distributed as follows.
 
 <a id="f6db4e7aef44ed55"></a>
-![](../assets/images/e2f0c7b625181da9.png)
+![](../assets/images/039f5450072b6fc6.png)
 
 ```
 \EXPLAIN PLAN
@@ -2662,7 +2662,7 @@ The remote join is available when satisfying the following conditions.
 The following is an example of joining orders and lineitem. Both tables are hash sharded tables, and a shard key join condition exists. They are sharded for orderkey of the same standard, so the join is performed in each server.
 
 <a id="8c6d252fd615bcdb"></a>
-![](../assets/images/ea48b19a1ec5164c.png)
+![](../assets/images/5b4e9f4890744c26.png)
 
 ```
 \EXPLAIN PLAN
@@ -2727,12 +2727,12 @@ SELECT /*+ REMOTE_JOIN(lineitem) */
 ```
 
 <a id="1a4050714010c47e"></a>
-![](../assets/images/e75f2a95ee69f6ae.png)
+![](../assets/images/747ac0c675a110ce.png)
 
 For the query above to perform the remote join, it should fetch all data of lineitem, then shard them with l_partkey and transfer to G1, G2, G3. In this case, a puller and a pusher take this role.
 
 <a id="b8c4b4cfe304f9c6"></a>
-![](../assets/images/d9cdf2234aa70079.png)
+![](../assets/images/bb97d870b0c8d373.png)
 
 - [Cluster Puller](12-sql-languages.md#e4937c3f9dfabfab): It fetches data by transferring the SQL query to each server.
 - [Cluster Pusher](12-sql-languages.md#8bb56017d1fe63a9): It transfers data to each server.

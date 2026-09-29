@@ -3,7 +3,7 @@
 # 26. PSM Language Element References
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/9cd160b708abe9a9)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 25. PSM Packages](25-psm-packages.md) · [Table of contents](../README.md) · [27. PSM SQL References →](27-psm-sql-references.md)
 

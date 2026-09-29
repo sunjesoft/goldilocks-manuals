@@ -3,7 +3,7 @@
 # 44. glocator
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/b17e41b7469eb8b7)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 43. gtrclogger](43-gtrclogger.md) · [Table of contents](../README.md) · [45. gagent →](45-gagent.md)
 
@@ -348,7 +348,7 @@ The service feature is that a user specifies nodes managed by glocator an arbitr
 An application should be accessed by using ODBC driver, and LOCATOR_DSN and LOCATOR_SERVICE property should be specified in [odbc.ini file](../part-05-developer-manual/29-odbc.md#ff97025ffdef9296).
 
 <a id="604bd9b4ce7eafb2"></a>
-![locator_service](../assets/images/50e3bf3980e42169.png)
+![locator_service](../assets/images/caa9b3f938c466b6.png)
 
 The figure above describes that an application accesses to g1n1 belonging to service s3. The connecting sequence of ODBC driver by using the service is as same as the sequence of node registered in the service. If ODBC driver fails to connect to g1n1 in the example above, it will try to connect to the next node g2n1.
 
@@ -365,7 +365,7 @@ The glocator which received a query determines the viability between two nodes w
 
 Nodes received the viabilty results are terminated or proceeds the failover.
 
-> The cluster failover processing time of the server is relevant to various properties. Server property [LOCATOR_QUERY_TIMEOUT](../part-02-administration-manual/10-server-property.md#11fc47d8eb3dc574) sets the time waiting for the response after the server enquires to glocator, and the default value is 3 seconds.   
+> The cluster failover processing time of the server is relevant to various properties. Server property [LOCATOR_QUERY_TIMEOUT](../part-02-administration-manual/10-server-property.md#11fc47d8eb3dc574) sets the time waiting for the response after the server enquires to glocator, and the default value is 20 seconds.   
 > Server property [CLUSTER_SPLIT_BRAIN_RETRY_COUNT](../part-02-administration-manual/10-server-property.md#97e591676118d894) sets the number of enquiring again when glocator does not respond, and it is relevant to the cluster failover processing time. The default value is 1.
 
 <a id="80d48f35b4e98d33"></a>

@@ -3,7 +3,7 @@
 # 38. gloader/gloadernet (Upload/download Tool)
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/05d33acd2fb51cae)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 37. gsql/gsqlnet (Interactive SQL Tool)](37-gsql-gsqlnet-interactive-sql-tool.md) · [전체 목차](../README.md) · [39. gdump →](39-gdump.md)
 
@@ -26,7 +26,7 @@ gloader는 GOLDILOCKS 내에 존재하는 데이터를 테이블 단위로 다�
 gloader는 database와 연결되어야 하고 gloader를 사용할 때 필요한 모든 파일에 주의를 기울여야 한다.
 
 <a id="576daf3fee772457"></a>
-![gloader environment](../assets/images/1f32bd609e042ce5.png)
+![gloader environment](../assets/images/e87d1ac9ee29b472.png)
 
 데이터를 업로드하려면 control file과 datafile이 필요하고 업로드 결과로써 log file이 생성된다.   
 데이터를 다운로드하려면 control file이 필요하고 다운로드 결과로써 datafile과 log file, bad file이 생성된다.

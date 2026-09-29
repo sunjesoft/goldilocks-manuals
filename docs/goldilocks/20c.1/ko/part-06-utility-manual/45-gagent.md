@@ -3,7 +3,7 @@
 # 45. gagent
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/8fc6cc08b617f1a5)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 44. glocator](44-glocator.md) · [전체 목차](../README.md) · [46. gloctl →](46-gloctl.md)
 

@@ -3,7 +3,7 @@
 # 26. PSM Language Element References
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/dad9d2d71e9bde63)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 25. PSM Packages](25-psm-packages.md) · [전체 목차](../README.md) · [27. PSM SQL References →](27-psm-sql-references.md)
 

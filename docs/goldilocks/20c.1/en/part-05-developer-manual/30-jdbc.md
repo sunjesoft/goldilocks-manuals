@@ -3,7 +3,7 @@
 # 30. JDBC
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/f9f5db5c55b6fb9c)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 29. ODBC](29-odbc.md) · [Table of contents](../README.md) · [31. Embedded SQL →](31-embedded-sql.md)
 

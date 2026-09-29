@@ -3,7 +3,7 @@
 # 31. Embedded SQL
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/bdced4d785e476bf)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 30. JDBC](30-jdbc.md) · [전체 목차](../README.md) · [32. PDO →](32-pdo.md)
 
@@ -21,7 +21,7 @@ GOLDILOCKS의 precompiler는 high-level 프로그래밍 언어에서 embedded SQ
 [Embedded SQL 응용 프로그램 개발](#e185cd7f79692695)에 설명된 것과 같이, 사용자가 embedded SQL을 포함하는 C 소스 프로그램을 작성하고, 이를 gpec precompiler를 통하여 변환하면 소스 코드 상에 있던 embedded SQL이 GOLDILOCKS의 library를 호출하는 내용으로 변환된 순수 C 코드가 만들어진다. 이 C 코드는 시스템의 C compiler를 이용하여 object code로 compile한 다음, GOLDILOCKS에서 제공하는 embedded SQL library인 libgoldilocksesql.a와 함께 링크하여 최종 목적인 응용 프로그램을 만든다.
 
 <a id="e185cd7f79692695"></a>
-![Embedded SQL 응용 프로그램 개발](../assets/images/282eafeb37b217c0.png)
+![Embedded SQL 응용 프로그램 개발](../assets/images/7b7f2bed9f53ad7e.png)
 
 <a id="b1f93c902ff6e268"></a>
 #### Embedded SQL 응용 프로그램 개발 도구 구성
@@ -6154,7 +6154,7 @@ GOLDILOCKS는 구조적으로 D/A 모드에서 하나의 thread에 하나의 con
 D/A 모드로 동작할 때는 한 개의 thread가 한 개의 connection만 가질 수 있다. 따라서 n개의 connection을 소유한 응용 프로그램을 작성할 때는 n개의 thread로 작동시켜야 한다.
 
 <a id="98806e1a69555c81"></a>
-![D/A 모드에서 각 thread가 각자의 connection을 가지는 경우](../assets/images/413a838efa72749b.png)
+![D/A 모드에서 각 thread가 각자의 connection을 가지는 경우](../assets/images/e71345235c82a495.png)
 
 <a id="f7d1329720110ac6"></a>
 ##### Client/Server (C/S) 모드
@@ -6162,10 +6162,10 @@ D/A 모드로 동작할 때는 한 개의 thread가 한 개의 connection만 가
 C/S 모드로 동작할 때는 connection에 대한 별도의 제약이 없다. 한 개의 thread가 다수의 connection을 가질 수도 있고, 다수의 thread가 한 개의 connection을 공유할 수도 있다. 물론, n개의 thread가 m개의 connection을 공유할 수도 있다.
 
 <a id="03bea7b70d9d4a6f"></a>
-![다수의 thread가 한 개의 connection을 공유하는 경우](../assets/images/0ba2aa6040fc1365.png)
+![다수의 thread가 한 개의 connection을 공유하는 경우](../assets/images/2f49520155987380.png)
 
 <a id="487ca2126d427152"></a>
-![한 개의 thread가 다수의 connection을 갖는 경우](../assets/images/f823114d1eab9d83.png)
+![한 개의 thread가 다수의 connection을 갖는 경우](../assets/images/730edf321f653308.png)
 
 <a id="2025b75bdcf23fa8"></a>
 #### Guideline

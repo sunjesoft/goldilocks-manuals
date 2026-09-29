@@ -3,7 +3,7 @@
 # 31. Embedded SQL
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/494b76a49e866a0d)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 30. JDBC](30-jdbc.md) · [Table of contents](../README.md) · [32. PDO →](32-pdo.md)
 
@@ -21,7 +21,7 @@ GOLDILOCKS precompiler is a programming development tool which enables a user to
 As described in [Developing the embedded SQL applications](#599e167fa1b96bb8), the user creates a C source program including embedded SQL, and converts it via gpec precompiler. Then, the pure C code is created of which the embedded SQL on the source code is converted to the contents calling the library of GOLDILOCKS. This C code uses C compiler of the system to perform compile as object code and link it with libgoldilocksesql.a which is an embedded SQL library provided by GOLDILOCKS, then completes the final application.
 
 <a id="599e167fa1b96bb8"></a>
-![Developing the embedded SQL applications](../assets/images/62a51c0aad0354be.png)
+![Developing the embedded SQL applications](../assets/images/36f6936e16b74379.png)
 
 <a id="48c23f864ec31b3a"></a>
 #### Configuring Embedded SQL Application Development Tool
@@ -6147,7 +6147,7 @@ GOLDILOCKS structurally allows only a single connection in a thread in D/A mode.
 A single thread has only a single connection in D/A mode. Therefore, n threads are required when developing an application with n connections.
 
 <a id="71263327ccac01bf"></a>
-![In case when each thread has its own connection in D/A mode](../assets/images/e0988f1500b51ab3.png)
+![In case when each thread has its own connection in D/A mode](../assets/images/3e47f49a0686e7d4.png)
 
 <a id="05d186ad7d3c35b0"></a>
 ##### Client/Server (C/S) Mode
@@ -6155,10 +6155,10 @@ A single thread has only a single connection in D/A mode. Therefore, n threads a
 An extra restriction for the connection does not exist when operating in C/S mode. A single thread may have multiple connections or multiple threads may share a single connection. N threads can share m connections.
 
 <a id="6d772d27f8e36917"></a>
-![In case when multiple threads share a single connection](../assets/images/a9685efe364bb612.png)
+![In case when multiple threads share a single connection](../assets/images/1ea0ce97e244a39d.png)
 
 <a id="659b2ea931473c5f"></a>
-![In case when a single thread has multiple connections](../assets/images/80362e7bd62724db.png)
+![In case when a single thread has multiple connections](../assets/images/aa6ebeb04f5b8828.png)
 
 <a id="01c04486c363232a"></a>
 #### Guidelines

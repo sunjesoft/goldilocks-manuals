@@ -3,7 +3,7 @@
 # 18. SQL References
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/5d39fd715389f53f)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 17. Built-in Function References](17-built-in-function-references.md) · [Table of contents](../README.md) · [19. Overview of PSM →](../part-04-psm-manual/19-overview-of-psm.md)
 
@@ -17325,7 +17325,7 @@ If &lt;fetch orientation&gt; is omitted, the default value is NEXT.
 The open cursor has the cursor position information for the result set as follows.
 
 <a id="f5a6f54a8a219ad7"></a>
-![The position of cursor](../assets/images/cf7f2b9094a28ece.png)
+![The position of cursor](../assets/images/e396b67211803048.png)
 
 **The position of cursor**
 
@@ -22708,7 +22708,7 @@ For example, if the data of the table R1 and R2 is given as follows, the result 
     - result = {1, 3, 4}
 
 <a id="d3b5ce09b906067a"></a>
-![SET operation results](../assets/images/1aa8cd73c44d153e.png)
+![SET operation results](../assets/images/0eee2e5d62ee8980.png)
 
 <a id="8389088d5216d6b7"></a>
 ##### Operator Precedence

@@ -3,7 +3,7 @@
 # 5. Basic Management of GOLDILOCKS Database
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/32ceb6dc38470c0a)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 4. What's New](../part-01-getting-started/4-what-s-new.md) · [Table of contents](../README.md) · [6. Structure and Storage Structure of GOLDILOCKS Database →](6-structure-and-storage-structure-of-goldilocks-database.md)
 
@@ -732,7 +732,7 @@ Listener process operates independently from the instance. In other words, liste
 GOLDILOCKS uses SSA which is a memory shared by all sessions in the system, a shared memory for database pages, and PSA (heap memory) which each session uses independently.
 
 <a id="e5c96f0aeef73b16"></a>
-![Shared memory](../assets/images/40ac9906bc243a76.png)
+![Shared memory](../assets/images/bcefa9d5d2eba19f.png)
 
 <a id="3263083d33883ddf"></a>
 ### Managing SSA

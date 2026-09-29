@@ -3,7 +3,7 @@
 # 47. Overview
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/6a441da770703b9b)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 46. gloctl](../part-06-utility-manual/46-gloctl.md) · [Table of contents](../README.md) · [48. CYCLONE →](48-cyclone.md)
 

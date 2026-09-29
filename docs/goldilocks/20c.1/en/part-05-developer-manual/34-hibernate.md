@@ -3,7 +3,7 @@
 # 34. Hibernate
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/91b5e9fb7a837ad3)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 33. PyDBC](33-pydbc.md) · [Table of contents](../README.md) · [35. gcreatedb →](../part-06-utility-manual/35-gcreatedb.md)
 

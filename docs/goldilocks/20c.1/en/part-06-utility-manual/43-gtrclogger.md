@@ -3,7 +3,7 @@
 # 43. gtrclogger
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/16d0bc3ea14d2e15)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 42. gmon](42-gmon.md) · [Table of contents](../README.md) · [44. glocator →](44-glocator.md)
 

@@ -3,7 +3,7 @@
 # 39. gdump
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/bedd62fb8aca9745)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 38. gloader/gloadernet(Upload/download Tool)](38-gloader-gloadernet-upload-download-tool.md) · [Table of contents](../README.md) · [40. tablediff →](40-tablediff.md)
 

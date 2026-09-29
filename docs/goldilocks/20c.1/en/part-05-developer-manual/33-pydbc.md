@@ -3,7 +3,7 @@
 # 33. PyDBC
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/fb576ef1f9d217df)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 32. PDO](32-pdo.md) · [Table of contents](../README.md) · [34. Hibernate →](34-hibernate.md)
 
@@ -317,7 +317,7 @@ It is an object managing the connection with the database, and it is created wit
     - It sets SQL_ATTR_QUERY_TIMEOUT by using SQLSetConnectAttr function.
 
 <a id="0a52bc5c7c29fee9"></a>
-#### Functions
+#### Function
 
 - cursor()
     - It returns a new cursor object.
@@ -546,7 +546,7 @@ CREATE OR REPLACE FUNCTION FUNC1( A1 INTEGER, A2 INTEGER )
 cursor.execute( create_func )
 cursor.commit()
 
-result = cussr.callfunc( 'FUNC1', ( 1,  4) )
+result = cursor.callfunc( 'FUNC1', ( 1,  4) )
 ```
 
 <a id="e5650d1205016fae"></a>
@@ -605,7 +605,7 @@ for r in cursor.columns( table = 'TEST' ):
 
 It obtains the information about the specified table through [SQLStatistics](29-odbc.md#4f8552719ad32620) function.  
 If unique is true, it returns an unique index, and if it is false, it returns all indexes.  
-If quick is true, CARDINALYTIY and PAGES are returned only when it is instantly available, otherwise, NULL is returned to the corresponding column.
+If quick is true, CARDINALITY and PAGES are returned only when it is instantly available, otherwise, NULL is returned to the corresponding column.
 
 1. table_cat
 2. table_schem
@@ -850,7 +850,7 @@ The data is converted as follows when transferring the data of GOLDILOCKS databa
 | --- | --- | --- |
 | any | NULL | None |
 | SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR | text | text |
-| SQL_BINARY_SQL_VARBINARY, SQL_LONGVARBINARY | binary | bytes |
+| SQL_BINARY, SQL_VARBINARY, SQL_LONGVARBINARY | binary | bytes |
 | SQL_NUMERIC | decimal, numeric | decimal.Decimal |
 | SQL_BOOLEAN | bit, bool | bool |
 | SQL_SMALLINT, SQL_INTEGER | integers | int |
@@ -870,7 +870,7 @@ The data is converted as follows when transferring the data of GOLDILOCKS databa
 | --- | --- | --- |
 | any | NULL | None |
 | SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR | text | text |
-| SQL_BINARY_SQL_VARBINARY, SQL_LONGVARBINARY | binary | bytes |
+| SQL_BINARY, SQL_VARBINARY, SQL_LONGVARBINARY | binary | bytes |
 | SQL_NUMERIC | decimal, numeric | decimal.Decimal |
 | SQL_BOOLEAN | bit, bool | bool |
 | SQL_SMALLINT, SQL_INTEGER | integers | int |

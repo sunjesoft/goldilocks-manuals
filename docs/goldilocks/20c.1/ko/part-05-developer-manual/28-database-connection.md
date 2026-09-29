@@ -3,7 +3,7 @@
 # 28. Database Connection
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/e8ddd36be4b4f402)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 27. PSM SQL References](../part-04-psm-manual/27-psm-sql-references.md) · [전체 목차](../README.md) · [29. ODBC →](29-odbc.md)
 
@@ -11,7 +11,7 @@
 ## 특징
 
 <a id="da3054e75cb0fddd"></a>
-![GLOBAL CONNECTION](../assets/images/f3455bfaff4db99b.png)
+![GLOBAL CONNECTION](../assets/images/48770a3f0dbf2379.png)
 
 Global connection 기능은 데이터 지역성 (locality)을 고려한 트랜잭션의 성능 최적화 방안이다.  
 일반적인 connection은 한 멤버와 연결하는 반면 global connection은 모든 멤버와 연결한다. Global connection을 사용하는 응용 프로그램은 질의가 접근해야 하는 데이터가 가장 많은 멤버에 질의를 수행 시킴으로써 처리 성능을 높인다.  
@@ -20,7 +20,7 @@ Global connection은 hash, range, list sharding 방식 모두에 사용할 수 �
 Online scale-out이 수행될 때, 사용자가 새로운 노드를 추가로 고려할 필요없이 응용 프로그램이 새 노드에 자동으로 접속해 해당 노드를 운영할 수 있다.
 
 <a id="3abce43a625d2f52"></a>
-![GLOBAL CONNECTION HA (high availability)](../assets/images/9e1088de1ee74139.png)
+![GLOBAL CONNECTION HA (high availability)](../assets/images/7a0eeff27825e74f.png)
 
 SQL을 수행할 때 선택한 노드에 장애가 발생하면 같은 그룹의 다른 노드를 통해 SQL을 수행하며, 선택된 그룹의 모든 노드에 장애가 발생하면 다른 그룹을 통해 SQL을 수행한다.  
 장애가 발생한 노드를 복구하면 online 상태에서 해당 노드에 자동으로 다시 접속한다. 뿐만 아니라, 사용자가 다음 구문을 사용하여 응용 프로그램으로 하여금 다시 접속을 수행하게 할 수도 있다.
@@ -35,7 +35,7 @@ ALTER SYSTEM RECONNECT GLOBAL CONNECTION
 실행 멤버는 트랜잭션 단위로 선택된다. 트랜잭션이 없는 상태에서 DML 질의가 최초로 수행될 때 sharding key에 따라 그룹이 선택되고, 그룹 내 실행 멤버는 LOCALITY_MEMBER_POLICY 프로퍼티에 따라 결정된다. 이후 COMMIT이나 ROLLBACK 하기 전까지 수행되는 모든 질의는 선택된 멤버에서 수행된다. 만약 최초 질의가 sharding key에 따른 적합한 그룹을 선택하지 못할 경우에는 LOCALITY_GROUP_POLICY 프로퍼티에 따라 그룹이 결정된다.
 
 <a id="90f121ac1120319b"></a>
-![멤버 선정](../assets/images/37869471097b3ead.png)
+![멤버 선정](../assets/images/6a5c23c046d8ff05.png)
 
 위 그림의 transaction1은 UPDATE 질의가 sharding key에 따라 group1에서 수행되었기 때문에 이후 COMMIT 사이의 모든 질의들이 group1에서 실행된다. Transaction2의 경우에는 UPDATE  질의가 group3에서 수행되었고 이후 질의들이 group3에 수행되기 적합하지 않다 하더라도 COMMIT 되기 전까지 모든 질의들이 group3에서 실행된다.
 
@@ -46,12 +46,12 @@ ALTER SYSTEM RECONNECT GLOBAL CONNECTION
 ## Global Session
 
 <a id="cb285ecf93a3c35b"></a>
-![Global connection에서 파생된 cluster session](../assets/images/589a6b19661d184a.png)
+![Global connection에서 파생된 cluster session](../assets/images/3e505a4f56caf774.png)
 
 응용 프로그램과 직접 연결된 session을 driver session이라고 하며, driver session에서 다른 멤버로의 session을 cluster session이라고 한다. Global connection은 모든 멤버에 driver session을 만들고 필요에 따라 다른 멤버로 cluster session들을 만든다. Global connection 특성상 한 멤버에 다수의 cluster session이 만들어질 수 있다.
 
 <a id="9ae22e6ef25d78fd"></a>
-![Global session](../assets/images/3d9b16dfd5249c81.png)
+![Global session](../assets/images/8dece80f03efe4f2.png)
 
 Global session은 global connection에서 만든 cluster session들이 하나의 session을 공유함으로써 자원 효율성을 높이기 위한 기능이다. Global connection이 global session을 사용하지 않는 경우에는 그룹과 멤버가 증가함에따라 cluster session이 증가하는 반면에 global session을 사용하는 경우에는 그룹과 멤버가 증가하더라도 cluster session이 증가하지 않는다.
 

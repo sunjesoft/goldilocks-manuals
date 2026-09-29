@@ -3,7 +3,7 @@
 # 20. PSM DataTypes
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/cae2759761431d28)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 19. Overview of PSM](19-overview-of-psm.md) · [전체 목차](../README.md) · [21. PSM Control Statements →](21-psm-control-statements.md)
 

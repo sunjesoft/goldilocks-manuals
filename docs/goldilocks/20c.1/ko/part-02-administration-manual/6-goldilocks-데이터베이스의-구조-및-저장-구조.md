@@ -3,7 +3,7 @@
 # 6. GOLDILOCKS 데이터베이스의 구조 및 저장 구조
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/6b84f0fb7d327b4a)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 5. GOLDILOCKS 데이터베이스 관리 기본](5-goldilocks-데이터베이스-관리-기본.md) · [전체 목차](../README.md) · [7. GOLDILOCKS 데이터베이스의 백업과 복구 →](7-goldilocks-데이터베이스의-백업과-복구.md)
 
@@ -149,7 +149,7 @@ GOLDILOCKS 데이터베이스는 영속성을 보장하기 위해 redo log file�
 GOLDILOCKS의 redo log 버퍼와 로그 파일은 circular 구조이다. 정의된 로그 그룹의 수만큼 미리 로그 파일을 생성하여 로그를 기록하고 하나의 로그 파일이 가득 차면 다음 로그 파일을 사용한다. 로그 파일이 모두 사용되면 이전에 사용되었던 로그 파일을 재사용 한다. 로그 파일은 여러 개의 멤버를 가진 하나의 로그 그룹이 circular 구조로 구성되어 있고 GOLDILOCKS는 최소 네 개의 로그 그룹을 이용하여 로깅을 수행한다.
 
 <a id="46e1bdc9e42f9fec"></a>
-![GOLDILOCKS redo log file, 로그 buffer 구조](../assets/images/eb14c5bfbce00228.png)
+![GOLDILOCKS redo log file, 로그 buffer 구조](../assets/images/d0a2eadd6bd1d515.png)
 
 <a id="1d2eb036187a2b54"></a>
 ### Redo Log 그룹과 멤버
@@ -612,7 +612,7 @@ FILE_SIZE      NUMBER                         FALSE
 디스크 테이블스페이스에 저장된 테이블과 인덱스 페이지에 접근하기 위해 디스크 데이터파일에서 필요한 페이지를 버퍼에 캐싱한다. GOLDILOCKS는 [BUFFER_CACHE_SIZE](10-server-property.md#a5dee0c6da72e54b) 프로퍼티에 설정된 크기만큼 버퍼 캐쉬를 할당하고 버퍼 캐쉬에 캐싱된 페이지에서 요청된 페이지를 검색하기 위해 [BUFFER_HASH_BUCKETS](10-server-property.md#1bd792f53d5ba663) 프로퍼티에 설정된 크기만큼의 해쉬 테이블을 이용하여 요청된 페이지를 버퍼 캐쉬에서 검색한다. 페이지에 접근할 때마다 터치 카운트를 증가시키고, 버퍼 캐쉬에 여유공간이 없을 경우, 터치 카운트 값이 작은 페이지를 대체하는 LRU 정책을 사용한다.
 
 <a id="f2e16f43cdecbf68"></a>
-![GOLDILOCKS buffer cache 구조](../assets/images/a034c5c496a6f7ac.png)
+![GOLDILOCKS buffer cache 구조](../assets/images/6c5f13a1d7130eae.png)
 
 <a id="d1a3c153efe5931a"></a>
 ### 버퍼 캐쉬 리스트

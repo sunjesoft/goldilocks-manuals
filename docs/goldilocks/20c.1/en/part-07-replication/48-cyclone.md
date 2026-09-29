@@ -3,7 +3,7 @@
 # 48. CYCLONE
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/d496aaaa973ce588)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 47. Overview](47-overview.md) · [Table of contents](../README.md) · [49. LOGMIRROR →](49-logmirror.md)
 
@@ -1347,9 +1347,9 @@ The config properties relating to GOLDILOCKS connection are DSN, PROTOCOL, HOST_
 | CONFIG | PROTOCOL=TCP, USER_ID=test, USER_PW=test |
 | GOLDILOCKS configuration of odbc.ini | HOST_IP=127.0.0.1, HOST_PORT=22581, USER_ID=test2, USER_PW=test2 |
 
-- HOST_EXTERANL_IP can not be set in slave even though it is connected as D/A.
+- HOST_EXTERNAL_IP can not be set in slave even though it is connected as D/A.
 
-**HOST_EXTERANL_IP can be configured for a slave even when the connection uses D/A.**
+**Even when connecting via DA, HOST_EXTERNAL_IP can still be configured on the slave.**
 
 <a id="69c03ce48addd175"></a>
 | Item | File |
@@ -1514,7 +1514,7 @@ prompt> cyclone --master --info --group GROUP1
 The structure of operating CYCLONE is as follows.
 
 <a id="26cb3a1b7dcadfa1"></a>
-![The structure of operating CYCLONE](../assets/images/9955e1146b782f23.png)
+![The structure of operating CYCLONE](../assets/images/9e45e57b9fa81cb7.png)
 
 - Device structure
     - The source device which is the original data

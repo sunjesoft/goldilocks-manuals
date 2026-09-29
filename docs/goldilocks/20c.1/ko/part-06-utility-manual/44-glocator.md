@@ -3,7 +3,7 @@
 # 44. glocator
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/d00263d8ce9e1ce2)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 43. gtrclogger](43-gtrclogger.md) · [전체 목차](../README.md) · [45. gagent →](45-gagent.md)
 
@@ -350,7 +350,7 @@ Service 기능은 glocator에서 관리하는 노드를 사용자가 임의의 �
 응용 프로그램은 ODBC 드라이버를 사용하여 접속해야 하며 [odbc.ini 파일](../part-05-developer-manual/29-odbc.md#f1a0bc8659eada10)에 LOCATOR_DSN과 LOCATOR_SERVICE 속성을 지정해야 한다.
 
 <a id="fb621d9cd7d7eacc"></a>
-![locator_service](../assets/images/9b0fb38745f4510c.png)
+![locator_service](../assets/images/c707237a5c4c2908.png)
 
 위 그림은 응용 프로그램 (application)이 service s3에 속한 g1n1에 접속한 내용이다. ODBC 드라이버가 service를 이용하여 연결하는 순서는 service에 등록된 노드 순서와 동일하다. 위의 예에서 ODBC 드라이버가 g1n1에 연결하는데 실패하면 다음 순서인 노드 g2n1에 연결을 시도할 것이다.
 
@@ -368,7 +368,7 @@ Server 프로퍼티 [CLUSTER_SPLIT_BRAIN_RESOLUTION_POLICY](../part-02-administr
 Viabilty 결과를 받은 노드는 종료되거나 failover를 진행한다.
 
 > Server의 cluster failover 처리 시간은 여러 프로퍼티와 상관 관계가 있다.   
-> Server 프로퍼티 [LOCATOR_QUERY_TIMEOUT](../part-02-administration-manual/10-server-property.md#f5adbf7d9d5267e4)은 server가 glocator에게 질의한 후에 응답을 기다리는 시간으로서 기본값은 3 초로 설정되어 있다.  
+> Server 프로퍼티 [LOCATOR_QUERY_TIMEOUT](../part-02-administration-manual/10-server-property.md#f5adbf7d9d5267e4)은 server가 glocator에게 질의한 후에 응답을 기다리는 시간으로서 기본값은 20초로 설정되어 있다.  
 > Server 프로퍼티 [CLUSTER_SPLIT_BRAIN_RETRY_COUNT](../part-02-administration-manual/10-server-property.md#8494f9beebc38bc1)는 glocator로부터 응답을 받지 못했을 때 다시 질의하는 횟수로서 cluster failover 처리 시간과 관계가 있다. 기본값은 1이다.
 
 <a id="09b77b1f29a38c0c"></a>

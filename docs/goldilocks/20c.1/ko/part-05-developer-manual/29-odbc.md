@@ -3,7 +3,7 @@
 # 29. ODBC
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/a3c3476454921d5f)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 28. Database Connection](28-database-connection.md) · [전체 목차](../README.md) · [30. JDBC →](30-jdbc.md)
 
@@ -42,7 +42,7 @@ ODBC 응용 프로그램을 사용하여 다음과 같은 작업을 수행할 �
 다음은 드라이버 관리자가 시스템에 포함된 소프트웨어 아키텍처이다. 이 경우, 응용 프로그램은 드라이버 관리자 라이브러리로 링크해야 한다.
 
 <a id="18df5af12eb391d1"></a>
-![드라이버 관리자를 포함하는 GOLDILOCKS ODBC driver](../assets/images/83edc1055c10fe3a.png)
+![드라이버 관리자를 포함하는 GOLDILOCKS ODBC driver](../assets/images/99e6d71271d54940.png)
 
 <a id="5f9ee794d1ba230f"></a>
 #### 드라이버 관리자를 포함하지 않는 GOLDILOCKS ODBC Driver
@@ -50,7 +50,7 @@ ODBC 응용 프로그램을 사용하여 다음과 같은 작업을 수행할 �
 다음은 응용 프로그램이 드라이버 관리자를 포함하지 않고, GOLDILOCKS ODBC driver를 사용하는 아키텍처이다. 이 경우, 응용 프로그램은 GOLDILOCKS ODBC driver 라이브러리로 링크해야 한다.
 
 <a id="4676277c2b6497d7"></a>
-![드라이버 관리자를 포함하지 않는 GOLDILOCKS ODBC driver](../assets/images/249e36d961043d06.png)
+![드라이버 관리자를 포함하지 않는 GOLDILOCKS ODBC driver](../assets/images/88fed5a0fe2db8e1.png)
 
 <a id="7a4f43733fabd564"></a>
 ### GOLDILOCKS ODBC Driver 사용
@@ -339,10 +339,10 @@ ALTERNATE_LOCATORS=(HOST=127.0.0.1:PORT=42582,HOST=127.0.0.1:PORT=42583)
 Windows에서는 ODBC 데이터 원본 관리자를 통해 DSN을 추가하거나 설정할 수 있다.
 
 <a id="fe6ebc04e75a4de6"></a>
-![Create new data source](../assets/images/79f74f2e325136cf.png)
+![Create new data source](../assets/images/15e35fc1a17582ab.png)
 
 <a id="2c5d321caf83a552"></a>
-![ODBC driver configuration](../assets/images/3f381f572b4f375a.png)
+![ODBC driver configuration](../assets/images/3aff235f6a777c8e.png)
 
 각 항목에 대한 설명은 다음과 같다.
 
@@ -393,7 +393,7 @@ SQLDriverConnect( dbc,
 ### GLOBAL CONNECTION 처리 과정
 
 <a id="b4f15a8adf9b1b38"></a>
-![Basic steps of applying GLOBAL CONNECTION](../assets/images/ed4f54df15c6aa28.png)
+![Basic steps of applying GLOBAL CONNECTION](../assets/images/9d04df3caaee9d24.png)
 
 1. SQLAllocHandle (DBC)
 +  
@@ -625,7 +625,7 @@ GLOBAL CONNECTION을 사용할 때 SQL 구문으로 COMMIT이나 ROLLBACK을 수
 모든 데이터베이스들은 데이터를 어떻게 저장하는지에 대한 구조체를 가지고 있다. 예를 들어 간단한 sales order 데이터베이스는 다음 그림과 같은 구조체를 가질 것이고 이 때, ID column들은 데이블들을 연결하는데 사용된다.
 
 <a id="823e847ed047fd45"></a>
-![Sales orders 구조체](../assets/images/1ea4bf13c599ebb2.png)
+![Sales orders 구조체](../assets/images/71aea5d7b5169518.png)
 
 이 구조체는 데이터베이스 카탈로그라고 불리는 시스템 테이블들의 set 내에 권한 등과 같은 다른 정보와 함께 저장되어 있다. 이것은 데이터 딕셔너리라고도 불린다.
 
@@ -7837,7 +7837,7 @@ GOLDILOCKS XA는 X/Open CAE 문서 Distributed Transaction Processing: The XA Sp
 X/Open Distributed Transaction Processing(DTP) 모델은 다른 컴퓨터의 기종이 다른 데이터베이스 사이의 트랜잭션 관리를 정의하고 있다.
 
 <a id="470ff0f7f372ace0"></a>
-![](../assets/images/b86255913c710f3e.png)
+![](../assets/images/a3c986b57b42b32f.png)
 
 - Appication Program (AP): 트랜잭션으로 구성된 작업을 정의한다.
 - Resouce Managers (RM): 분산 트랜잭션이 접근하는 공유 자원을 관리한다. GOLDILOCKS와 같은 데이터베이스 관리 시스템을 의미한다.

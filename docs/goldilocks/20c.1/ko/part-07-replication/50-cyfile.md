@@ -3,7 +3,7 @@
 # 50. CYFILE
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/615510d30f326bf4)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 49. LOGMIRROR](49-logmirror.md) · [전체 목차](../README.md) · [부록 A. Error Codes →](../appendices/appendix-01-부록-a-error-codes.md)
 
@@ -804,7 +804,7 @@ CSV 형식의 transaction 단위로 수행되는 I/D/U 정보 및 capture에 참
 - 실제 데이터는 column name, column value의 pair로 전체 column의 정보가 기술된다.
 
 <a id="c3e37418b2f7573c"></a>
-![INSERT 표현식](../assets/images/a5884fe9d473c665.png)
+![INSERT 표현식](../assets/images/6510f23eddde5590.png)
 
 ```
 Query: INSERT INTO PUBLIC.TEST(C1, C2, C3) VALUES( 1, 2, 'ABC' );
@@ -823,7 +823,7 @@ CSV 저장: T, I, "PUBLIC", "TEST", "C1", "1", "C2", NULL, "C3", "ABC"
 - 삭제된 데이터의 primary key 정보가 기술되며 composite key일 경우에는 primary key count가 2이상이 되고 해당 개수만큼 반복 기술된다.
 
 <a id="b5462ccb4fe1d844"></a>
-![DELETE 표현식](../assets/images/3fe44eed8079c266.png)
+![DELETE 표현식](../assets/images/f4498ffeda9201dd.png)
 
 ```
 Sample: Primary key가 한 개인 경우
@@ -846,7 +846,7 @@ CSV 저장: T, D, "PUBLIC", "TEST", 2, "C1", "1", "C2", "2"
     - UPDATE_BEFORE_VALUE가 1로 설정된 경우에는 갱신 전의 값이 함께 기술된다.
 
 <a id="0cb5ca50bc3bab06"></a>
-![UPDATE 표현식](../assets/images/faf423bb2428cc68.png)
+![UPDATE 표현식](../assets/images/d036ac3581777092.png)
 
 ```
 Sample: Primary key가 C1 한 개인 레코드의 C2 값을 1에서 2로 변경
@@ -881,10 +881,10 @@ CSV 저장: T, U, "PUBLIC", "TEST", 2, "C1", "1", "C2", "2", "C3", "ABC", "BCD",
         - Cluster 환경일 경우에는 (Global SCN)
 
 <a id="b6640cc4845a774d"></a>
-![Transaction begin 표현식](../assets/images/cfe079203de60076.png)
+![Transaction begin 표현식](../assets/images/98b23b3df5998c6f.png)
 
 <a id="af090400f6c92739"></a>
-![Transaction commit 표현식](../assets/images/0b6c85329cc5f01f.png)
+![Transaction commit 표현식](../assets/images/ddf027a08d18f265.png)
 
 <a id="7ca58cb8b8301931"></a>
 #### Table 정보
@@ -901,10 +901,10 @@ CSV 저장: T, U, "PUBLIC", "TEST", 2, "C1", "1", "C2", "2", "C3", "ABC", "BCD",
     - Reset 옵션을 사용하여 해당 테이블을 다시 이중화에 참여시킬 수 있다.
 
 <a id="93a88b8048e008ad"></a>
-![Table 표현식](../assets/images/e04f99cb4d4a5845.png)
+![Table 표현식](../assets/images/c0d822df1b253b35.png)
 
 <a id="86f5df81f8a11df9"></a>
-![COLUMN 표현식](../assets/images/3f4ce0191d9294e7.png)
+![COLUMN 표현식](../assets/images/5858998da5d63996.png)
 
 - TEST, TEST2 테이블 정보
 
@@ -931,13 +931,13 @@ I,C,"C2","VARCHAR(20)",0,0,1
         - 해당 데이터 파일의 정보가 기록된 컨트롤 파일의 경로가 기록된다.
 
 <a id="47a8f82d22be7ee2"></a>
-![Version 표현식](../assets/images/09fb83bc191ac48b.png)
+![Version 표현식](../assets/images/cade86f8424f24cd.png)
 
 <a id="fb141208f402fa08"></a>
-![날짜정보 표현식](../assets/images/07f7cff3b1f766a9.png)
+![날짜정보 표현식](../assets/images/e6f78252704b28a6.png)
 
 <a id="f3f430bc488533b1"></a>
-![컨트롤 파일 정보 표현식](../assets/images/cac232312741107c.png)
+![컨트롤 파일 정보 표현식](../assets/images/b9ad9a874afabb48.png)
 
 ```
 I,V, 00000000
@@ -952,7 +952,7 @@ I,M,"/home/cyfile/ctrl_file/cyfile.GROUP1.ctl"
     - 해당 정보가 기록될 경우에는 다음 파일을 읽어서 처리하도록 해야 한다.
 
 <a id="f25d42f5bcdbce39"></a>
-![EOF 표현식](../assets/images/dcf202af91951918.png)
+![EOF 표현식](../assets/images/4e9191c304a6bf1f.png)
 
 <a id="135e909fe20450d0"></a>
 ### Control File

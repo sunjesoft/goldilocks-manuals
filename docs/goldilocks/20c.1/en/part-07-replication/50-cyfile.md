@@ -3,7 +3,7 @@
 # 50. CYFILE
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/52130028f49b61b1)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 49. LOGMIRROR](49-logmirror.md) · [Table of contents](../README.md) · [Appendix A. Error Codes →](../appendices/appendix-01-appendix-a-error-codes.md)
 
@@ -803,7 +803,7 @@ When a new file is created because the data file size becomes bigger than DATA_F
 - The actual data is a pair of the column name and the column value, and the information about the entire column is described in it.
 
 <a id="505c1bdd1f874b47"></a>
-![INSERT expression](../assets/images/d535871ff5fcb369.png)
+![INSERT expression](../assets/images/fcddaf59a9d681b6.png)
 
 ```
 Query: INSERT INTO PUBLIC.TEST(C1, C2, C3) VALUES( 1, 2, 'ABC' );
@@ -822,7 +822,7 @@ CSV storage: T, I, "PUBLIC", "TEST", "C1", "1", "C2", NULL, "C3", "ABC"
 - The primary key information of the deleted data is described, and if it is a composite key, then the primary key count becomes 2 or bigger and repeatedly described as many times as the count.
 
 <a id="2f80e34d92460d0a"></a>
-![DELETE expression](../assets/images/e48a2b368c5a014f.png)
+![DELETE expression](../assets/images/ecd12f11b0111e3c.png)
 
 ```
 Sample: When there is one primary key
@@ -845,7 +845,7 @@ CSV storage: T, D, "PUBLIC", "TEST", 2, "C1", "1", "C2", "2"
     - When UPDATE_BEFORE_VALUE is set to 1, the value before the update is described together.
 
 <a id="992217ef034f1b0d"></a>
-![UPDATE expression](../assets/images/d985228cca6b0565.png)
+![UPDATE expression](../assets/images/c520d0877092af70.png)
 
 ```
 Sample: C2 value in the record whose primary key is only c1 is changed from 1 to 2. 
@@ -880,10 +880,10 @@ CSV storage: T, U, "PUBLIC", "TEST", 2, "C1", "1", "C2", "2", "C3", "ABC", "BCD"
         - For cluster environment (Global SCN)
 
 <a id="8c15ae54f986226f"></a>
-![Transaction begin expression](../assets/images/4cb9dac80c6a072b.png)
+![Transaction begin expression](../assets/images/da7c9bbbe3009dec.png)
 
 <a id="ae306596900186e5"></a>
-![Transaction commit expression](../assets/images/35fc7a2754987436.png)
+![Transaction commit expression](../assets/images/07827118913e429d.png)
 
 <a id="f4cfc52818fe2522"></a>
 #### Table Information
@@ -900,10 +900,10 @@ CSV storage: T, U, "PUBLIC", "TEST", 2, "C1", "1", "C2", "2", "C3", "ABC", "BCD"
     - It can make the table to participate in the replication again by using reset option.
 
 <a id="142c7bc493648f8f"></a>
-![Table expression](../assets/images/756c5f9bcfb6c49f.png)
+![Table expression](../assets/images/00580bf50e7fab65.png)
 
 <a id="905c20cc83fcf20f"></a>
-![COLUMN expression](../assets/images/09c8674ff55adec6.png)
+![COLUMN expression](../assets/images/eb5c969e6306d5a9.png)
 
 - Information about table TEST, TEST2
 
@@ -930,13 +930,13 @@ I,C,"C2","VARCHAR(20)",0,0,1
         - It records the path of the control file in which the information of the data file is recorded.
 
 <a id="dae1a610ba8befec"></a>
-![Version expression](../assets/images/f9035eae4d465daa.png)
+![Version expression](../assets/images/44cba81386ddf5c2.png)
 
 <a id="42c7d276df1e7a57"></a>
-![Date information expression](../assets/images/282c36d59dcf1866.png)
+![Date information expression](../assets/images/8f7fe850b5b0d8d1.png)
 
 <a id="1baf319c1a44382d"></a>
-![Control file information expression](../assets/images/58e0eb61b6389300.png)
+![Control file information expression](../assets/images/9793d7ba5f768a6c.png)
 
 ```
 I,V, 00000000
@@ -951,7 +951,7 @@ I,M,"/home/cyfile/ctrl_file/cyfile.GROUP1.ctl"
     - Process it by reading the following file when that information is recorded.
 
 <a id="68e13f3371fce238"></a>
-![EOF expression](../assets/images/0e9bc6ebe38427e2.png)
+![EOF expression](../assets/images/b6658b8d65611e95.png)
 
 <a id="10215dc6dfe8e513"></a>
 ### Control File

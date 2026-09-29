@@ -3,7 +3,7 @@
 # 37. gsql/gsqlnet (Interactive SQL Tool)
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/35503e53d20c27eb)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 36. glsnr](36-glsnr.md) · [전체 목차](../README.md) · [38. gloader/gloadernet (Upload/download Tool) →](38-gloader-gloadernet-upload-download-tool.md)
 

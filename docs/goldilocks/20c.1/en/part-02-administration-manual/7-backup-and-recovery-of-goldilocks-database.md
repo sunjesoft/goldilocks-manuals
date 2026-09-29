@@ -3,7 +3,7 @@
 # 7. Backup and Recovery of GOLDILOCKS Database
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/f9839db69515b889)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 6. Structure and Storage Structure of GOLDILOCKS Database](6-structure-and-storage-structure-of-goldilocks-database.md) · [Table of contents](../README.md) · [8. GOLDILOCKS Database Replication →](8-goldilocks-database-replication.md)
 
@@ -174,7 +174,7 @@ The given level of incremental backup searches for the time when the same level 
 For example, after performing level 0 backup, level 2 backup(1) backs up only the modified parts after the level 0 backup, and level 2 backup(2) backs up the modified part after the level 2(1) backup. In the same way, level 2 backup(3), (4), (5), (6) backs up the modified part after the level 2 backup. The level 1 backup which was executed lastly backs up all modified parts after the level 0 backup.
 
 <a id="b79db094a324b16b"></a>
-![Incremental backup](../assets/images/d6ecaaa920e72854.png)
+![Incremental backup](../assets/images/481c9531e88e1ea4.png)
 
 <a id="2a2294d48151c826"></a>
 ##### Database Incremental Backup
@@ -319,7 +319,7 @@ In analysis phase for the recovery using backup, like as the automatic recovery,
 The checkpoint LSN recorded in data file header stores the checkpointed LSN of the corresponding data file. Therefore, when using the backup datafile, select the oldest checkpoint LSN, and then select the minimum value comparing to the checkpoint LSN in the control file, then the minimum checkpoint LSN for the recovery is determined.
 
 <a id="45d8bc0157076322"></a>
-![Procedure to determine the minimum checkpoint LSN for the recovery](../assets/images/946021b13f53058c.png)
+![Procedure to determine the minimum checkpoint LSN for the recovery](../assets/images/e7ed184d6232abd3.png)
 
 <a id="03fda9877ce15b37"></a>
 ##### Recovery Using Archive Log Files

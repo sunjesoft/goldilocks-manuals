@@ -3,7 +3,7 @@
 # 13. SQL Objects
 
 > Source: [GOLDILOCKS 20c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/en/3a661557b1315074)  
-> Tag: `20c.1_30_tag`
+> Tag: `20c.1_31_tag`
 
 [← 12. SQL Languages](12-sql-languages.md) · [Table of contents](../README.md) · [14. Cluster Objects →](14-cluster-objects.md)
 
@@ -65,7 +65,7 @@ A database consists of multiple SQL objects.
 SQL objects in database are classified as SQL schema objects and non-schema objects, depending on whether they are included in the SCHEMA.
 
 <a id="6a4fbcd3d6dff685"></a>
-![SQL objects](../assets/images/9001b1871fecc49e.png)
+![SQL objects](../assets/images/c5337fe871181be1.png)
 
 SQL schema objects are included in the SCHEMA, and they are as follows.
 
@@ -1892,7 +1892,7 @@ CREATE TABLE u1.t1 ( id BIGINT, name VARCHAR(128) ) TABLESPACE mem_data_tbs;
 In the figure below, the owner of the table t1 is the account u1 who is the owner of the schema u1. The schema u1 is the logical location which includes the table, and the table space mem_data_tbs is the physical storage which stores the table.
 
 <a id="5d1496895dadbe35"></a>
-![CREATE TABLE and non-schema objects](../assets/images/af14b86ffc7dc9a3.png)
+![CREATE TABLE and non-schema objects](../assets/images/9aacefd9834cbf43.png)
 
 In this case, the user u1 who performed the statement needs the following privileges for the schema and tablespace to which the table t1 will belong.
 
@@ -1987,7 +1987,7 @@ SELECT id, name FROM u1.t1 WHERE id < 100;
 ```
 
 <a id="bb9df13cee64037e"></a>
-![Privilege to execute SELECT statement](../assets/images/35eb210bfb3df232.png)
+![Privilege to execute SELECT statement](../assets/images/d4e1b53f1cdc255f.png)
 
 - SELECT ON TABLE u1.t1
     - SELECT privilege for the table u1.t1
@@ -2238,7 +2238,7 @@ The SQL standard does not explicitly define the relationship of the non-schema o
 When establishing the database, GOLDILOCKS configures various relationships between the users and schemas in accordance with the characteristics of the client system as follows.
 
 <a id="150d152634815a42"></a>
-![Relationship between user and schema](../assets/images/1c802b443b685183.png)
+![Relationship between user and schema](../assets/images/420d459e42a5ecfa.png)
 
 To configure the database in which each user has its own schema as shown in the figure (a), create the users and schemas as follows.
 
@@ -2318,7 +2318,7 @@ gSQL> SELECT * FROM t1;
 The figure below illustrates an example of a schema path for user u1. The schema path of user u1 is designated in an order of {s1, s2, s3}. Schema s1 has a table t1, schema s2 has a table t2, and the schema s3 has tables t1 and t3.
 
 <a id="6ab95698a05d32a3"></a>
-![Example of schema path](../assets/images/1d94a1c38f22e987.png)
+![Example of schema path](../assets/images/3beba55f982348b8.png)
 
 In the SELECT statement without the schema name, the schema name is construed by the schema path as follows.
 
@@ -2690,7 +2690,7 @@ Physical objects such as tables, indexes which are stored in a tablespace can be
 A tablespace can be extended by adding the shared memory.
 
 <a id="18a067c7bfa61f2d"></a>
-![Concept of tablespace](../assets/images/5e8f41e508a627ee.png)
+![Concept of tablespace](../assets/images/5f6df69cc774b84c.png)
 
 Tablespaces are classified into three types depending on the stored data type as follows.
 
@@ -3442,7 +3442,7 @@ The sequence value can be used only in the following statements.
 - The select list value of the top-level SELECT statement
     - SELECT seq.NEXTVAL FROM dual;
 - The select list value of INSERT .. SELECT statement
-    - INSERT INTO t1(id) SELECT seq.NEXTVAL FROM daul;
+    - INSERT INTO t1(id) SELECT seq.NEXTVAL FROM dual;
 - Input value of INSERT .. VALUES statement
     - INSERT INTO t1(id) VALUES ( seq.NEXTVAL );
 - SET value of UPDATE statement

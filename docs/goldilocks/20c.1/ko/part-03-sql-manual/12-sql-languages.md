@@ -3,7 +3,7 @@
 # 12. SQL Languages
 
 > 원본: [GOLDILOCKS 20c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/20c_1/manual/ko/773e68ee24212b38)  
-> 태그: `20c.1_30_tag`
+> 태그: `20c.1_31_tag`
 
 [← 11. SQL Elements](11-sql-elements.md) · [전체 목차](../README.md) · [13. SQL Objects →](13-sql-objects.md)
 
@@ -1571,7 +1571,7 @@ GOLDILOCKS cluster에는 별도의 meta server가 없으며 사용자는 cluster
 Cluster 환경에서 DDL은 아래 그림과 같은 절차에 따라 실행된다.
 
 <a id="24113a49c08f2bb0"></a>
-![Cluster의 DDL 처리 과정](../assets/images/00219db886678be8.png)
+![Cluster의 DDL 처리 과정](../assets/images/3f7e216ec2377519.png)
 
 DDL은 lock phase와 execution phase로 나뉘어 처리된다. Lock phase는 DDL 수행에 필요한 lock을 획득하는 단계로써 모든 cluster member들에 대해 순차적으로 DDL을 수행한다. Execute phase에서는 모든 cluster member에 대해 동시에 DDL을 처리한다.
 
@@ -1612,7 +1612,7 @@ Cluster 환경에는 sharded table과 cloned table ([Cluster Table과 Shard](14-
 다음 그림은 3 x 2로 구성된 GOLDILOCKS의 cluster와 해당 cluster에 저장된 table들이다.
 
 <a id="e06616efb2dcc6f4"></a>
-![3 x 2 cluster 구성과 table](../assets/images/53fb5cc3f24160b6.png)
+![3 x 2 cluster 구성과 table](../assets/images/cc455c2c62c24243.png)
 
 다음은 위 그림의 table들을 생성하는 DDL 구문이다.
 
@@ -1683,7 +1683,7 @@ Cluster puller node는 데이터 수집 (collection)과 데이터 조작 (manipu
 다음 그림은 cluster puller를 수행하는 프로세스이다.
 
 <a id="1a7792bb14ccc255"></a>
-![Cluster puller 수행](../assets/images/6b5cae320e098aad.png)
+![Cluster puller 수행](../assets/images/a31e7ca3c08c5199.png)
 
 Cluster puller는 local server로부터 데이터를 얻는 방식과 remote server로부터 데이터를 가져올 때 전달한 remote server를 구분할지 여부에 따라 구분된다.
 
@@ -1945,7 +1945,7 @@ Cluster puller plan node는 local server와 remote server로부터 데이터를 
 다음은 plan based cluster를 수행하는 예이다.
 
 <a id="6533754c6e5608d7"></a>
-![Plan based cluster](../assets/images/c085c1e716fb9809.png)
+![Plan based cluster](../assets/images/40d94b4e2b80b0c4.png)
 
 <a id="9dcf63d84f5c8f56"></a>
 ##### Single Cluster
@@ -1964,7 +1964,7 @@ Single cluster는 다음과 같은 데이터 조작 방법을 지원한다.
 다음은 single cluster를 수행하는 예이다.
 
 <a id="580d6d9322e81453"></a>
-![Single cluster](../assets/images/b0eb1671b3e148c5.png)
+![Single cluster](../assets/images/7bce1eeb77064806.png)
 
 <a id="0713be51b5c3ecb6"></a>
 ##### Multiple Cluster
@@ -1984,7 +1984,7 @@ Multiple cluster는 다음과 같은 데이터 조작 방법을 지원한다.
 다음은 multiple cluster를 수행하는 예이다.
 
 <a id="596b6846006dd123"></a>
-![Multiple cluster](../assets/images/d400b88625c223a5.png)
+![Multiple cluster](../assets/images/a690ba2ba3ca3a4d.png)
 
 <a id="e260b84c79c55126"></a>
 #### Cluster Domain
@@ -3233,7 +3233,7 @@ SHARD_KEY
 Cluster pusher node는 cluster puller node의 효율적 질의 수행을 위해 가상의 table을 생성하고 관리한다.
 
 <a id="41d10327449c1683"></a>
-![Cluster puller vs cluster pusher](../assets/images/e76dac7ba552ae22.png)
+![Cluster puller vs cluster pusher](../assets/images/d52ab13d7ef307b0.png)
 
 Cluster puller node는 데이터를 수집하는 역할을 한다. Cluster pusher node는 데이터를 새로운 table 형태로 분배하는 역할을 한다.
 
@@ -3243,7 +3243,7 @@ Cluster pusher node는 pusher table을 선언 (declaration)하고 데이터를 �
 - 데이터 적재 (loading data): Cluster pusher node 하위로부터 가져온 데이터를 pusher table에 적재한다.
 
 <a id="0647fb6ce754ab0b"></a>
-![Cluster pusher 수행](../assets/images/a15181e7bcebb39e.png)
+![Cluster pusher 수행](../assets/images/1a2416d85f0e3bf6.png)
 
 다음은 cluster pusher를 사용하는 예이다.
 
@@ -5748,7 +5748,7 @@ CREATE TABLE t1( shard_key INTEGER, c1 INTEGER )
 Cluster 환경에서 DML은 아래 그림과 같은 절차로 수행된다.
 
 <a id="8cf8bbdf53a7d716"></a>
-![Cluster에서의 DML 처리](../assets/images/a659041bf884fd54.png)
+![Cluster에서의 DML 처리](../assets/images/80b22d363f8af41b.png)
 
 Cluster에서 DML을 처리하기 위해 각 group의 master server와 slave server를 정의한다.
 
@@ -5806,7 +5806,7 @@ Query 기반 DML은 사용자로부터 query를 받은 server가 내부적으로
 Generated query를 이용한 데이터 조작은 아래 그림과 같은 절차로 수행된다.
 
 <a id="7d5e9b426dd61c78"></a>
-![Generated query를 이용한 데이터 변경 (전체 cluster group 대상 변경)](../assets/images/8b6efb4c1c9fb9ae.png)
+![Generated query를 이용한 데이터 변경 (전체 cluster group 대상 변경)](../assets/images/ab583113a8b39813.png)
 
 위의 그림과 같이 조건절에 조작 대상 cluster group을 선택하기 위한 조건이 없는 경우, 모든 cluster group이 generated query를 이용한 데이터 조작의 대상이 된다.
 
@@ -5818,7 +5818,7 @@ Generated query 이용한 데이터 조작은 다음과 같은 절차로 수행�
 조건절에 의해 특정 cluster group만 데이터 조작 대상으로 정해지는 경우에는 아래 그림과 같은 절차로 수행된다.
 
 <a id="1c1b9fb5c5e86f09"></a>
-![Generated query를 이용한 데이터 변경 (특정 cluster group 대상 변경)](../assets/images/6ddc63f1e25b0a18.png)
+![Generated query를 이용한 데이터 변경 (특정 cluster group 대상 변경)](../assets/images/127784bb581414ea.png)
 
 위의 그림과 같이 shard_key = 1 이라는 검색 조건을 사용하여 조작 대상을 특정한 경우, sharding 정책에 의해 shard_key가 1에 해당하는 레코드가 cluster group G1에 있는 것을 알 수 있다. 따라서 G1 cluster group의 레코드만 삭제한다.
 
@@ -6260,7 +6260,7 @@ Global secondary index를 사용하지 않는 global rowid 기반 DML은 master 
 Global secondary index를 사용하지 않는 rowid를 이용한 데이터 조작은 아래 그림과 같은 절차로 수행된다.
 
 <a id="5fb19aeeb899cfa8"></a>
-![Global secondary index를 사용하지 않는 global rowid 기반 DML](../assets/images/08e76e722055ac13.png)
+![Global secondary index를 사용하지 않는 global rowid 기반 DML](../assets/images/0c9c44d2c7e22004.png)
 
 레코드를 추가하는 경우에는 새로운 레코드들에 rowid를 부여하고 각 레코드들을 master server의 적합한 위치에 저장한다. 모든 레코드를 master server에 반영한 후에 slave server에 반영한다.
 
@@ -6307,7 +6307,7 @@ Master server와 slave server에 포함된 복제된 레코드는 동일한 glob
 Global secondary index를 사용하는 rowid를 이용한 데이터 조작은 아래 그림과 같은 절차로 수행된다.
 
 <a id="56884a4eef58ae3e"></a>
-![Global secondary index를 사용하는 rowid를 이용한 데이터 조작](../assets/images/8c21afc24b51f941.png)
+![Global secondary index를 사용하는 rowid를 이용한 데이터 조작](../assets/images/06d87d27adac0f71.png)
 
 Rowid 정보 수집 단계에서는 사용자 query를 받은 server가 데이터 조작 대상 레코드에 대한 rowid와 column 값을 수집한다.
 
