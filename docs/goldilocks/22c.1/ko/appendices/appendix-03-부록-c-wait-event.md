@@ -3,7 +3,7 @@
 # 부록 C. Wait Event
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/67b2191de001eb2e)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 부록 B. Error Codes](appendix-02-부록-b-error-codes.md) · [전체 목차](../README.md) · [부록 D. Open Source License →](appendix-04-부록-d-open-source-license.md)
 
@@ -64,7 +64,7 @@ Parameter: None
 <a id="a2baecc05ae3ac43"></a>
 ### SEND: DEDICATE-SERVER SPOOLED RESPONSE
 
-Dedicate mode에서 dedicate server가 spool 된 response를 client로 send하는 시간이다.
+Dedicated mode에서 dedicate server가 spool 된 response를 client로 send하는 시간이다.
 
 **PARAMETER**
 
@@ -76,7 +76,7 @@ Dedicate mode에서 dedicate server가 spool 된 response를 client로 send하�
 <a id="86d3ebd0b563161c"></a>
 ### SEND: DEDICATE-SERVER RESPONSE
 
-Dedicate mode에서 dedicate server가 response를 client로 send하는 시간이다.
+Dedicated mode에서 dedicate server가 response를 client로 send하는 시간이다.
 
 **PARAMETER**
 
@@ -88,7 +88,7 @@ Dedicate mode에서 dedicate server가 response를 client로 send하는 시간�
 <a id="e1d86434d7dc6328"></a>
 ### RECV: DEDICATE-SERVER REQUEST
 
-Dedicate mode에서 dedicate server가 client의 request를 receive하는 시간이다.   
+Dedicated mode에서 dedicate server가 client의 request를 receive하는 시간이다.   
 Parameter: None
 
 <a id="4bb8949cb4162497"></a>

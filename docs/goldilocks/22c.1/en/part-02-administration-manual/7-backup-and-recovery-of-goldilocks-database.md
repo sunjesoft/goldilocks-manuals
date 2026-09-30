@@ -3,7 +3,7 @@
 # 7. Backup and Recovery of GOLDILOCKS Database
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/58df7a7a9faf348b)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 6. Structure and Storage Structure of GOLDILOCKS Database](6-structure-and-storage-structure-of-goldilocks-database.md) · [Table of contents](../README.md) · [8. GOLDILOCKS Database Replication →](8-goldilocks-database-replication.md)
 
@@ -221,7 +221,7 @@ It should scan the entire data file to figure whether any page is updated after 
 
 Change tracking stores only updated pages after the incremental backup, then performs the next incremental backup by selecting updated pages only without full scan. Therefore, the backup time is decreased.
 
-However, if most of the pages in the data file were updated, then it should backup the most part of the data file, so the the change tracking is not efficient. The change tracking is available when the database is in ARCHIVELOG mode only, but it is not available in NOARCHIVELOG mode.
+However, if most of the pages in the data file were updated, then it should backup the most part of the data file, so the change tracking is not efficient. The change tracking is available when the database is in ARCHIVELOG mode only, but it is not available in NOARCHIVELOG mode.
 
 The following is an example of enable/ disable the change tracking in the database.
 

@@ -3,7 +3,7 @@
 # 43. gsyncher
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/063f1cccf630062e)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 42. tablediff](42-tablediff.md) · [전체 목차](../README.md) · [44. gmon →](44-gmon.md)
 

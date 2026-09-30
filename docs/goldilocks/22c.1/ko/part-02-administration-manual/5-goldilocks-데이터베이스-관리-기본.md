@@ -3,7 +3,7 @@
 # 5. GOLDILOCKS 데이터베이스 관리 기본
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/b7aadfa23ccce629)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 4. What's New](../part-01-getting-started/4-what-s-new.md) · [전체 목차](../README.md) · [6. GOLDILOCKS 데이터베이스의 구조 및 저장 구조 →](6-goldilocks-데이터베이스의-구조-및-저장-구조.md)
 
@@ -13,7 +13,7 @@
 <a id="3bdd249b8aadf09e"></a>
 ### 데이터베이스 생성
 
-GOLDILOCKS package에 포함된 gcreatedb를 이용하여 데이터베이스를 생성한다. 데이터베이스 생성에 앞서 다음과 같은 몇가지 사항을 고려해야 한다.
+GOLDILOCKS package에 포함된 gcreatedb를 이용하여 데이터베이스를 생성한다. 데이터베이스 생성에 앞서 다음과 같은 몇 가지 사항을 고려해야 한다.
 
 **데이터베이스 생성 시 고려 사항**
 

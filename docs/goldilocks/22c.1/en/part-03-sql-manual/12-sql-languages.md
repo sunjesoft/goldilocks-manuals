@@ -3,7 +3,7 @@
 # 12. SQL Languages
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/54f4186549fa3412)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 11. SQL Elements](11-sql-elements.md) · [Table of contents](../README.md) · [13. SQL Objects →](13-sql-objects.md)
 
@@ -468,6 +468,7 @@ For more information, refer to the followings.
     - [DELETE FROM name RETURNING](19-sql-references-c-g.md#158f475a8288c432)
     - [DELETE FROM name RETURNING .. INTO](19-sql-references-c-g.md#d25c79c37d14d79b)
     - [DELETE FROM name WHERE CURRENT OF cursor_name](19-sql-references-c-g.md#b7c6953ae9100bd3)
+    - [BULK DELETE FROM](18-sql-references-a-b.md#aa5008132a5b8588)
 
 - SELECT related statements: [SELECT .. INTO](20-sql-references-h-z.md#62c0547d8bd310b3)
 

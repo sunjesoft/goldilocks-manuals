@@ -3,7 +3,7 @@
 # 8. GOLDILOCKS Database Replication
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/6d0f6d52d91a79c5)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 7. Backup and Recovery of GOLDILOCKS Database](7-backup-and-recovery-of-goldilocks-database.md) · [Table of contents](../README.md) · [9. Database Information →](9-database-information.md)
 

@@ -2,7 +2,7 @@
 
 # 파트 I. Getting Started
 
-> 원본 태그: `22c.1_10_tag`
+> 원본 태그: `22c.1_11_tag`
 
 [전체 목차](../README.md)
 

@@ -3,7 +3,7 @@
 # 19. SQL References (C~G)
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/015ea2ab23f76892)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 18. SQL References (A~B)](18-sql-references-a-b.md) · [전체 목차](../README.md) · [20. SQL References (H~Z) →](20-sql-references-h-z.md)
 
@@ -1052,7 +1052,7 @@ SQL 표준에서는 cluster에 대한 개념을 정의하지 않고 있다.
 - SIZE &lt;size clause&gt; 
     - 새로운 파일일 경우 SIZE 절을 이용해 초기 크기를 지정한다. 
     - 파일이 존재할 경우 에러가 발생한다. 
-    - 파일의 크기는 최소 1 M ~ 최대 30 G 까지 지정할 수 있다.
+    - 파일의 크기는 최소 4 M ~ 최대 30 G 까지 지정할 수 있다.
 
 - REUSE 
     - 이미 존재하는 파일일 경우 REUSE 절을 이용한다. 
@@ -1845,7 +1845,7 @@ MEMORY와 DATA 예약어는 생략할 수 있다.
 - SIZE &lt;size clause&gt; 
     - 새로운 파일일 경우 SIZE 절을 이용해 초기 크기를 지정한다. 
     - 파일이 존재할 경우 에러가 발생한다. 
-    - 파일의 크기는 최소 1 M ~ 최대 30 G 까지 지정할 수 있다.
+    - 파일의 크기는 최소 4 M ~ 최대 30 G 까지 지정할 수 있다.
 
 - REUSE 
     - 이미 존재하는 파일일 경우 REUSE 절을 이용한다. 
@@ -1990,7 +1990,7 @@ MEMORY 예약어는 생략할 수 있다.
     - memory_name의 길이는 1024 바이트보다 작아야 한다. 
 - SIZE &lt;size clause&gt; 
     - 초기 크기를 지정한다. 
-    - 최소 1 M ~ 최대 30 G 까지 지정할 수 있다.
+    - 최소 4 M ~ 최대 30 G 까지 지정할 수 있다.
 
 <a id="4a461da77534ce61"></a>
 #### &lt;size clause&gt;
@@ -2258,7 +2258,7 @@ Oracle의 ORA12C_VERIFY_FUNCTION 비밀번호 검증 방법이다.
 - goldilocks를 포함하면 안된다. 
 - oracle을 포함하면 안된다. 
 - 다음과 같이 단순한 비밀번호는 사용할 수 없다. 
-    - welcome1, database1, account1, user1234, password1, oracle123, computer1, abcdefg1, change_on_intall 
+    - welcome1, database1, account1, user1234, password1, oracle123, computer1, abcdefg1, change_on_install 
 - 이전 비밀번호와 적어도 3 글자는 달라야 한다.
 
 <a id="a62d645d26cf71f9"></a>
@@ -3002,7 +3002,7 @@ Synonym을 생성한다. Synonym은 테이블, view, 시퀀스, 또다른 synony
 ### 구문
 
 ```
-<table definition> ::=    
+<synonym definition> ::=    
     CREATE [OR REPLACE] [PUBLIC] SYNONYM [schema_name.]synonym_name 
     FOR [schema_name.]object_name
     ;

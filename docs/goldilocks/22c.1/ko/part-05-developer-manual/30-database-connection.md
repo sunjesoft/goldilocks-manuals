@@ -3,7 +3,7 @@
 # 30. Database Connection
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/0fd423a0c733cb17)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 29. PSM SQL References](../part-04-psm-manual/29-psm-sql-references.md) · [전체 목차](../README.md) · [31. ODBC →](31-odbc.md)
 

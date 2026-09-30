@@ -3,7 +3,7 @@
 # 18. SQL References (A~B)
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/7607d7d7354775f5)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 17. Built-in Function References](17-built-in-function-references.md) · [Table of contents](../README.md) · [19. SQL References (C~G) →](19-sql-references-c-g.md)
 
@@ -8426,7 +8426,7 @@ It defines the memory datafile to be added.
 - SIZE &lt;size clause&gt; 
     - For the new file, the initial size is specified by using SIZE clause.
     - An error occurs if the file exists.
-    - The file size can be specified from 1M to 30G.
+    - The file size can be specified from 4 M to 30 G.
 
 - REUSE 
     - If the file exists, it uses REUSE clause.
@@ -10026,6 +10026,110 @@ Refer to the followings.
 - Viewing audit trail: [AUDIT_TRAIL](../part-02-administration-manual/9-database-information.md#55a6aed1582db32b)
 
 - Clearing audit trail: [ALTER DATABASE CLEAR AUDIT TRAIL](#d4120dc662bce568)
+
+<a id="aa5008132a5b8588"></a>
+## BULK DELETE FROM
+
+> This feature is available only in standalone mode.
+
+<a id="e56c0786e4e0d682"></a>
+### Function
+
+The rows in the table are deleted in multiple transactions.
+
+<a id="c25b786cd28943a0"></a>
+### Syntax
+
+```
+<bulk delete statement> ::=
+    DELETE [ FROM ] table_name [ [ AS ] alias_name ]
+        [ WHERE <search condition> ]
+        <commit rows clause>
+    ;
+
+<commit rows clause> ::=
+    COMMIT EVERY row_count ROWS
+```
+
+<a id="170f6b816f27a520"></a>
+### Invocation and Access Rules
+
+One of the following privileges is required to perform &lt;bulk delete statement&gt; .
+
+- (DELETE or CONTROL TABLE) ON TABLE for the table
+- (DELETE TABLE or CONTROL SCHEMA) ON SCHEMA for the schema to which the table belongs
+- DELETE ANY TABLE ON DATABASE
+
+<a id="1b61751aff58e7de"></a>
+### Syntax Rules and Parameters
+
+<a id="06da4f239d6a6753"></a>
+#### table_name
+
+It is the name of a target table whose rows are to be deleted.  
+It defines the schema to which the table belongs such as schema_name.table_name.   
+If schema_name is omitted, the default schema name of the user performing the statement is used.
+
+<a id="8182f8fadd69a6e3"></a>
+#### [ AS alias_name ]
+
+It is the alias of table_name.
+
+<a id="9808b59bd05f534d"></a>
+#### WHERE &lt;search condition&gt;
+
+It deletes the rows which satisfy WHERE condition.   
+If WHERE condition is omitted, it deletes all rows.   
+For more information about [WHERE](20-sql-references-h-z.md#147cb5252ddb220b) condition, refer to where clause of [SELECT](20-sql-references-h-z.md#a7590d034ddcacce) statement.
+
+<a id="301624e705702981"></a>
+#### &lt;commit rows clause&gt;
+
+Specifies the number of rows to be deleted and committed in each batch.  
+If row_count is set to n, the target records are processed in batches of n records, and the delete and commit operations are repeated for each batch.  
+row_count must be an integer greater than 0.
+
+<a id="ae45e6637a51bf0a"></a>
+### Description
+
+<a id="ee71cdac99b4861a"></a>
+#### Difference Between BULK DELETE and DELETE
+
+The BULK DELETE statement deletes records in the same manner as the [DELETE FROM](19-sql-references-c-g.md#1e9fbeb78d1f6560) statement.
+
+The BULK DELETE statement operates with auto-commit enabled.   
+It commits the changes after deleting the records, whereas the [DELETE FROM](19-sql-references-c-g.md#1e9fbeb78d1f6560) statement does not perform a commit.
+
+If a change to a batch of records fails during BULK DELETE execution, the changes in that batch are not applied, an error occurs, and subsequent operations are terminated.
+
+The BULK DELETE statement supports only base tables.   
+A synonym can be used to execute a BULK DELETE statement on a base table.
+
+The BULK DELETE statement does not support sub-query expressions.  
+The BULK DELETE statement does not support stored functions.
+
+<a id="e1750e5088006399"></a>
+### Example
+
+The following is an example of executing BULK DELETE statement.
+
+```
+gSQL> BULK DELETE FROM orders
+           WHERE order_date < DATE '2025-01-01'
+           COMMIT EVERY 10000 ROWS;
+
+53000 rows deleted.
+```
+
+<a id="fae6dfceac8d4290"></a>
+### Compatibility
+
+The SQL standard does not define BULK DELETE statement.
+
+<a id="09a3836696af4593"></a>
+### For More Information
+
+Refer to [DELETE FROM](19-sql-references-c-g.md#1e9fbeb78d1f6560).
 
 ---
 

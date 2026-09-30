@@ -3,7 +3,7 @@
 # 39. gsql/gsqlnet (Interactive SQL Tool)
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/16c6c7ea8a497da0)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 38. glsnr](38-glsnr.md) · [전체 목차](../README.md) · [40. gloader/gloadernet (Upload/download Tool) →](40-gloader-gloadernet-upload-download-tool.md)
 
@@ -4169,7 +4169,7 @@ Stored procedure나 function 객체의 현재 상태에 해당하는 DDL 구문�
 | 명령어 | 설명 |
 | --- | --- |
 | `\ddl_procedure` | 아래의 모든 옵션을 수행한다. |
-| `\ddl_procedure name CREATE` | Stored procedure/ function 객체의 CREATE PROCEDURE/FUCNTION 구문을 출력한다. |
+| `\ddl_procedure name CREATE` | Stored procedure/ function 객체의 CREATE PROCEDURE/FUNCTION 구문을 출력한다. |
 
 <a id="198e1a0c0ee7e41f"></a>
 #### 사용 예

@@ -3,7 +3,7 @@
 # 9. Database Information
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/cde56a0de7f1ec68)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 8. GOLDILOCKS Database Replication](8-goldilocks-database-replication.md) · [Table of contents](../README.md) · [10. Server Property →](10-server-property.md)
 
@@ -2265,10 +2265,10 @@ AUDIT_TRAIL displays audit records from the audit trail.
 | SESSION_SERIAL | NUMBER | session serial number |
 | LOGON_USERNAME | VARCHAR(128) | logon user name of the user whose actions were audited |
 | CURRENT_USERNAME | VARCHAR(128) | effective user for the statement execution |
-| SERVER_PROCESS | NUMBER | server process identifer for the session |
+| SERVER_PROCESS | NUMBER | server process identifier for the session |
 | CLIENT_PROGRAM_NAME | VARCHAR(128) | client program used for session |
 | CLIENT_USERNAME | VARCHAR(128) | client operating system user name for the session |
-| CLIENT_PROCESS | NUMBER | client process identifer for the session |
+| CLIENT_PROCESS | NUMBER | client process identifier for the session |
 | CLIENT_HOST | VARCHAR(128) | client host ip address for the session |
 | CLIENT_PORT | NUMBER | client port number for the session |
 | CLIENT_TERMINAL | VARCHAR(128) | client terminal name for the session |
@@ -2483,12 +2483,12 @@ Identify the columns of tables defined in this catalog that are accessible to gi
 | DATETIME_PRECISION | NUMBER | for a datetime or interval type, the value is the fractional seconds precision |
 | INTERVAL_TYPE | VARCHAR(32) | for a interval type, the value is in ( YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, YEAR TO MONTH, DAY TO HOUR, DAY TO MINUTE, DAY TO SECOND, HOUR TO MINUTE, HOUR TO SECOND, MINUTE TO SECOND ) |
 | INTERVAL_PRECISION | NUMBER | for a interval type, the value is the leading precision |
-| CHARACTER_SET_CATALOG | VARCHAR(128) | catalog name of the character set if is is a character string type |
-| CHARACTER_SET_SCHEMA | VARCHAR(128) | schema name of the character set if is is a character string type |
-| CHARACTER_SET_NAME | VARCHAR(128) | character set name of the character set if is is a character string type |
-| COLLATION_CATALOG | VARCHAR(128) | catalog name of the applicable collation if is is a character string type |
-| COLLATION_SCHEMA | VARCHAR(128) | schema name of the applicable collation if is is a character string type |
-| COLLATION_NAME | VARCHAR(128) | collation name of the applicable collation if is is a character string type |
+| CHARACTER_SET_CATALOG | VARCHAR(128) | catalog name of the character set if it is a character string type |
+| CHARACTER_SET_SCHEMA | VARCHAR(128) | schema name of the character set if it is a character string type |
+| CHARACTER_SET_NAME | VARCHAR(128) | character set name of the character set if it is a character string type |
+| COLLATION_CATALOG | VARCHAR(128) | catalog name of the applicable collation if it is a character string type |
+| COLLATION_SCHEMA | VARCHAR(128) | schema name of the applicable collation if it is a character string type |
+| COLLATION_NAME | VARCHAR(128) | collation name of the applicable collation if it is a character string type |
 | DOMAIN_CATALOG | VARCHAR(128) | catalog name of the domain used by the column being described |
 | DOMAIN_SCHEMA | VARCHAR(128) | schema name of the domain used by the column being described |
 | DOMAIN_NAME | VARCHAR(128) | domain name of the domain used by the column being described |
@@ -2587,7 +2587,7 @@ Identify the SQL-server modules in this catalog that are accessible to a given u
 | DEFAULT_CHARACTER_SET_SCHEMA | VARCHAR(128) | default character set schema name of the SQL-server module |
 | DEFAULT_CHARACTER_SET | VARCHAR(128) | default character set name of the SQL-server module |
 | DEFAULT_SCHEMA_CATALOG | VARCHAR(128) | catalog name of default schema of SQL-server module |
-| DEFAULT_SCHEMA_NAME | VARCHAR(128) | default scheam name of the SQL-server module |
+| DEFAULT_SCHEMA_NAME | VARCHAR(128) | default schema name of the SQL-server module |
 | MODULE_DEFINITION | LONG VARCHAR | definition of the SQL-server module |
 | MODULE_AUTHORIZATION | VARCHAR(32) | authorization of the SQL-server module(DEFINER/INVOKER) |
 | SQL_PATH | VARCHAR(1024) | described SQL PATH when the SQL-server module is defined |
@@ -2720,9 +2720,9 @@ Identify the privileges on SQL-server modules defined in this catalog that are a
 | GRANTOR | VARCHAR(128) | authorization name of the user who granted SQL-server module privileges |
 | GRANTEE | VARCHAR(128) | authorization name of some user or role, or PUBLIC to indicate all users, to whom the SQL-server module privilege being described is granted |
 | MODULE_CATALOG | VARCHAR(128) | catalog name of the SQL-server module on which the privilege being described was granted |
-| MODULE_OWNER | VARCHAR(128) | owner name of the the SQL-server module on which the privilege being described was granted |
-| MODULE_SCHEMA | VARCHAR(128) | schema name of the the SQL-server module on which the privilege being described was granted |
-| MODULE_NAME | VARCHAR(128) | name of the the SQL-server module on which the privilege being described was granted |
+| MODULE_OWNER | VARCHAR(128) | owner name of the SQL-server module on which the privilege being described was granted |
+| MODULE_SCHEMA | VARCHAR(128) | schema name of the SQL-server module on which the privilege being described was granted |
+| MODULE_NAME | VARCHAR(128) | name of the SQL-server module on which the privilege being described was granted |
 | PRIVILEGE_TYPE | VARCHAR(32) | the value is in ( EXECUTE ) |
 | IS_GRANTABLE | BOOLEAN | is grantable |
 
@@ -2999,13 +2999,13 @@ Identify the privileges on SQL-invoked routines defined in this catalog that are
 | GRANTOR | VARCHAR(128) | authorization name of the user who granted routine privileges |
 | GRANTEE | VARCHAR(128) | authorization name of some user or role, or PUBLIC to indicate all users, to whom the routine privilege being described is granted |
 | SPECIFIC_CATALOG | VARCHAR(128) | specific catalog name of the SQL-invoked routine on which the privilege being described was granted |
-| SPECIFIC_OWNER | VARCHAR(128) | specific owner name of the the SQL-invoked routine on which the privilege being described was granted |
-| SPECIFIC_SCHEMA | VARCHAR(128) | specific schema name of the the SQL-invoked routine on which the privilege being described was granted |
-| SPECIFIC_NAME | VARCHAR(128) | specific name of the the SQL-invoked routine on which the privilege being described was granted |
+| SPECIFIC_OWNER | VARCHAR(128) | specific owner name of the SQL-invoked routine on which the privilege being described was granted |
+| SPECIFIC_SCHEMA | VARCHAR(128) | specific schema name of the SQL-invoked routine on which the privilege being described was granted |
+| SPECIFIC_NAME | VARCHAR(128) | specific name of the SQL-invoked routine on which the privilege being described was granted |
 | ROUTINE_CATALOG | VARCHAR(128) | routine catalog name of the SQL-invoked routine on which the privilege being described was granted |
 | ROUTINE_OWNER | VARCHAR(128) | null |
-| ROUTINE_SCHEMA | VARCHAR(128) | routine schema name of the the SQL-invoked routine on which the privilege being described was granted |
-| ROUTINE_NAME | VARCHAR(128) | routine name of the the SQL-invoked routine on which the privilege being described was granted |
+| ROUTINE_SCHEMA | VARCHAR(128) | routine schema name of the SQL-invoked routine on which the privilege being described was granted |
+| ROUTINE_NAME | VARCHAR(128) | routine name of the SQL-invoked routine on which the privilege being described was granted |
 | PRIVILEGE_TYPE | VARCHAR(32) | the value is in ( EXECUTE ) |
 | IS_GRANTABLE | BOOLEAN | is grantable |
 
@@ -3541,7 +3541,7 @@ The V$DB_CHANGE_TRACKING displays information of database change tracking.
 **Column information**
 
 <a id="375c78094581fd65"></a>
-<table><tbody><tr><th align="center">Column name</th><th align="center">Data type</th><th align="center">Description</th></tr><tr><td align="left">TABLESPACE_ID</td><td align="left">NUMBER</td><td align="left">tablespage identifier</td></tr><tr><td align="left">DATAFILE_ID</td><td>NUMBER</td><td align="left">datafile identifier</td></tr><tr><td>CHANGE_TRACKING_STATE</td><td>VARCHAR(32)</td><td>state of dtafile change tracking</td></tr><tr><td>CHANGE_TRACKING_CHUNK_SEQ</td><td>NUMBER</td><td>sequence of change tracking chunk for datafile</td></tr><tr><td>MAX_SIZE</td><td>NUMBER</td><td>maximum size of datafile (byte)</td></tr><tr><td>BITMAP_BLOCK_COUNT</td><td>NUMBER</td><td>bitmap block count of change tracking chunk</td></tr><tr><td>LAST_PAGE_SEQ</td><td>NUMBER</td><td>the last page sequence of change tracking chunk</td></tr></tbody></table>
+<table><tbody><tr><th align="center">Column name</th><th align="center">Data type</th><th align="center">Description</th></tr><tr><td align="left">TABLESPACE_ID</td><td align="left">NUMBER</td><td align="left">tablespage identifier</td></tr><tr><td align="left">DATAFILE_ID</td><td>NUMBER</td><td align="left">datafile identifier</td></tr><tr><td>CHANGE_TRACKING_STATE</td><td>VARCHAR(32)</td><td>state of datafile change tracking</td></tr><tr><td>CHANGE_TRACKING_CHUNK_SEQ</td><td>NUMBER</td><td>sequence of change tracking chunk for datafile</td></tr><tr><td>MAX_SIZE</td><td>NUMBER</td><td>maximum size of datafile (byte)</td></tr><tr><td>BITMAP_BLOCK_COUNT</td><td>NUMBER</td><td>bitmap block count of change tracking chunk</td></tr><tr><td>LAST_PAGE_SEQ</td><td>NUMBER</td><td>the last page sequence of change tracking chunk</td></tr></tbody></table>
 
 <a id="fa8b7c486a41ffb5"></a>
 ### V$DB_FILE
@@ -3966,7 +3966,7 @@ The V$SQL_COMMAND lists attribute information of each SQL command.
 **Column information**
 
 <a id="f0c1b491bebd9adf"></a>
-<table><tbody><tr><th align="center">Column name</th><th align="center">Data type</th><th align="center">Description</th></tr><tr><td align="left" valign="middle">COMMAND</td><td align="left" valign="middle">VARCHAR(128)</td><td align="left" valign="middle">SQL command</td></tr><tr><td align="left" valign="middle">FROM_PHASE</td><td align="left" valign="middle">VARCHAR(32)</td><td align="left" valign="middle">executable from start-up phase</td></tr><tr><td align="left" valign="middle">UNTIL_PHASE</td><td align="left" valign="middle">VARCHAR(32)</td><td align="left" valign="middle">executable until start-up phase</td></tr><tr><td align="left" valign="middle">ACCESS_MODE</td><td align="left" valign="middle">VARCHAR(32)</td><td align="left" valign="middle">database access mode: values in (NONE, READ &amp; WRITE, READ, READ &amp; LOCK)</td></tr><tr><td align="left" valign="middle">NEED_FETCH</td><td align="left" valign="middle">VARCHAR(32)</td><td align="left" valign="middle">the command is a query which has result set and need fetch</td></tr><tr><td align="left" valign="middle">IS_DDL</td><td align="left" valign="middle">VARCHAR(3)</td><td align="left" valign="middle">the command is a DDL(Data Defintion Language) or not</td></tr><tr><td valign="middle">CLUSTER_LOCK_MODE</td><td valign="middle">VARCHAR(32)</td><td valign="middle">cluster lock mode: values in (NONE, SERIAL, MANUAL)</td></tr><tr><td align="left" valign="middle">AUTO_COMMIT</td><td align="left" valign="middle">VARCHAR(3)</td><td align="left" valign="middle">the command is auto-commit or not</td></tr><tr><td align="left" valign="middle">IS_CACHEABLE</td><td align="left" valign="middle">VARCHAR(3)</td><td align="left" valign="middle">the command is plan-cacheable or not</td></tr><tr><td align="left" valign="middle">AUDIT_ACTION</td><td align="left" valign="middle">VARCHAR(128)</td><td align="left" valign="middle">auditiable action name for the SQL command</td></tr></tbody></table>
+<table><tbody><tr><th align="center">Column name</th><th align="center">Data type</th><th align="center">Description</th></tr><tr><td align="left" valign="middle">COMMAND</td><td align="left" valign="middle">VARCHAR(128)</td><td align="left" valign="middle">SQL command</td></tr><tr><td align="left" valign="middle">FROM_PHASE</td><td align="left" valign="middle">VARCHAR(32)</td><td align="left" valign="middle">executable from start-up phase</td></tr><tr><td align="left" valign="middle">UNTIL_PHASE</td><td align="left" valign="middle">VARCHAR(32)</td><td align="left" valign="middle">executable until start-up phase</td></tr><tr><td align="left" valign="middle">ACCESS_MODE</td><td align="left" valign="middle">VARCHAR(32)</td><td align="left" valign="middle">database access mode: values in (NONE, READ &amp; WRITE, READ, READ &amp; LOCK)</td></tr><tr><td align="left" valign="middle">NEED_FETCH</td><td align="left" valign="middle">VARCHAR(32)</td><td align="left" valign="middle">the command is a query which has result set and need fetch</td></tr><tr><td align="left" valign="middle">IS_DDL</td><td align="left" valign="middle">VARCHAR(3)</td><td align="left" valign="middle">the command is a DDL(Data Definition Language) or not</td></tr><tr><td valign="middle">CLUSTER_LOCK_MODE</td><td valign="middle">VARCHAR(32)</td><td valign="middle">cluster lock mode: values in (NONE, SERIAL, MANUAL)</td></tr><tr><td align="left" valign="middle">AUTO_COMMIT</td><td align="left" valign="middle">VARCHAR(3)</td><td align="left" valign="middle">the command is auto-commit or not</td></tr><tr><td align="left" valign="middle">IS_CACHEABLE</td><td align="left" valign="middle">VARCHAR(3)</td><td align="left" valign="middle">the command is plan-cacheable or not</td></tr><tr><td align="left" valign="middle">AUDIT_ACTION</td><td align="left" valign="middle">VARCHAR(128)</td><td align="left" valign="middle">auditiable action name for the SQL command</td></tr></tbody></table>
 
 <a id="9b30b7f777ec3076"></a>
 ### V$SQL_HISTORY

@@ -3,7 +3,7 @@
 # 33. Embedded SQL
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/09c5c5ecdcf2bd69)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 32. JDBC](32-jdbc.md) · [전체 목차](../README.md) · [34. PDO →](34-pdo.md)
 
@@ -172,7 +172,7 @@ Syntax : make {all | sample_name | clean}
 sample_name is one of 'overview sample1 sample2 sample3 sample4 sample5 dyn1 dyn2 number date_time thread1 fetch_struct_array xa long_binary psm whenever preprocess'
 ```
 
-make all은 모든 sample을 build하는데 특정 sample만 별도로 만들려면 make &lt;sample_name&gt;을 하면된다. &lt;sample_name&gt;은 위 메세지를 참조한다. sample2를 build하여 수행하면 다음과 같은 결과가 나온다.
+make all은 모든 sample을 build하는데 특정 sample만 별도로 만들려면 make &lt;sample_name&gt;을 하면 된다. &lt;sample_name&gt;은 위 메시지를 참조한다. sample2를 build하여 수행하면 다음과 같은 결과가 나온다.
 
 ```
 $ make sample2
@@ -5189,9 +5189,9 @@ struct sqlca
 int     sqlcode;
 ```
 
-- sqlcode에 해당하는 에러 메세지를 저장한다.
+- sqlcode에 해당하는 에러 메시지를 저장한다.
 - .sqlerrml은 sqlerrmc의 길이이다.
-- .sqlerrmc는 에러 메세지를 string 형태로 저장한다.
+- .sqlerrmc는 에러 메시지를 string 형태로 저장한다.
 
 ```
 struct
@@ -5470,7 +5470,7 @@ EXEC SQL END DECLARE SECTION;
 <a id="e2c578ad17a53989"></a>
 ###### **Error Message Text**
 
-Embedded SQL 문을 실행한 결과 error나 warning이 발생하면 해당 메세지를 text 형태로 전송할 수 있다. 에러 메세지는 sqlca.sqlerrm에 저장되는데 sqlca.sqlerrm.sqlerrml은 text의 길이이고 실제 메세지는 sqlca.sqlerrm.sqlerrmc에 저장되어 있다. 에러 메세지 text는 응용 프로그램에서 이상 현상이 발생하였을 경우 이를 출력해서 사용자에게 정보를 전달할 때 유용하다. 다음은 error message text를 사용하는 예이다.
+Embedded SQL 문을 실행한 결과 error나 warning이 발생하면 해당 메시지를 text 형태로 전송할 수 있다. 에러 메시지는 sqlca.sqlerrm에 저장되는데 sqlca.sqlerrm.sqlerrml은 text의 길이이고 실제 메시지는 sqlca.sqlerrm.sqlerrmc에 저장되어 있다. 에러 메시지 text는 응용 프로그램에서 이상 현상이 발생하였을 경우 이를 출력해서 사용자에게 정보를 전달할 때 유용하다. 다음은 error message text를 사용하는 예이다.
 
 ```
 EXEC SQL INSERT INTO EMP VALUES ( :sEmp );

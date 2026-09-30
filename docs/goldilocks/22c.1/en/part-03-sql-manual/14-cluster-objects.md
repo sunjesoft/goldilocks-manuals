@@ -3,7 +3,7 @@
 # 14. Cluster Objects
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/eb2050e20eb39a08)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 13. SQL Objects](13-sql-objects.md) · [Table of contents](../README.md) · [15. SQL Tuning →](15-sql-tuning.md)
 
@@ -606,6 +606,132 @@ SELECT COUNT(*)
    AND t2.a1 = t3.i1
    AND t1.c1 = 1;
 ```
+
+<a id="8488434d9e12d231"></a>
+## Cluster Table Placement and Sharding Selection
+
+<a id="b146598b52006407"></a>
+### Criteria for Selecting CLONE or SHARD
+
+Select the table placement strategy based on the frequency of data changes, data volume and growth rate, and query and join patterns.  
+Use the decision tree below to determine the appropriate strategy between CLONE (full replication) and SHARD (partitioning based on a sharding key).
+
+Table Placement Strategy Selection
+
+├─ 1. Is data partitioning required due to frequent data modifications, large data volume, or high data growth?  
+│  ├─ Yes → Go to Step 4  
+│  └─ No  → Go to Step 2  
+│  
+├─ 2. Is the data commonly queried across multiple groups or frequently joined with other tables?  
+│  ├─ Yes → CLONE is recommended  
+│  └─ No  → Go to Step 3  
+│  
+├─ 3. Would partitioning the data based on a specific key provide a significant benefit to query or write performance?  
+│  ├─ Yes → Go to Step 4  
+│  └─ No  → CLONE is recommended  
+│  
+├─ 4. Can all columns of the sharding key be included in every unique key  while preserving business-required uniqueness?  
+│  ├─ Yes → Go to Step 5  
+│  └─ No  → Reconsider the table design  
+│  
+└─ 5. Can the system accommodate data/request skew and the query and join overhead across groups?  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ Yes → SHARD is recommended  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ No  → Reconsider the table design
+
+Apply the following criteria when evaluating each item in the decision tree:
+
+- Data modifications refer to INSERT, UPDATE, and DELETE operations.
+- Unique keys refer to primary keys (PKs), UNIQUE constraints, and UNIQUE indexes.
+- When defining unique keys, all columns of the sharding key must be included in every unique key while preserving business-required uniqueness.
+- Where possible, a single-column sharding key is preferable to a composite sharding key.
+- If the design needs to be reconsidered, adjust the sharding key, constraints, or data placement strategy as appropriate.
+- If the cost of replicating the entire dataset is acceptable, CLONE may also be considered.
+
+<a id="26cfe21a9e0d2966"></a>
+### Criteria for Selecting HASH, RANGE, or LIST
+
+Select the appropriate sharding policy based on data placement relative to joined targets, the criteria for data partitioning, and load balancing requirements.  
+Use the decision tree below to identify suitable candidates among LIST, RANGE, and HASH, and then evaluate the actual data distribution and query and join costs.
+
+Sharding Policy Selection
+
+├─ 1. Should data placement be aligned with an existing SHARD table  that is frequently joined?  
+│  ├─ Yes → Select the same policy as the joined target as a candidate → Go to Step 5  
+│  └─ No  → Go to Step 2  
+│  
+├─ 2. Does the data need to be partitioned by grouping specific values of a single column?  
+│  ├─ Yes → Select LIST as a candidate → Go to Step 5  
+│  └─ No  → Go to Step 3  
+│  
+├─ 3.  Does the data need to be partitioned by ranges, such as dates or numbers, or optimized for range queries?  
+│  ├─ Yes → Select RANGE as a candidate → Go to Step 5  
+│  └─ No  → Go to Step 4  
+│  
+├─ 4. Is distributing data and modification load more important than partitioning by specific values or ranges?  
+│  ├─ Yes → Select HASH as a candidate → Go to Step 5  
+│  └─ No  → Analyze the access patterns of the primary SQL queries and select a candidate → Go to Step 5  
+│  
+└─ 5. Can the system accommodate data/request skew and the query and join overhead across groups?         
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ Yes → Adopt the selected policy  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ No  → Reconsider the design
+
+When aligning data placement with a join target, review not only the partitioning policy but also the sharding key, number of shards, and data placement strategy.  
+Examples of data partitioning by policy and the items to review when reconsidering the design are as follows.
+
+**Examples of data partitioning by policy and design review criteria**
+
+<a id="972edc965bca3b76"></a>
+| Policy | Partitioning example | Items to review when reconsidering the design |
+| --- | --- | --- |
+| LIST | Partition by region, country, or business unit code | Check whether the load is concentrated on specific values or groups of values, and adjust the value groups, data placement, or sharding key. |
+| RANGE | Partition by monthly transaction-date ranges or customer ID ranges | Check whether writes are concentrated on the latest dates or specific ranges, and adjust the range boundaries, data placement, or sharding key. |
+| HASH | Partition based on the hash values of customer IDs or order IDsPartition based on the hash values of customer IDs or order IDs | Check whether requests are concentrated on specific key values, and adjust the sharding key, number of shards, or data placement. |
+
+After adjusting the design, return to Step 5 and reevaluate data skew and query and join costs.
+
+<a id="07015b7c0a2f172a"></a>
+### Criteria for Selecting HASH SHARDING KEY
+
+Select candidates for the HASH SHARDING KEY primarily from columns used in the filter conditions of primary SQL queries and in joins.  
+After selecting candidates, evaluate uniqueness requirements, data load distribution, and the frequency of key value changes. Finally, determine the HASH SHARDING KEY by validating response time, throughput, and inter-group data movement using representative SQL queries and peak-load conditions.
+
+HASH SHARDING KEY Selection
+
+├─ 1. Is there a column frequently used in equality conditions (column = value)  in primary SELECT, UPDATE, or DELETE queries?  
+│  ├─  Yes → Select the column as a candidate → Go to Step 3  
+│  └─  No  → Go to Step 2  
+│  
+├─ 2. Is there a business key that can be shared with a frequently joined SHARD table?  
+│  ├─Yes → Select the common join key as a candidate → Go to Step 3  
+│  └─No  → Select an identifier with infrequent changes and sufficient cardinality  as a candidate → Go to Step 3  
+│  
+├─ 3.  Can all columns of the candidate key be included in every unique key  while preserving business-required uniqueness?  
+│  ├─ Yes → Go to Step 4  
+│  └─ No  → Select another candidate or reconsider the constraint design  
+│  
+├─ 4. After HASH partitioning, are data volume per group and peak request volume within the acceptable skew range?  
+│  ├─ Yes → Keep the current candidate → Go to Step 6  
+│  └─ No  → Go to Step 5  
+│  
+└─ 5. Can adding columns reduce skew while keeping the resulting query and join costs  within an acceptable range?  
+│   ├─ Yes → Switch to a composite HASH key candidate → Revalidate from Step 3  
+│   └─ No  → Reconsider other key candidates or the business/data model  
+│  
+└─ 6. Does the key value rarely change after creation?  
+│   ├─ Yes → Go to Step 7  
+│   └─ No  → Prioritize other candidates that change less frequently;  if no alternative exists, validate the cost of key changes → Go to Step 7  
+│  
+└─ 7. Are response time, throughput, and inter-group data movement  within the acceptable range using representative SQL queries under peak load?  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ Yes → Adopt the HASH sharding key  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ No  → Recompare the key for WHERE conditions with the key for JOINs and revalidate
+
+When selecting candidate keys, consider both the access conditions of primary SQL queries and join patterns.
+
+- Customer ID and order ID can be considered as common join keys, while an individual transaction ID can be considered as a separate identifier.
+- A composite HASH key (customer_id, order_id) may cause additional load when not all columns are included in the access conditions of primary SQL queries. Therefore, consider whether it can be replaced with a single-column HASH key.
+- When selecting a separate identifier, focus on the query cost across groups.
+- Unique keys refer to primary keys (PKs), UNIQUE constraints, and UNIQUE indexes.
+- Every unique key must be able to include all columns of the candidate key while preserving existing business-required uniqueness.
 
 <a id="4ff66200d323c646"></a>
 ## Global Secondary Index

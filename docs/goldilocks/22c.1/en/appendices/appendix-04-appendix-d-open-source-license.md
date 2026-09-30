@@ -3,7 +3,7 @@
 # Appendix D. Open Source License
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/8d2c0a1499c8782c)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← Appendix C. Wait Event](appendix-03-appendix-c-wait-event.md) · [Table of contents](../README.md)
 

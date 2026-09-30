@@ -3,7 +3,7 @@
 # 16. Built-in Data Type References
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/a90121b2dc2d62f4)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 15. SQL Tuning](15-sql-tuning.md) · [Table of contents](../README.md) · [17. Built-in Function References →](17-built-in-function-references.md)
 
@@ -562,7 +562,7 @@ If the number which is bigger than number of the specified digits is in the fiel
 | MONTH | 2 | 0 ~ 11 |
 | HOUR | 2 | 0 ~ 23 |
 | MINUTE | 2 | 0 ~ 59 |
-| SECOND (interger part) | 2 | 0 ~ 59 |
+| SECOND (integer part) | 2 | 0 ~ 59 |
 
 <a id="2e056ed1b1be3b89"></a>
 ### For More Information

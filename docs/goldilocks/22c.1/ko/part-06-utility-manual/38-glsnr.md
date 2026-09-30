@@ -3,7 +3,7 @@
 # 38. glsnr
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/bd7e34b22186628b)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 37. gcreatedb](37-gcreatedb.md) · [전체 목차](../README.md) · [39. gsql/gsqlnet (Interactive SQL Tool) →](39-gsql-gsqlnet-interactive-sql-tool.md)
 
@@ -239,7 +239,7 @@ Client에서 접속 모드를 dedicated나 shared로 선택하지 않았을 경�
 #### 설명
 
 - glsnr을 통해 접속하는 Client/ Server (C/S) 모델은 dedicated와 shared라는 두 가지 모드를 지원한다.
-- 기본적으로 client 단계에서 dedicated나 shared를 (odbc의 경우는 .odbcini) 선택하여 접속하지만 client에서 설정이 안된 경우에는 DEFAULT_CS_MODE 설정에 따라 접속모드가 결정된다.
+- 기본적으로 client 단계에서 dedicated나 shared를 (odbc의 경우는 .odbc.ini) 선택하여 접속하지만 client에서 설정이 안된 경우에는 DEFAULT_CS_MODE 설정에 따라 접속모드가 결정된다.
 
 <a id="3add93e77acb9d25"></a>
 ### TCP_VALIDNODE_CHECKING

@@ -3,7 +3,7 @@
 # 23. PSM Control Statements
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/8ca9394e12d6159d)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 22. PSM DataTypes](22-psm-datatypes.md) · [Table of contents](../README.md) · [24. PSM Cursor Statements →](24-psm-cursor-statements.md)
 
@@ -1230,7 +1230,7 @@ Anonymous PL block executed.
 <a id="3f7faeb7978807f8"></a>
 #### User Defined Exception
 
-A user defined exception is an exception used by setting an exception name and an error-code by a user except for a predefined. User defined exception can not implicitly occur, but a user should execute it by explicitly using a RAISE statment.
+A user defined exception is an exception used by setting an exception name and an error-code by a user except for a predefined. User defined exception can not implicitly occur, but a user should execute it by explicitly using a RAISE statement.
 
 The following is an example of causing an exception by using a RAISE statement.
 

@@ -3,7 +3,7 @@
 # 17. Built-in Function References
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/720e951636c144f4)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 16. Built-in Data Type References](16-built-in-data-type-references.md) · [전체 목차](../README.md) · [18. SQL References (A~B) →](18-sql-references-a-b.md)
 
@@ -4732,7 +4732,7 @@ NTH_VALUE ( expr, n ) [ FROM { FIRST | LAST } ][ { RESPECT | IGNORE } NULLS ] OV
 ### 설명
 
 Window function NTH_VALUE는 n 번째 row의 expr 값을 반환한다.  
-window의 row 갯수가 n 보다 적을 경우, NULL을 반환한다.
+window의 row 개수가 n 보다 적을 경우, NULL을 반환한다.
 
 인자 n에는 숫자 타입 또는 숫자로 변환될 수 있는 타입이 올 수 있다.
 

@@ -3,7 +3,7 @@
 # 38. glsnr
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/bcb878d48ad1518c)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 37. gcreatedb](37-gcreatedb.md) · [Table of contents](../README.md) · [39. gsql/gsqlnet (Interactive SQL Tool) →](39-gsql-gsqlnet-interactive-sql-tool.md)
 
@@ -239,7 +239,7 @@ It sets the access mode when the access mode is not designated as dedicated or s
 #### Description
 
 - The client/ server mode connected via glsnr supports two modes, which are dedicated and shared.
-- Generally, the access mode is set as dedicated or shared on the client (It is .odbcini for ODBC), then it accesses. However, if it is not set on the client, the access mode is determined by setting DEFAULT_CS_MODE.
+- Generally, the access mode is set as dedicated or shared on the client (It is .odbc.ini for ODBC), then it accesses. However, if it is not set on the client, the access mode is determined by setting DEFAULT_CS_MODE.
 
 <a id="25f38f72295f0e74"></a>
 ### TCP_VALIDNODE_CHECKING

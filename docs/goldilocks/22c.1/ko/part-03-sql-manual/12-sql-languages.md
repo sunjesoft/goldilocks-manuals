@@ -3,7 +3,7 @@
 # 12. SQL Languages
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/c2baff9001d79c52)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 11. SQL Elements](11-sql-elements.md) · [전체 목차](../README.md) · [13. SQL Objects →](13-sql-objects.md)
 
@@ -468,6 +468,7 @@ ID NAME
     - [DELETE FROM name RETURNING](19-sql-references-c-g.md#a590c1dc7a8fa0b1)
     - [DELETE FROM name RETURNING .. INTO](19-sql-references-c-g.md#aa5058d5295cd427)
     - [DELETE FROM name WHERE CURRENT OF cursor_name](19-sql-references-c-g.md#cdf1bbc13ec2cca1)
+    - [BULK DELETE FROM](18-sql-references-a-b.md#d566ccd2cd5ce96d)
 
 - SELECT 관련 구문: [SELECT .. INTO](20-sql-references-h-z.md#a2e4ae21f0050887)
 

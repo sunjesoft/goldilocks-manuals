@@ -3,7 +3,7 @@
 # 52. CYFILE
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/b658dab22fe8792a)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 51. LOGMIRROR](51-logmirror.md) · [Table of contents](../README.md) · [Appendix A. SQLSTATE →](../appendices/appendix-01-appendix-a-sqlstate.md)
 

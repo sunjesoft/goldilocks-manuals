@@ -3,7 +3,7 @@
 # 41. gdump
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/b18ddb65c1c3ab84)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 40. gloader/gloadernet (Upload/download Tool)](40-gloader-gloadernet-upload-download-tool.md) · [전체 목차](../README.md) · [42. tablediff →](42-tablediff.md)
 

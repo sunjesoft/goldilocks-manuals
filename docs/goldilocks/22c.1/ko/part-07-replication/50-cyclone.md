@@ -3,7 +3,7 @@
 # 50. CYCLONE
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/bbb051eb10e35775)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 49. 개요](49-개요.md) · [전체 목차](../README.md) · [51. LOGMIRROR →](51-logmirror.md)
 
@@ -42,6 +42,7 @@ CYCLONE은 master와 slave로 나뉘어져 구동된다. Master는 원본 데이
 - Primary key update는 지원하지 않는다. 
     - Primary key 값이 갱신되는 경우, 해당 table은 give up 되며 더 이상 이중화 대상이 되지 않는다.
 - 이중화에 참여하는 table은 Generated Always As Identity 속성을 갖는 column을 사용할 수 없다.
+- 이중화에 참여하는 table은 Deferred Constraint를 사용할 수 없다.
 - 이중화가 진행 중인 table에 Data Definition Language (DDL)이 수행된 경우 give up 될 수 있다.
     - Table1의 [DDL 구문에 따른 give up 발생 및 절차에 따른 허용 여부](#aeeaad848e48138c)를 참조한다.
     - CYCLONE의 table DDL 처리 절차에 따르지 않은 경우, 허용 가능한 DDL이라 하더라도 give up 된다.
@@ -54,7 +55,7 @@ CYCLONE은 master와 slave로 나뉘어져 구동된다. Master는 원본 데이
 
 <a id="aeeaad848e48138c"></a>
 <table class="table column_count_4"><caption>DDL 구문에 따른 give up 발생 및 절차에 따른 허용 여부</caption><thead><tr><th class="to_center to_middle"><div>DDL 분류</div></th><th class="to_center to_middle"><div>Give up 발생 여부</div></th><th class="to_center"><div>절차에 따른 
-DDL 허용 여부</div></th><th class="to_center to_middle"><div>DDL 구문</div></th></tr></thead><tbody><tr><td class="to_middle" rowspan="8"><div>Table DDL</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>CREATE TABLE</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>DROP TABLE</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>TRUNCATE TABLE</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>ALTER TABLE .. RENAME</div></td></tr><tr><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>ALTER TABLE .. STORAGE</div></td></tr><tr><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>ALTER TABLE .. ADD SUPPLEMENTAL LOG</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>ALTER TABLE .. DROP SUPPLEMENTAL LOG</div></td></tr><tr><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>ALTER TABLE .. READ { ONLY | WRITE }</div></td></tr><tr><td class="to_middle" rowspan="10"><div>Column DDL</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td><div>ALTER TABLE .. ADD COLUMN</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>ALTER TABLE .. SET UNUSED COLUMN</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>-</div></td><td><div>ALTER TABLE .. RENAME COLUMN</div></td></tr><tr><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>ALTER TABLE .. ALTER COLUMN .. SET DEFAULT</div></td></tr><tr><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>ALTER TABLE .. ALTER COLUMN .. DROP DEFAULT</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>ALTER TABLE .. ALTER COLUMN .. SET NOT NULL</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>ALTER TABLE .. ALTER COLUMN .. DROP NOT NULL</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>ALTER TABLE .. ALTER COLUMN .. ALTER IDENTITY</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>ALTER TABLE .. ALTER COLUMN .. DROP IDENTITY</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td><div>ALTER TABLE .. ALTER COLUMN .. SET DATATYPE</div></td></tr><tr><td class="to_middle" rowspan="4"><div>Constraint DDL</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>ALTER TABLE .. ADD CONSTRAINT</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>ALTER TABLE .. DROP CONSTRAINT</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>ALTER TABLE .. ALTER CONSTRAINT</div></td></tr><tr><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>ALTER TABLE .. RENAME CONSTRAINT</div></td></tr><tr><td class="to_middle" rowspan="6"><div>Index DDL</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>CREATE UNIQUE INDEX</div></td></tr><tr><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>CREATE INDEX</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>DROP INDEX unique_index</div></td></tr><tr><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>DROP INDEX non_unique_index</div></td></tr><tr><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>ALTER INDEX .. STORAGE</div></td></tr><tr><td class="to_center"><div>X</div></td><td class="to_center"><div>-</div></td><td><div>ALTER INDEX .. RENAME</div></td></tr><tr><td class="to_middle" rowspan="3"><div>Table의 상위 객체</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>DROP USER</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>DROP SCHEMA</div></td></tr><tr><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td><div>DROP TABLESPACE</div></td></tr></tbody></table>
+DDL 허용 여부</div></th><th class="to_center to_middle"><div>DDL 구문</div></th></tr></thead><tbody><tr><td class="to_middle" rowspan="8"><div>Table DDL</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>CREATE TABLE</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>DROP TABLE</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>TRUNCATE TABLE</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>ALTER TABLE .. RENAME</div></td></tr><tr><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>ALTER TABLE .. STORAGE</div></td></tr><tr><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>ALTER TABLE .. ADD SUPPLEMENTAL LOG</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>ALTER TABLE .. DROP SUPPLEMENTAL LOG</div></td></tr><tr><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>ALTER TABLE .. READ { ONLY | WRITE }</div></td></tr><tr><td class="to_middle" rowspan="10"><div>Column DDL</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_middle"><div>ALTER TABLE .. ADD COLUMN</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>ALTER TABLE .. SET UNUSED COLUMN</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>ALTER TABLE .. RENAME COLUMN</div></td></tr><tr><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>ALTER TABLE .. ALTER COLUMN .. SET DEFAULT</div></td></tr><tr><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>ALTER TABLE .. ALTER COLUMN .. DROP DEFAULT</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>ALTER TABLE .. ALTER COLUMN .. SET NOT NULL</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>ALTER TABLE .. ALTER COLUMN .. DROP NOT NULL</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>ALTER TABLE .. ALTER COLUMN .. ALTER IDENTITY</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>ALTER TABLE .. ALTER COLUMN .. DROP IDENTITY</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_middle"><div>ALTER TABLE .. ALTER COLUMN .. SET DATATYPE</div></td></tr><tr><td class="to_middle" rowspan="4"><div>Constraint DDL</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>ALTER TABLE .. ADD CONSTRAINT</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>ALTER TABLE .. DROP CONSTRAINT</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>ALTER TABLE .. ALTER CONSTRAINT</div></td></tr><tr><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>ALTER TABLE .. RENAME CONSTRAINT</div></td></tr><tr><td class="to_middle" rowspan="6"><div>Index DDL</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>CREATE UNIQUE INDEX</div></td></tr><tr><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>CREATE INDEX</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>DROP INDEX unique_index</div></td></tr><tr><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>DROP INDEX non_unique_index</div></td></tr><tr><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>ALTER INDEX .. STORAGE</div></td></tr><tr><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>-</div></td><td class="to_middle"><div>ALTER INDEX .. RENAME</div></td></tr><tr><td class="to_middle" rowspan="3"><div>Table의 상위 객체</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>DROP USER</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>DROP SCHEMA</div></td></tr><tr><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_middle"><div>DROP TABLESPACE</div></td></tr></tbody></table>
 
 > 사용자의 실수를 방지하기 위해, 이중화 give up을 유발하는 DDL을 수행하지 못하도록 [DISABLE_DDL_CDC_GIVEUP](../part-02-administration-manual/10-server-property.md#be3c0447764c3bfb) 서버 프로퍼티를 이용해 제어할 수 있다. 또한 [DISABLE_UPDATE_PK_CDC_GIVEUP](../part-02-administration-manual/10-server-property.md#0fd7ff95d30ddb7c) 서버 프로퍼티를 사용하여 primary key 갱신을 비활성화 할 수 있다.
 
@@ -140,7 +141,7 @@ DDL 허용 여부</div></th><th class="to_center to_middle"><div>DDL 구문</div
 | TIMESTAMP WITH TIMEZONE | X | ODBC driver를 지원하지 않는다. |
 | INTERVAL | X | ODBC driver를 지원하지 않는다. |
 | LONG VARCHAR | LONG VARCHAR | - |
-| LONG VARBINARY | LONG RAW | - |
+| LONG VARBINARY | BLOB | - |
 
 - 위의 표에 설명된 것과 같이 다음 네 가지 데이터 타입은 이중화할 수 없다.
     - BOOLEAN
@@ -458,6 +459,9 @@ CYCLONE을 실행할 때 환경 설정 파일을 사용하여 운영에 필요�
 | SYNC_DB2_DRIVER | DB2에서 제공하는 DB2 ODBC driver의 파일 경로를 기술한다.  (SYNC 연결 시 사용) | Master |
 | SYNC_TIBERO_DRIVER | TIBERO에서 제공하는 TIBERO ODBC driver의 파일 경로를 기술한다. (SYNC 연결 시 사용) | Master |
 | PACKET_COMPRESSION_MODE | Master와 slave 통신 데이터의 압축 여부를 설정한다. (1: Enable, 0: Disable, Default: Enable) | Master |
+| APPLIER_DEADLOCK_PRIORITY | Applier 의 DEADLOCK_PRIORITY 값을 설정한다. (0 - 9: Enable, Default: Disable (-1)) | Slave |
+| TRACE_LOG_PATH | CYCLONE TRACE LOG 파일의 경로를 기술한다. | Master/ slave |
+| APPLIER_TRACE_LOG_ID | Applier의 TRACE_LOG_ID 값을 설정한다. (Default: Disable(0)) | Slave |
 
 <a id="de839f722d5069cc"></a>
 ### 환경설정 옵션
@@ -1464,6 +1468,80 @@ GROUP_NAME = testGROUP
 }
 ```
 
+<a id="6a21f790d32833e8"></a>
+#### APPLIER_DEADLOCK_PRIORITY
+
+- Slave에서 설정할 수 있다.
+- Applier의 DEADLOCK_PRIORITY 값을 설정한다.
+    - 기본값은 -1 (Disable) 이다.
+    - 활성화하려면 0~9 범위의 값 (Enable) 으로 설정한다.
+
+• 모든 그룹에서 설정할 수 있다.
+
+```
+APPLIER_DEADLOCK_PRIORITY = 8
+```
+
+• 특정 그룹에서 설정할 수 있다.
+
+```
+GROUP_NAME = testGROUP
+{
+    APPLIER_DEADLOCK_PRIORITY = 8
+    ....
+    ....
+}
+```
+
+<a id="17aea1918581b5ff"></a>
+#### TRACE_LOG_PATH
+
+- Master와 slave에서 설정할 수 있다.
+- CYCLONE 운영 시 생성되는 TRACE LOG 파일의 경로를 지정한다.
+    - 기본값은 '&lt;GOLDILOCKS_DATA&gt;/trc' 이다.
+
+• 모든 그룹에 적용되는 설정
+
+```
+TRACE_LOG_PATH='<GOLDILOCKS_DATA>/trc'
+```
+
+• 특정 그룹에 적용되는 설정
+
+```
+GROUP_NAME = testGROUP
+{
+    TRACE_LOG_PATH='<GOLDILOCKS_DATA>/trc'
+    ....
+    ....
+}
+```
+
+<a id="88e62b2233cf3a5f"></a>
+#### APPLIER_TRACE_LOG_ID
+
+- Slave에서 설정할 수 있다.
+- Applier의 TRACE_LOG_ID 값을 설정한다.
+    - 기본값은 0 (Disable) 이다.
+    - 활성화하려면 [TRACE_LOG_ID 의 flag 정보](../part-02-administration-manual/10-server-property.md#87768946dd550c32)를 참고하여 적절한 값을 설정한다. (Enable)
+
+• 모든 그룹에 적용되는 설정
+
+```
+APPLIER_TRACE_LOG_ID = 10010
+```
+
+• 특정 그룹에 적용되는 설정
+
+```
+GROUP_NAME = testGROUP
+{
+    APPLIER_TRACE_LOG_ID = 10010
+    ....
+    ....
+}
+```
+
 <a id="7f0ca39d0ff96c42"></a>
 ## 운영하기
 
@@ -1533,7 +1611,7 @@ GOLDILOCKS 접속과 관련된 config property는 DSN, PROTOCOL, HOST_IP, HOST_E
 | CONFIG | PROTOCOL=TCP, USER_ID=test, USER_PW=test |
 | odbc.ini의 GOLDILOCKS 설정 | HOST_IP=127.0.0.1, HOST_PORT=22581, USER_ID=test2, USER_PW=test2 |
 
-- D/A로 접속하더라도 slave에는 HOST_EXTERANL_IP를 설정할 수 있다.
+- D/A로 접속하더라도 slave에는 HOST_EXTERNAL_IP를 설정할 수 있다.
 
 **DA로 접속하더라도 slave에는 HOST_EXTERANL_IP설정이 가능하다.**
 
@@ -2180,8 +2258,20 @@ CYMON은 CYCLONE의 운영 정보를 GOLDILOCKS의 CYCLONE_MONITOR_INFO 테이�
 | CAPTURE_TX_COUNT | CYCLONE master에서 capture한 transaction 중에 이중화할 대상이 포함된 transaction의 개수이다. |
 | CAPTURE_COMMIT_LSN | CYCLONE master에서 capture한 마지막 transaction의 commit log 번호이다. 더 이상 capture할 transaction이 없으면 변경되지 않는다. |
 | APPLY_COMMIT_LSN | CYCLONE slave에서 처리 중인 transaction의 commit log 번호이다. 더 이상 처리할 transaction이 없으면 변경되지 않는다. |
+| TX_COMMIT_TIMESTAMP | Master에서 Tx가 commit 된 시각 정보이다. |
+| TX_COMMIT_TIME | Master에서 Tx가 commit 된 시각이다. |
+| TX_CAPTURE_TIMESTAMP | Master에서 Cyclone이 Tx를 capture한 시각 정보이다. |
+| TX_CAPTURE_TIME | Master에서 Cyclone이 Tx를 capture한 시각이다. |
+| TX_RECV_TIMESTAMP | Slave에서 Tx를 수신한 시각 정보이다. |
+| TX_RECV_TIME | Slave에서 Tx를 수신한 시각이다. |
+| TX_APPLY_TIMESTAMP | Slave에서 Tx를 적용한 시각 정보이다. |
+| TX_APPLY_TIME | Slave에서 Tx를 적용한 시각이다. |
 
-> INTERVAL 정보는 master로 운영 중인 CYCLONE의 redo log file을 분석하는 CAPTURE 정보이며, CYCLONE SLAVE에서 APPLIER에 의해 반영된 정보는 아니다.
+
+> 
+> - INTERVAL 정보는 master로 운영 중인 CYCLONE의 redo log file을 분석하는 CAPTURE 정보이며, CYCLONE SLAVE에서 APPLIER에 의해 반영된 정보가 아니다.
+> - TX_COMMIT_TIMESTAMP ~ TX_APPLY_TIME은 동일한 Tx 정보이며, slave에서 가장 최근에 반영한 Tx 에 대한 정보이다.
+> 
 
 <a id="ed23afa486dacd7a"></a>
 ### 실행 및 모니터링
@@ -2220,22 +2310,32 @@ cymon --start --cycle 1
 gSQL> \set vertical on
 gSQL> select * from cyclone_monitor_info;
 
-              GROUP_NAME # GROUP1
-                    TIME # 2015-01-13 17:34:53
-            MASTER_STATE # READY
-             SLAVE_STATE # N/A
-             MASTER_PORT # 21102
-                SLAVE_IP # null
-        REDO_LOG_FILESEQ # 0
-       REDO_LOG_BLOCKSEQ # 52392
-         CAPTURE_FILESEQ # 0
-        CAPTURE_BLOCKSEQ # 0
-           APPLY_FILESEQ # 0
-          APPLY_BLOCKSEQ # 0
-        CAPTURE_INTERVAL # 0
-   CAPTURE_INTERVAL_SIZE # 0
-      CAPTURE_COMMIT_LSN # 0
-        APPLY_COMMIT_LSN # 0
+              GROUP_NAME  # GROUP1
+                    TIME  # 2026-09-17 14:01:49
+            MASTER_STATE  # READY
+             SLAVE_STATE  # N/A
+             MASTER_PORT  # 21102
+                SLAVE_IP  # null
+        REDO_LOG_FILESEQ  # 0
+       REDO_LOG_BLOCKSEQ  # 119534
+         CAPTURE_FILESEQ  # 0
+        CAPTURE_BLOCKSEQ  # 0
+           APPLY_FILESEQ  # 0
+          APPLY_BLOCKSEQ  # 0
+        CAPTURE_INTERVAL  # 0
+   CAPTURE_INTERVAL_SIZE  # 0
+          TOTAL_TX_COUNT  # 0
+        CAPTURE_TX_COUNT  # 0
+      CAPTURE_COMMIT_LSN  # 0
+        APPLY_COMMIT_LSN  # 0
+     TX_COMMIT_TIMESTAMP  # 0
+          TX_COMMIT_TIME  # null
+    TX_CAPTURE_TIMESTAMP  # 0
+         TX_CAPTURE_TIME  # null
+       TX_RECV_TIMESTAMP  # 0
+            TX_RECV_TIME  # null
+      TX_APPLY_TIMESTAMP  # 0
+           TX_APPLY_TIME  # null
 ```
 
     - 위의 정보를 통해 CYCLONE MASTER만 동작하고 있고 SLAVE는 대기 중임을 확인할 수 있다.
@@ -2244,22 +2344,32 @@ gSQL> select * from cyclone_monitor_info;
 gSQL> \set vertical on
 gSQL> select * from cyclone_monitor_info;
 
-              GROUP_NAME # GROUP1
-                    TIME # 2015-01-13 17:36:17
-            MASTER_STATE # RUNNING
-             SLAVE_STATE # RUNNING
-             MASTER_PORT # 21102
-                SLAVE_IP # 127.0.0.1
-        REDO_LOG_FILESEQ # 0
-       REDO_LOG_BLOCKSEQ # 52811
-         CAPTURE_FILESEQ # 0
-        CAPTURE_BLOCKSEQ # 52811
-           APPLY_FILESEQ # 0
-          APPLY_BLOCKSEQ # 52811
-        CAPTURE_INTERVAL # 0
-   CAPTURE_INTERVAL_SIZE # 0
-      CAPTURE_COMMIT_LSN # 1023
-        APPLY_COMMIT_LSN # 1023
+             GROUP_NAME   # GROUP1
+                    TIME  # 2026-09-17 14:04:29
+            MASTER_STATE  # RUNNING
+             SLAVE_STATE  # RUNNING
+             MASTER_PORT  # 21102
+                SLAVE_IP  # 192.168.0.117 
+        REDO_LOG_FILESEQ  # 0
+       REDO_LOG_BLOCKSEQ  # 120368
+         CAPTURE_FILESEQ  # 0
+        CAPTURE_BLOCKSEQ  # 120368
+           APPLY_FILESEQ  # 0
+          APPLY_BLOCKSEQ  # 120363
+        CAPTURE_INTERVAL  # 0
+   CAPTURE_INTERVAL_SIZE  # 0
+          TOTAL_TX_COUNT  # 3
+        CAPTURE_TX_COUNT  # 1
+      CAPTURE_COMMIT_LSN  # 245041
+        APPLY_COMMIT_LSN  # 245041
+     TX_COMMIT_TIMESTAMP  # 1789621466253839
+          TX_COMMIT_TIME  # 2026-09-17 14:04:26.253839
+    TX_CAPTURE_TIMESTAMP  # 1789621467691932
+         TX_CAPTURE_TIME  # 2026-09-17 14:04:27.691932
+       TX_RECV_TIMESTAMP  # 1789621467692328
+            TX_RECV_TIME  # 2026-09-17 14:04:27.692328
+      TX_APPLY_TIMESTAMP  # 1789621467692335
+           TX_APPLY_TIME  # 2026-09-17 14:04:27.692335
 ```
 
     - 위의 정보를 통해 CYCLONE MASTER와 SLAVE가 운영 중임을 확인할 수 있다.
@@ -2277,22 +2387,22 @@ cymon --start --trace
     - Cyclone master가 정상적으로 실행되었을 때부터 모니터링 정보를 저장한다.
 
 ```
-GROUP_NAME         TIME                MASTER_STATE SLAVE_STATE  MASTER_PORT  SLAVE_IP       CAPTURE_FILESEQ CAPTURE_BLOCKSEQ TOTAL_TX_COUNT CAPTURE_TX_COUNT  CAPTURE_COMMIT_LSN  APPLY_FILESEQ   APPLY_BLOCKSEQ   APPLY_COMMIT_LSN
------------------- ------------------- ------------ ------------ ----------- --------------- --------------- ---------------- -------------- ---------------- -----------------    -------------- ---------------- ------------------
-GROUP1             2016-11-02 15:43:03 READY        N/A                21102 null                          0                0              0                0                0                  0               0                  0 
-GROUP2             2016-11-02 15:43:03 READY        N/A                21103 null                          0                0              0                0                0                  0               0                  0
+GROUP_NAME         TIME                MASTER_STATE SLAVE_STATE  MASTER_PORT  SLAVE_IP       REDO_LOG_FILESEQ REDO_LOG_BLOCKSEQ CAPTURE_FILESEQ CAPTURE_BLOCKSEQ APPLY_FILESEQ   APPLY_BLOCKSEQ   CAPTURE_INTERVAL CAPTURE_INTERVAL_SIZE TOTAL_TX_COUNT CAPTURE_TX_COUNT CAPTURE_COMMIT_LSN APPLY_COMMIT_LSN   TX_COMMIT_TIMESTAMP TX_COMMIT_TIME             TX_CAPTURE_TIMESTAMP  TX_CAPTURE_TIME               TX_RECV_TIMESTAMP   TX_RECV_TIME               TX_APPLY_TIMESTAMP TX_APPLY_TIME
+------------------ ------------------- ------------ ------------ ----------- --------------- ---------------- ----------------- --------------- ---------------- --------------- ---------------- ---------------- --------------------- -------------- ---------------- ------------------ ------------------ ------------------- -------------------------- --------------------- ----------------------------- ------------------- -------------------------- ------------------ --------------------------
+GROUP1             2026-09-17 14:16:05 READY        N/A                21102  null                          0                 0               0                0               0                0                0                     0              0                0                  0                  0                   0                          0                     0                             0                   0                          0                  0                          0
+GROUP2             2026-09-17 14:16:05 READY        N/A                21103  null                          0                 0               0                0               0                0                0                     0              0                0                  0                  0                   0                          0                     0                             0                   0                          0                  0                          0
 ```
 
     - 위의 정보를 통해 CYCLONE MASTER만 동작하고 있고 SLAVE는 대기 중임을 확인할 수 있다.
 
 ```
-GROUP_NAME         TIME                MASTER_STATE SLAVE_STATE  MASTER_PORT  SLAVE_IP       CAPTURE_FILESEQ CAPTURE_BLOCKSEQ TOTAL_TX_COUNT CAPTURE_TX_COUNT  CAPTURE_COMMIT_LSN  APPLY_FILESEQ   APPLY_BLOCKSEQ   APPLY_COMMIT_LSN
------------------- ------------------- ------------ ------------ ----------- --------------- --------------- ---------------- -------------- ---------------- -----------------    -------------- ---------------- ------------------
-GROUP1             2016-11-02 15:43:11 RUNNING      RUNNING            21102 192.168.0.206                 7            52779              0                0               15346              7            52779             15346
-GROUP2             2016-11-02 15:43:11 READY        N/A                21103 null                          0                0              0                0                   0              0                0                 0
+GROUP_NAME         TIME                MASTER_STATE SLAVE_STATE  MASTER_PORT  SLAVE_IP       REDO_LOG_FILESEQ REDO_LOG_BLOCKSEQ CAPTURE_FILESEQ CAPTURE_BLOCKSEQ APPLY_FILESEQ   APPLY_BLOCKSEQ   CAPTURE_INTERVAL CAPTURE_INTERVAL_SIZE TOTAL_TX_COUNT CAPTURE_TX_COUNT CAPTURE_COMMIT_LSN APPLY_COMMIT_LSN   TX_COMMIT_TIMESTAMP TX_COMMIT_TIME             TX_CAPTURE_TIMESTAMP  TX_CAPTURE_TIME               TX_RECV_TIMESTAMP   TX_RECV_TIME               TX_APPLY_TIMESTAMP TX_APPLY_TIME
+------------------ ------------------- ------------ ------------ ----------- --------------- ---------------- ----------------- --------------- ---------------- --------------- ---------------- ---------------- --------------------- -------------- ---------------- ------------------ ------------------ ------------------- -------------------------- --------------------- ----------------------------- ------------------- -------------------------- ------------------ --------------------------
+GROUP1             2026-09-17 14:20:01 RUNNING      RUNNING            21102  127.0.0.1                     0            142544               0           142543               0           142515                1                   512              2                0             285362             285362    1789622391563064 2026-09-17 14:19:51.563064      1789622391855095    2026-09-17 14:19:51.855095    1789622391855623 2026-09-17 14:19:51.855623   1789622391855699 2026-09-17 14:19:51.855699
+GROUP2             2026-09-17 14:20:01 RUNNING      RUNNING            21103  127.0.0.1                     0            142544               0           142544               0           142544                0                     0              2                0             300447             300447    1789622391565113 2026-09-17 14:19:51.565113      1789622391982213    2026-09-17 14:19:51.982213    1789622391982342 2026-09-17 14:19:51.982342   1789622391982353 2026-09-17 14:19:51.982353
 ```
 
-    - 위의 정보를 통해 CYCLONE MASTER (group1)와 SLAVE가 운영 중임을 확인할 수 있다.
+    - 위의 정보를 통해 CYCLONE MASTER (group1, group2)와 SLAVE가 운영 중임을 확인할 수 있다.
 
 - CYMON 운영상태 확인
 

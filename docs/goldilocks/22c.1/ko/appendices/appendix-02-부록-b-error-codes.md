@@ -3,7 +3,7 @@
 # 부록 B. Error Codes
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/6f50ff3922357908)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 부록 A. SQLSTATE](appendix-01-부록-a-sqlstate.md) · [전체 목차](../README.md) · [부록 C. Wait Event →](appendix-03-부록-c-wait-event.md)
 
@@ -1336,6 +1336,62 @@ GOLDILOCKS에서 제공하는 error code는 다음과 같다. 해당 내용은 [
 | 16625 | 42000 | segment is unusable in the member with the latest data of table '%s.%s' |
 | 16626 | 42000 | of the total '%d' tables in the database, failed to modify the offline member map in '%d' tables |
 | 16627 | 42000 | Input to JSON generation function has unsupported data type |
+| 16628 | - | Reserved |
+| 16629 | - | Reserved |
+| 16630 | - | Reserved |
+| 16631 | - | Reserved |
+| 16632 | - | Reserved |
+| 16633 | - | Reserved |
+| 16634 | - | Reserved |
+| 16635 | - | Reserved |
+| 16636 | - | Reserved |
+| 16637 | - | Reserved |
+| 16638 | - | Reserved |
+| 16639 | - | Reserved |
+| 16640 | - | Reserved |
+| 16641 | - | Reserved |
+| 16642 | - | Reserved |
+| 16643 | - | Reserved |
+| 16644 | - | Reserved |
+| 16645 | - | Reserved |
+| 16646 | - | Reserved |
+| 16647 | - | Reserved |
+| 16648 | - | Reserved |
+| 16649 | - | Reserved |
+| 16650 | - | Reserved |
+| 16651 | - | Reserved |
+| 16652 | - | Reserved |
+| 16653 | - | Reserved |
+| 16654 | - | Reserved |
+| 16655 | - | Reserved |
+| 16656 | - | Reserved |
+| 16657 | - | Reserved |
+| 16658 | - | Reserved |
+| 16659 | - | Reserved |
+| 16660 | - | Reserved |
+| 16661 | - | Reserved |
+| 16662 | - | Reserved |
+| 16663 | - | Reserved |
+| 16664 | - | Reserved |
+| 16665 | - | Reserved |
+| 16666 | - | Reserved |
+| 16667 | - | Reserved |
+| 16668 | - | Reserved |
+| 16669 | - | Reserved |
+| 16670 | - | Reserved |
+| 16671 | - | Reserved |
+| 16672 | - | Reserved |
+| 16673 | - | Reserved |
+| 16674 | - | Reserved |
+| 16675 | - | Reserved |
+| 16676 | - | Reserved |
+| 16677 | - | Reserved |
+| 16678 | - | Reserved |
+| 16679 | 42000 | BULK DML does not support %s |
+| 16680 | 42000 | commit row count must be positive numeric value |
+| 16681 | 42000 | related objects were modified during BULK DML execution |
+| 16682 | 42000 | '%ld' modified records were committed during BULK DML execution |
+| 16683 | 42000 | BULK DML is not supported in the cluster system |
 
 <a id="45b8086e975e22f2"></a>
 ## PSM 관련 에러
@@ -2042,6 +2098,11 @@ GOLDILOCKS에서 제공하는 error code는 다음과 같다. 해당 내용은 [
 | 46065 | HY000 | Slave is running with --sync option |
 | 46066 | HY000 | MYSQL_DATABASE configuration must needed to connect MySQL/MariaDB |
 | 46067 | HY000 | DB2_DATABASE configuration must needed to connect DB2 |
+| 46068 | HY000 | Configuration described in an invalid area (Should not be described in a specific group, but in a global group)(%s) |
+| 46069 | HY000 | Failed to set supplemental logging.(SUPPLEMENTAL_LOG_FORCE_MODE)(%s.%s) |
+| 46070 | HY000 | Failed to set deadlock_priority.(APPLIER_DEADLOCK_PRIORITY) |
+| 46071 | HY000 | Deferred constraints is not supported.( %s.%s ) |
+| 46072 | HY000 | Failed to set trace log id.(APPLIER_TRACE_LOG_ID) |
 
 <a id="89efe2f616a92f71"></a>
 ## LogMirror 관련 에러

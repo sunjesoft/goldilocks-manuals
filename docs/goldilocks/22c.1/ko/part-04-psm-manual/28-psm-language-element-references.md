@@ -3,7 +3,7 @@
 # 28. PSM Language Element References
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/850134590bc2c272)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 27. PSM Packages](27-psm-packages.md) · [전체 목차](../README.md) · [29. PSM SQL References →](29-psm-sql-references.md)
 
@@ -4418,7 +4418,7 @@ PSM 내에서만 사용할 수 있다.
 
 PL/ SQL에서 수행된 statement의 error message를 반환한다.  
 Error code를 할당하지 않은 user-defined exception의 경우, handler에 의해 처리되는 시점에 user-defined exception으로 반환된다.  
-Exception handler에 의해 오류 처리가 완료되면 *successful completion* 메세지를 출력한다.
+Exception handler에 의해 오류 처리가 완료되면 *successful completion* 메시지를 출력한다.
 
 <a id="28c9ed38a9b7a93a"></a>
 ### 사용 예

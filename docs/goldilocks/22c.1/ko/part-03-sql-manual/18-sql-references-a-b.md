@@ -3,7 +3,7 @@
 # 18. SQL References (A~B)
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/d0256248798fc649)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 17. Built-in Function References](17-built-in-function-references.md) · [전체 목차](../README.md) · [19. SQL References (C~G) →](19-sql-references-c-g.md)
 
@@ -1337,7 +1337,7 @@ ERR-42000(16553): of the total '5' tables, '1' tables failed to drop offline seg
 Database altered.
 ```
 
-위 에러 메세지는 다섯 개의 테이블 중에서 한 개의 테이블이 실패했다는 의미이다.
+위 에러 메시지는 다섯 개의 테이블 중에서 한 개의 테이블이 실패했다는 의미이다.
 
 이후 에러에 대해 적절한 조치를 취한 후 &lt;alter database drop offline segments statement&gt; 구문을 다시 수행하면 실패했던 테이블에 대해서만 해당 구문이 다시 수행된다.
 
@@ -2552,7 +2552,7 @@ ERR-42000(16555): of the total '5' tables, '1' tables failed to synchronize
 Database altered.
 ```
 
-위 에러 메세지는 다섯 개의 테이블 중에서 한 개의 테이블이 실패했다는 의미이다.
+위 에러 메시지는 다섯 개의 테이블 중에서 한 개의 테이블이 실패했다는 의미이다.
 
 이후 에러에 대해 적절한 조치를 취한 후 &lt;alter database synchronize statement&gt; 구문을 다시 수행하면 실패했던 테이블에 대해서만 진행된다.
 
@@ -3835,8 +3835,8 @@ CHECKPOINT는 commit 된 트랜잭션들이 변경한 모든 데이터가 디스
 <a id="acf132e27eb92ea1"></a>
 #### &lt;domain name&gt;
 
-- 구문을 수행할 멤버나 그룹의 이름이다.
-- 지정하지 않은 경우에는 모든 그룹에 수행된다.
+구문을 수행할 멤버나 그룹의 이름이다.  
+지정하지 않은 경우에는 모든 그룹에 수행된다.
 
 <a id="a0f20f56001fe062"></a>
 ### 설명
@@ -8427,7 +8427,7 @@ SQL 표준에서는 테이블스페이스 개념을 정의하지 않고 있다.
 - SIZE &lt;size clause&gt; 
     - 새로운 파일일 경우 SIZE 절을 이용해 초기 크기를 지정한다. 
     - 파일이 이미 존재할 경우 에러가 발생한다. 
-    - 파일의 크기는 최소 1 M ~ 최대 30 G 까지 지정할 수 있다.
+    - 파일의 크기는 최소 4 M ~ 최대 30 G 까지 지정할 수 있다.
 
 - REUSE 
     - 이미 존재하는 파일일 경우 REUSE 절을 이용한다. 
@@ -10031,6 +10031,109 @@ SQL 표준에는 audit policy가 없다.
 - Audit trail 조회: [AUDIT_TRAIL](../part-02-administration-manual/9-database-information.md#0f5f6dd722f4b648)
 
 - Audit trail 소거: [ALTER DATABASE CLEAR AUDIT TRAIL](#7cfd4bf205511a5c)
+
+<a id="d566ccd2cd5ce96d"></a>
+## BULK DELETE FROM
+
+> Standalone 에서만 사용할 수 있다.
+
+<a id="7ee9d26db6025e69"></a>
+### 기능
+
+테이블의 row들을 여러 트랜잭션으로 나누어 삭제한다.
+
+<a id="54e4536577eb3ba6"></a>
+### 구문
+
+```
+<bulk delete statement> ::=
+    DELETE [ FROM ] table_name [ [ AS ] alias_name ]
+        [ WHERE <search condition> ]
+        <commit rows clause>
+    ;
+
+<commit rows clause> ::=
+    COMMIT EVERY row_count ROWS
+```
+
+<a id="1206578217443774"></a>
+### 사용 범위 및 접근 권한
+
+&lt;bulk delete statement&gt; 구문을 수행하려면 사용자에게 다음 권한 중 하나가 있어야 한다.
+
+- 테이블에 대해 (DELETE 또는 CONTROL TABLE) ON TABLE 
+- 테이블이 속한 스키마에 대해 (DELETE TABLE 또는 CONTROL SCHEMA) ON SCHEMA 
+- DELETE ANY TABLE ON DATABASE
+
+<a id="1cddb1fb2b72dd81"></a>
+### 구문 규칙 및 파라미터
+
+<a id="75275035b6a94e4e"></a>
+#### table_name
+
+Row를 삭제할 대상 테이블의 이름이다.   
+schema_name.table_name과 같이 테이블이 소속한 스키마를 정의할 수 있는데 schema_name을 생략할 경우 구문을 수행하는 사용자의 기본 스키마 이름이 사용된다.
+
+<a id="7cf7c73313d8d1a6"></a>
+#### [ AS alias_name ]
+
+table_name의 alias 이다.
+
+<a id="57c55c172574e6bc"></a>
+#### WHERE &lt;search condition&gt;
+
+WHERE 조건을 만족하는 row를 삭제한다.  
+WHERE 조건을 명시하지 않은 경우, 모든 row를 삭제한다.  
+WHERE 조건에 대한 자세한 내용은 [SELECT](20-sql-references-h-z.md#a8ad8e667688877b) 구문의 [where clause](20-sql-references-h-z.md#a7097ec4495ecaf2)를 참조한다.
+
+<a id="79f00e695a591d7e"></a>
+#### &lt;commit rows clause&gt;
+
+Delete 및 commit 대상 단위인 row의 개수를 지정한다.  
+row_count가 n 인 경우 대상 레코드를 n개 레코드 단위로 묶어 delete와 commit 수행을 반복한다.  
+row_count는 0 보다 큰 정수여야 한다.
+
+<a id="625006e49bf9305a"></a>
+### 설명
+
+<a id="c089e67b44732d25"></a>
+#### BULK DELETE 구문과 DELETE 구문의 차이점
+
+BULK DELETE 구문은 [DELETE FROM](19-sql-references-c-g.md#7f39572a92faf235) 과 동일한 방법으로 레코드를 삭제한다.
+
+BULK DELETE 구문은 AUTO COMMIT으로 동작한다.   
+BULK DELETE 구문은 레코드를 삭제한 후에 COMMIT도 수행하지만 [DELETE FROM](19-sql-references-c-g.md#7f39572a92faf235) 은 COMMIT을 수행하지 않는다.
+
+BULK DELETE 수행 중 일부 단위 레코드의 변경에 실패하면 해당 변경 내용은 반영되지 않고 에러가 발생하며, 이후 작업은 중단된다.
+
+BULK DELETE는 base table만 지원한다.   
+Base table에 대한 synonym을 사용하여 BULK DELETE를 수행할 수도 있다.
+
+BULK DELETE 구문에서는 sub-query expression을 지원하지 않는다.  
+BULK DELETE 구문에서는 stored function을 지원하지 않는다.
+
+<a id="3fb50e799472128a"></a>
+### 사용 예
+
+다음은 BULK DELETE 구문을 사용하는 예이다.
+
+```
+gSQL> BULK DELETE FROM orders
+           WHERE order_date < DATE '2025-01-01'
+           COMMIT EVERY 10000 ROWS;
+
+53000 rows deleted.
+```
+
+<a id="b2080d3cf5d3be5d"></a>
+### 호환성
+
+SQL 표준은 BULK DELETE 구문을 정의하지 않고 있다.
+
+<a id="e5c17568f1bf62ff"></a>
+### 참조
+
+관련 내용은 [DELETE FROM](19-sql-references-c-g.md#7f39572a92faf235) 을 참조한다.
 
 ---
 

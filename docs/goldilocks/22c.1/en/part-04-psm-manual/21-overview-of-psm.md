@@ -3,7 +3,7 @@
 # 21. Overview of PSM
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/3fe2fc60e889cb5c)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 20. SQL References (H~Z)](../part-03-sql-manual/20-sql-references-h-z.md) · [Table of contents](../README.md) · [22. PSM DataTypes →](22-psm-datatypes.md)
 
@@ -90,7 +90,7 @@ A transaction ends when a user performs COMMIT or ROLLBACK, or terminates the co
 
 A subprogram module created by GOLDILOCKS PSM is a statement which does not uses its own transaction, so a new transaction does not occur when the subprogram is called.
 
-However, to guarantee atomicity of the SQL statement, the the available SQL types in a subprogram may vary depending on the case of calling the subprogram.
+However, to guarantee atomicity of the SQL statement, the available SQL types in a subprogram may vary depending on the case of calling the subprogram.
 
 - When a user directly calls a subprogram module by using CALL statement, or performs an anonymous block
     - A superordinate statement does not exists, so all kinds of SQL can be used within a subprogram and COMMIT/ROLLBACK is also allowed.

@@ -3,7 +3,7 @@
 # 39. gsql/gsqlnet (Interactive SQL Tool)
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/bf347457eae52c08)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 38. glsnr](38-glsnr.md) · [Table of contents](../README.md) · [40. gloader/gloadernet(Upload/download Tool) →](40-gloader-gloadernet-upload-download-tool.md)
 
@@ -497,7 +497,7 @@ The login.sql configuration takes precedence over the glogin.sql configuration.
 ## Using Interactive Command
 
 <a id="3922b4912cec977a"></a>
-### gsql Interactive Mode Commnad
+### gsql Interactive Mode Command
 
 Refer to the following commands.
 

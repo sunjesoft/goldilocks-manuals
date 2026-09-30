@@ -3,7 +3,7 @@
 # 48. gloctl
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/93f88cc11d2100c5)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 47. gagent](47-gagent.md) · [전체 목차](../README.md) · [49. 개요 →](../part-07-replication/49-개요.md)
 

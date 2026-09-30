@@ -3,7 +3,7 @@
 # 23. PSM Control Statements
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/c89a8103d27ef960)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 22. PSM DataTypes](22-psm-datatypes.md) · [전체 목차](../README.md) · [24. PSM Cursor Statements →](24-psm-cursor-statements.md)
 
@@ -1230,7 +1230,7 @@ Anonymous PL block executed.
 <a id="52a66291f9f033e7"></a>
 #### User-defined Exception
 
-User-defined exception은 predefined 외에 사용자가 exception name과 error-code를 설정하여 사용하는 exception이다. User-defined exception은 implicite하게 발생할 수 없으며 사용자가 명시적으로 RAISE statment를 사용하여 발생시켜야 한다.
+User-defined exception은 predefined 외에 사용자가 exception name과 error-code를 설정하여 사용하는 exception이다. User-defined exception은 암묵적으로 발생할 수 없으며 사용자가 명시적으로 RAISE statement를 사용하여 발생시켜야 한다.
 
 다음은 RAISE statement를 이용하여 exception을 발생시키는 예이다.
 

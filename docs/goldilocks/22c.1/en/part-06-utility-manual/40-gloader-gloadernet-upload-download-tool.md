@@ -3,7 +3,7 @@
 # 40. gloader/gloadernet(Upload/download Tool)
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/e698d1344247c12f)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 39. gsql/gsqlnet (Interactive SQL Tool)](39-gsql-gsqlnet-interactive-sql-tool.md) · [Table of contents](../README.md) · [41. gdump →](41-gdump.md)
 
@@ -1331,8 +1331,9 @@ CHARACTERSET characterset_name
 <a id="07534881022c0cc3"></a>
 #### Description
 
-It refers to the character set of the datafile to be downloaded or uploaded.  
-If the character set is not specified, the UTF8 which is the default character set of CHARACTER_SET in GOLDILOCKS property is used.
+It refers to the character set of the data file to be downloaded or uploaded.  
+If the character set is not explicitly specified, the client character set is determined based on the following priority: the CHARSET of the ODBC data source, the GOLDILOCKS_NLS_CHARACTERSET environment variable, and the system locale settings.  
+This clause does not apply when downloading data in binary format; it applies only when uploading.
 
 <a id="9c00521e362c1030"></a>
 #### Example

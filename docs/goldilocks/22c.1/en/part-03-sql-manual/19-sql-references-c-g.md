@@ -3,7 +3,7 @@
 # 19. SQL References (C~G)
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/e058d1ca26668d04)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 18. SQL References (A~B)](18-sql-references-a-b.md) · [Table of contents](../README.md) · [20. SQL References (H~Z) →](20-sql-references-h-z.md)
 
@@ -1051,7 +1051,7 @@ The length of the tablespace name should be shorter than 128 bytes.
 - SIZE &lt;size clause&gt; 
     - If it is a new file, then it specifies the initial size by using SIZE clause. 
     - If a file exists, then an error occurs. 
-    - The file size can be in the range between 1 M ~ maximum 30 G.
+    - The file size can be in the range between 4 M ~ maximum 30 G.
 
 - REUSE 
     - If it is an existing file, then it uses REUSE clause. 
@@ -1846,7 +1846,7 @@ The length of the tablespace name should be shorter than 128 bytes.
 - SIZE &lt;size clause&gt; 
     - The initial size is assigned for a new file by using the SIZE clause.
     - An error occurs if the file already exists.
-    - The file size can be specified between minimum 1M and maximum 30G.
+    - The file size can be specified between minimum 4 M and maximum 30 G.
 
 - REUSE 
     - If the file already exists, REUSE clause is used. 
@@ -1991,7 +1991,7 @@ The length of the tablespace name should be shorter than 128 bytes.
     - The length of the memory_name should be shorter than 1024 bytes.
 - SIZE &lt;size clause&gt; 
     - It specifies the initial size.
-    - It can be specified between minimum 1M and maximum 30G.
+    - It can be specified between minimum 4 M and maximum 30 G.
 
 <a id="9a262b20360ca470"></a>
 #### &lt;size clause&gt;
@@ -2259,7 +2259,7 @@ It is the password verification method of Oracle, ORA12C_VERIFY_FUNCTION.
 - *goldilocks* should not be included. 
 - *oracle* should not be included. 
 - The following simple passwords are not allowed. 
-    - welcome1, database1, account1, user1234, password1, oracle123, computer1, abcdefg1, change_on_intall 
+    - welcome1, database1, account1, user1234, password1, oracle123, computer1, abcdefg1, change_on_install 
 - At least 3 characters of the new password should be different from the old password.
 
 <a id="845652fb3515d63d"></a>
@@ -3004,7 +3004,7 @@ It creates a synonym. A synonym is an alternative name for a table, view, sequen
 ### Syntax
 
 ```
-<table definition> ::=    
+<synonym definition> ::=    
     CREATE [OR REPLACE] [PUBLIC] SYNONYM [schema_name.]synonym_name 
     FOR [schema_name.]object_name
     ;

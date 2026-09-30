@@ -3,7 +3,7 @@
 # 27. PSM Packages
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/a3fdb8debd95d65c)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 26. Using SQLs in PSM](26-using-sqls-in-psm.md) · [전체 목차](../README.md) · [28. PSM Language Element References →](28-psm-language-element-references.md)
 

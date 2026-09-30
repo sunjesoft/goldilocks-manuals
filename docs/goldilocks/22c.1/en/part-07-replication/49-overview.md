@@ -3,7 +3,7 @@
 # 49. Overview
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/a8cd1175a6766bf7)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 48. gloctl](../part-06-utility-manual/48-gloctl.md) · [Table of contents](../README.md) · [50. CYCLONE →](50-cyclone.md)
 

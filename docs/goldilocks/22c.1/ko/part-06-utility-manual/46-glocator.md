@@ -3,7 +3,7 @@
 # 46. glocator
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/68298fc49624d83a)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 45. gtrclogger](45-gtrclogger.md) · [전체 목차](../README.md) · [47. gagent →](47-gagent.md)
 
@@ -368,7 +368,7 @@ Server 프로퍼티 [CLUSTER_SPLIT_BRAIN_RESOLUTION_POLICY](../part-02-administr
 Viabilty 결과를 받은 노드는 종료되거나 failover를 진행한다.
 
 > Server의 cluster failover 처리 시간은 여러 프로퍼티와 상관 관계가 있다.   
-> Server 프로퍼티 [LOCATOR_QUERY_TIMEOUT](../part-02-administration-manual/10-server-property.md#899241c2601698b3)는 server가 glocator에게 질의한 후에 응답을 기다리는 시간으로서 기본값은 3초로 설정되어 있다.  
+> Server 프로퍼티 [LOCATOR_QUERY_TIMEOUT](../part-02-administration-manual/10-server-property.md#899241c2601698b3)은 server가 glocator에게 질의한 후에 응답을 기다리는 시간으로서 기본값은 20초로 설정되어 있다.  
 > Server 프로퍼티 [CLUSTER_SPLIT_BRAIN_RETRY_COUNT](../part-02-administration-manual/10-server-property.md#f9b740dd4e63870e)는 glocator로부터 응답을 받지 못했을 때 다시 질의하는 횟수로서 cluster failover 처리 시간과 관계가 있다. 기본값은 1이다.
 
 <a id="0fc103eb8e82f101"></a>

@@ -3,7 +3,7 @@
 # 26. Using SQLs in PSM
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/62e118512d69c410)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 25. Using PSM Subprograms](25-using-psm-subprograms.md) · [전체 목차](../README.md) · [27. PSM Packages →](27-psm-packages.md)
 

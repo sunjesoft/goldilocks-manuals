@@ -3,7 +3,7 @@
 # 부록 A. SQLSTATE
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/aa6c242290586c73)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 52. CYFILE](../part-07-replication/52-cyfile.md) · [전체 목차](../README.md) · [부록 B. Error Codes →](appendix-02-부록-b-error-codes.md)
 

@@ -3,7 +3,7 @@
 # 30. Database Connection
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/f88ef52e0a3a7613)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 29. PSM SQL References](../part-04-psm-manual/29-psm-sql-references.md) · [Table of contents](../README.md) · [31. ODBC →](31-odbc.md)
 
@@ -17,7 +17,7 @@ Global connection feature is a method of optimizing transaction performance in c
 A general connection is a connection with a single member, but global connection is a connection with all members. An application using the global connection makes the member with most data accessed by queries perform the query, so the performance is upgraded.   
 Hash, range, list sharding method can use the global connection, and the application does not need to be altered at that moment.
 
-When the online scale-out is performed, a user does not need to consider a new node but the the application automatically connects to a new node and operates it.
+When the online scale-out is performed, a user does not need to consider a new node but the application automatically connects to a new node and operates it.
 
 <a id="87b81d7939fa647c"></a>
 ![GLOBAL CONNECTION HA (high availability)](../assets/images/e8a20c9c85740f44.png)

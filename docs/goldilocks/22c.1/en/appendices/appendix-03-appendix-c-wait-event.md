@@ -3,7 +3,7 @@
 # Appendix C. Wait Event
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/89c56419728deb44)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← Appendix B. Error Codes](appendix-02-appendix-b-error-codes.md) · [Table of contents](../README.md) · [Appendix D. Open Source License →](appendix-04-appendix-d-open-source-license.md)
 
@@ -64,7 +64,7 @@ Parameter: None
 <a id="49ab4e535b0a373c"></a>
 ### SEND: DEDICATE-SERVER SPOOLED RESPONSE
 
-It is the time of which a dedicate server sends the spooled response to the client in a dedicate mode.
+It is the time of which a dedicate server sends the spooled response to the client in a dedicated mode.
 
 **PARAMETER**
 
@@ -76,7 +76,7 @@ It is the time of which a dedicate server sends the spooled response to the clie
 <a id="6a906869cb639786"></a>
 ### SEND: DEDICATE-SERVER RESPONSE
 
-It is the time of which a dedicate server sends a response to the client in a dedicate mode.
+It is the time of which a dedicate server sends a response to the client in a dedicated mode.
 
 **Parameter**
 
@@ -88,7 +88,7 @@ It is the time of which a dedicate server sends a response to the client in a de
 <a id="febbdf86c14e2453"></a>
 ### RECV: DEDICATE-SERVER REQUEST
 
-It is the time of which a dedicate server receives a request from the client in a dedicate mode.  
+It is the time of which a dedicate server receives a request from the client in a dedicated mode.  
 Parameter: None
 
 <a id="b39e919e4bf99926"></a>

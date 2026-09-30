@@ -3,7 +3,7 @@
 # 20. SQL References (H~Z)
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/b2cadf3c652a4c03)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 19. SQL References (C~G)](19-sql-references-c-g.md) · [Table of contents](../README.md) · [21. Overview of PSM →](../part-04-psm-manual/21-overview-of-psm.md)
 
@@ -8026,7 +8026,7 @@ All access privileges for the &lt;query expression&gt; in each &lt;set operator 
       1  
       2  
       2 rows selected.
-- If the processing order is not explicitly specified by using parentheses it processes by evaluating specified subqueries from the left to the the right.
+- If the processing order is not explicitly specified by using parentheses it processes by evaluating specified subqueries from the left to the right.
 - The meaning of each operator in &lt;set operator&gt; is as follows.
     - UNION
         - UNION ALL: It is a union of all subquery results without removing the duplicates.
@@ -8447,7 +8447,7 @@ The updatable query should satisfy all of following conditions.
     - The column of the table which is not for cross join among the tables included in join is not an updatable column.
         - OUTER JOIN is not the cross join. 
         - NATURAL JOIN is not the cross join. 
-        - If USING clause is is used in INNER JOIN, it is not the cross join. 
+        - If USING clause is used in INNER JOIN, it is not the cross join. 
     - The column of the following tables is not an updatable column.
         - Dictionary table, fixed table, performance view 
     - The column of a view is not an updatable table.
@@ -8729,7 +8729,7 @@ The updatable query should satisfy all of following conditions.
     - The column of the table which is not for cross join among the tables included in join is not an updatable column.
         - FULL OUTER JOIN is not the cross join. 
         - NATURAL JOIN is not the cross join. 
-        - If USING clause is is used in INNER JOIN, it is not the cross join. 
+        - If USING clause is used in INNER JOIN, it is not the cross join. 
     - The column of the following tables is not an updatable column.
         - Dictionary table, fixed table, performance view 
     - The column of a view is not an updatable table.
@@ -9890,7 +9890,7 @@ It can define schema to which the table belongs such as schema_name.table_name a
 #### [ DROP STORAGE | DROP ALL STORAGE ]
 
 - DROP STORAGE 
-    - It drops allocated extents from the the table excluding the space of MINSIZE.
+    - It drops allocated extents from the table excluding the space of MINSIZE.
 - DROP ALL STORAGE 
     - It drops all extents allocated to the table.
 - If it is not specified, the default value is DROP STORAGE.

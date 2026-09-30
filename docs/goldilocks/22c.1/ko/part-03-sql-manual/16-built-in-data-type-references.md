@@ -3,7 +3,7 @@
 # 16. Built-in Data Type References
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/3ee5110683b2294c)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 15. SQL Tuning](15-sql-tuning.md) · [전체 목차](../README.md) · [17. Built-in Function References →](17-built-in-function-references.md)
 

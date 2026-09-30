@@ -3,7 +3,7 @@
 # 27. PSM Packages
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/081c484622729756)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 26. Using SQLs in PSM](26-using-sqls-in-psm.md) · [Table of contents](../README.md) · [28. PSM Language Element References →](28-psm-language-element-references.md)
 

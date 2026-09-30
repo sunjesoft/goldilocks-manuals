@@ -3,7 +3,7 @@
 # 42. tablediff
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/e793c00156e345ae)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 41. gdump](41-gdump.md) · [전체 목차](../README.md) · [43. gsyncher →](43-gsyncher.md)
 

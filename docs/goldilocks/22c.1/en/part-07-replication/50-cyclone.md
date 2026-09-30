@@ -3,7 +3,7 @@
 # 50. CYCLONE
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/297bbf535e9fa6e7)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 49. Overview](49-overview.md) · [Table of contents](../README.md) · [51. LOGMIRROR →](51-logmirror.md)
 
@@ -41,7 +41,8 @@ CYCLONE is driven being divided into master and slave. Master recognizes the cha
 - Only the committed transaction is allowed to be replicated. Therefore, the content is unknown to the slave before committing the transaction.
 - The primary key update is not supported. 
     - When the primary key is updated, the table is given up and it is not replicated any more. 
-- The table participated in the replication can not use the column which has Generated Always As Identity property. 
+- The table participated in the replication can not use the column which has Generated Always As Identity property.
+- Tables participating in replication cannot use deferred constraints. 
 - When Data Definition Language (DDL) is performed on the table in which the replication is being operated, it could be given up. 
     - For more information, refer to [The occurrence of give up and whether to allow DDL statement according to DDL category](#ec779fc67c96906b) in table1. 
     - If it does not comply with the processing procedure of table DDL of CYCLONE, then even the allowable DDL is given up.
@@ -143,7 +144,7 @@ It should comply with the following procedure when the allowable DDL is performe
 | TIMESTAMP WITH TIMEZONE | X | It does not support ODBC driver. |
 | INTERVAL | X | It does not support ODBC driver. |
 | LONG VARCHAR | LONG VARCHAR | - |
-| LONG VARBINARY | LONG RAW | - |
+| LONG VARBINARY | BLOB | - |
 
 - The following four datatypes can not be replicated as described in a table above.
     - BOOLEAN
@@ -461,6 +462,9 @@ When performing CYCLONE, the information and options required for operating are 
 | SYNC_DB2_DRIVER | It specifies the file path of the DB2 ODBC driver provided by DB2. (Used for SYNC connections) | Master |
 | SYNC_TIBERO_DRIVER | It specifies the file path of the TIBERO ODBC driver provided by TIBERO. (Used for SYNC connections) | Master |
 | PACKET_COMPRESSION_MODE | It sets whether to compress the data of communication of master and slave. (1: Enable, 0: Disable, Default: Enable) | Master |
+| APPLIER_DEADLOCK_PRIORITY | It sets the DEADLOCK_PRIORITY value for the applier. (0–9: Enabled, Default: Disabled (-1)) | Slave |
+| TRACE_LOG_PATH | It specifies the path to the CYCLONE TRACE LOG file. | Master/ slave |
+| APPLIER_TRACE_LOG_ID | It sets the TRACE_LOG_ID value for the applier. (Default: Disabled (0)) | Slave |
 
 <a id="5af2d763cc3843e2"></a>
 ### Configuration Option
@@ -1467,6 +1471,80 @@ GROUP_NAME = testGROUP
 }
 ```
 
+<a id="8f36e39f3e277f8d"></a>
+#### APPLIER_DEADLOCK_PRIORITY
+
+- It can be set in slave.
+- It specifies the DEADLOCK_PRIORITY value for the applier.
+    - Default: -1 (Disabled) 
+    - To enable this feature, set the value to a number between 0 and 9 (Enabled).
+
+• It can be set in any group.
+
+```
+APPLIER_DEADLOCK_PRIORITY = 8
+```
+
+• It can be set in a specific group.
+
+```
+GROUP_NAME = testGROUP
+{
+    APPLIER_DEADLOCK_PRIORITY = 8
+    ....
+    ....
+}
+```
+
+<a id="97610cc810e31194"></a>
+#### TRACE_LOG_PATH
+
+- It can be set in master and slave.
+- It specifies the path to the TRACE LOG file generated during CYCLONE operation.
+    - The default value is '&lt;GOLDILOCKS_DATA&gt;/trc'.
+
+• Settings applied to all groups
+
+```
+TRACE_LOG_PATH='<GOLDILOCKS_DATA>/trc'
+```
+
+• Settings applied to a specific group
+
+```
+GROUP_NAME = testGROUP
+{
+    TRACE_LOG_PATH='<GOLDILOCKS_DATA>/trc'
+    ....
+    ....
+}
+```
+
+<a id="0f83f87709709bcd"></a>
+#### APPLIER_TRACE_LOG_ID
+
+- It can be set in slave.
+- It sets the TRACE_LOG_ID value for the applier.
+    - The default value is 0 (Disabled).
+    - To enable trace logging, set an appropriate value according to the [flag information for TRACE_LOG_ID](../part-02-administration-manual/10-server-property.md#52f8b9697c5f1f51). (Enabled)
+
+• Settings applied to all groups
+
+```
+APPLIER_TRACE_LOG_ID = 10010
+```
+
+• Settings applied to a specific group
+
+```
+GROUP_NAME = testGROUP
+{
+    APPLIER_TRACE_LOG_ID = 10010
+    ....
+    ....
+}
+```
+
 <a id="5332119b6eeb74b9"></a>
 ## Operating
 
@@ -1535,9 +1613,9 @@ The config properties relating to GOLDILOCKS connection are DSN, PROTOCOL, HOST_
 | CONFIG | PROTOCOL=TCP, USER_ID=test, USER_PW=test |
 | GOLDILOCKS configuration of odbc.ini | HOST_IP=127.0.0.1, HOST_PORT=22581, USER_ID=test2, USER_PW=test2 |
 
-- HOST_EXTERANL_IP can not be set in slave even though it is connected as D/A.
+- HOST_EXTERNAL_IP can not be set in slave even though it is connected as D/A.
 
-**HOST_EXTERANL_IP can be configured for a slave even when the connection uses D/A.**
+**Even when connecting via DA, HOST_EXTERNAL_IP can still be configured on the slave.**
 
 <a id="18a583ab10ba77e2"></a>
 | Item | File |
@@ -2182,8 +2260,20 @@ CYMON periodically updates the operating information of CYCLONE to the CYCLONE_M
 | CAPTURE_TX_COUNT | It is the number of all transactions in which the replication targets are included among the transactions captured by CYCLONE master. |
 | CAPTURE_COMMIT_LSN | It is the commit log number of the last transaction which was captured in CYCLONE master. It is not updated if there is not a transaction to be captured any more. |
 | APPLY_COMMIT_LSN | It is the commit log number of the transaction being processed in CYCLONE slave. It is not updated if there is not a transaction to be processed any more. |
+| TX_COMMIT_TIMESTAMP | It is the timestamp when the Tx is committed on the master. |
+| TX_COMMIT_TIME | It is the time when the Tx is committed on the master. |
+| TX_CAPTURE_TIMESTAMP | It is the timestamp when Cyclone captures the Tx on the master. |
+| TX_CAPTURE_TIME | It is the time when Cyclone captures the Tx on the master. |
+| TX_RECV_TIMESTAMP | It is the timestamp when the Tx is received by the slave.It is the timestamp when the Tx is received by the slave. |
+| TX_RECV_TIME | It is the time when the Tx is received by the slave. |
+| TX_APPLY_TIMESTAMP | It is the timestamp when the Tx is applied on the slave. |
+| TX_APPLY_TIME | It is the time when the Tx is applied on the slave. |
 
-> INTERVAL information is the CAPTURE information for analyzing the redo log file of CYCLONE operated as master, and it is not the information reflected by APPLIER in CYCLONE SLAVE.
+
+> 
+> - The INTERVAL information is CAPTURE information obtained by analyzing the redo log files of CYCLONE operating as the master. It does not represent information applied by the APPLIER on the CYCLONE SLAVE.
+> - TX_COMMIT_TIMESTAMP through TX_APPLY_TIME contain information for the same Tx and represent the information for the most recently applied Tx on the slave.
+> 
 
 <a id="03633531c5240e72"></a>
 ### Executing and Monitoring
@@ -2222,22 +2312,32 @@ cymon --start --cycle 1
 gSQL> \set vertical on
 gSQL> select * from cyclone_monitor_info;
 
-              GROUP_NAME # GROUP1
-                    TIME # 2015-01-13 17:34:53
-            MASTER_STATE # READY
-             SLAVE_STATE # N/A
-             MASTER_PORT # 21102
-                SLAVE_IP # null
-        REDO_LOG_FILESEQ # 0
-       REDO_LOG_BLOCKSEQ # 52392
-         CAPTURE_FILESEQ # 0
-        CAPTURE_BLOCKSEQ # 0
-           APPLY_FILESEQ # 0
-          APPLY_BLOCKSEQ # 0
-        CAPTURE_INTERVAL # 0
-   CAPTURE_INTERVAL_SIZE # 0
-      CAPTURE_COMMIT_LSN # 0
-        APPLY_COMMIT_LSN # 0
+              GROUP_NAME  # GROUP1
+                    TIME  # 2026-09-17 14:01:49
+            MASTER_STATE  # READY
+             SLAVE_STATE  # N/A
+             MASTER_PORT  # 21102
+                SLAVE_IP  # null
+        REDO_LOG_FILESEQ  # 0
+       REDO_LOG_BLOCKSEQ  # 119534
+         CAPTURE_FILESEQ  # 0
+        CAPTURE_BLOCKSEQ  # 0
+           APPLY_FILESEQ  # 0
+          APPLY_BLOCKSEQ  # 0
+        CAPTURE_INTERVAL  # 0
+   CAPTURE_INTERVAL_SIZE  # 0
+          TOTAL_TX_COUNT  # 0
+        CAPTURE_TX_COUNT  # 0
+      CAPTURE_COMMIT_LSN  # 0
+        APPLY_COMMIT_LSN  # 0
+     TX_COMMIT_TIMESTAMP  # 0
+          TX_COMMIT_TIME  # null
+    TX_CAPTURE_TIMESTAMP  # 0
+         TX_CAPTURE_TIME  # null
+       TX_RECV_TIMESTAMP  # 0
+            TX_RECV_TIME  # null
+      TX_APPLY_TIMESTAMP  # 0
+           TX_APPLY_TIME  # null
 ```
 
     - The information above describes that only CYCLONE MASTER is being operated and SLAVE is waiting.
@@ -2246,22 +2346,32 @@ gSQL> select * from cyclone_monitor_info;
 gSQL> \set vertical on
 gSQL> select * from cyclone_monitor_info;
 
-              GROUP_NAME # GROUP1
-                    TIME # 2015-01-13 17:36:17
-            MASTER_STATE # RUNNING
-             SLAVE_STATE # RUNNING
-             MASTER_PORT # 21102
-                SLAVE_IP # 127.0.0.1
-        REDO_LOG_FILESEQ # 0
-       REDO_LOG_BLOCKSEQ # 52811
-         CAPTURE_FILESEQ # 0
-        CAPTURE_BLOCKSEQ # 52811
-           APPLY_FILESEQ # 0
-          APPLY_BLOCKSEQ # 52811
-        CAPTURE_INTERVAL # 0
-   CAPTURE_INTERVAL_SIZE # 0
-      CAPTURE_COMMIT_LSN # 1023
-        APPLY_COMMIT_LSN # 1023
+             GROUP_NAME   # GROUP1
+                    TIME  # 2026-09-17 14:04:29
+            MASTER_STATE  # RUNNING
+             SLAVE_STATE  # RUNNING
+             MASTER_PORT  # 21102
+                SLAVE_IP  # 192.168.0.117 
+        REDO_LOG_FILESEQ  # 0
+       REDO_LOG_BLOCKSEQ  # 120368
+         CAPTURE_FILESEQ  # 0
+        CAPTURE_BLOCKSEQ  # 120368
+           APPLY_FILESEQ  # 0
+          APPLY_BLOCKSEQ  # 120363
+        CAPTURE_INTERVAL  # 0
+   CAPTURE_INTERVAL_SIZE  # 0
+          TOTAL_TX_COUNT  # 3
+        CAPTURE_TX_COUNT  # 1
+      CAPTURE_COMMIT_LSN  # 245041
+        APPLY_COMMIT_LSN  # 245041
+     TX_COMMIT_TIMESTAMP  # 1789621466253839
+          TX_COMMIT_TIME  # 2026-09-17 14:04:26.253839
+    TX_CAPTURE_TIMESTAMP  # 1789621467691932
+         TX_CAPTURE_TIME  # 2026-09-17 14:04:27.691932
+       TX_RECV_TIMESTAMP  # 1789621467692328
+            TX_RECV_TIME  # 2026-09-17 14:04:27.692328
+      TX_APPLY_TIMESTAMP  # 1789621467692335
+           TX_APPLY_TIME  # 2026-09-17 14:04:27.692335
 ```
 
     - The information above describes that CYCLONE MASTER and SLAVE are being operated.
@@ -2279,22 +2389,22 @@ cymon --start --trace
     - It stores the monitoring information since when the cyclone master is normally executed.
 
 ```
-GROUP_NAME         TIME                MASTER_STATE SLAVE_STATE  MASTER_PORT  SLAVE_IP       CAPTURE_FILESEQ CAPTURE_BLOCKSEQ TOTAL_TX_COUNT CAPTURE_TX_COUNT  CAPTURE_COMMIT_LSN  APPLY_FILESEQ   APPLY_BLOCKSEQ   APPLY_COMMIT_LSN
------------------- ------------------- ------------ ------------ ----------- --------------- --------------- ---------------- -------------- ---------------- -----------------    -------------- ---------------- ------------------
-GROUP1             2016-11-02 15:43:03 READY        N/A                21102 null                          0                0              0                0                0                  0               0                  0 
-GROUP2             2016-11-02 15:43:03 READY        N/A                21103 null                          0                0              0                0                0                  0               0                  0
+GROUP_NAME         TIME                MASTER_STATE SLAVE_STATE  MASTER_PORT  SLAVE_IP       REDO_LOG_FILESEQ REDO_LOG_BLOCKSEQ CAPTURE_FILESEQ CAPTURE_BLOCKSEQ APPLY_FILESEQ   APPLY_BLOCKSEQ   CAPTURE_INTERVAL CAPTURE_INTERVAL_SIZE TOTAL_TX_COUNT CAPTURE_TX_COUNT CAPTURE_COMMIT_LSN APPLY_COMMIT_LSN   TX_COMMIT_TIMESTAMP TX_COMMIT_TIME             TX_CAPTURE_TIMESTAMP  TX_CAPTURE_TIME               TX_RECV_TIMESTAMP   TX_RECV_TIME               TX_APPLY_TIMESTAMP TX_APPLY_TIME
+------------------ ------------------- ------------ ------------ ----------- --------------- ---------------- ----------------- --------------- ---------------- --------------- ---------------- ---------------- --------------------- -------------- ---------------- ------------------ ------------------ ------------------- -------------------------- --------------------- ----------------------------- ------------------- -------------------------- ------------------ --------------------------
+GROUP1             2026-09-17 14:16:05 READY        N/A                21102  null                          0                 0               0                0               0                0                0                     0              0                0                  0                  0                   0                          0                     0                             0                   0                          0                  0                          0
+GROUP2             2026-09-17 14:16:05 READY        N/A                21103  null                          0                 0               0                0               0                0                0                     0              0                0                  0                  0                   0                          0                     0                             0                   0                          0                  0                          0
 ```
 
     - The information above describes that only CYCLONE MASTER is being operated and SLAVE is waiting.
 
 ```
-GROUP_NAME         TIME                MASTER_STATE SLAVE_STATE  MASTER_PORT  SLAVE_IP       CAPTURE_FILESEQ CAPTURE_BLOCKSEQ TOTAL_TX_COUNT CAPTURE_TX_COUNT  CAPTURE_COMMIT_LSN  APPLY_FILESEQ   APPLY_BLOCKSEQ   APPLY_COMMIT_LSN
------------------- ------------------- ------------ ------------ ----------- --------------- --------------- ---------------- -------------- ---------------- -----------------    -------------- ---------------- ------------------
-GROUP1             2016-11-02 15:43:11 RUNNING      RUNNING            21102 192.168.0.206                 7            52779              0                0               15346              7            52779             15346
-GROUP2             2016-11-02 15:43:11 READY        N/A                21103 null                          0                0              0                0                   0              0                0                 0
+GROUP_NAME         TIME                MASTER_STATE SLAVE_STATE  MASTER_PORT  SLAVE_IP       REDO_LOG_FILESEQ REDO_LOG_BLOCKSEQ CAPTURE_FILESEQ CAPTURE_BLOCKSEQ APPLY_FILESEQ   APPLY_BLOCKSEQ   CAPTURE_INTERVAL CAPTURE_INTERVAL_SIZE TOTAL_TX_COUNT CAPTURE_TX_COUNT CAPTURE_COMMIT_LSN APPLY_COMMIT_LSN   TX_COMMIT_TIMESTAMP TX_COMMIT_TIME             TX_CAPTURE_TIMESTAMP  TX_CAPTURE_TIME               TX_RECV_TIMESTAMP   TX_RECV_TIME               TX_APPLY_TIMESTAMP TX_APPLY_TIME
+------------------ ------------------- ------------ ------------ ----------- --------------- ---------------- ----------------- --------------- ---------------- --------------- ---------------- ---------------- --------------------- -------------- ---------------- ------------------ ------------------ ------------------- -------------------------- --------------------- ----------------------------- ------------------- -------------------------- ------------------ --------------------------
+GROUP1             2026-09-17 14:20:01 RUNNING      RUNNING            21102  127.0.0.1                     0            142544               0           142543               0           142515                1                   512              2                0             285362             285362    1789622391563064 2026-09-17 14:19:51.563064      1789622391855095    2026-09-17 14:19:51.855095    1789622391855623 2026-09-17 14:19:51.855623   1789622391855699 2026-09-17 14:19:51.855699
+GROUP2             2026-09-17 14:20:01 RUNNING      RUNNING            21103  127.0.0.1                     0            142544               0           142544               0           142544                0                     0              2                0             300447             300447    1789622391565113 2026-09-17 14:19:51.565113      1789622391982213    2026-09-17 14:19:51.982213    1789622391982342 2026-09-17 14:19:51.982342   1789622391982353 2026-09-17 14:19:51.982353
 ```
 
-    - The information above describes that CYCLONE MASTER (group1) and SLAVE are being operated.
+    - The information above describes that CYCLONE MASTER (group1, group2) and SLAVE are being operated.
 
 - View the operating status of CYMON
 

@@ -3,7 +3,7 @@
 # 28. PSM Language Element References
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/1a54a96d369de730)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 27. PSM Packages](27-psm-packages.md) · [Table of contents](../README.md) · [29. PSM SQL References →](29-psm-sql-references.md)
 
@@ -3684,7 +3684,7 @@ It can be used only in the body section of a PL block.
 <a id="89a345f4178041a3"></a>
 ### Description
 
-If it can not be processed in a PL block in which an exception occured, then it is spread to the superordinate PL block.  
+If it can not be processed in a PL block in which an exception occurred, then it is spread to the superordinate PL block.  
 If an exception to be raised does not exist in a PL block including RAISE statement, nor does exist in all exception handlers within a superordinate PL block, then an error occurs.  
 It is spread from a PL block in which RAISE exception occurred to a superordinate PL block until it is processed, and it can not be spread to an exception handler of subordinate PL block.
 

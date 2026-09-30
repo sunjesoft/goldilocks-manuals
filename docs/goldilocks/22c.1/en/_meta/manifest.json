@@ -3,32 +3,32 @@
     {
       "bytes": 4818,
       "path": "README.md",
-      "sha256": "cb80285ec477267b5d7e5e6b054c578ebc3f93f1ead27a2ca91c582f28ed855e"
+      "sha256": "cedb2407175e19b09d092acffe623e5253054330edd508547e42232cd0b0d9b2"
     },
     {
       "bytes": 430,
       "path": "_meta/source.json",
-      "sha256": "67dca58dafba042f710f8a1c99568bab66ef6d2e496fd875c2b83ce3f7612a7d"
+      "sha256": "1466472ca981f2d5243ba291c385c76a4ea740159f3a0065b42e243d5dcbc17f"
     },
     {
       "bytes": 28457,
       "path": "appendices/appendix-01-appendix-a-sqlstate.md",
-      "sha256": "026379b25455690c070276400dd2696553929fed53f5ec93e135a21d2bcc6a35"
+      "sha256": "9cbbf97c4c486a5367c3dd14697a727ab615e11ff304851be199b6de2efc2364"
     },
     {
-      "bytes": 127778,
+      "bytes": 129844,
       "path": "appendices/appendix-02-appendix-b-error-codes.md",
-      "sha256": "9112457fc0ee9417af7ec6e0c106447caa4edd7a5efeae28269b79a57b8a53fc"
+      "sha256": "6959bfea992ab7201bd57cff176bb3dd6b6754e2638137bc0d59aecc9767155c"
     },
     {
-      "bytes": 26579,
+      "bytes": 26582,
       "path": "appendices/appendix-03-appendix-c-wait-event.md",
-      "sha256": "1e6d4d55527405b56b1e0960408d8fb8a791f837e6abc910468585048796effc"
+      "sha256": "10411aab7f1bddaa92a5e1f4c7479b26ce10718842a25d22d7284d5f442f3760"
     },
     {
       "bytes": 10295,
       "path": "appendices/appendix-04-appendix-d-open-source-license.md",
-      "sha256": "4f8ac533babcca3c5b94a351547dce7544beb530dad60f1142470d5975223230"
+      "sha256": "884f7c217844e891b4e5faec9b9d04d828fdea9c8fb08e2d4328bb564bbb75e1"
     },
     {
       "bytes": 45583,
@@ -633,297 +633,297 @@
     {
       "bytes": 12050,
       "path": "part-01-getting-started/1-preface.md",
-      "sha256": "55a728c169ada9ece319e4c538ec7dd70ed8711fa15817895c9fc5776bbe83e8"
+      "sha256": "e6193f2101c248d6a1cc210cce815042529fbba3bb040f681d4a42b6b2e4da9b"
     },
     {
       "bytes": 83065,
       "path": "part-01-getting-started/2-tutorial.md",
-      "sha256": "9ec3befcf391b1d84b6d427360f93cc0b3967224ce3154a8c8a5558550b68d06"
+      "sha256": "5709848dd42b7cec2508110a35f95e9d6f2e916783a6f5fa55827ddcf7fb443b"
     },
     {
       "bytes": 49391,
       "path": "part-01-getting-started/3-cluster-tutorial.md",
-      "sha256": "8fd4b8bd818d276346de1ee15c9dccbaf9eeaf1838fa7f59d370b180a6e6ef9b"
+      "sha256": "3c8ec4cd50e708e238c1276e531cb716e5a1d436bc956b80f8f5c21e0b13ef11"
     },
     {
-      "bytes": 308461,
+      "bytes": 324138,
       "path": "part-01-getting-started/4-what-s-new.md",
-      "sha256": "eeab6a9af0a4ed65b82bf037eaa6cac8bdac551cde35f6cd5d02e7ff6aa823f7"
+      "sha256": "f6307fae8c1cf98f129ce28fa525c75780af18aba7d6f4b280499c0f6d2188c5"
     },
     {
       "bytes": 265,
       "path": "part-01-getting-started/README.md",
-      "sha256": "f4341f614bf4a178a37a90a0dadaeb86602f6145105614bb4b18dc7d7cdd484d"
+      "sha256": "179532c7134aea0fce960aaba57180fb290032ec3f7b65e0f67869cf396885cd"
     },
     {
-      "bytes": 234879,
+      "bytes": 237202,
       "path": "part-02-administration-manual/10-server-property.md",
-      "sha256": "cc6da2cd1594d1ec7cff46232c17851d7513b554dab863771154100858fd4271"
+      "sha256": "abf16d462dd407a21d28b67f68d991e75b0b3c0c229c7ce0a5f72718f70ee05c"
     },
     {
       "bytes": 63707,
       "path": "part-02-administration-manual/5-basic-management-of-goldilocks-database.md",
-      "sha256": "26acda3972b5a46e1ce13013363d9075d8b4d5265c3279ca7bede97bb041333d"
+      "sha256": "a4469074be9b912ebcd7239b30a7f54ce206f071896c1a737caf9338f741a10a"
     },
     {
       "bytes": 37075,
       "path": "part-02-administration-manual/6-structure-and-storage-structure-of-goldilocks-database.md",
-      "sha256": "8a687f312e935cff978779dd046cdaab83fd98601144a2711e5983c06a2c5af7"
+      "sha256": "c1cb7bab856c6577efde0f068cea09f130daaa3037d737885c36a3bfb7208e49"
     },
     {
-      "bytes": 45001,
+      "bytes": 44997,
       "path": "part-02-administration-manual/7-backup-and-recovery-of-goldilocks-database.md",
-      "sha256": "cf67a8ffd7789cb08409d57e5ca9f961f90d31f456cc221a21e5e10a0154d0d9"
+      "sha256": "51edbf56a3dbe454ed8f7517f0a34e95f037f59ae4aeaf516ddf41deb7cccef2"
     },
     {
       "bytes": 19182,
       "path": "part-02-administration-manual/8-goldilocks-database-replication.md",
-      "sha256": "144a662b71ccb3ef24a90ffbe89114c10a70865b1a017050b14028c25d2ae545"
+      "sha256": "e566ac71164b5da821dd83b4b16aa6cf6b1a8480d42684d99d82a46b39bba633"
     },
     {
-      "bytes": 603957,
+      "bytes": 603929,
       "path": "part-02-administration-manual/9-database-information.md",
-      "sha256": "3a0b18f62ce03b2808afcb83cd1710c100130a33b23871225bee2a29c3d80082"
+      "sha256": "3b8603450e2d1a90a49cc9c7208c7d4a3f242c4e431e80a8135e9edeac764258"
     },
     {
       "bytes": 624,
       "path": "part-02-administration-manual/README.md",
-      "sha256": "13cfe8133fc18e53c95bde4b24dc97ffea07af4fecbe3c3db7f0634fbb4020e5"
+      "sha256": "4715af56e2e0585ef487655ba70d89ec613ac1eeadc1dedd05e02f3849cedf76"
     },
     {
       "bytes": 189873,
       "path": "part-03-sql-manual/11-sql-elements.md",
-      "sha256": "8b3360e6a9f5150390fedea640ed903216bb882a4fe6f1a99b7929a001deecdd"
+      "sha256": "cd33ac55a2972c284dcbbb22437495cc000854c33ca54b756b66496d9c86d146"
     },
     {
-      "bytes": 315391,
+      "bytes": 315459,
       "path": "part-03-sql-manual/12-sql-languages.md",
-      "sha256": "221e0184c4e1ca332d2ae9f017eebda48db23b4911f28c916a02b01dece30fc4"
+      "sha256": "ec8fed367b87419bcbb59ea80ab9476104287a148e0ba5be4ceda61ad9efe64b"
     },
     {
-      "bytes": 188020,
+      "bytes": 188019,
       "path": "part-03-sql-manual/13-sql-objects.md",
-      "sha256": "2e44472f4ee580ce2842b5d7eb3970f3ee4c2bcff648f9940bec489dc7b3ad09"
+      "sha256": "96eabec79b337ed61e6edfd929229a49f04b31aed5a1257fcc9476f3c3223f93"
     },
     {
-      "bytes": 40537,
+      "bytes": 49032,
       "path": "part-03-sql-manual/14-cluster-objects.md",
-      "sha256": "db514f41d97cd843003bdfb7dabc1be4d408ee44d06dc5277a7ce5da8c21ee87"
+      "sha256": "c0967295fe4ae00215df93bde5d65b4ef6804dded5e265d31b424db7551aeca8"
     },
     {
       "bytes": 517027,
       "path": "part-03-sql-manual/15-sql-tuning.md",
-      "sha256": "c56ac41c5f1460ad147c88c78efd8ed743b2235487a2abf28f23d62b5be7bca2"
+      "sha256": "3c5dd1daa44f24b5956211aba9b6033b8638b7b3e7e25980bd3d47df238ca6dd"
     },
     {
-      "bytes": 24810,
+      "bytes": 24809,
       "path": "part-03-sql-manual/16-built-in-data-type-references.md",
-      "sha256": "f0ddcdf48c4bab3e8ce568fda0bd4634b1aca4e21560d7e155f15065ec50e63d"
+      "sha256": "506d2323230d5e5feaf4affb9e4fd4f98d197be47c780504f1942856f8c20cd6"
     },
     {
-      "bytes": 261338,
+      "bytes": 261334,
       "path": "part-03-sql-manual/17-built-in-function-references.md",
-      "sha256": "124297f42c0a9c0a2a99f29e6b2ca4e669a3d8f869fbdf249b3680e71b341816"
+      "sha256": "4ec943be05402d25a8d68a488b65800293f478fe82deb154ae7fcbf49bf8a870"
     },
     {
-      "bytes": 304650,
+      "bytes": 307977,
       "path": "part-03-sql-manual/18-sql-references-a-b.md",
-      "sha256": "79a5a499317418e3ccb95c9b98975c044139c79488dfea55a0379eaa2e9bfbc0"
+      "sha256": "f1a93f468e773a748a515bbfddc92ba48382f2f9f37e8df8ab4f3411c2f4dd02"
     },
     {
-      "bytes": 286586,
+      "bytes": 286593,
       "path": "part-03-sql-manual/19-sql-references-c-g.md",
-      "sha256": "442468387910d12815e2f9841d002711478e889a92669a970ebab6c7071585bb"
+      "sha256": "d59bf73e3cc9ca8f8a2826910a052c4dba7117655e7958fbe351f3d8ac0b2d31"
     },
     {
-      "bytes": 313893,
+      "bytes": 313879,
       "path": "part-03-sql-manual/20-sql-references-h-z.md",
-      "sha256": "b8d86786b1d99db6a2589565b0370909e07f0fae1d122b8e8726edfabdc6796c"
+      "sha256": "529f7b805c137f124fef853b3805d90208406768f05e772fbc6cbe181bf7a90d"
     },
     {
       "bytes": 640,
       "path": "part-03-sql-manual/README.md",
-      "sha256": "3bd7b1a4488d7dec5f3bc74231e2beaf4ae608b90119127bcbe839d750e73b82"
+      "sha256": "8953760298fe0ef5adbf86fef6d41e75b15ec5cd353fbd5c23150c5a1aa48593"
     },
     {
-      "bytes": 5775,
+      "bytes": 5771,
       "path": "part-04-psm-manual/21-overview-of-psm.md",
-      "sha256": "7177b3b4ba285f20448b4155d6606c64c3b80bb4ca9484c5e054b290fca66eda"
+      "sha256": "d14346c206ad32e00cbba50104d74fd3e295f5af925654dd851c0ba8b9f9297f"
     },
     {
       "bytes": 19872,
       "path": "part-04-psm-manual/22-psm-datatypes.md",
-      "sha256": "1f3839ce8789fed8707756a342f181d5850a4c9257c8278a2b916129364a53fe"
+      "sha256": "9bc01055a6dd1721fa7a39388dad6edf8a77448d7c9d15250b610164a80cd8cb"
     },
     {
-      "bytes": 42113,
+      "bytes": 42114,
       "path": "part-04-psm-manual/23-psm-control-statements.md",
-      "sha256": "1709a0d9c9c3b6157278f41be3da2fd8fa23ac47b03a20f47dedfe02a8d1ed81"
+      "sha256": "1f07e45e520a27e081d81ed10347db60463317d3a4ba7d92051ccdf00e2cf2f3"
     },
     {
       "bytes": 33999,
       "path": "part-04-psm-manual/24-psm-cursor-statements.md",
-      "sha256": "212585d62e471300d59d900e3b8e680b38f174c9179f75ee8b02671ef5f25b31"
+      "sha256": "fcbbdcdf144c65c9219a22f8054257fe0f6726be0dc2d25487c2bd958583fb66"
     },
     {
       "bytes": 17677,
       "path": "part-04-psm-manual/25-using-psm-subprograms.md",
-      "sha256": "27b3241baacd0ef1899819ed749140b2235e4777b3780aae867faa659a887843"
+      "sha256": "a8ea1b8a38911e83bc4035ecb5d5b811e730af1c58419446cf4d9f655725a2a7"
     },
     {
       "bytes": 15864,
       "path": "part-04-psm-manual/26-using-sqls-in-psm.md",
-      "sha256": "6d4b69f08f2a6d38c60afd48cb4590783a8d403dec9ceff65857beefb3841974"
+      "sha256": "3740e1c3339778e9ab629093b314ae9fb7010b226d9b194d592efedbbfe9ad0e"
     },
     {
       "bytes": 8357,
       "path": "part-04-psm-manual/27-psm-packages.md",
-      "sha256": "e64e375f5d71a6e0105ce90ff10e0e80d0bce7e76b04cd16c5c82085b0b374f4"
+      "sha256": "3b428b5769dd7cca296e9523a668f5db91f09a2153e1e5168df952606462887c"
     },
     {
-      "bytes": 124174,
+      "bytes": 124175,
       "path": "part-04-psm-manual/28-psm-language-element-references.md",
-      "sha256": "edd659eb23ba44687f34354ec132836a7aba6b8201f192219cbf8aab93e93a13"
+      "sha256": "8fe43341928c657a5e94e62027027b8f0353d7fe001ed1b9966de76a95a76a3f"
     },
     {
       "bytes": 39233,
       "path": "part-04-psm-manual/29-psm-sql-references.md",
-      "sha256": "4ec87a262269ba362f5c848240f535a13be26fcb1215236f5eaaea689e386094"
+      "sha256": "f72bbc82df4510468a61f178375a12711289fb98be394d49f64b5fa2cef8c330"
     },
     {
       "bytes": 612,
       "path": "part-04-psm-manual/README.md",
-      "sha256": "1201ecac06f2ab8fc0bd8b5622eed9167346b145391fe68276d4c08faa820623"
+      "sha256": "2522e25129bbf85db9bd22ec510654fcac83c4636a2b2e4622bead77a68d6368"
     },
     {
-      "bytes": 6447,
+      "bytes": 6443,
       "path": "part-05-developer-manual/30-database-connection.md",
-      "sha256": "66c91a012ceee1281d79f22605c82e55988b5ddd47ba9560b911f4fc86afe939"
+      "sha256": "6cba9b9c49ada45e5cdbdf071e24689cb8c0fef28b4c1364e19c73e44df7d4c5"
     },
     {
-      "bytes": 747188,
+      "bytes": 747174,
       "path": "part-05-developer-manual/31-odbc.md",
-      "sha256": "0699740c5f93ce2b0721f67f257897da6498777060fe21c8908b7d927cb76626"
+      "sha256": "0abdafc3b47a90ea55101e35bc5d82f9e66545e54a066d7ed533891b0df479b1"
     },
     {
-      "bytes": 379075,
+      "bytes": 379078,
       "path": "part-05-developer-manual/32-jdbc.md",
-      "sha256": "a35bd8d0315a49aed87c26bb7bb599dbfc06738f26d36344016e7dcfea074fe3"
+      "sha256": "4c34a7f4133b29b49d535e6b241374fec2693eb51457c1a460f1fe32a3f26985"
     },
     {
-      "bytes": 239637,
+      "bytes": 239629,
       "path": "part-05-developer-manual/33-embedded-sql.md",
-      "sha256": "1b0a3643d6cccdccf07713ae9eaecc2c370054ec7fe620a5ca6ffb3a06356453"
+      "sha256": "5f6a611a564e2b3b43f50616c1100bc65c8f8fa8ad298ab8117be28cba1141cd"
     },
     {
       "bytes": 15221,
       "path": "part-05-developer-manual/34-pdo.md",
-      "sha256": "fa724f29ad3a8bf35bfd12038401c7aab0bbc5789e4358f8f8abfccd94052aa5"
+      "sha256": "0b166bd18a869e00b94ca532a16977db1fd80b13c5e85d3dc7bb52b69924e2b6"
     },
     {
-      "bytes": 30889,
+      "bytes": 30890,
       "path": "part-05-developer-manual/35-pydbc.md",
-      "sha256": "707b8719df6deeae6008bcadf0919d1ca473da762d553079e7b54fab7ef9aa79"
+      "sha256": "4b67e59ca7149418ed1053004dd7488b89ac6f72f55942bef084896c4b3bab3f"
     },
     {
       "bytes": 13014,
       "path": "part-05-developer-manual/36-hibernate.md",
-      "sha256": "cd229db86d761c2838a604a8435c0c17f9577b1deb76554c508b7fa3a3dd1b42"
+      "sha256": "5ed44965452c242b93ad4e1edadfc65d042309abade65406bdf99c459d04589e"
     },
     {
       "bytes": 355,
       "path": "part-05-developer-manual/README.md",
-      "sha256": "e9bd9b146d46b323eb5b0a37a8a2231401c6fd9a0e80b4537406d05b32960481"
+      "sha256": "0ee685322f59e3158676a9b69303aedbd40789989cf7f9c76a94b9833553fba3"
     },
     {
       "bytes": 5689,
       "path": "part-06-utility-manual/37-gcreatedb.md",
-      "sha256": "35aeb684e94a0696c46950d966926f20fcd8d9f7c2e6cdfe2c6ad744523a217b"
+      "sha256": "5c8d3c61dacb4963ad6752c683ad8575c812d95441489281a994db2b27182e6e"
     },
     {
-      "bytes": 10330,
+      "bytes": 10331,
       "path": "part-06-utility-manual/38-glsnr.md",
-      "sha256": "55e0e2b214d62bf80988b5456391d355a172cd8cf4a52e97a55b029cd74e8f6a"
+      "sha256": "96af6cac2e92e44c59808e0557500de37d3c07a151a20db513837a89987fe2c0"
     },
     {
       "bytes": 183415,
       "path": "part-06-utility-manual/39-gsql-gsqlnet-interactive-sql-tool.md",
-      "sha256": "237ed4f7ce9c5af062ddb97b24d96c2ba0c076be64ec6e0aa832f76c81e4ebed"
+      "sha256": "3869671c525e55de8ba371a70884c5527faba5fd4b1ff978f908fa7245abee6b"
     },
     {
-      "bytes": 65392,
+      "bytes": 65607,
       "path": "part-06-utility-manual/40-gloader-gloadernet-upload-download-tool.md",
-      "sha256": "206e70bd241151ca692e0409ccaf7e803963ff8b3a8fab0a0e369dafbb4701b9"
+      "sha256": "f28617277742dbfd4c58cb52b77311e8413aeee34a980a33ce024400c3735906"
     },
     {
       "bytes": 30352,
       "path": "part-06-utility-manual/41-gdump.md",
-      "sha256": "8ca0dfe29b2078b1d1ed4667fdba3f058695d9c289400f6d657e74faa2bedbe3"
+      "sha256": "eff60c58d733cd582dedac3ac8027c9bee048a880cebc6874b8d5658a0bcca1e"
     },
     {
       "bytes": 13516,
       "path": "part-06-utility-manual/42-tablediff.md",
-      "sha256": "3507ac7b5b8fa33d00562f20b869d7bdc855353fc0efb198d3f2333bf0e3722d"
+      "sha256": "3de65bb327a5dc4f00e909ff004526e34e241f8c1caca6df58121c8eeca61a25"
     },
     {
       "bytes": 7787,
       "path": "part-06-utility-manual/43-gsyncher.md",
-      "sha256": "a58570917d1215b5bbe20da950585abf05e03397e7401917f72bac85b5a39e42"
+      "sha256": "7de35d925fca61421fa01cd6ef499238b4b1ace1208db251af1cb4070bfa696f"
     },
     {
       "bytes": 3201,
       "path": "part-06-utility-manual/44-gmon.md",
-      "sha256": "7defff4f846ad77dee4519f6f22ba27ed12f98b56938b0edd0c4905b91a2b802"
+      "sha256": "1b4caa4c151567717401114947f194e2dc89c800c758b2315b0d3814e68da95d"
     },
     {
       "bytes": 2950,
       "path": "part-06-utility-manual/45-gtrclogger.md",
-      "sha256": "dba848c949615f2751c6a545797b49f003332fc73f874b027c6b8811b83b4164"
+      "sha256": "14bf59715150f996964d2d988cc0541344f5a8067c1f12040bfecde5578c193e"
     },
     {
-      "bytes": 21121,
+      "bytes": 21122,
       "path": "part-06-utility-manual/46-glocator.md",
-      "sha256": "142aec221d29e4d7899078ff9c0914f017579b5bb9bbd008e8f3fb532db06ed4"
+      "sha256": "990523a888fb614a11a6cf2f38df54bad95f03ef4daf6c362e46f59e19d04b08"
     },
     {
       "bytes": 9734,
       "path": "part-06-utility-manual/47-gagent.md",
-      "sha256": "957ae9bc1c312737364d8e2fd9b8a6929caf3f0c231beb9a5d287eeae3a7e73b"
+      "sha256": "1ccd922237d54cb88f043a3589db3c0c374dd19196f765f3408475cd35325a6e"
     },
     {
       "bytes": 12641,
       "path": "part-06-utility-manual/48-gloctl.md",
-      "sha256": "ade6978cc7db5e369e235613599480be61e726c24ff900235517be0d3c4dd446"
+      "sha256": "2bc1e8bbeda031177dc715abf9fc2b851d3bd444e527ad34793c761c1cfd9791"
     },
     {
       "bytes": 614,
       "path": "part-06-utility-manual/README.md",
-      "sha256": "c061b9036f55cf8ee30b24b44017163327e06530bc6ca568a9b44f120303ca79"
+      "sha256": "564e452ccb368b6c76be507c2d694a12af38fdac72f4e4ab3e0429fe349b416d"
     },
     {
       "bytes": 4099,
       "path": "part-07-replication/49-overview.md",
-      "sha256": "f95cb3a51953d5416c3987a433cf225b08395457ca73bbebcdd2541551b685b0"
+      "sha256": "4d87d4dfd794298f234622c87c25c0cafdfca2703f50627dcf6331ed8b917699"
     },
     {
-      "bytes": 85220,
+      "bytes": 90922,
       "path": "part-07-replication/50-cyclone.md",
-      "sha256": "9a460f36699863377c31eeca06dc109547615b26fa55da759fef75318e7bc9f7"
+      "sha256": "ad343760d4c940fa9decf3bc206cfe3f3bd527f9a0ba8674cdb8e6e349f469e1"
     },
     {
       "bytes": 19347,
       "path": "part-07-replication/51-logmirror.md",
-      "sha256": "07ad7410795043b528445b6d382b0a32efc29edae3ba72987b78a6fe62968b3d"
+      "sha256": "08357b82d76b5a715e7e25329ddecc5c1ed3a4c1065918166c7fdc579d028e1a"
     },
     {
       "bytes": 30461,
       "path": "part-07-replication/52-cyfile.md",
-      "sha256": "48a588303263407cf82bc82b24f347407a7e4814889b609129e0a77eca6f0f55"
+      "sha256": "0eebd7196b553516c483df661ed37356a15ca0d7cf1c34169278de85fb0f1682"
     },
     {
       "bytes": 249,
       "path": "part-07-replication/README.md",
-      "sha256": "173a136657be804effeb2d667d3d733dbed21f27075d39371e0867c60df1b6bc"
+      "sha256": "9e3e50d0251b064712ff07b90aaa0234c3957e488ea16dcac41c6ccee5568cca"
     }
   ],
   "manual": {
@@ -933,12 +933,12 @@
     "version": "22c.1"
   },
   "schema_version": 1,
-  "source_tag": "22c.1_10_tag",
-  "tree_sha256": "a3c8d7257818fe13c200cc018e23b0f0ca7eee7646ccc832597029dd6ebced9a",
+  "source_tag": "22c.1_11_tag",
+  "tree_sha256": "653ed3091f8f5b148ef32acfb850f88f9a5f62715932fb31950a0dfc1e6de2b5",
   "validation": {
-    "checked_opaque_fragments": 2891,
+    "checked_opaque_fragments": 2903,
     "external_links": 74,
-    "local_links": 3445,
+    "local_links": 3457,
     "markdown_files": 64
   }
 }

@@ -1,6 +1,6 @@
 # GOLDILOCKS 22c.1 User Manual (한국어)
 
-- 원본 태그: `22c.1_10_tag`
+- 원본 태그: `22c.1_11_tag`
 - 원본 HTML: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko)
 - 문서 수: 56
 - 저작권: Copyright © 2010 SUNJESOFT Inc. All rights reserved.

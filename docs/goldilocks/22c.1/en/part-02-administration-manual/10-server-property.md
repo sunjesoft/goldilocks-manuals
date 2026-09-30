@@ -3,7 +3,7 @@
 # 10. Server Property
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/97198d2eb5a65df9)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 9. Database Information](9-database-information.md) · [Table of contents](../README.md) · [11. SQL Elements →](../part-03-sql-manual/11-sql-elements.md)
 
@@ -203,6 +203,32 @@ It sets the idle time (second) when an ager thread which deletes the previous ve
 ### Description
 
 The SQL plan which is older than AGING_PLAN_INTERVAL becomes the aging target.
+
+<a id="06e82587faa76cab"></a>
+## ARCHIVE_LOG_THROTTLING
+
+<a id="d1d19a905e085636"></a>
+### Basic Information
+
+<a id="f552de24e45141b3"></a>
+| Item | Description |
+| --- | --- |
+| Name | ARCHIVE_LOG_THROTTLING |
+| Summary | I/O throttling threshold for redo log archiving |
+| Data type | BIGINT |
+| Applicable phase | NO MOUNT or above |
+| Updatable | TRUE |
+| ALTER SESSION | FALSE |
+| ALTER SYSTEM | IMMEDIATE |
+| MIN | 0 |
+| MAX | 1099511627776 |
+| Default value | 0 |
+
+<a id="391fb25126dda84d"></a>
+### Description
+
+This property is used to control disk I/O performance during redo log archiving.   
+It causes the process to sleep each time the amount of data copied to the destination file exceeds the specified property value.
 
 <a id="ad0c76f562466fd6"></a>
 ## ARCHIVELOG_DIR_1 ~ ARCHIVELOG_DIR_10
@@ -1861,7 +1887,7 @@ The cluster packet which is remotely transferred may be delivered in pieces, and
 | Item | Description |
 | --- | --- |
 | Name | CLUSTER_PACKET_ALLOCATION_TIMEOUT |
-| Summary | a time limit (sec) for how long statemets will wait to allocate packet memory |
+| Summary | a time limit (sec) for how long statements will wait to allocate packet memory |
 | Data type | BIGINT |
 | Applicable phase | NO MOUNT or above |
 | Updatable | TRUE |
@@ -2265,7 +2291,7 @@ It sets whether to autocommit DDL operations which are not autocommitted yet. Fo
 | Item | Description |
 | --- | --- |
 | Name | DDL_LOCK_TIMEOUT |
-| Summary | a time limit (sec) for how long DDL statemets will wait |
+| Summary | a time limit (sec) for how long DDL statements will wait |
 | Data type | BIGINT |
 | Applicable phase | NO MOUNT or above |
 | Updatable | TRUE |
@@ -4128,6 +4154,39 @@ Memory B-tree index of bottom-up approach is created by extracting all keys from
 
 When DML is performed while rebuilding the index on ONLINE mode, the journal data is stored. The index is rebuilt based on the data at the time of beginning of the rebuilding, then the updated data during the rebuilding is applied to the index through the journal data. INDEX_REBUILD_BLOCK_READ_COUNT sets how much journal data to be read and applied to the index during this process.
 
+<a id="fe9431888de2bf1d"></a>
+## INDEX_SELF_AGING_TRHESHOLD
+
+<a id="4eb966d4007738bc"></a>
+### Basic Information
+
+**Basic Information of MEMORY_SORT_RUN_SIZE**
+
+<a id="4cd36472733d1eff"></a>
+| Item | Description |
+| --- | --- |
+| Name | INDEX_SELF_AGING_THRESHOLD |
+| Summary | the threshold for processing empty nodes |
+| Data type | BIGINT |
+| Applicable phase | NO MOUNT or above |
+| Updatable | TRUE |
+| ALTER SESSION | TRUE |
+| ALTER SYSTEM | FALSE |
+| MIN | 0 |
+| MAX | 1048576 |
+| Default value | 0 |
+
+<a id="fecbbee1d48c0818"></a>
+### Description
+
+An index page is not removed from the index even when all keys are deleted and is managed as an empty node. When a new page is required, the possibility of reusing the empty node is checked, and if it can be reused, it is returned to the index segment (aging).  
+If an empty node exists in the index, deleted keys are also included in index scans, which may affect performance.  
+INDEX_SELF_AGING_THRESHOLD sets the number of empty nodes at which empty node aging is performed when deleting keys from an index. That is, aging is attempted when the number of empty nodes is greater than or equal to INDEX_SELF_AGING_THRESHOLD during key deletion.
+
+- 0: Empty node aging is not performed when deleting keys.
+
+> When deleting keys, the possibility of aging an empty node is checked to perform self aging. However, performance may degrade because self aging may still be attempted even when aging is not possible. Therefore, using INDEX_SELF_AGING_THRESHOLD is recommended when deleting a large number of records through index scans.
+
 <a id="d5606acf31baae4c"></a>
 ## INDEX_SORT_RUN_SIZE
 
@@ -4515,7 +4574,7 @@ It is the location file name.
 | ALTER SYSTEM | IMMEDIATE |
 | MIN | 0 |
 | MAX | 10000000 |
-| Default value | 3 |
+| Default value | 20 |
 
 <a id="f8728a0fe13501b6"></a>
 ### Description
@@ -6644,7 +6703,7 @@ When running server, it specifies the shared memory name which is used to alloca
 | ALTER SYSTEM | FALSE |
 | MIN | 104857600 |
 | MAX | 1099511627776 |
-| Default value | 629145600 |
+| Default value | 763363328 |
 
 <a id="5023331613f664b2"></a>
 ### Description

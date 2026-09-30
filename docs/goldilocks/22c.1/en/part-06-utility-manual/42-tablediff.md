@@ -3,7 +3,7 @@
 # 42. tablediff
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/20b6970d176ab8e0)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 41. gdump](41-gdump.md) · [Table of contents](../README.md) · [43. gsyncher →](43-gsyncher.md)
 

@@ -3,7 +3,7 @@
 # 17. Built-in Function References
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/e991846bb9b72960)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 16. Built-in Data Type References](16-built-in-data-type-references.md) · [Table of contents](../README.md) · [18. SQL References (A~B) →](18-sql-references-a-b.md)
 
@@ -5156,7 +5156,7 @@ OVERLAY( str1 PLACING str2 FROM start_position  [ FOR string_length ] )
 <a id="cfc02ea1040b5bc4"></a>
 ### Description
 
-It overlays the characters in the range between str1's start_position and string_lenght with str2.
+It overlays the characters in the range between str1's start_position and string_length with str2.
 
 The data types of str1 argument and str2 argument can be a character type such as CHARACTER, CHARACTER VARYING, CHARACTER LONG VARYING, or a binary character type such as BINARY, BINARY VARYING, BINARY LONG VARYING  
 
@@ -9610,7 +9610,7 @@ TRANSLATE( string, from, to )
 <a id="cf16400badf7bd89"></a>
 ### Description
 
-It replaces characters. It replaces characters of string which corresponds to the the character of *from* with the character of *to* at the same position as the character of *from*.
+It replaces characters. It replaces characters of string which corresponds to the character of *from* with the character of *to* at the same position as the character of *from*.
 
 The data type of the string argument, the from argument, and the to argument can be a data type such as CHARACTER, CHARACTER VARYING, CHARACTER LONG VARYING.
 

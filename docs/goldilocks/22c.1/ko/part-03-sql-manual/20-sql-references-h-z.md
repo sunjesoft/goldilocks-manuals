@@ -3,7 +3,7 @@
 # 20. SQL References (H~Z)
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/c91d6f2db65b9d99)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 19. SQL References (C~G)](19-sql-references-c-g.md) · [전체 목차](../README.md) · [21. Overview of PSM →](../part-04-psm-manual/21-overview-of-psm.md)
 

@@ -3,7 +3,7 @@
 # 3. Cluster 튜토리얼
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/25fffb6ce15cfbc5)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 2. 튜토리얼](2-튜토리얼.md) · [전체 목차](../README.md) · [4. What's New →](4-what-s-new.md)
 

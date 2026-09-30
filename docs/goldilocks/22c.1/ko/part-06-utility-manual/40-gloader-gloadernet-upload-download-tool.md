@@ -3,7 +3,7 @@
 # 40. gloader/gloadernet (Upload/download Tool)
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/d0c31083c6ef7975)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 39. gsql/gsqlnet (Interactive SQL Tool)](39-gsql-gsqlnet-interactive-sql-tool.md) · [전체 목차](../README.md) · [41. gdump →](41-gdump.md)
 
@@ -1336,8 +1336,9 @@ CHARACTERSET characterset_name
 <a id="5778ca8a14effa53"></a>
 #### 설명
 
-다운로드 또는 업로드 할 데이터 파일의 character set을 의미한다.  
-Character set이 표현되지 않았을 경우, GOLDILOCKS의 property 중에 CHARACTER_SET의 기본 character set인 UTF8이 사용된다.
+다운로드 또는 업로드할 데이터 파일의 character set을 의미한다.   
+Character set이 별도로 지정되지 않은 경우에는 ODBC 데이터 원본의 CHARSET, 환경 변수 GOLDILOCKS_NLS_CHARACTERSET, 시스템 locale 정보의 우선 순위에 따라 client character set이 결정된다.  
+Binary 포맷 데이터 다운로드 시에는 해당 구문이 적용되지 않으며, 업로드 시에만 적용된다.
 
 <a id="1f83a02e4cf14260"></a>
 #### 사용 예

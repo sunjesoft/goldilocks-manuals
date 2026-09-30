@@ -3,7 +3,7 @@
 # 46. glocator
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/450832b1e88fed4c)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 45. gtrclogger](45-gtrclogger.md) · [Table of contents](../README.md) · [47. gagent →](47-gagent.md)
 
@@ -365,7 +365,7 @@ The glocator which received a query determines the viability between two nodes w
 
 Nodes received the viabilty results are terminated or proceeds the failover.
 
-> The cluster failover processing time of the server is relevant to various properties. Server property [LOCATOR_QUERY_TIMEOUT](../part-02-administration-manual/10-server-property.md#6b7fa52b25651341) sets the time waiting for the response after the server enquires to glocator, and the default value is 3 seconds.   
+> The cluster failover processing time of the server is relevant to various properties. Server property [LOCATOR_QUERY_TIMEOUT](../part-02-administration-manual/10-server-property.md#6b7fa52b25651341) sets the time waiting for the response after the server enquires to glocator, and the default value is 20 seconds.   
 > Server property [CLUSTER_SPLIT_BRAIN_RETRY_COUNT](../part-02-administration-manual/10-server-property.md#047d8ef8e5e13bea) sets the number of enquiring again when glocator does not respond, and it is relevant to the cluster failover processing time. The default value is 1.
 
 <a id="90ccce540466f6ca"></a>

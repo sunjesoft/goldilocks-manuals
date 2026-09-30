@@ -3,7 +3,7 @@
 # 1. Preface
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/c052c62217d596e5)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [Table of contents](../README.md) · [2. Tutorial →](2-tutorial.md)
 

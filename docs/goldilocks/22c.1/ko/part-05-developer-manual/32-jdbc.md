@@ -3,7 +3,7 @@
 # 32. JDBC
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/0ef36cac9d5d9401)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 31. ODBC](31-odbc.md) · [전체 목차](../README.md) · [33. Embedded SQL →](33-embedded-sql.md)
 
@@ -306,7 +306,7 @@ XAConnection con = ds.getXAConnection();
 | failover_type | 선택 | {"connection", "session"} | Failover 유형을 결정한다.  * Connection: 서버에 접속할 때만 failover를 사용한다.  * Session: 서버에 접속할 때 뿐만 아니라 execution 등 서버와 통신하는 모든 경우에 failover를 사용한다. 기본값은 connection이다. |
 | format_grammar | 선택 | {"db", "java"} | date_format과 같은 속성 문자열이 GOLDILOCKS 문법인지, Java의 SimpleDateFormat에 사용되는 문법인지를 결정한다. 기본값은 db이다. |
 | global_connection_log | 선택 | boolean | global connection 로깅을 할 것인지 여부이다. 기본값은 false 이다. |
-| global_logger | 선택 | {"console"} | 로깅 대상을 지정한다. 현재는 console만 가능한다. 가장 먼저 지정한 것만 유효하다. |
+| global_logger | 선택 | {"console"} | 로깅 대상을 지정한다. 현재는 console만 가능하다. 가장 먼저 지정한 것만 유효하다. |
 | home_dir | 선택 | Any string | Cluster server의 home directory를 지정한다. 기본값은 null이다. |
 | include_synonyms | 선택 | boolean | DatabaseMetaData.getColumns()에 synonym 객체를 포함할지 여부이다. 기본값은 false 이다. |
 | keep_alive | 선택 | boolean | Connection의 socket 속성을 keep_alive로 설정할지 여부이다. 이 속성을 부여하면 TCP socket 내부에서 주기적으로 ack를 주고받으며 서로 연결된 상태를 유지한다. 즉, 랜선 에러를 감지하여 연결을 강제로 끊기게 할 수 있다. 기본값은 false 이다. |
@@ -3289,7 +3289,7 @@ Savepoint setSavepoint(String name) throws SQLException
 void setTransactionIsolation(int level) throws SQLException
 ```
 
-- 동작: 현재 세션 (connection)에 대해 트랜잭션 isolation level을 변경한다. 지원되는 값은 Connection.TRANSACTION_READ_COMMITED, Connection.TRANSACTION_SERIALIZABLE이다. Connection.READ_UNCOMMITTED는 Connection.TRANSACTION_READ_COMMITED으로, Connection.TRANSACTION_REPEATABLE_READ는 Connection.TRANSACTION_SERIALIZABLE으로 변경되어 설정된다.
+- 동작: 현재 세션 (connection)에 대해 트랜잭션 isolation level을 변경한다. 지원되는 값은 Connection.TRANSACTION_READ_COMMITTED, Connection.TRANSACTION_SERIALIZABLE이다. Connection.READ_UNCOMMITTED는 Connection.TRANSACTION_READ_COMMITTED으로, Connection.TRANSACTION_REPEATABLE_READ는 Connection.TRANSACTION_SERIALIZABLE으로 변경되어 설정된다.
 - 예외: 이미 close되었거나 level이 올바르지 않을 경우, SQLException이 발생한다.
 
 <a id="799c79f852a7bb0c"></a>

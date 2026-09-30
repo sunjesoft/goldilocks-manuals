@@ -3,7 +3,7 @@
 # 36. Hibernate
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/77a53cb113b5e918)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 35. PyDBC](35-pydbc.md) · [전체 목차](../README.md) · [37. gcreatedb →](../part-06-utility-manual/37-gcreatedb.md)
 

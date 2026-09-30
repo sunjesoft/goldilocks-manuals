@@ -3,7 +3,7 @@
 # 44. gmon
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/c7f24af8b416bf7f)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 43. gsyncher](43-gsyncher.md) · [전체 목차](../README.md) · [45. gtrclogger →](45-gtrclogger.md)
 

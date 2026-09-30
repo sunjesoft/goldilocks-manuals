@@ -3,7 +3,7 @@
 # 33. Embedded SQL
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/87c395c35e9dc7d4)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 32. JDBC](32-jdbc.md) · [Table of contents](../README.md) · [34. PDO →](34-pdo.md)
 
@@ -8012,7 +8012,7 @@ Refer to [Disconnecting Database](#301928331dde9f7e).
 <a id="5a0da46fb65743fd"></a>
 #### Feature
 
-It is a precompiler indicator, and it specifies the the host variable declaration section.
+It is a precompiler indicator, and it specifies the host variable declaration section.
 
 <a id="68fb6f59d7ff2e08"></a>
 #### Syntax
@@ -8160,7 +8160,7 @@ EXEC SQL [ AT <db_name> ] GET GROUPID INTO :group_id { delete_stmt | insert_stmt
 <a id="10dc97d0d2adf02b"></a>
 #### Description
 
-It obtains the the group ID of the SQL statement in the cluster environment which uses the global connection. Only the signed numeric type is allowed for the host variable :group_id. The group ID can be obtained only for the delete, insert, select, update SQL statement, and the shard key should be set in the table in advance.
+It obtains the group ID of the SQL statement in the cluster environment which uses the global connection. Only the signed numeric type is allowed for the host variable :group_id. The group ID can be obtained only for the delete, insert, select, update SQL statement, and the shard key should be set in the table in advance.
 
 The SQL statement which obtained the group ID is internally cached in SQLPrepare status without executing SQLExecute.
 

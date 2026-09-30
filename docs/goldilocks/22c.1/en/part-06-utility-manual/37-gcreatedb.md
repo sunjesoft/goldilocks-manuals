@@ -3,7 +3,7 @@
 # 37. gcreatedb
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/95fdeea213dbe839)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 36. Hibernate](../part-05-developer-manual/36-hibernate.md) · [Table of contents](../README.md) · [38. glsnr →](38-glsnr.md)
 
@@ -47,7 +47,7 @@ gcreatedb [options]
 --member               local member name
 --host                 host address
 --port                 host port
---silent               suppersses the display of the result message
+--silent               suppresses the display of the result message
 --help                 print help message
 ```
 

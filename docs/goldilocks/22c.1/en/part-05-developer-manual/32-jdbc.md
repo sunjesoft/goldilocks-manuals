@@ -3,7 +3,7 @@
 # 32. JDBC
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/ad757b36b945f663)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 31. ODBC](31-odbc.md) · [Table of contents](../README.md) · [33. Embedded SQL →](33-embedded-sql.md)
 
@@ -74,7 +74,7 @@ Connection failover is supported on JDBC driver level to continuously use an exi
 
 - **• Connectivity between server and direct attach:** 
 
-Other than TCP/IP based connection, it can be connected with direct attach method interworking with a process as same as the server. Like as ODBC connection supports direct attach method and Client/ Server method, GOLDILOCKS JDBC driver also provides both methods. JDBC program connected with direct attach does not communicate with TCP/IP, but it can use the server features in jvm by directly interworking with the server process. The perfomance is doubled or more than the JDBC program connected with TCP/ IP.
+Other than TCP/IP based connection, it can be connected with direct attach method interworking with a process as same as the server. Like as ODBC connection supports direct attach method and Client/ Server method, GOLDILOCKS JDBC driver also provides both methods. JDBC program connected with direct attach does not communicate with TCP/IP, but it can use the server features in jvm by directly interworking with the server process. The performance is doubled or more than the JDBC program connected with TCP/ IP.
 
 <a id="7e5d54431a163d42"></a>
 ### Supporting Versions
@@ -1043,7 +1043,7 @@ JDBC program connecting in D/A mode can directly call the server feature by load
 <a id="34bf588c2c93fd3c"></a>
 #### Connecting Method
 
-Use *0.0.0.0:0* instead of existing ip:port in the connection URL to connect in D/A mode. The existing URL can be literaly used and using a special ip:port address (0.0.0.0:0) can minimize changing exisiting applications. Or, use a special protocol (*da*) to connect in D/A mode.
+Use *0.0.0.0:0* instead of existing ip:port in the connection URL to connect in D/A mode. The existing URL can be literally used and using a special ip:port address (0.0.0.0:0) can minimize changing existing applications. Or, use a special protocol (*da*) to connect in D/A mode.
 
 ```
 Connection con =
@@ -3290,7 +3290,7 @@ Savepoint setSavepoint(String name) throws SQLException
 void setTransactionIsolation(int level) throws SQLException
 ```
 
-- Operation: It changes the transaction isolation for the current session (connection). The supported value is Connection.TRANSACTION_READ_COMMITED, Connection.TRANSACTION_READ_UNCOMMITTED, and Connection.TRANSACTION_SERIALIZABLE. Connection.READ_UNCOMMITTED is set to Connection.TRANSACTION_READ_COMMITED, and Connection.TRANSACTION_REPEATABLE_READ is set to Connection.TRANSACTION_SERIALIZABLE.
+- Operation: It changes the transaction isolation for the current session (connection). The supported value is Connection.TRANSACTION_READ_COMMITTED, Connection.TRANSACTION_READ_UNCOMMITTED, and Connection.TRANSACTION_SERIALIZABLE. Connection.READ_UNCOMMITTED is set to Connection.TRANSACTION_READ_COMMITTED, and Connection.TRANSACTION_REPEATABLE_READ is set to Connection.TRANSACTION_SERIALIZABLE.
 - Exception: If it is already closed or the level has the wrong value, it throws SQLException.
 
 <a id="af6e6d1ad0ffc61d"></a>
@@ -9968,7 +9968,7 @@ The following tables describe how to convert types.
 | getFloat | O | O | O | O | O |
 | getDouble | O | O | O | O | O |
 | getBigDecimal | O | O | O | O | O |
-| getBoolean | Avaliable only for 0,1 | Avaliable only for 0,1 | Avaliable only for 0,1 | Avaliable only for 0,1 | Avaliable only for 0,1 |
+| getBoolean | Available only for 0,1 | Available only for 0,1 | Available only for 0,1 | Available only for 0,1 | Available only for 0,1 |
 | getString | O | O | O | O | O |
 | getBytes | raw data | raw data | raw data | raw data | raw data |
 | getDate | X | X | X | X | X |

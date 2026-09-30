@@ -3,7 +3,7 @@
 # 4. What's New
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/312106e542a48c14)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 3. Cluster 튜토리얼](3-cluster-튜토리얼.md) · [전체 목차](../README.md) · [5. GOLDILOCKS 데이터베이스 관리 기본 →](../part-02-administration-manual/5-goldilocks-데이터베이스-관리-기본.md)
 
@@ -298,13 +298,14 @@ Server property에 대한 feature matrix는 다음과 같다.
 | ADMIN_SESSION_POOL_NEXT_SIZE | X | X | X | X | O |
 | AGING_INTERVAL | O | O | O | O | O |
 | AGING_PLAN_INTERVAL | O | O | O | O | O |
+| ARCHIVE_LOG_THROTTLING | X | X | X | O | O |
 | ARCHIVELOG_DIR | O | X | X | X | X |
 | ARCHIVELOG_DIR_1 ~ DIR_10 | O | O | O | O | O |
 | ARCHIVELOG_FILE | O | O | O | O | O |
 | ARCHIVELOG_MODE | O | O | O | O | O |
 | BACKUP_DIR_1 ~ DIR_10 | O | O | O | O | O |
 | BLOCK_READ_COUNT | O | O | O | O | O |
-| BROADCAST_INDEX_REBUILD_PROTOCOL | X | X | X | O | O |
+| BROADCAST_INDEX_REBUILD_PROTOCOL | X | X | O | O | O |
 | BROADCAST_REBALANCE_PROTOCOL | X | X | O | O | O |
 | BUFFER_CACHE_SIZE | X | X | O | O | O |
 | BUFFER_CHECKPOINT_LIST_COUNT | X | X | O | X | X |
@@ -425,6 +426,7 @@ Server property에 대한 feature matrix는 다음과 같다.
 | INDEX_MERGE_RUN_COUNT | O | O | O | O | O |
 | INDEX_LOGGING_THROTTLING | X | X | X | O | O |
 | INDEX_REBUILD_BLOCK_READ_COUNT | X | X | O | O | O |
+| INDEX_SELF_AGING_THRESHOLD | X | X | X | X | O |
 | INDEX_SORT_RUN_SIZE | O | O | O | O | O |
 | INDEX_TREE_MERGE_PARALLEL_FACTOR | X | O | O | O | O |
 | INST_ALLOCATOR_COUNT | X | O | O | O | O |
@@ -508,6 +510,7 @@ Server property에 대한 feature matrix는 다음과 같다.
 | RECYCLEBIN | X | X | O | O | O |
 | REDO_LOG_COMPRESSION_THRESHOLD | X | O | O | O | O |
 | REFINE_RELATION | O | O | O | O | O |
+| RESTORE_BUFFER_SIZE | X | X | O | O | O |
 | SESSION_FATAL_BEHAVIOR | O | O | O | O | O |
 | SESSION_MEMORY_INIT_SIZE | X | O | O | O | O |
 | SESSION_MEMORY_SHRINK_THRESHOLD | X | O | O | O | O |
@@ -536,6 +539,7 @@ Server property에 대한 feature matrix는 다음과 같다.
 | TCP_NODELAY | X | O | O | O | O |
 | TEMP_SEGMENT_CACHE_SIZE | X | O | O | O | O |
 | TEMP_UNDO_ENABLED | X | O | O | O | O |
+| TEMP_UNDO_SHRINK_THRESHOLD | X | O | O | O | O |
 | TIMED_STATISTICS | X | O | O | O | O |
 | TIMER_INTERVAL | O | X | X | O | O |
 | TIMEZONE | O | O | O | O | O |
@@ -963,6 +967,7 @@ secondary index
 | DELETE FROM .. RETURNING query | O | O | O | O | O |
 | DELETE FROM .. RETURNING .. INTO .. | O | O | O | O | O |
 | DELETE FROM .. WHERE CURRENT OF cursor | O | O | O | O | O |
+| BULK DELETE FROM .. | X | X | X | X | O |
 | UPDATE .. | O | O | O | O | O |
 | UPDATE .. RETURNING query | O | O | O | O | O |
 | UPDATE .. RETURNING .. INTO .. | O | O | O | O | O |
@@ -1009,7 +1014,7 @@ secondary index
 제어 구문의 feature matrix는 다음과 같다.
 
 <a id="508a26ae2a1f49eb"></a>
-<table class="table column_count_7"><caption>제어 구문의 feature matrix</caption><thead><tr><th class="to_center"><div>구분</div></th><th class="to_center"><div>Feature</div></th><th class="to_center"><div>2.x</div></th><th class="to_center"><div>3.x</div></th><th class="to_center"><div>20c.1</div></th><th class="to_center"><div>21c.1</div></th><th class="to_center"><div>22c.1</div></th></tr></thead><tbody><tr><td class="to_middle" rowspan="7"><div>Transaction</div></td><td><div>COMMIT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ROLLBACK</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SAVEPOINT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>RELEASE SAVEPOINT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>LOCK TABLE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SET CONSTRAINTS</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SET TRANSACTION</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td class="to_middle" rowspan="5"><div>Session</div></td><td><div>SET SESSION CHARACTERISTICS AS</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SET SESSION AUTHORIZATION</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SET SCHEMA</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SET TIME ZONE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SESSION SET property</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td class="to_middle" rowspan="7"><div>System</div></td><td><div>ALTER SYSTEM {OPEN|MOUNT} DATABASE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM CHECKPOINT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM KILL SESSION</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM RECONNECT GLOBAL CONNECTION</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM SWITCH LOGFILE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM SET property</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM RESET property</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr></tbody></table>
+<table class="table column_count_7"><caption>제어 구문의 feature matrix</caption><thead><tr><th class="to_center"><div>구분</div></th><th class="to_center"><div>Feature</div></th><th class="to_center"><div>2.x</div></th><th class="to_center"><div>3.x</div></th><th class="to_center"><div>20c.1</div></th><th class="to_center"><div>21c.1</div></th><th class="to_center"><div>22c.1</div></th></tr></thead><tbody><tr><td class="to_middle" rowspan="7"><div>Transaction</div></td><td><div>COMMIT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ROLLBACK</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SAVEPOINT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>RELEASE SAVEPOINT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>LOCK TABLE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SET CONSTRAINTS</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SET TRANSACTION</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td class="to_middle" rowspan="5"><div>Session</div></td><td><div>SET SESSION CHARACTERISTICS AS</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SET SESSION AUTHORIZATION</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SET SCHEMA</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SET TIME ZONE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SESSION SET property</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td class="to_middle" rowspan="8"><div>System</div></td><td><div>ALTER SYSTEM {OPEN|MOUNT} DATABASE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM CHECKPOINT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM FLUSH LOGS</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM KILL SESSION</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM RECONNECT GLOBAL CONNECTION</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM SWITCH LOGFILE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM SET property</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ALTER SYSTEM RESET property</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr></tbody></table>
 
 <a id="c3d22bedf2e2fc2f"></a>
 #### PSM Language
@@ -1067,7 +1072,7 @@ Persistent Stored Module (PSM) language element의 feature matrix는 다음과 �
 Built-in Package 의 feature matrix는 다음과 같다.
 
 <a id="9a5ad228c02731a1"></a>
-<table class="table column_count_7"><caption>Built-in Package의 feature matrix</caption><thead><tr><th class="to_center to_middle"><div>Package</div></th><th class="to_center to_middle"><div>Sub Routine</div></th><th class="to_center"><div>2.x</div></th><th class="to_center to_middle"><div>3.x</div></th><th class="to_center to_middle"><div>20c.1</div></th><th class="to_center to_middle"><div>21c.1</div></th><th class="to_center to_middle"><div>22c.1</div></th></tr></thead><tbody><tr><td class="to_middle"><div>DBMS_LOCK</div></td><td class="to_middle"><div>SLEEP()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td class="to_middle" rowspan="7"><div>DBMS_OUTPUT</div></td><td class="to_middle"><div>DISABLE()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td class="to_middle"><div>ENABLE()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td class="to_middle"><div>GET_LINE()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td><div>NEW_LINE()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td><div>PUT()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td><div>PUT_LINE()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td><div>SET_LOG()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td class="to_middle"><div>DBMS_SQL</div></td><td class="to_middle"><div>RETURN_RESULT()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td class="to_middle"><div>DBMS_STANDARD</div></td><td><div>RAISE_APPLICATION_ERROR()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr></tbody></table>
+<table class="table column_count_7"><caption>Built-in Package의 feature matrix</caption><thead><tr><th class="to_center to_middle"><div>Package</div></th><th class="to_center to_middle"><div>Sub Routine</div></th><th class="to_center"><div>2.x</div></th><th class="to_center to_middle"><div>3.x</div></th><th class="to_center to_middle"><div>20c.1</div></th><th class="to_center to_middle"><div>21c.1</div></th><th class="to_center to_middle"><div>22c.1</div></th></tr></thead><tbody><tr><td class="to_middle"><div>DBMS_LOCK</div></td><td class="to_middle"><div>SLEEP()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td class="to_middle" rowspan="7"><div>DBMS_OUTPUT</div></td><td class="to_middle"><div>DISABLE()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td class="to_middle"><div>ENABLE()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td class="to_middle"><div>GET_LINE()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td><div>NEW_LINE()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td><div>PUT()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td><div>PUT_LINE()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td><div>SET_LOG()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td class="to_middle"><div>DBMS_SQL</div></td><td class="to_middle"><div>RETURN_RESULT()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td></tr><tr><td class="to_middle"><div>DBMS_STANDARD</div></td><td><div>RAISE_APPLICATION_ERROR()</div></td><td class="to_center to_middle"><div>X</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td><td class="to_center to_middle"><div>O</div></td></tr></tbody></table>
 
 <a id="c522954fe145b4e9"></a>
 ### API
@@ -1389,7 +1394,7 @@ Cursor 객체의 method feature matrix는 다음과 같다.
 <a id="27476e73f0bd55c1"></a>
 | Feature | 2.x | 3.x | 20c.1 | 21c.1 | 22c.1 |
 | --- | --- | --- | --- | --- | --- |
-| excute | X | O | O | O | O |
+| execute | X | O | O | O | O |
 | executemany | X | O | O | O | O |
 | fetchone | X | O | O | O | O |
 | fetchall | X | O | O | O | O |
@@ -1904,7 +1909,7 @@ cyclone의 command usage에 대한 feature matrix는 다음과 같다.
 cyclone의 configuration file에 대한 feature matrix는 다음과 같다.
 
 <a id="8e561876ff795a50"></a>
-<table class="table column_count_7"><caption>cyclone configuration file의 feature matrix</caption><thead><tr><th class="to_center"><div>Configuration</div></th><th class="to_center"><div>Feature</div></th><th class="to_center"><div>2.x</div></th><th class="to_center"><div>3.x</div></th><th class="to_center"><div>20c.1</div></th><th class="to_center"><div>21c.1</div></th><th class="to_center"><div>22c.1</div></th></tr></thead><tbody><tr><td class="to_middle" rowspan="12"><div>Common configuration</div></td><td><div>COMM_CHUNK_COUNT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>DSN</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>USER_ENCRYPT_PW</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>GROUP_NAME</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>HOST_IP</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>HOST_EXTERNAL_IP</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>HOST_PORT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>PORT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>PROTOCOL</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td class="to_left"><div>USER_ID</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>USER_PW</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>HEARTBEAT_TIMEOUT</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td class="to_middle" rowspan="17"><div>MASTER configuration</div></td><td><div>CAPTURE_TABLE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>LOG_PATH</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>READ_LOG_BLOCK_COUNT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>TRANS_SORT_AREA_SIZE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>TRANS_FILE_PATH</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SYNCHER_COUNT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SYNC_ARRAY_SIZE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>GIVEUP_INTERVAL</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SKIP_COMMENT</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SUPPLEMENTAL_LOG_FORCE_MODE</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>PACKET_COMPRESSION_MODE</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SYNC_ORACLE_DRIVER</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    O</div></td></tr><tr><td><div>SYNC_MYSQL_DRIVER</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    O</div></td></tr><tr><td><div>SYNC_DB2_DRIVER</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    O</div></td></tr><tr><td><div>SYNC_TIBERO_DRIVER</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    O</div></td></tr><tr><td><div>LOG_CAPTURE_INTERVAL_1</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>LOG_CAPTURE_INTERVAL_2</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td class="to_middle" rowspan="14"><div>SLAVE configuration</div></td><td><div>APPLIER_COUNT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>APPLY_ARRAY_SIZE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td></tr><tr><td><div>APPLY_COMMIT_SIZE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>APPLY_TABLE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>MASTER_IP</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>PROPAGATE_MODE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>CLUSTER</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>UPDATE_APPLY_MODE</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ORACLE_DRIVER</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>DB2_DRIVER</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>DB2_DATABASE</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>MYSQL_DRIVER</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>MYSQL_DATABASE</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>TIBERO_DRIVER</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr></tbody></table>
+<table class="table column_count_7"><caption>cyclone configuration file의 feature matrix</caption><thead><tr><th class="to_center"><div>Configuration</div></th><th class="to_center"><div>Feature</div></th><th class="to_center"><div>2.x</div></th><th class="to_center"><div>3.x</div></th><th class="to_center"><div>20c.1</div></th><th class="to_center"><div>21c.1</div></th><th class="to_center"><div>22c.1</div></th></tr></thead><tbody><tr><td class="to_middle" rowspan="13"><div>Common configuration</div></td><td><div>COMM_CHUNK_COUNT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>DSN</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>USER_ENCRYPT_PW</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>GROUP_NAME</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>HOST_IP</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>HOST_EXTERNAL_IP</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>HOST_PORT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>PORT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>PROTOCOL</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td class="to_left"><div>USER_ID</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>USER_PW</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>HEARTBEAT_TIMEOUT</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>TRACE_LOG_PATH</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td><div>   O</div></td></tr><tr><td class="to_middle" rowspan="17"><div>MASTER configuration</div></td><td><div>CAPTURE_TABLE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>LOG_PATH</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>READ_LOG_BLOCK_COUNT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>TRANS_SORT_AREA_SIZE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>TRANS_FILE_PATH</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SYNCHER_COUNT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SYNC_ARRAY_SIZE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>GIVEUP_INTERVAL</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SKIP_COMMENT</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SUPPLEMENTAL_LOG_FORCE_MODE</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>PACKET_COMPRESSION_MODE</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>SYNC_ORACLE_DRIVER</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    O</div></td></tr><tr><td><div>SYNC_MYSQL_DRIVER</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    O</div></td></tr><tr><td><div>SYNC_DB2_DRIVER</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    O</div></td></tr><tr><td><div>SYNC_TIBERO_DRIVER</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    X</div></td><td><div>    O</div></td></tr><tr><td><div>LOG_CAPTURE_INTERVAL_1</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>LOG_CAPTURE_INTERVAL_2</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td class="to_middle" rowspan="16"><div>SLAVE configuration</div></td><td><div>APPLIER_COUNT</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>APPLY_ARRAY_SIZE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td></tr><tr><td><div>APPLY_COMMIT_SIZE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>APPLY_TABLE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>MASTER_IP</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>PROPAGATE_MODE</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>CLUSTER</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>UPDATE_APPLY_MODE</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>ORACLE_DRIVER</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>DB2_DRIVER</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>DB2_DATABASE</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>MYSQL_DRIVER</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>MYSQL_DATABASE</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>TIBERO_DRIVER</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>O</div></td><td class="to_center"><div>O</div></td></tr><tr><td><div>APPLIER_DEADLOCK_PRIORITY</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td><div>   O</div></td></tr><tr><td><div>APPLIER_TRACE_LOG_ID</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td class="to_center"><div>X</div></td><td><div>   O</div></td></tr></tbody></table>
 
 <a id="b659e9a246db8ecb"></a>
 #### clustone
@@ -2098,6 +2103,10 @@ Hash instant table의 예상 bucket count의 최대값을 설정하는 [INST_HAS
 Plan cache에 캐싱할 SQL의 최대 개수를 제한하는 두 개의 property 중에 MAXIMUM_FLANGE_COUNT property는 deprecate 하고 [PLAN_CACHE_SIZE](../part-02-administration-manual/10-server-property.md#211c5592125ca84f) 만으로 제어하도록 했다.
 
 인덱스 구축 및 재구축시 발생하는 로그의 기록 속도를 제어할 수 있는 [INDEX_LOGGING_THROTTLING](../part-02-administration-manual/10-server-property.md#7bf6de118a3fa6de) 프로퍼티가 추가되었다.
+
+Redo log archiving 시 디스크 I/O 성능을 제어할 수 있는 [ARCHIVE_LOG_THROTTLING](../part-02-administration-manual/10-server-property.md#d3bf9a4f97abe361) 프로퍼티가 추가되었다.
+
+인덱스 스캔을 통해 대량의 레코드를 삭제할 때 인덱스 self aging 기능을 사용하기 위한 [INDEX_SELF_AGING_TRHESHOLD](../part-02-administration-manual/10-server-property.md#9453f730b4916921) 프로퍼티가 추가되었다.
 
 <a id="dc98e82e89fe638b"></a>
 ### SQL
@@ -2338,6 +2347,336 @@ Oracle, DB2, MySQL, Tibero 등 타 DB로 데이터를 이전하는 기능을 추
 <a id="85597e86f435c568"></a>
 ## Patch Notes
 
+<a id="5fd9973feabd8381"></a>
+### 22c.1.11 Patch Notes
+
+<a id="2db706c03854995e"></a>
+#### <kbd>ISSUE-8390</kbd> 대량의 데이터를 여러 트랜잭션으로 나누어 삭제할 수 있는 BULK DELETE 구문을 추가하였다.
+
+> Standalone에서만 사용할 수 있다.
+
+<a id="ba54f6d0e3757356"></a>
+##### 개요
+
+COMMIT EVERY n ROWS 절에 지정한 행 수마다 삭제 결과를 자동으로 commit 한다. 이를 통해 대량 삭제 작업을 여러 개의 작은 트랜잭션으로 분할할 수 있으며, 단일 트랜잭션의 크기가 과도하게 커지면서 발생할 수 있는 undo 공간 부족 및 장시간 자원 점유 위험을 줄일 수 있다.
+
+자세한 내용은 [Bulk Delete](../part-03-sql-manual/18-sql-references-a-b.md#d566ccd2cd5ce96d)를 참조한다.
+
+<a id="fc5679aad796faaa"></a>
+##### 현상 및 증상
+
+일반적인 DELETE는 작업이 완료될 때까지 삭제한 내용을 하나의 트랜잭션으로 유지한다. 대량의 레코드를 삭제하면 활성 undo가 계속 누적되어 다음과 같은 문제가 발생할 수 있다.
+
+- Undo tablespace 부족으로 인한 삭제 실패
+- 트랜잭션과 잠금을 장시간 유지
+- 실패 시 대규모 rollback
+- 사용자가 삭제 범위를 나누어 반복적으로 DELETE와 COMMIT을 수행해야 하는 운영상의 불편
+
+<a id="56ae6869f6baa3c2"></a>
+##### 수정 전 대처
+
+DELETE LIMIT과 COMMIT을 반복하는 방법으로 대처할 수 있다.
+
+다만 DELETE LIMIT을 반복하는 방식은 매번 스캔을 처음부터 다시 시작하므로, 앞부분의 이미 삭제된 영역을 반복해서 확인하는 비용이 발생할 수 있다. 반면 BULK DELETE는 내부적으로 마지막 스캔 위치를 저장하고, 다음 트랜잭션에서 해당 위치부터 이어서 처리한다.
+
+<a id="81da86c586c1aaa9"></a>
+#### <kbd>ISSUE-8305</kbd> Cymon을 이용한 Cyclone 모니터링 정보에 TX 반영 정보를 추가하였다.
+
+<a id="52f48f28d032dac6"></a>
+##### 개요
+
+Cyclone 이중화 정보를 모니터링하는 CYCLONE_MONITOR_INFO 테이블에 TX 반영 정보를 추가하였다.
+
+TX_COMMIT_TIMESTAMP 부터 TX_APPLY_TIME 까지 총 8 개의 정보를 추가하였다.
+
+```
+gSQL> \set vertical on
+gSQL> select * from cyclone_monitor_info;
+
+             GROUP_NAME   # GROUP1
+                    TIME  # 2026-09-17 14:04:29
+            MASTER_STATE  # RUNNING
+             SLAVE_STATE  # RUNNING
+             MASTER_PORT  # 21102
+                SLAVE_IP  # 192.168.0.117 
+        REDO_LOG_FILESEQ  # 0
+       REDO_LOG_BLOCKSEQ  # 120368
+         CAPTURE_FILESEQ  # 0
+        CAPTURE_BLOCKSEQ  # 120368
+           APPLY_FILESEQ  # 0
+          APPLY_BLOCKSEQ  # 120363
+        CAPTURE_INTERVAL  # 0
+   CAPTURE_INTERVAL_SIZE  # 0
+          TOTAL_TX_COUNT  # 3
+        CAPTURE_TX_COUNT  # 1
+      CAPTURE_COMMIT_LSN  # 245041
+        APPLY_COMMIT_LSN  # 245041
+     TX_COMMIT_TIMESTAMP  # 1789621466253839
+          TX_COMMIT_TIME  # 2026-09-17 14:04:26.253839
+    TX_CAPTURE_TIMESTAMP  # 1789621467691932
+         TX_CAPTURE_TIME  # 2026-09-17 14:04:27.691932
+       TX_RECV_TIMESTAMP  # 1789621467692328
+            TX_RECV_TIME  # 2026-09-17 14:04:27.692328
+      TX_APPLY_TIMESTAMP  # 1789621467692335
+           TX_APPLY_TIME  # 2026-09-17 14:04:27.692335
+```
+
+<a id="a1ecce473363bc3b"></a>
+##### 현상 및 증상
+
+없음
+
+<a id="e2234c57f85279b3"></a>
+##### 수정 전 대처
+
+없음
+
+<a id="6140d18a6eef3c67"></a>
+#### <kbd>ISSUE-8136</kbd> Cyclone의 이중화 과정에서 반영 실패 시 질의에 대한 SQL 구문, 실행 계획 및 bind 값 등을 기록할 수 있도록 환경 변수를 추가하였다.
+
+<a id="3e8042dc40a6c368"></a>
+##### 개요
+
+Cyclone의 이중화 과정에서 반영 실패 시 질의에 대한 SQL 구문, 실행 계획 및 bind 값 등을 기록할 수 있도록 APPLIER_TRACE_LOG_ID 환경 변수를 추가하였다.
+
+<a id="63734cd2699d3bd9"></a>
+##### 현상 및 증상
+
+Cyclone의 이중화 과정에서 반영 실패 시 관련 SQL 구문, 실행 계획 및 bind 값 등의 상세 trace 정보를 확인할 수 없어 오류 원인 분석 및 장애 대응에 어려움이 있었다.
+
+<a id="5a73faba977228ba"></a>
+##### 수정 전 대처
+
+없음
+
+<a id="0aff8b86e1008812"></a>
+#### <kbd>ISSUE-8135</kbd> Cyclone에서 생성되는 TRACE LOG의 저장 경로를 지정할 수 있도록 환경 변수를 추가하였다.
+
+<a id="bcd1462e89628bf1"></a>
+##### 개요
+
+Cyclone에서 생성되는 trace log의 저장 경로를 지정하여 로그를 별도로 관리할 수 있도록 TRACE_LOG_PATH 환경 변수를 추가하였다.
+
+<a id="6292fba4ddc93134"></a>
+##### 현상 및 증상
+
+Cyclone 에서 생성되는 trace log는 $GOLDILOCKS_DATA/trc 디렉터리에만 저장되며, 저장 경로를 별도로 지정할 수 없다.
+
+<a id="2d516246117d58d5"></a>
+##### 수정 전 대처
+
+없음
+
+<a id="c0f6148a95ddb411"></a>
+#### <kbd>ISSUE-8365</kbd> 인덱스 스캔을 통한 테이블 레코드 대량 삭제 성능을 개선하였다.
+
+<a id="4c98e1918212365a"></a>
+##### 개요
+
+B-트리 인덱스에서는 모든 키가 삭제된 페이지도 인덱스에 남아 있다. 따라서 인덱스 스캔으로 대량의 테이블 레코드를 삭제하면 불필요한 페이지를 탐색하게 되어 성능이 저하될 수 있다. 이 문제를 개선하기 위해 인덱스 키가 삭제되어 유효한 키가 남아 있지 않은 페이지를 인덱스에서 자동으로 제거하는 기능을 추가하였다.
+
+자세한 내용은 [INDEX_SELF_AGING_TRHESHOLD](../part-02-administration-manual/10-server-property.md#9453f730b4916921)을 참조한다.
+
+<a id="67ae7bb40f7dbfeb"></a>
+##### 현상 및 증상
+
+테이블의 레코드를 삭제하면 인덱스에서도 해당 키가 삭제된다. 따라서 대량의 레코드를 삭제할 경우, 인덱스에서 많은 키가 삭제된다. 그러나 인덱스 스캔 시 삭제된 키도 스캔한 후 삭제 여부를 확인하기 때문에 스캔 비용이 증가하여 레코드 삭제 속도가 느려지는 현상이 발생한다.
+
+<a id="0dae64b9a29a3188"></a>
+##### 수정 전 대처
+
+없음
+
+<a id="b528fe9e4ad7b5a2"></a>
+#### <kbd>ISSUE-4478</kbd> JDBC connection 클래스의 setNetworkTimeout 동작을 비동기 방식에서 동기 방식으로 변경하였다.
+
+<a id="4d683ec5cd367625"></a>
+##### 개요
+
+Connection 클래스의 setNetworkTimeout() 의 내부 동작을 비동기 방식에서 동기 방식으로 변경하였다.
+
+<a id="69ea477ed21896c2"></a>
+##### 현상 및 증상
+
+기존 비동기 방식에서는 네트워크 타임아웃 설정 요청이 즉시 반환되고, 실제 설정 적용은 별도의 스레드에서 수행되었다.   
+이로 인해 setNetworkTimeout() 호출 직후 실행되는 SQL이 새로운 타임아웃 값이 적용되기 전에 수행될 수 있었다. 따라서 타임아웃이 의도한 대로 동작하지 않거나, 설정 적용 시점이 일정하지 않은 문제가 발생할 수 있었다.
+
+<a id="1651f9e32b420496"></a>
+##### 수정 전 대처
+
+setNetworkTimeout() 호출 후 일정 시간 대기하거나, 타임아웃 설정이 완료된 것으로 예상되는 시점 이후에 SQL을 수행하는 등의 우회 방법이 필요하다.
+
+<a id="15388c6730f6c5b0"></a>
+#### <kbd>ISSUE-8304</kbd> Disk full 로 인해 datafile 추가 작업이 실패한 후 DB 재기동이 불가능한 문제가 발생하여 이를 수정하였다.
+
+<a id="6bef2013a86f7029"></a>
+##### 개요
+
+Disk 공간이 부족한 상태에서 tablespace의 datafile 추가 작업이 실패한 후, restart recovery 과정에서 해당 작업과 관련된 redo log 재수행 시 disk 공간 부족으로 recovery에 실패하는 문제가 있어 이를 수정하였다.
+
+<a id="f4a505eac322c601"></a>
+##### 현상 및 증상
+
+Disk 공간 부족으로 DB 재기동이 실패한다.
+
+<a id="7fe7e042e8ecaf0f"></a>
+##### 수정 전 대처
+
+없음
+
+<a id="9f7c3bf8b81a8b82"></a>
+#### <kbd>ISSUE-8272</kbd> View projection pruning 과정에서 view 상위에서 사용되지 않는 column을 제거할 때 다른 target에서 사용하는 aggregation까지 함께 삭제되는 문제가 발생하여 이를 수정하였다.
+
+<a id="81294477d20883ba"></a>
+##### 개요
+
+View projection pruning 과정에서 view 상위에서 사용되지 않는 column을 제거할 때 다른 target에서 사용하는 aggregation까지 함께 삭제되는 문제가 발생하였다.
+
+<a id="e28e50f74b542fb8"></a>
+##### 현상 및 증상
+
+아래 질의를 수행하면 비정상 종료가 발생한다.
+
+```
+DROP VIEW IF EXISTS v1;
+
+CREATE VIEW v1( sum1, sum2 )
+AS
+SELECT
+  SUM(c2),
+  SUM(c2) - SUM(c2)
+FROM ( SELECT 1, 2 FROM dual 
+       UNION ALL 
+       SELECT 1, 2 FROM dual ) as v2( c1, c2 )
+GROUP BY c1
+ORDER BY c1;
+COMMIT;
+
+--# 비정상 종료가 발생하는 질의 
+SELECT sum2 FROM v1;
+```
+
+수정 후에는 위 질의가 정상적으로 수행되며, 다음과 같은 결과를 반환한다.
+
+```
+DROP VIEW IF EXISTS v1;
+
+CREATE VIEW v1( sum1, sum2 )
+AS
+SELECT
+  SUM(c2),
+  SUM(c2) - SUM(c2)
+FROM ( SELECT 1, 2 FROM dual 
+       UNION ALL 
+       SELECT 1, 2 FROM dual ) as v2( c1, c2 )
+GROUP BY c1
+ORDER BY c1;
+COMMIT;
+
+SELECT sum2 FROM v1;
+
+SUM2
+----
+   0
+
+1 row selected.
+```
+
+<a id="4454e6a328ed9279"></a>
+##### 수정 전 대처
+
+없음
+
+<a id="a75c7e8f07b11d77"></a>
+#### <kbd>ISSUE-8027</kbd> Cluster 환경에서 giveup이 발생하지 않은 table에 대해 partial reset을 수행할 경우, 해당 테이블의 이중화가 수행되지 않는 문제가 있어 이를 수정하였다.
+
+<a id="d830b8fd9627c128"></a>
+##### 개요
+
+Cluster 환경에서 giveup이 발생하지 않은 table에 대해 partial reset 을 수행할 경우, StartSCN이 불필요하게 초기화되어 해당 테이블의 이중화가 진행되지 않는 문제가 있었다. 이에 따라, 해당 문제를 수정하여 정상적으로 이중화가 수행되도록 개선하였다.
+
+<a id="b7fe3befc7574800"></a>
+##### 현상 및 증상
+
+Cluster 환경에서 giveup이 발생하지 않은 table에 대해 partial reset을 수행하면 해당 테이블에 이중화가 수행되지 않는다.
+
+<a id="2f0e1519392be594"></a>
+##### 수정 전 대처
+
+없음
+
+<a id="a15848fc89aff271"></a>
+#### <kbd>ISSUE-8070</kbd> Cyclone slave 측에서 transaction deadlock 발생 시 Cyclone이 종료되는 문제를 개선하기 위해, applier session에 DEADLOCK_PRIORITY를 설정할 수 있도록 환경 변수를 추가하였다.
+
+<a id="0ba0bee5741bf470"></a>
+##### 개요
+
+기존에는 slave 측에 transaction deadlock이 발생하면 applier가 deadlock victim으로 선택되어 Cyclone이 종료되는 문제가 있었다. 이 문제를 해결하고 운영 환경에서 관리자가 victim 선정 우선 순위를 제어할 수 있도록 applier의 priority를 설정할 수 있는 환경 변수를 추가하였다.
+
+<a id="411acd6519429ef4"></a>
+##### 현상 및 증상
+
+Slave 측에 transaction deadlock이 발생하면 Cyclone은 해당 transaction을 정상적으로 처리할 수 없는 상태로 판단하여 즉시 종료된다.
+
+<a id="3659e1ec74efc0bf"></a>
+##### 수정 전 대처
+
+없음
+
+<a id="b131706a14b1e3de"></a>
+#### <kbd>ISSUE-8124</kbd> Cluster 환경에서 Cyclone 이 재시작되는 경우, recovery가 정상적으로 수행되지 않는 경우가 있어 이를 수정하였다.
+
+<a id="70f14c1b616100a6"></a>
+##### 개요
+
+Cluster 환경에서 Cyclone master가 재시작되는 경우, recovery가 정상적으로 처리되지 않고 skip 되는 문제가 있었다. 이 문제는 특정 상황에서 내부 처리 순서가 변경되어 발생하였으며, 이를 수정하였다.
+
+<a id="97875b5e61a9bc62"></a>
+##### 현상 및 증상
+
+Cyclone이 recovery 를 수행하는 과정에서 내부 처리 순서가 비정상적으로 변경될 경우, recovery가 수행되지 않고 skip 된다.
+
+<a id="1a9ccff274db8e4c"></a>
+##### 수정 전 대처
+
+없음
+
+<a id="50472af98fffc832"></a>
+#### <kbd>ISSUE-8012</kbd> Redo log archving 시 과도한 디스크 I/O 로 인해 서비스 성능이 저하되는 문제가 있어 이를 수정하였다.
+
+<a id="4052663a9d2f30cb"></a>
+##### 개요
+
+Redo log archiving 과정에서 과도한 디스크 I/O로 인해 발생하는 서비스 성능 저하 문제를 [ARCHIVE_LOG_THROTTLING](../part-02-administration-manual/10-server-property.md#d3bf9a4f97abe361) 프로퍼티를 통해 해결하였다.
+
+<a id="df0a0bf47e3f4332"></a>
+##### 현상 및 증상
+
+Redo log archiving 시 과도한 디스크 I/O로 인해 서비스 성능이 저하되는 현상이 발생한다.
+
+<a id="17796aa4a8f54f19"></a>
+##### 수정 전 대처
+
+없음
+
+<a id="9354323c36257866"></a>
+#### <kbd>ISSUE-5452</kbd> Cyclone이 ORACLE과 연동하는 과정에서 LONG VARBINARY 타입 column의 4000byte 초과 데이터가 정상적으로 replication, sync 되지 않는 문제가 있어 이를 수정하였다.
+
+<a id="38b72b647391838e"></a>
+##### 개요
+
+Cyclone이 ORACLE과 연동하는 과정에서 LONG VARBINARY 타입 column의 4000byte 초과 데이터가 정상적으로 이중화 되지 않는 문제가 있었다.
+
+<a id="562d96d83a888844"></a>
+##### 현상 및 증상
+
+GOLDILOCKS-ORACLE 연동 환경에서 cyclone을 통한 replication 및 sync 수행 시, LONG VARBINARY 타입 데이터가 4000byte를 초과할 경우 에러 없이 처리되지만 실제 데이터는 일부만 반영되는 문제가 발생하였다.
+
+<a id="a9c757afa811e64f"></a>
+##### 수정 전 대처
+
+없음
+
 <a id="04484c3b0bc3a5aa"></a>
 ### 22c.1.10 Patch Notes
 
@@ -2533,7 +2872,7 @@ FETCH 작업 중인 테이블의 스키마 구조가 변경된 뒤 동일 테이
 <a id="c4ebe3415e1f4d7b"></a>
 ##### 수정 전 대처
 
-이 문제가 수정되기 전까지는 fetch 작업 중 테이블 구조를 변경하지 않는 것이 가장 안정적인 방법이다. 부득이하게 테이블 구조가 변경되는 경우에는 해당 SQLHSTMT 핸들에 대해 SQLFreeHandle을 호출한 뒤, SQLAllocHandle 다시 수행하여 핸들을 재할당해야 한다.
+이 문제가 수정되기 전까지는 fetch 작업 중 테이블 구조를 변경하지 않는 것이 가장 안정적인 방법이다. 부득이하게 테이블 구조가 변경되는 경우에는 해당 SQLHSTMT 핸들에 대해 SQLFreeHandle을 호출한 뒤, SQLAllocHandle 을 다시 수행하여 핸들을 재할당해야 한다.
 
 <a id="5147aac66ba4cfaf"></a>
 ### 22c.1.8 Patch Notes
@@ -3038,20 +3377,20 @@ ________"]
 <a id="ac076ddcfe6c9eba"></a>
 ### 22c.1.5 Patch Notes
 
-<a id="d3a4954c44c0a1fe"></a>
+<a id="bafb2c3b3ca3a769"></a>
 #### <kbd>ISSUE-6974</kbd> JSON string constructor 함수를 추가하였다.
 
-<a id="b852b2fba7ed55f4"></a>
+<a id="50ae618ede9c6202"></a>
 ##### 개요
 
 [JSON String Constructor](../part-03-sql-manual/11-sql-elements.md#30f24d7eebfaa3e9) 함수를 추가하였다.
 
-<a id="50c7b5cf024e5e67"></a>
+<a id="bcb0fab1e808905c"></a>
 ##### 현상 및 증상
 
 없음
 
-<a id="a51de38fbbc19306"></a>
+<a id="f68739969d819053"></a>
 ##### 수정 전 대처
 
 없음
@@ -4542,7 +4881,7 @@ Database altered.
 <a id="eab267fc9910a262"></a>
 ##### 개요
 
-충분한 크기의 LOGFILE GROUP을 설정해도 logfile이 최소 크기보다 작다는 에러 메세지와 함께 LOGFILE GROUP을 추가하지 못한다.  
+충분한 크기의 LOGFILE GROUP을 설정해도 logfile이 최소 크기보다 작다는 에러 메시지와 함께 LOGFILE GROUP을 추가하지 못한다.  
 ADD LOGFILE GROUP을 수행할 때, startup 과정에서 보정했던 log buffer와 pending log buffer 개수를 기준으로 logfile의 최소 크기를 계산해야 하는데 실제로는 property 값을 기준으로 최소 크기를 계산하기 때문이다.
 
 <a id="ee2231096e0fd17b"></a>
@@ -5094,7 +5433,7 @@ ODBC global connection 환경에서 같은 statement로 LONGVARCHAR, LONGVARBINA
 변경된 에러의 SQLSTATE는 다음과 같다.
 
 <a id="2046129c6f78e5c5"></a>
-| 에러 번호 | 기존 SQLSTATE | 변경된 SQLSTATE | 메세지 |
+| 에러 번호 | 기존 SQLSTATE | 변경된 SQLSTATE | 메시지 |
 | --- | --- | --- | --- |
 | 13034 | RD000 | 08S01 | Service is not available |
 | 16351 | 08000 | HY000 | failed to connect to the cluster member '%s' |
@@ -5166,7 +5505,7 @@ CYCLONE의 모니터링 정보에 slave에서 처리 중인 정보 (Apply_FileSe
 <a id="abf75e8523d5665a"></a>
 ##### 개요
 
-CYCLONE의 SYNC를 처리하는 도중에 오류가 발생하면 *ERROR OCCURRED* 메세지와 함께 에러 내용을 상세하게 trace log에 기록하도록 하였다.
+CYCLONE의 SYNC를 처리하는 도중에 오류가 발생하면 *ERROR OCCURRED* 메시지와 함께 에러 내용을 상세하게 trace log에 기록하도록 하였다.
 
 <a id="f48e26f93041486a"></a>
 ##### 현상 및 증상

@@ -3,7 +3,7 @@
 # 22. PSM DataTypes
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/a7ec470a254f78dc)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 21. Overview of PSM](21-overview-of-psm.md) · [Table of contents](../README.md) · [23. PSM Control Statements →](23-psm-control-statements.md)
 

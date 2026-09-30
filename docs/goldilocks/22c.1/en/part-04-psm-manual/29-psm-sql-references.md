@@ -3,7 +3,7 @@
 # 29. PSM SQL References
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/866ac7ce70382841)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 28. PSM Language Element References](28-psm-language-element-references.md) · [Table of contents](../README.md) · [30. Database Connection →](../part-05-developer-manual/30-database-connection.md)
 
@@ -519,7 +519,7 @@ It can not use a bind parameter such as '?' or ':V1'. within a function.
 <a id="bcaa74899439db4c"></a>
 ### Description
 
-It defines a schema-level SQL function. The created fucntion can be called from all expressions.
+It defines a schema-level SQL function. The created function can be called from all expressions.
 
 The definition of a function can be viewed in ROUTINES table of INFORMATION_SCHEMA. The definition of a function parameter can be viewed in PARAMETERS table of INFORMATION_SCHEMA.
 

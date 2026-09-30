@@ -3,7 +3,7 @@
 # 31. ODBC
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/7b88a0ab09da82a8)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 30. Database Connection](30-database-connection.md) · [전체 목차](../README.md) · [32. JDBC →](32-jdbc.md)
 
@@ -350,7 +350,7 @@ Windows에서는 ODBC 데이터 원본 관리자를 통해 DSN을 추가하거�
 **DSN 구성 키워드**
 
 <a id="789fec4a122a69f2"></a>
-<table><thead><tr><th align="center">키워드</th><th align="center">설명</th></tr></thead><tbody><tr><td valign="middle">DSN</td><td valign="middle">데이터 원본 이름이다.</td></tr><tr><td valign="middle">HOST</td><td valign="middle">호스트 IP 주소 또는 이름이다.</td></tr><tr><td valign="middle">PORT</td><td valign="middle">연결 포트 번호이다.</td></tr><tr><td valign="middle">UID</td><td align="left" valign="middle">사용자 ID 이다.</td></tr><tr><td valign="middle">CS_MODE</td><td align="left" valign="middle">Dedicated 모드로 접속할지 shared 모드로 접속할지를 설정한다.<br>설정하지 않을 경우, listener의 configuration (DEFAULT_CS_MODE)에 따라 default 모드가 결정된다.</td></tr><tr><td valign="middle">ALTERNATE_SERVERS</td><td align="left" valign="middle">Failover가 발생할 경우, 연결을 시도하는 서버 목록으로써 각 서버는 콤마 (,)로 구분한다.<br>Failover 기능을 사용하지 않을 경우, ALTERNATE_SERVERS를 공백으로 설정한다.</td></tr><tr><td valign="middle">CONNECTION_RETRY_COUNT</td><td valign="middle">연결에 실패할 경우, 서버에 접속을 시도하는 횟수이다.</td></tr><tr><td valign="middle">CONNECTION_RETRY_DELAY</td><td valign="middle">연결에 실패할 경우, 서버에 접속을 시도하는 간격이다. (단위: 초)</td></tr><tr><td valign="middle">FAILOVER_TYPE</td><td valign="middle"><ul><li>CONNECTION: 연결에 실패할 경우, ALTERNATE_SERVERS로 연결한다.</li><li>SESSION: 연결에 실패하거나 statement 동작 중 연결이 끊어졌을 경우, ALTERNATE_SERVERS로 연결한 후에 statement를 복원한다. 연결이 끊어질 때 진행 중인 트랜잭션이 없었을 경우, failover 후에 진행 중인 statement를 수행한다.</li></ul></td></tr><tr><td valign="middle">FAILOVER_GRANULARITY</td><td valign="middle"><ul><li>Non-atomic: Failover 진행 중에 에러가 발생해도 failover를 계속 진행한다.</li><li>Atomic: Failover 진행 중에 에러가 발생할 경우 failover에 실패한다.</li></ul></td></tr><tr><td valign="middle">DATE_FORMAT</td><td align="left" valign="middle">DATE 타입 형식 문자열이다.</td></tr><tr><td valign="middle">TIME_FORMAT</td><td align="left" valign="middle">TIME 타입 형식 문자열이다.</td></tr><tr><td valign="middle">TIME_WITH_TIME_ZONE_FORMAT</td><td valign="middle">TIME WITH TIME ZONE 타입 형식 문자열이다.</td></tr><tr><td valign="middle">TIMESTAMP_FORMAT</td><td valign="middle">TIMESTAMP 타입 형식 문자열이다.</td></tr><tr><td valign="middle">TIMESTAMP_WITH_TIME_ZONE_FORMAT</td><td valign="middle">TIMESTAMP WITH TIME ZONE 타입 형식 문자열이다.</td></tr><tr><td valign="middle">CHAR_LENGTH_UNITS</td><td valign="middle">SQLBindParameter()에서 ParameterType이 SQL_CHAR, SQL_VARCHAR일 경우 ColumnSize의 단위이다.<br><ul><li>BYTE, OCTETS: 바이트 단위</li><li>CHAR, CHARACTERS: 문자 단위</li></ul></td></tr><tr><td valign="middle">LOCALITY_AWARE_TRANSACTION</td><td valign="middle">GLOBAL CONNECTION 사용 여부이다.<br><ul><li>0: GLOBAL CONNECTION을 사용하지 않는다.</li><li>1: GLOBAL CONNECTION을 사용한다.</li></ul></td></tr><tr><td valign="middle">USE_GLOBAL_SESSION</td><td valign="middle">GLOBAL SESSION 사용 여부이다.<br><ul><li>0: GLOBAL SESSION을 사용하지 않는다.</li><li>1: GLOBAL SESSION을 사용한다.</li></ul></td></tr><tr><td valign="middle">LOCALITY_GROUP_POLICY</td><td valign="middle">GLOBAL CONNECTION을 사용할 때 선택할 수 있는 그룹이 없거나 둘 이상의 그룹을 선택할 수 있을 경우에 어떻게 그룹을 선택할지 설정한다.<br><ul><li>0: 임의로 선택한다.</li><li>1: LOCALITY_GROUP_PATH 설정에 존재하는 그룹을 순서대로 선택한다. LOCALITY_GROUP_PATH에 있는 모든 그룹을 사용할 수 없는 경우에는 임의의 그룹을 선택한다.</li><li>2: 순서대로 선택한다. 매번 드라이버에 연결된 그룹 순서대로 선택한다.</li></ul></td></tr><tr><td valign="middle">LOCALITY_GROUP_PATH</td><td valign="middle">GLOBAL CONNECTION을 사용할 때 선택할 수 있는 그룹이 한 개가 아니었을 때 선택한 그룹의 목록을 지정한다. 각 그룹은 콤마 (,)로 구분한다.<br>예: G1,G2,G3</td></tr><tr><td valign="middle">LOCALITY_MEMBER_POLICY</td><td valign="middle">GLOBAL CONNECTION을 사용할 때 선택된 그룹 내의 멤버를 선택하는 방법을 결정한다.<br><ul><li>0: DML : MASTER / SELECT : MASTER</li><li>1: DML : ANY / SELECT : ANY</li><li>2: DML : MASTER / SELECT : ANY</li><li>3: DML : MASTER / SELECT : SLAVE</li><li>4: LOCALITY_MEMBER_PATH 설정에 존재하는 멤버를 순서대로 선택한다. LOCALITY_MEMBER_PATH에 존재하는 모든 멤버들을 사용할 수 없는 경우에는 선택된 그룹의 MASTER를 선택한다.</li></ul></td></tr><tr><td valign="middle">LOCALITY_MEMBER_PATH</td><td valign="middle">GLOBAL CONNECTION을 사용할 때 선택된 그룹에서 사용할 멤버들의 목록을 지정한다. 각 멤버는 콤마 (,)로 구분한다.<br>예: G1N1,G2N1,G3N1,G1N2,G2N2,G3N2</td></tr><tr><td valign="middle">LOCATOR_HOST</td><td valign="middle">glocator ip address</td></tr><tr><td valign="middle">LOCATOR_PORT</td><td valign="middle">glocator port number</td></tr><tr><td valign="middle">LOCATOR_CONNECTION_TIMEOUT</td><td valign="middle">Connection timeout with glocator (second)</td></tr><tr><td valign="middle">ALTERNATE_LOCATORS</td><td valign="middle">glocator로부터 응답을 받지 못한 경우, ALTERNATE_LOCATORS를 사용하여 접속 정보를 얻는다.</td></tr><tr><td valign="middle">TRACE</td><td valign="middle">ODBC API에서 trace를 사용할지 여부이다.<br><ul><li>0: Trace를 사용하지 않는다.</li><li>1: Trace를 사용한다.</li></ul></td></tr><tr><td valign="middle">TRACEFILE</td><td valign="middle">Trace 파일 이름이다. 상대 경로로 입력하면 프로그램이 실행되는 현재 디렉토리가 기준이 된다. 기본값은 'odbc_trace.log' 이다</td></tr><tr><td valign="middle">TRACE_POLICY</td><td valign="middle">Trace 정책이다.<br><ul><li>DEFAULT: 함수 매개변수와 결과 둘 다 기록한다.</li><li>ERROR: 함수가 실패한 경우에 로그를 기록한다.</li></ul>기본값은 DEFAULT이다.</td></tr><tr><td valign="middle">DOT_NET_FOR_ODBC</td><td valign="middle">ODBC를 .NET Framework 용도로 사용할지 여부이다.<br><ul><li>0: 용도를 변경하지 않는다.</li><li>1: SQLGetDescField()와 SQLColAttribute()에서 SQL_DESC_BASE_COLUMN_NAME, SQL_DESC_NAME 속성을 SQL_DESC_LABEL로 대체한다.</li></ul></td></tr></tbody></table>
+<table><thead><tr><th align="center">키워드</th><th align="center">설명</th></tr></thead><tbody><tr><td valign="middle">DSN</td><td valign="middle">데이터 원본 이름이다.</td></tr><tr><td valign="middle">HOST</td><td valign="middle">호스트 IP 주소 또는 이름이다.</td></tr><tr><td valign="middle">PORT</td><td valign="middle">연결 포트 번호이다.</td></tr><tr><td valign="middle">UID</td><td align="left" valign="middle">사용자 ID 이다.</td></tr><tr><td valign="middle">CS_MODE</td><td align="left" valign="middle">Dedicated 모드로 접속할지 shared 모드로 접속할지를 설정한다.<br>설정하지 않을 경우, listener의 configuration (DEFAULT_CS_MODE)에 따라 default 모드가 결정된다.</td></tr><tr><td valign="middle">ALTERNATE_SERVERS</td><td align="left" valign="middle">Failover가 발생할 경우, 연결을 시도하는 서버 목록으로서 각 서버는 콤마 (,)로 구분한다.<br>Failover 기능을 사용하지 않을 경우, ALTERNATE_SERVERS를 공백으로 설정한다.</td></tr><tr><td valign="middle">CONNECTION_RETRY_COUNT</td><td valign="middle">연결에 실패할 경우, 서버에 접속을 시도하는 횟수이다.</td></tr><tr><td valign="middle">CONNECTION_RETRY_DELAY</td><td valign="middle">연결에 실패할 경우, 서버에 접속을 시도하는 간격이다. (단위: 초)</td></tr><tr><td valign="middle">FAILOVER_TYPE</td><td valign="middle"><ul><li>CONNECTION: 연결에 실패할 경우, ALTERNATE_SERVERS로 연결한다.</li><li>SESSION: 연결에 실패하거나 statement 동작 중 연결이 끊어졌을 경우, ALTERNATE_SERVERS로 연결한 후에 statement를 복원한다. 연결이 끊어질 때 진행 중인 트랜잭션이 없었을 경우, failover 후에 진행 중인 statement를 수행한다.</li></ul></td></tr><tr><td valign="middle">FAILOVER_GRANULARITY</td><td valign="middle"><ul><li>Non-atomic: Failover 진행 중에 에러가 발생해도 failover를 계속 진행한다.</li><li>Atomic: Failover 진행 중에 에러가 발생할 경우 failover에 실패한다.</li></ul></td></tr><tr><td valign="middle">DATE_FORMAT</td><td align="left" valign="middle">DATE 타입 형식 문자열이다.</td></tr><tr><td valign="middle">TIME_FORMAT</td><td align="left" valign="middle">TIME 타입 형식 문자열이다.</td></tr><tr><td valign="middle">TIME_WITH_TIME_ZONE_FORMAT</td><td valign="middle">TIME WITH TIME ZONE 타입 형식 문자열이다.</td></tr><tr><td valign="middle">TIMESTAMP_FORMAT</td><td valign="middle">TIMESTAMP 타입 형식 문자열이다.</td></tr><tr><td valign="middle">TIMESTAMP_WITH_TIME_ZONE_FORMAT</td><td valign="middle">TIMESTAMP WITH TIME ZONE 타입 형식 문자열이다.</td></tr><tr><td valign="middle">CHAR_LENGTH_UNITS</td><td valign="middle">SQLBindParameter()에서 ParameterType이 SQL_CHAR, SQL_VARCHAR일 경우 ColumnSize의 단위이다.<br><ul><li>BYTE, OCTETS: 바이트 단위</li><li>CHAR, CHARACTERS: 문자 단위</li></ul></td></tr><tr><td valign="middle">LOCALITY_AWARE_TRANSACTION</td><td valign="middle">GLOBAL CONNECTION 사용 여부이다.<br><ul><li>0: GLOBAL CONNECTION을 사용하지 않는다.</li><li>1: GLOBAL CONNECTION을 사용한다.</li></ul></td></tr><tr><td valign="middle">USE_GLOBAL_SESSION</td><td valign="middle">GLOBAL SESSION 사용 여부이다.<br><ul><li>0: GLOBAL SESSION을 사용하지 않는다.</li><li>1: GLOBAL SESSION을 사용한다.</li></ul></td></tr><tr><td valign="middle">LOCALITY_GROUP_POLICY</td><td valign="middle">GLOBAL CONNECTION을 사용할 때 선택할 수 있는 그룹이 없거나 둘 이상의 그룹을 선택할 수 있을 경우에 어떻게 그룹을 선택할지 설정한다.<br><ul><li>0: 임의로 선택한다.</li><li>1: LOCALITY_GROUP_PATH 설정에 존재하는 그룹을 순서대로 선택한다. LOCALITY_GROUP_PATH에 있는 모든 그룹을 사용할 수 없는 경우에는 임의의 그룹을 선택한다.</li><li>2: 순서대로 선택한다. 매번 드라이버에 연결된 그룹 순서대로 선택한다.</li></ul></td></tr><tr><td valign="middle">LOCALITY_GROUP_PATH</td><td valign="middle">GLOBAL CONNECTION을 사용할 때 선택할 수 있는 그룹이 한 개가 아니었을 때 선택한 그룹의 목록을 지정한다. 각 그룹은 콤마 (,)로 구분한다.<br>예: G1,G2,G3</td></tr><tr><td valign="middle">LOCALITY_MEMBER_POLICY</td><td valign="middle">GLOBAL CONNECTION을 사용할 때 선택된 그룹 내의 멤버를 선택하는 방법을 결정한다.<br><ul><li>0: DML : MASTER / SELECT : MASTER</li><li>1: DML : ANY / SELECT : ANY</li><li>2: DML : MASTER / SELECT : ANY</li><li>3: DML : MASTER / SELECT : SLAVE</li><li>4: LOCALITY_MEMBER_PATH 설정에 존재하는 멤버를 순서대로 선택한다. LOCALITY_MEMBER_PATH에 존재하는 모든 멤버들을 사용할 수 없는 경우에는 선택된 그룹의 MASTER를 선택한다.</li></ul></td></tr><tr><td valign="middle">LOCALITY_MEMBER_PATH</td><td valign="middle">GLOBAL CONNECTION을 사용할 때 선택된 그룹에서 사용할 멤버들의 목록을 지정한다. 각 멤버는 콤마 (,)로 구분한다.<br>예: G1N1,G2N1,G3N1,G1N2,G2N2,G3N2</td></tr><tr><td valign="middle">LOCATOR_HOST</td><td valign="middle">glocator ip address</td></tr><tr><td valign="middle">LOCATOR_PORT</td><td valign="middle">glocator port number</td></tr><tr><td valign="middle">LOCATOR_CONNECTION_TIMEOUT</td><td valign="middle">Connection timeout with glocator (second)</td></tr><tr><td valign="middle">ALTERNATE_LOCATORS</td><td valign="middle">glocator로부터 응답을 받지 못한 경우, ALTERNATE_LOCATORS를 사용하여 접속 정보를 얻는다.</td></tr><tr><td valign="middle">TRACE</td><td valign="middle">ODBC API에서 trace를 사용할지 여부이다.<br><ul><li>0: Trace를 사용하지 않는다.</li><li>1: Trace를 사용한다.</li></ul></td></tr><tr><td valign="middle">TRACEFILE</td><td valign="middle">Trace 파일 이름이다. 상대 경로로 입력하면 프로그램이 실행되는 현재 디렉토리가 기준이 된다. 기본값은 'odbc_trace.log' 이다</td></tr><tr><td valign="middle">TRACE_POLICY</td><td valign="middle">Trace 정책이다.<br><ul><li>DEFAULT: 함수 매개변수와 결과 둘 다 기록한다.</li><li>ERROR: 함수가 실패한 경우에 로그를 기록한다.</li></ul>기본값은 DEFAULT이다.</td></tr><tr><td valign="middle">DOT_NET_FOR_ODBC</td><td valign="middle">ODBC를 .NET Framework 용도로 사용할지 여부이다.<br><ul><li>0: 용도를 변경하지 않는다.</li><li>1: SQLGetDescField()와 SQLColAttribute()에서 SQL_DESC_BASE_COLUMN_NAME, SQL_DESC_NAME 속성을 SQL_DESC_LABEL로 대체한다.</li></ul></td></tr></tbody></table>
 
 <a id="8853b19e39fb7d2c"></a>
 ## GLOBAL CONNECTION
@@ -492,7 +492,7 @@ trans_begin:
 
 sReturn = SQLExecute( sStmt );
 
-if( sRetrun == SQL_ERROR )
+if( sReturn == SQL_ERROR )
 {
     SQLGetDiagRec( SQL_HANDLE_STMT,
                    sStmt,
@@ -712,7 +712,7 @@ SQLTables의 TableName 인자처럼, 카탈로그 함수들의 몇몇 인자들�
 
 - 언더스코어 (_)는 어떠한 하나의 문자를 대표한다.
 - 퍼센트 사인 (%)은 0 개 이상의 어떠한 문자를 대표한다.
-- 이스케이프 문자는 드라이버에서 명시되고 퍼센트 사인, 언더스코어, 이스케이프 문자를 있는 그대로 포함하기 위해 사용된다. 이스케이프 문자가 특수 문자가 아닌 것 앞에 있을 경우, 이스케이프 문자는 특별한 의미를 가지지 않지만 특수 문자 앞에 있을 경우의 이스케이프 문자는 특수 문자이다. 예를 들어 "\a" 는 "\" d와 "a" 처럼 두 개의 문자로 취급되지만 "\%" 는 특별하지 않은 하나의 "%" 로 취급될 뿐이다.
+- 이스케이프 문자는 드라이버에서 명시되고 퍼센트 사인, 언더스코어, 이스케이프 문자를 있는 그대로 포함하기 위해 사용된다. 이스케이프 문자가 특수 문자가 아닌 것 앞에 있을 경우, 이스케이프 문자는 특별한 의미를 가지지 않지만 특수 문자 앞에 있을 경우의 이스케이프 문자는 특수 문자이다. 예를 들어 "\a" 는 "\" 와 "a" 처럼 두 개의 문자로 취급되지만 "\%" 는 특별하지 않은 하나의 "%" 로 취급될 뿐이다.
 
 이스케이프 문자는 SQLGetInfo에서 SQL_SEARCH_PATTERN_ESCAPE 옵션을 사용하여 회수된다. 검색 패턴을 받아들이는 인자에 문자를 있는 그대로 받아들이게 하려면 언더스코어, 퍼센트 사인 또는 이스케이프 문자보다 앞에 있어야 한다.
 
@@ -1494,7 +1494,7 @@ Bound Address + Binding Offset + ((Row Number -1) x Element Size )
 <a id="f3c6d05ba708a8ba"></a>
 | 변수 | 설명 |
 | --- | --- |
-| Bound address | 데이터 버퍼들의 주소는 SQLBindCol의 TargetValuePtr 인자에 명시되어 있다. 길이/ 지시자 버퍼 주소는 SQLBindCol의 StrLen_of_IndPtr 인자에 명시되어 있다.  바인딩 주소가 0이면 계산된 주소가 0이 아니어도 데이터 값은 반환되지 않는다. |
+| Bound address | 데이터 버퍼들의 주소는 SQLBindCol의 TargetValuePtr 인자에 명시되어 있다. 길이/ 지시자 버퍼 주소는 SQLBindCol의 StrLen_or_IndPtr 인자에 명시되어 있다.  바인딩 주소가 0이면 계산된 주소가 0이 아니어도 데이터 값은 반환되지 않는다. |
 | Binding offset | Row 방향 바인딩이 사용될 경우, SQL_ATTR_ROW_BIND_OFFSET_PTR 명령문 속성과 함께 명시된 주소에 값이 저장된다. Column 방향 바인딩이 사용되었거나 SQL_ATTR_ROW_BIND_OFFSET_PTR 명령문 속성이 NULL 포인터일 경우, 바인딩 offset은 0이다. |
 | Row number | 1-based인 row 집합의 row 번호이다. 단일 row를 회수할 경우의 row 번호는 기본적으로 1이다. |
 | Element size | 바인딩 배열 안의 원소 크기이다.  Column 방향 바인딩이 사용될 경우, 길이/ 지시자 버퍼에 대해 sizeof (SQLLEN)이다. 데이터 버퍼들에 대해 가변 길이 데이터 형식일 경우 element size는 SQLBindCol의 BufferLength 인자값이고, 고정 길이 데이터 형식일 경우 element size는 데이터 형식의 크기이다.  Row 방향 바인딩이 사용될 경우, 데이터 및 길이/ 지시자 버퍼 모두 SQL_ATTR_ROW_BIND_TYPE 명령문 속성값이다. |
@@ -1737,7 +1737,7 @@ StrLen_or_IndPtr 인자는 SQLExecute나 SQLExecDirect를 호출할 때 다음 �
 - SQL_LEN_DATA_AT_EXEC(length) 매크로의 결과: 매개 변수 데이터는 SQLPutData를 수행할 때 전송된다.
     - 만약 ParameterType 인자가 SQL_LONGVARBINARY, SQL_LONGVARCHAR 또는 긴 데이터 타입이고, SQLGetInfo의 SQL_NEED_LONG_DATA_LEN 정보가 **Y**를 반환할 경우, length는 매개 변수에 의해 전송되는 데이터 바이트 수가 된다.
     - SQLGetInfo의 SQL_NEED_LONG_DATA_LEN 정보가 **N**일 경우, length는 음수가 아닌 값이어야 하고, 이는 무시된다. 
-    - 예를 들어, SQLPutData를 여러 번 호출해 10,000 바이트의 SQL_LONGVARCAHR 매개 변수 데이터를 전송하려고 할 경우 *StrLen_or_IndPtr은 SQL_LEN_DATA_AT_EXEC(10000)으로 설정하면 된다.
+    - 예를 들어, SQLPutData를 여러 번 호출해 10,000 바이트의 SQL_LONGVARCHAR 매개 변수 데이터를 전송하려고 할 경우 *StrLen_or_IndPtr은 SQL_LEN_DATA_AT_EXEC(10000)으로 설정하면 된다.
 - SQL_DATA_AT_EXEC: 매개 변수 데이터는 SQLPutData를 수행할 때 전송된다.
 
 StrLen_or_IndPtr이 null 포인터인 경우, 드라이버는 모든 입력 매개 변수 값이 null이 아니고, 문자 및 이진 데이터가 null로 종료된다고 간주한다. InputOutputType이 SQL_PARAM_OUTPUT이고, ParameterValuePtr과 StrLen_or_IndPtr이 모두 null 포인터인 경우, 드라이버는 출력값을 폐기한다.
@@ -3990,7 +3990,7 @@ SQLGetData는 고정 길이 데이터의 부분을 반환하는데 사용할 수
 ** 문자 또는 바이너리 데이터의 경우, 이것은 변환된 후 BufferLength로 잘리기 전의 데이터 길이이다. 매우 긴 데이터일 경우, 드라이버가 변환된 후의 데이터 길이를 확인할 수 없다면 SQL_SUCCESS_WITH_INFO를 반환하고 길이를 SQL_NO_TOTAL로 설정한다. (SQLGetData의 마지막 호출은 반드시 데이터의 길이를 0 또는 SQL_NO_TOTAL이 아닌 길이값을 반환해야 한다.) 데이터가 SQL_ATTR_MAX_LENGTH 명령문 속성에 의해 잘린 경우, 이 속성값은 *StrLen_or_IndPtr에 저장된다. 이것은 이 속성이 변환되기 전에 서버에서 데이터를 전달하도록 설계되었기 때문이고 드라이버는 실제 길이가 무엇인지 알아낼 수 없다. 이것은 동일한 column에 대해 SQLGetData를 연속적으로 여러 번 호출할 때 현재 호출의 시작에서 이용할 수 있는 데이터 길이이다. 즉, 길이는 각각의 후속 호출로 인해 감소한다.
 ** 다른 모든 데이터 타입의 경우 이것은 변환 이후의 데이터 길이이다. 즉, 데이터가 변환되는 타입의 크기이다.
 
-8. 데이터 변환 중에 기본값이 손실되지 않고 데이터가 잘리거나 (예: 실수 1.234가 변환될 때 정수 1로 잘림) BufferLenth가 작아서 잘리는 경우 (예: "abcdef"가 4 바이트 길이 버퍼에 저장됨), SQLGetData는 SQLSTATE 01004 (data truncated)와 SQL_SUCCESS_WITH_INFO를 반환한다. SQL_ATTR_MAX_LENGTH 명령문 속성 때문에 기본값이 손실되지 않고 데이터가 잘리면, SQLGetData는 SQL_SUCCESS를 반환하고 SQLSTATE 01004 (data truncated)를 반환하지 않는다.
+8. 데이터 변환 중에 기본값이 손실되지 않고 데이터가 잘리거나 (예: 실수 1.234가 변환될 때 정수 1로 잘림) BufferLength가 작아서 잘리는 경우 (예: "abcdef"가 4 바이트 길이 버퍼에 저장됨), SQLGetData는 SQLSTATE 01004 (data truncated)와 SQL_SUCCESS_WITH_INFO를 반환한다. SQL_ATTR_MAX_LENGTH 명령문 속성 때문에 기본값이 손실되지 않고 데이터가 잘리면, SQLGetData는 SQL_SUCCESS를 반환하고 SQLSTATE 01004 (data truncated)를 반환하지 않는다.
 
 SQLGetData가 SQL_SUCCESS나 SQL_SUCCESS_WITH_INFO를 반환하지 않는 경우, (SQLGetData가 바인딩된 column에 대해 호출된 경우) 바인딩 된 데이터 버퍼의 내용과 길이/ 지시자 버퍼는 정의되지 않는다.
 
@@ -4478,7 +4478,7 @@ SQLGetDiagField가 SQL_SUCCESS를 반환하고 있는 한, 응용 프로그램�
 
 응용 프로그램은 언제든 모든 진단 필드를 반환하기 위해 SQLGetDiagField를 호출할 수 있는데 SQL_DIAG_CURSOR_ROW_COUNT나 SQL_DIAG_ROW_COUNT의 경우, handle이 명령문 핸들이 아닌 경우 SQL_ERROR를 반환하기 때문에 제외된다. 만약 진단 필드가 하나라도 정의되지 않을 경우, SQLGetDiagField 호출은 SQL_SUCCESS와 설정되지 않은 값을 반환한다.
 
-비동기적으로 실행되는 함수 이외의 API 호출은 HY010 (fuction sequence error)를 만든다. 그러나 에러 레코드는 비동기 수행이 완료되기 전에 검색될 수 없다.
+비동기적으로 실행되는 함수 이외의 API 호출은 HY010 (function sequence error)를 만든다. 그러나 에러 레코드는 비동기 수행이 완료되기 전에 검색될 수 없다.
 
 <a id="916a36640965afe5"></a>
 ##### HandleType 인자
@@ -4633,9 +4633,9 @@ SQLRETURN SQLGetDiagRec(
 - **SQLState:** [출력] 진단 레코드 RecNumber에 대해 다섯 문자의 SQLSTATE 코드를 반환하는 버퍼 포인터이다. 처음 두 문자는 클래스, 다음 세 문자는 하위 클래스를 나타낸다. 이 정보는 SQL_DIAG_SQLSTATE 진단 필드에 들어있다.
 - **NativeErrorPtr :** [출력] 데이터 소스에 구체적인 원시 에러 코드를 반환하는 버퍼 포인터이다. 이 정보는 SQL_DIAG_NATIVE 진단 필드에 들어있다.
 - **MessageText:** [출력] 진단 메시지 텍스트 문자열이 반환되는 버퍼의 포인터이다. 이 정보는 SQL_DIAG_MESSAGE_TEXT 진단 필드에 들어있다.  
-  MessageText가 NULL이면, TextLegnthPtr은 MessageText가 가리키는 버퍼에 반환될 수 있는 문자(null 종료 문자 제외)의 총 개수를 반환한다.
+  MessageText가 NULL이면, TextLengthPtr은 MessageText가 가리키는 버퍼에 반환될 수 있는 문자(null 종료 문자 제외)의 총 개수를 반환한다.
 - **BufferLength :** [입력] *MessageText 버퍼 안의 문자 길이이다. 진단 메시지 텍스트의 최대 길이는 없다.
-- **TextLegnthPtr :** [출력] *MessageText에 반환할 수 있는 문자 (null 종료 문자 제외)의 총 개수를 반환하는 버퍼의 포인터이다. 반환되는 문자의 수가 BufferLength보다 클 경우, *MessageText의 진단 메시지 텍스트는 BufferLength에서 null 종료 문자를 뺀 만큼 잘린다.
+- **TextLengthPtr :** [출력] *MessageText에 반환할 수 있는 문자 (null 종료 문자 제외)의 총 개수를 반환하는 버퍼의 포인터이다. 반환되는 문자의 수가 BufferLength보다 클 경우, *MessageText의 진단 메시지 텍스트는 BufferLength에서 null 종료 문자를 뺀 만큼 잘린다.
 
 <a id="2a7be9a80a7f3fbf"></a>
 #### 반환
@@ -4675,7 +4675,7 @@ SQLGetDiagRec는 handle 인자에 지정된 핸들과 가장 최신의 연관 �
 일부 헤더와 레코드 필드는 환경, 연결, 명령문, 설명자 핸들에 대해 반환되지 않는다.   
 [SQLGetDiagField](#43eefbd70958e542)의 헤더 필드와 레코드 필드 표에서 필드에 적절하지 못한 핸들에 대해 설명한다.
 
-HandleType이 공유 환경 핸들을 나타내는 SQL_HANDLE_SENV이면 SQLGetDiagRec 호출은 SQL_INVALID_HANLDE을 반환한다. HandleType이 SQL_HANDLE_ENV이면 handle은 공유나 비공유 환경 핸들이 될 수 있다.
+HandleType이 공유 환경 핸들을 나타내는 SQL_HANDLE_SENV이면 SQLGetDiagRec 호출은 SQL_INVALID_HANDLE을 반환한다. HandleType이 SQL_HANDLE_ENV이면 handle은 공유나 비공유 환경 핸들이 될 수 있다.
 
 <a id="bcfafd9ba8d3d52d"></a>
 ### SQLGetEnvAttr
@@ -5632,7 +5632,7 @@ SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_STILL_EXECUTING, SQL_ERROR, SQL_INVALID_
 | 01S02 | Option value changed | 구현 작업 조건 때문에 지정된 명령문 속성이 유효하지 않아서 비슷한 값이 일시적으로 대체되었다. 대체값은 커서가 닫힐 때까지 StatementHandle에 유효하다.  변경될 수 있는 명령문 속성은 다음과 같다. SQL_ATTR_CONCURRENCY, SQL_ATTR_CURSOR_TYPE, SQL_ATTR_KEYSET_SIZE, SQL_ATTR_MAX_LENGTH, SQL_ATTR_MAX_ROWS, SQL_ATTR_QUERY_TIMEOUT, SQL_ATTR_SIMULATE_CURSOR. (함수는 SQL_SUCCESS_WITH_INFO를 반환한다.) |
 | 08S01 | Communication link failure | 함수 처리가 완료되기 전에 드라이버와 데이터 소스간 연결에 실패했다. |
 | 24000 | Invalid cursor state | StatementHandle에 커서가 열려 있고, SQLFetch 또는 SQLFetchScroll이 호출되었다.  SQLFetch나 SQLFetchScroll이 SQL_NO_DATA를 반환하면 드라이버가 이 에러를 반환하고 SQLFetch나 SQLFetchScroll이 SQL_NO_DATA를 반환하지 않으면 드라이버 관리자가 이 에러를 반환한다.  StatementHandle에 결과 집합이 열려있지만 SQLFetch나 SQLFetchScroll이 호출되지 않았다. |
-| 40001 | Serailization failure | 다른 트랜잭션의 자원 데드락 때문에 트랜잭션이 rollback 되었다. |
+| 40001 | Serialization failure | 다른 트랜잭션의 자원 데드락 때문에 트랜잭션이 rollback 되었다. |
 | 40003 | Statement completion unknown | 이 함수가 실행되는 도중에 관련된 연결이 실패하였고 트랜잭션의 상태를 확인할 수 없다. |
 | HY000 | General error | 특정 SQLSTATE가 없는 에러이다. |
 | HY001 | Memory allocation error | 메모리 할당 에러이다. |
@@ -5677,11 +5677,11 @@ DataType 인자가 드라이버가 지원하는 ODBC 버전에서 유효하더�
 | Column name | Column number | Data type | Comments |
 | --- | --- | --- | --- |
 | TYPE_NAME (ODBC 2.0) | 1 | Varchar not NULL | 데이터 소스 종속 데이터 타입 이름이다. CHAR(), VARCHAR(), MONEY, LONG VARBINARY 또는 CHAR ( ) FOR BIT DATA와 같은 것들이 있다. 응용 프로그램은 CREATE TABLE과 ALTER TABLE 명령문에서 반드시 이 이름을 사용해야 한다. |
-| DATA_TYPE (ODBC 2.0) | 2 | Smallint not NULL | SQL 데이터 타입이다. 이것은 ODBC SQL 데이터 타입이나 특정 드라이버 SQL 데이터 타입이 될 수 있다. 이 column은 DATETIME 또는 INTERVAL 데이터 타입에 대해 (SQL_TYPE_TIME 또는 SQL_INTERVAL_YEAR_TO_MOUNT 같은) 간결한 데이터 타입 을 반환한다. |
+| DATA_TYPE (ODBC 2.0) | 2 | Smallint not NULL | SQL 데이터 타입이다. 이것은 ODBC SQL 데이터 타입이나 특정 드라이버 SQL 데이터 타입이 될 수 있다. 이 column은 DATETIME 또는 INTERVAL 데이터 타입에 대해 (SQL_TYPE_TIME 또는 SQL_INTERVAL_YEAR_TO_MONTH 같은) 간결한 데이터 타입 을 반환한다. |
 | COLUMN_SIZE (ODBC 2.0) | 3 | Integer | 서버가 지원하는 데이터 유형의 최대 column 크기이다. 숫자형 데이터 타입은 최대 precision, 문자열 데이터 타입은 문자들의 길이, DATETIME 데이터 타입은 표현되는 문자 길이, INTERVAL 데이터 타입은 INTERVAL 그대로의 문자 표현에 대한 문자 길이, column 사이즈를 적용할 수 없는 데이터 타입에 대해 NULL을 반환한다. |
 | LITERAL_PREFIX (ODBC 2.0) | 4 | Varchar | 문자나 문자열이 접두사로 사용된다. 예를 들어 단일 인용 부호 (')는 문자 데이터 타입이나 0x 또는 바이너리 데이터 타입을 위한 것이다. 접두사로 사용할 수 없는 데이터 타입에 대해서는 NULL이 반환된다. |
 | LITERAL_SUFFIX (ODBC 2.0) | 5 | Varchar | 문자나 문자열이 종료 문자로 사용된다. 예를 들어서 단일 부호 (')는 문자 데이터 타입을 위한 것이다. 접미사로 사용할 수 없는 데이터 타입에 대해서는 NULL이 반환된다. |
-| CREATE_PARAMS (ODBC 2.0) | 6 | Varchar | TYPE_NAME에 반환되는 이름을 사용하는 경우, 응용 프로그램이 괄호 안에 지정하는 (콤마로 구분된) 각 매개 변수에 대응하는 키워드 목록이다.   목록의 키워드는 length, precision, 또는 scale이다. 이것들은 문법이 키워드를 사용하는 순서대로 나타난다. 예를 들어서, NUMBER에 대한 CREATE_PARAMS는 "precision,scale"이고 VARCHAR에 대한 CRATE_PARAMS는 "length"이다.  만약 데이터 타입 정의를 위한 매개 변수가 없을 경우, NULL이 반환된다 (예: INTERGER). 드라이버는 CREATE_PARAMS 텍스트를 사용하는 국가/ 지역의 언어로 제공한다. |
+| CREATE_PARAMS (ODBC 2.0) | 6 | Varchar | TYPE_NAME에 반환되는 이름을 사용하는 경우, 응용 프로그램이 괄호 안에 지정하는 (콤마로 구분된) 각 매개 변수에 대응하는 키워드 목록이다.   목록의 키워드는 length, precision, 또는 scale이다. 이것들은 문법이 키워드를 사용하는 순서대로 나타난다. 예를 들어서, NUMBER에 대한 CREATE_PARAMS는 "precision,scale"이고 VARCHAR에 대한 CRATE_PARAMS는 "length"이다.  만약 데이터 타입 정의를 위한 매개 변수가 없을 경우, NULL이 반환된다 (예: INTEGER). 드라이버는 CREATE_PARAMS 텍스트를 사용하는 국가/ 지역의 언어로 제공한다. |
 | NULLABLE (ODBC 2.0) | 7 | Smallint not NULL | 데이터 타입이 NULL 값을 받아들이는지 여부이다. SQL_NO_NULLS일 경우, 데이터 타입이 NULL 값을 받아들이지 못한다. SQL_NULLABLE일 경우, 데이터 타입이 NULL 값을 받아들인다.  SQL_NULLABLE_UNKNOWN일 경우, column이 NULL 값을 받아들이는지 여부를 알 수 없다. |
 | CASE_SENSITIVE (ODBC 2.0) | 8 | Smallint not NULL | 문자 데이터 타입이 정렬과 비교를 수행할 때 대소문자를 구분하는지 여부이다. 데이터 타입이 문자 데이터 타입이고 대소문자를 구분하면 SQL_TRUE이다. 문자 데이터 타입이 아니거나 대소문자를 구분하지 않으면 SQL_FALSE이다. |
 | SEARCHABLE (ODBC 2.0) | 9 | Smallint not NULL | WHERE 절 안에서 데이터 타입이 어떻게 사용되는지를 나타낸다. WHERE 절 안에서 column이 사용될 수 없으면 SQL_PRED_NONE이다. (ODBC 2.x에서 SQL_UNSEARCHABLE 값과 동일하다.) WHERE 절 안에서 column이 사용될 수 있지만 오직 LIKE 조건과 함께인 경우에만 사용될 경우, SQL_PRED_CHAR이다. (ODBC 2.x에서 SQL_LIKE_ONLY 값과 동일하다.) WHERE 절 안에서 LIKE 조건을 제외한 모든 비교 연산자와 함께 column이 사용될 수 있을 경우, SQL_PRED_BASIC이다. (ODBC 2.x에서 SQL_ALL_EXCEPT_LIKE 값과 동일하다.) WHERE 절 안에서 모든 연산자와 column이 함께 사용될 수 있을 경우, SQL_SEARCHABLE이다. |
@@ -5739,7 +5739,7 @@ SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_STILL_EXECUTING, SQL_NO_DATA, SQL_ERROR,
 | 01000 | General warning | 드라이버별 정보 메시지이다. (함수는 SQL_SUCCESS_WITH_INFO를 반환한다.) |
 | 01S02 | Option value changed | 일괄 처리되고 있는 동안 명령문 속성의 값이 갱신되었다. (함수는 SQL_SUCCESS_WITH_INFO 반환한다.) |
 | 08S01 | Communication link failure | 함수 처리가 완료되기 전에 드라이버와 데이터 소스 간의 연결에 실패했다. |
-| 40001 | Serailization failure | 다른 트랜잭션의 자원 데드락 때문에 트랜잭션이 rollback 되었다. |
+| 40001 | Serialization failure | 다른 트랜잭션의 자원 데드락 때문에 트랜잭션이 rollback 되었다. |
 | 40003 | Statement completion unknown | 이 함수가 실행되는 동안 관련된 연결이 실패하였고 트랜잭션의 상태를 확인할 수 없다. |
 | HY000 | General error | 특정 SQLSTATE가 없는 에러이다. |
 | HY001 | Memory allocation error | 메모리 할당 에러이다. |
@@ -6257,7 +6257,7 @@ SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_STILL_EXECUTING, SQL_ERROR, SQL_INVALID_
 | 01000 | General warning | 드라이버별 정보 메시지이다. (함수는 SQL_SUCCESS_WITH_INFO를 반환한다.) |
 | 08S01 | Communication link failure | 함수 처리가 완료되기 전에 드라이버와 데이터 소스 간의 연결에 실패했다. |
 | 24000 | Invalid cursor state | StatementHandle에 커서가 열려 있고, SQLFetch 또는 SQLFetchScroll이 호출되었다.  SQLFetch나 SQLFetchScroll이 SQL_NO_DATA를 반환하면 드라이버가 이 에러를 반환하고 SQLFetch나 SQLFetchScroll이 SQL_NO_DATA를 반환하지 않으면 드라이버 관리자가 이 에러를 반환한다.  StatementHandle에 결과 집합이 열려있지만 SQLFetch나 SQLFetchScroll이 호출되지 않았다. |
-| 40001 | Serailization failure | 다른 트랜잭션의 자원 데드락 때문에 트랜잭션이 rollback 되었다. |
+| 40001 | Serialization failure | 다른 트랜잭션의 자원 데드락 때문에 트랜잭션이 rollback 되었다. |
 | 40003 | Statement completion unknown | 이 함수를 실행하는 중에 관련된 연결이 실패하였고 트랜잭션의 상태를 확인할 수 없다. |
 | HY000 | General error | 특정 SQLSTATE가 없는 에러이다. |
 | HY001 | Memory allocation error | 메모리 할당 에러이다. |
@@ -6359,7 +6359,7 @@ SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_STILL_EXECUTING, SQL_ERROR, SQL_INVALID_
 | 01000 | General warning | 드라이버별 정보 메시지이다. (함수는 SQL_SUCCESS_WITH_INFO를 반환한다.) |
 | 08S01 | Communication link failure | 함수 처리가 완료되기 전에 드라이버와 데이터 소스 간의 연결에 실패했다. |
 | 24000 | Invalid cursor state | StatementHandle에 커서가 열려있고 SQLFetch나 SQLFetchScroll이 호출되었다.  SQLFetch나 SQLFetchScroll이 SQL_NO_DATA를 반환하면 드라이버가 이 에러를 반환하고 SQLFetch나 SQLFetchScroll이 SQL_NO_DATA를 반환하지 않으면 드라이버 관리자가 이 에러를 반환한다.  StatementHandle에 결과 집합이 열려있지만 SQLFetch나 SQLFetchScroll이 호출되지 않았다. |
-| 40001 | Serailization failure | 다른 트랜잭션의 자원 데드락 때문에 트랜잭션이 rollback 되었다. |
+| 40001 | Serialization failure | 다른 트랜잭션의 자원 데드락 때문에 트랜잭션이 rollback 되었다. |
 | 40003 | Statement completion unknown | 관련된 연결이 이 함수를 실행하는 중에 실패하였고 트랜잭션의 상태를 확인할 수 없다. |
 | HY000 | General error | 특정 SQLSTATE가 없는 에러이다. |
 | HY001 | Memory allocation error | 메모리 할당 에러이다. |
@@ -6681,7 +6681,7 @@ SQL_SUCCESS, SQL_SUCCESS_WITH_INFO, SQL_ERROR, SQL_INVALID_HANDLE, SQL_STILL_EXE
 | SQL_ATTR_CURRENT_CATALOG (ODBC 2.0) | 드라이버에서 지원하지 않는다. |
 | SQL_ATTR_DBC_INFO_TOKEN (ODBC 3.8 | 드라이버에서 지원하지 않는다. |
 | SQL_ATTR_ENLIST_IN_DTC (ODBC 3.0) | 드라이버에서 지원하지 않는다. |
-| SQL_ATTR_LOGIN_TIMEOUT (ODBC 1.0) | 응용 프로그램으로 돌아가기 전에 로그인 요청이 완료될 때까지 기다린 시간 (초)에 대응하는 SQLUINTERGER 값이다. 기본값은 드라이버에 따라 다르다. ValuePtr이 0이면, 시간 제한은 비활성화되고 연결 시도는 무한정 대기한다.  지정된 로그인 요청 제한 시간이 최대 로그인 제한 시간을 초과할 경우, 드라이버는 값을 대체하고 SQLSTATE 01S02 (option value changed)를 반환한다. |
+| SQL_ATTR_LOGIN_TIMEOUT (ODBC 1.0) | 응용 프로그램으로 돌아가기 전에 로그인 요청이 완료될 때까지 기다린 시간 (초)에 대응하는 SQLUINTEGER 값이다. 기본값은 드라이버에 따라 다르다. ValuePtr이 0이면, 시간 제한은 비활성화되고 연결 시도는 무한정 대기한다.  지정된 로그인 요청 제한 시간이 최대 로그인 제한 시간을 초과할 경우, 드라이버는 값을 대체하고 SQLSTATE 01S02 (option value changed)를 반환한다. |
 | SQL_ATTR_METADATA_ID (ODBC 3.0) | 카탈로그 함수의 문자열 인자를 처리하는 방법을 결정하는 SQLUINTEGER 값이다. 기본값은 SQL_FALSE이다.  SQL_TRUE면 카탈로그 함수의 문자열 인자는 식별자로 간주되고 대소문자를 구분하지 않는다. 구분되지 않은 문자열의 경우, 드라이버는 모든 후행 공백을 제거하고 문자열을 대문자로 바꾼다. 구분된 문자열의 경우, 드라이버는 선행 또는 후행 공백을 제거하고 분리 문자 사이의 문자 그대로를 갖는다. 이러한 인자들 중 하나가 null 포인터이면, 함수는 SQL_ERROR와 SQLSTATE HY009 (invalid use of null pointer)를 반환한다.  SQL_FALSE면 카탈로그 함수의 문자열 인자는 식별자로 간주하지 않고, 대소문자를 구분한다. 인자에 따라 문자열 패턴으로 처리될 수 있고 처리되지 않을 수도 있다.  값목록을 갖는 SQLTables의 TableType 인자는 이 속성에 의해 영향받지 않는다.  SQL_ATTR_METADATA_ID는 명령문 단계에서 설정될 수 있다. (이것은 명령문 속성의 유일한 연결 속성이다.)  자세한 내용은 [카탈로그 함수의 인자](#d89bf0c13549af48)를 참조한다. |
 | SQL_ATTR_OLDPWD | 이전 암호 문자열에 대한 SQLPOINTER 이다. 이 값은 쓰기 전용이고, 서버에 연결하기 전에 설정되어야 한다. |
 | SQL_ATTR_ODBC_CURSORS (ODBC 2.0) | 드라이버에서 지원하지 않는다. |

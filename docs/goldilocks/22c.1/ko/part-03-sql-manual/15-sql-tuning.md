@@ -3,7 +3,7 @@
 # 15. SQL Tuning
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/32b3a555da785fea)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 14. Cluster Objects](14-cluster-objects.md) · [전체 목차](../README.md) · [16. Built-in Data Type References →](16-built-in-data-type-references.md)
 

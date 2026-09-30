@@ -3,7 +3,7 @@
 # 10. Server Property
 
 > 원본: [GOLDILOCKS 22c.1 User Manual (ko)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/ko/5c4ff2359a15b769)  
-> 태그: `22c.1_10_tag`
+> 태그: `22c.1_11_tag`
 
 [← 9. Database Information](9-database-information.md) · [전체 목차](../README.md) · [11. SQL Elements →](../part-03-sql-manual/11-sql-elements.md)
 
@@ -197,6 +197,32 @@ MVCC 기반의 database에서 이전 버전의 데이터를 지우는 ager threa
 ### 설명
 
 AGING_PLAN_INTERVAL 보다 오래된 SQL plan이 aging 대상이 된다.
+
+<a id="d3bf9a4f97abe361"></a>
+## ARCHIVE_LOG_THROTTLING
+
+<a id="e1a48d10e56b4337"></a>
+### 기본 정보
+
+<a id="ab5102cec4cf9ae1"></a>
+| 항목 | 설명 |
+| --- | --- |
+| 이름 | ARCHIVE_LOG_THROTTLING |
+| 요약 | I/O throttling threshold for redo log archiving |
+| Data type | BIGINT |
+| 적용단계 | NO MOUNT 이상 |
+| 변경가능 여부 | TRUE |
+| ALTER SESSION 여부 | FALSE |
+| ALTER SYSTEM 여부 | IMMEDIATE |
+| MIN | 0 |
+| MAX | 1099511627776 |
+| 기본값 | 0 |
+
+<a id="0aa25537853ba536"></a>
+### 설명
+
+Redo log를 archiving할 때 디스크 I/O 성능을 제어하기 위한 프로퍼티이다.   
+대상 파일로 복사된 데이터 크기가 해당 프로퍼티 값보다 커질 때마다 한 번씩 sleep 을 수행한다.
 
 <a id="55fb22f483f6cfdc"></a>
 ## ARCHIVELOG_DIR_1 ~ ARCHIVELOG_DIR_10
@@ -1784,7 +1810,7 @@ Lock을 획득하지 않는 연산을 수행하는 cluster server 프로세스�
 | 항목 | 설명 |
 | --- | --- |
 | 이름 | CLUSTER_PACKET_ALLOCATION_TIMEOUT |
-| 요약 | a time limit (sec) for how long statemets will wait to allocate packet memory |
+| 요약 | a time limit (sec) for how long statements will wait to allocate packet memory |
 | Data type | BIGINT |
 | 적용단계 | NO_MOUNT 이상 |
 | 변경가능 여부 | TRUE |
@@ -2164,7 +2190,7 @@ Autocommit이 적용되지 않는 DDL에 대한 autocommit 여부를 설정한�
 | 항목 | 설명 |
 | --- | --- |
 | 이름 | DDL_LOCK_TIMEOUT |
-| 요약 | a time limit (sec) for how long DDL statemets will wait |
+| 요약 | a time limit (sec) for how long DDL statements will wait |
 | Data type | BIGINT |
 | 적용단계 | NO_MOUNT 이상 |
 | 변경가능 여부 | TRUE |
@@ -3940,6 +3966,37 @@ Bottom-up 방식의 memory B-tree index는 테이블의 모든 key를 추출하�
 
 인덱스를 ONLINE 모드에서 재구축 하는 도중에 DML이 수행되면 journal data가 저장된다. 재구축을 시작한 시점의 데이터를 바탕으로 인덱스를 재구축한 후, journal data들을 통해 재구축하는 동안 변경된 데이터들이 인덱스에 반영된다. INDEX_REBUILD_BLOCK_READ_COUNT는 이 과정에서 journal data를 얼마만큼 읽어들여 인덱스에 반영할지를 나타낸다.
 
+<a id="9453f730b4916921"></a>
+## INDEX_SELF_AGING_TRHESHOLD
+
+<a id="c5a49dc86e48d348"></a>
+### 기본 정보
+
+<a id="a22234a9faec3b23"></a>
+| 항목 | 설명 |
+| --- | --- |
+| 이름 | INDEX_SELF_AGING_THRESHOLD |
+| 요약 | the threshold for processing empty nodes |
+| Data type | BIGINT |
+| 적용단계 | NO_MOUNT 이상 |
+| 변경가능 여부 | TRUE |
+| ALTER SESSION 여부 | TRUE |
+| ALTER SYSTEM 여부 | FALSE |
+| MIN | 0 |
+| MAX | 1048576 |
+| 기본값 | 0 |
+
+<a id="7637cdcf4cfa3502"></a>
+### 설명
+
+인덱스 페이지는 모든 키가 삭제되어도 인덱스에서 제거되지 않고 empty node로 관리된다. 이후 새로운 페이지가 필요할 때 empty node의 재사용 가능 여부를 판단하고, 재사용할 수 있는 경우 인덱스 세그먼트에 반납 (aging)한다.   
+인덱스에 empty node가 존재하면 삭제된 키도 인덱스 스캔의 대상이 되므로 성능에 영향을 미친다.  
+INDEX_SELF_AGING_THRESHOLD는 인덱스에서 키를 삭제할 때 empty node aging을 수행할 empty node의 개수를 설정한다. 즉, 키 삭제 시 INDEX_SELF_AGING_THRESHOLD 이상의 empty node가 존재하면 aging을 시도한다.
+
+- 0: 키 삭제 시 empty node aging 을 수행하지 않는다.
+
+> 키 삭제 시 self aging을 수행하기 위해 empty node의 aging 가능 여부를 판단한다. 그러나 aging 할 수 없는 경우에도 self aging 을 시도하면서 성능이 저하될 수 있다. 따라서 INDEX_SELF_AGING_THRESHOLD는 인덱스 스캔을 통해 대량의 레코드를 삭제하는 경우에 사용하는 것을 권장한다.
+
 <a id="3a3a8e2b59bb5329"></a>
 ## INDEX_SORT_RUN_SIZE
 
@@ -4300,7 +4357,7 @@ Location file의 이름이다.
 | ALTER SYSTEM 여부 | IMMEDIATE |
 | MIN | 0 |
 | MAX | 10000000 |
-| 기본값 | 3 |
+| 기본값 | 20 |
 
 <a id="c5761a5e38ff9c88"></a>
 ### 설명
@@ -6315,7 +6372,7 @@ Shared Static Area (SSA)의 주소를 지정한다.
 | ALTER SYSTEM 여부 | FALSE |
 | MIN | 104857600 |
 | MAX | 1099511627776 |
-| 기본값 | 629145600 |
+| 기본값 | 763363328 |
 
 <a id="f9e1edf14cd908ab"></a>
 ### 설명
@@ -7027,7 +7084,7 @@ TRACE_DDL 프로퍼티는 DDL 구문 수행에만 영향을 주며, SELECT 질�
 
 질의에 대한 SQL 구문과 실행 계획, 수행시간 등에 대한 기록을 남기려면 아래 표의 flag 정보를 조합하여 설정한다.
 
-**TRACE_LOG_ID에 대한 flag 정보**
+**TRACE_LOG_ID 의 flag 정보**
 
 <a id="87768946dd550c32"></a>
 | 정보 | Flag(on) | Flag(off) |
@@ -7390,7 +7447,7 @@ Trace 로그 메시지가 기록되는 디스크 경로를 지정한다.
 <a id="b614ac937a72f629"></a>
 ### 설명
 
-XA 인터페이스를 사용할 때 추적 메세지를 출력할지 여부를 지정한다. 메세지는 'SYSTEM_LOGGER_DIR/xa.trc'에 출력된다.
+XA 인터페이스를 사용할 때 추적 메시지를 출력할지 여부를 지정한다. 메시지는 'SYSTEM_LOGGER_DIR/xa.trc'에 출력된다.
 
 <a id="c5305c9b4bc5977f"></a>
 ## TRANSACTION_ALLOCATION_TIMEOUT

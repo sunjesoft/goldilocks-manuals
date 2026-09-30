@@ -3,7 +3,7 @@
 # 25. Using PSM Subprograms
 
 > Source: [GOLDILOCKS 22c.1 User Manual (en)](https://manual.sunjesoft.co.kr/goldilocks/22c_1/manual/en/8a62e9ee82de5ee0)  
-> Tag: `22c.1_10_tag`
+> Tag: `22c.1_11_tag`
 
 [← 24. PSM Cursor Statements](24-psm-cursor-statements.md) · [Table of contents](../README.md) · [26. Using SQLs in PSM →](26-using-sqls-in-psm.md)
 
