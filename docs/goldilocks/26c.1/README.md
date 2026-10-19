@@ -5,6 +5,14 @@
 - [한국어 — 최신 공개 태그](ko/README.md)
 - [English — latest published tag](en/README.md)
 
+## Release notes / 릴리즈 노트
+
+- [한국어 릴리즈 노트](release-notes/ko/README.md)
+
+26c의 기능 추가·개선 사항과 호환성 및 운영 변경 사항을 안내합니다.
+
+The 26c release notes cover new features, improvements, compatibility changes, and operational changes. They are currently available in Korean only.
+
 ## Official HTML manuals / 공식 HTML 매뉴얼
 
 - 한국어: <https://manual.sunjesoft.co.kr/goldilocks/26c_1/manual/ko>

@@ -1,8 +1,8 @@
 # GOLDILOCKS Manuals
 
-GOLDILOCKS DBMS 사용자 매뉴얼입니다. 아래에서 사용하는 제품 버전과 언어를 선택해 주세요.
+GOLDILOCKS DBMS 사용자 매뉴얼과 릴리즈 노트입니다. 아래에서 사용하는 제품 버전과 언어를 선택해 주세요.
 
-GOLDILOCKS DBMS user manuals are available in Korean and English. Select your product version and preferred language below.
+GOLDILOCKS DBMS user manuals are available in Korean and English. Select your product version and preferred language below, or see the release notes for changes.
 
 ## Manuals / 매뉴얼
 
@@ -13,6 +13,14 @@ GOLDILOCKS DBMS user manuals are available in Korean and English. Select your pr
 | 21c.1 | [한국어 매뉴얼](docs/goldilocks/21c.1/ko/README.md) | [English Manual](docs/goldilocks/21c.1/en/README.md) |
 | 20c.1 | [한국어 매뉴얼](docs/goldilocks/20c.1/ko/README.md) | [English Manual](docs/goldilocks/20c.1/en/README.md) |
 | 3.2 | [한국어 매뉴얼](docs/goldilocks/3.2/ko/README.md) | [English Manual](docs/goldilocks/3.2/en/README.md) |
+
+## Release notes / 릴리즈 노트
+
+- [GOLDILOCKS 26c 릴리즈 노트 (한국어)](docs/goldilocks/26c.1/release-notes/ko/README.md)
+
+26c의 기능 추가·개선 사항과 호환성 및 운영 변경 사항을 확인할 수 있습니다.
+
+The 26c release notes describe new features, improvements, compatibility changes, and operational changes. They are currently available in Korean only.
 
 ## 이용 안내
 

@@ -1,0 +1,46 @@
+{
+  "document_type": "release-notes",
+  "files": [
+    {
+      "bytes": 1433,
+      "path": "1-개요.md",
+      "sha256": "f96d54dff093951d9c923019a7cff60e726d5ce97c6476b1832e10b67d561486"
+    },
+    {
+      "bytes": 58931,
+      "path": "2-기능-추가-및-개선.md",
+      "sha256": "8333218b705d13ff4c99a2a95dcd202db96b60e08e7e6b3db8ce1c3ca7656e14"
+    },
+    {
+      "bytes": 31768,
+      "path": "3-호환성-및-운영-변경.md",
+      "sha256": "3ea9db46eabbc7757bc446689c2faa4a50e341e9643d1ef38893d17a5f9225cf"
+    },
+    {
+      "bytes": 532,
+      "path": "README.md",
+      "sha256": "413058f23b1a9341f29c3318b187a207cc2efa7529bc2e842d93b3baf0e09db9"
+    }
+  ],
+  "manual": {
+    "document_count": 3,
+    "language": "ko",
+    "product": "goldilocks",
+    "version": "26c.1"
+  },
+  "reference": {
+    "tag": "26c.1_0_tag",
+    "tree_sha256": "a7a86f71b5dec971b3934fae25e79fef85d6552f825098a6a1f21cf9ce1542ca"
+  },
+  "revision": "2026-10-19",
+  "schema_version": 1,
+  "source_snapshot_sha256": "3fa1d59ebce1f6768e51dd50e32c9a64fd239ab13a6e6e48d2941fc29364acb6",
+  "source_url": "https://manual.sunjesoft.co.kr/goldilocks/26c_1/release_note",
+  "tree_sha256": "2404738929bfc1882a2319089cf1c69bc147a348309ea1b39b5eb554f0394783",
+  "validation": {
+    "checked_opaque_fragments": 3828,
+    "external_links": 83,
+    "local_links": 4441,
+    "markdown_files": 73
+  }
+}
